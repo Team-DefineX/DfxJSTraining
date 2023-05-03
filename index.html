@@ -142,7 +142,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step1','Sample Module','Table','10mins')"
+                          onclick="render('Example','step1','Sample Module','Table','10mins')"
                         >
                           Table
                         </a>
@@ -151,7 +151,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step2','Sample Module','Code Pen','30mins')"
+                          onclick="render('Example','step2','Sample Module','Code Pen','30mins')"
                           >Code Pen</a
                         >
                       </li>
@@ -159,7 +159,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step3','Sample Module','Coden Pen 2','120mins')"
+                          onclick="render('Example','step3','Sample Module','Coden Pen 2','120mins')"
                           >Code Pen 2</a
                         >
                       </li>
@@ -167,7 +167,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step4','Sample Module','List','15mins')"
+                          onclick="render('Example','step4','Sample Module','List','15mins')"
                           >List</a
                         >
                       </li>
@@ -175,7 +175,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step5','Sample Module','Code Snippet','15mins')"
+                          onclick="render('Example','step5','Sample Module','Code Snippet','15mins')"
                           >Code Snippet</a
                         >
                       </li>
@@ -183,7 +183,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('step6','Sample Module','Highlight.js','15mins')"
+                          onclick="render('Example','step6','Sample Module','Highlight.js','15mins')"
                           >Highlight.js</a
                         >
                       </li>
@@ -207,7 +207,8 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >console.log()</a
+                          onclick="render('IntroductionToJS','step1','Introduction To JS','Intro','15mins')"
+                          >Intro</a
                         >
                       </li>
                       <li>
@@ -388,7 +389,7 @@
         await promise;
         load("./_layouts/header.html", document.querySelector(".header"));
       });
-      function render(page, title, subtitle, min, e) {
+      function render(folder, page, title, subtitle, min, e) {
         document.querySelector(".title").innerHTML = title;
         document.querySelector(".card-title").innerHTML = subtitle;
         document.querySelector(".mins").innerHTML = min;
@@ -407,7 +408,7 @@
             }
           }
         };
-        xhr.open("GET", "./_includes/" + page + ".html", true);
+        xhr.open("GET", "./_includes/" + folder + "/" + page + ".html", true);
         xhr.send();
       }
     </script>
