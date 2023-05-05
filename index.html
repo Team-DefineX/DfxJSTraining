@@ -215,7 +215,8 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >Null</a
+                          onclick="render('IntroductionToJS','step2','Introduction To JS','Console','5mins')"
+                          >Console</a
                         >
                       </li>
                       <li>
@@ -412,9 +413,29 @@
         xhr.send();
       }
     </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    
     <script>
       hljs.highlightAll();
     </script>
+
+    <style>
+      .accordion {
+        --bs-accordion-btn-color: ghostwhite;
+	      --bs-accordion-btn-bg: #0d6efd;
+	      --bs-accordion-active-color: ghostwhite;
+	      --bs-accordion-active-bg: #0d6efd;
+      }
+
+      .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+        transform: scale(0.75) !important;
+      }
+
+      .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+      }
+    </style>
   </body>
 </html>
