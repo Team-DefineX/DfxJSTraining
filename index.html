@@ -29,7 +29,7 @@
         text-anchor: middle;
         -webkit-user-select: none;
         -moz-user-select: none;
-        user-select: none; 
+        user-select: none;
       }
 
       @media (min-width: 768px) {
@@ -142,7 +142,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step1','Sample Module','Table','10mins')"
+                          onclick="goToStep(0,0)"
                         >
                           Table
                         </a>
@@ -151,7 +151,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step2','Sample Module','Code Pen','30mins')"
+                          onclick="goToStep(0,1)"
                           >Code Pen</a
                         >
                       </li>
@@ -159,7 +159,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step3','Sample Module','Coden Pen 2','120mins')"
+                          onclick="goToStep(0,2)"
                           >Code Pen 2</a
                         >
                       </li>
@@ -167,7 +167,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step4','Sample Module','List','15mins')"
+                          onclick="goToStep(0,3)"
                           >List</a
                         >
                       </li>
@@ -175,7 +175,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step5','Sample Module','Code Snippet','15mins')"
+                          onclick="goToStep(0,4)"
                           >Code Snippet</a
                         >
                       </li>
@@ -183,7 +183,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('Example','step6','Sample Module','Highlight.js','15mins')"
+                          onclick="goToStep(0,5)"
                           >Highlight.js</a
                         >
                       </li>
@@ -207,7 +207,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('IntroductionToJS','step1','Introduction To JS','Introduction','15mins')"
+                          onclick="goToStep(1,0)"
                           >Introduction</a
                         >
                       </li>
@@ -215,7 +215,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          onclick="render('IntroductionToJS','step2','Introduction To JS','Console','5mins')"
+                          onclick="goToStep(1,1)"
                           >Console</a
                         >
                       </li>
@@ -223,6 +223,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(1,2)"
                           >Assigment Operators</a
                         >
                       </li>
@@ -230,6 +231,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(1,3)"
                           >Variables</a
                         >
                       </li>
@@ -237,6 +239,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(1,4)"
                           >Undefined</a
                         >
                       </li>
@@ -260,6 +263,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(2,0)"
                           >Intro</a
                         >
                       </li>
@@ -267,6 +271,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(2,1)"
                           >Create Object</a
                         >
                       </li>
@@ -274,6 +279,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(2,2)"
                           >accessors</a
                         >
                       </li>
@@ -281,6 +287,7 @@
                         <a
                           href="#"
                           class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(2,3)"
                           >prototype</a
                         >
                       </li>
@@ -305,6 +312,7 @@
                         <a
                           href="#"
                           class="link-dark d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(3,0)"
                           >Property .length</a
                         >
                       </li>
@@ -312,6 +320,7 @@
                         <a
                           href="#"
                           class="link-dark d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(3,1)"
                           >Index</a
                         >
                       </li>
@@ -319,6 +328,7 @@
                         <a
                           href="#"
                           class="link-dark d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(3,2)"
                           >Method.push()</a
                         >
                       </li>
@@ -326,6 +336,7 @@
                         <a
                           href="#"
                           class="link-dark d-inline-flex text-decoration-none rounded"
+                          onclick="goToStep(3,3)"
                           >Method.pop()</a
                         >
                       </li>
@@ -359,8 +370,7 @@
                   </div>
                 </div>
                 <div class="card-footer text-body-secondary">
-                  Next
-                  <a><b onclick="nextPage()"></b></a>
+                  <a href="#" onclick="nextStep()" id="nextButton">Next</a>
                 </div>
               </article>
             </div>
@@ -376,6 +386,122 @@
     <script src="resources/prism.js"></script>
 
     <script>
+      let currentModuleIndex = 0;
+      let currentStepIndex = 0;
+      let selectedStepIndex = null;
+
+      const modules = [
+        {
+          fileName: "Example",
+          moduleName: "Sample Module",
+          steps: [
+            { name: "Table", time: "10mins" },
+            { name: "Code Pen", time: "30mins" },
+            { name: "Coden Pen 2", time: "20mins" },
+            { name: "List", time: "15mins" },
+            { name: "Code Snippet", time: "12mins" },
+            { name: "Highlight.js", time: "17mins" },
+          ],
+        },
+        {
+          fileName: "IntroductionToJS",
+          moduleName: "Introduction To JS",
+          steps: [
+            { name: "Introduction", time: "10mins" },
+            { name: "Console", time: "10mins" },
+            { name: "Assigment Operators", time: "10mins" },
+            { name: "Variables", time: "10mins" },
+            { name: "Undefined", time: "10mins" },
+          ],
+        },
+        {
+          fileName: "Objects",
+          moduleName: "Objects",
+          steps: [
+            { name: "Intro", time: "20mins" },
+            { name: "Create Object", time: "10mins" },
+            { name: "Accessors", time: "14mins" },
+            { name: "Prototype", time: "16mins" },
+          ],
+        },
+        {
+          fileName: "Arrays",
+          moduleName: "Arrays",
+          steps: [
+            { name: "Property .length", time: "20mins" },
+            { name: "Index", time: "10mins" },
+            { name: "Method.push()", time: "14mins" },
+            { name: "Method.pop()", time: "16mins" },
+          ],
+        },
+      ];
+
+      const resultPage = {
+        folder: "Result",
+        page: "result",
+        title: "Result",
+        subtitle: "Congratulations, you have completed all the steps!",
+        min: "0mins",
+      };
+
+      function renderStep(moduleIndex, stepIndex) {
+        const module = modules[moduleIndex];
+        const step = module.steps[stepIndex];
+        document.getElementById("nextButton").style.display = "flex";
+
+        render(
+          module.fileName,
+          `step${stepIndex + 1}`,
+          module.moduleName,
+          step.name,
+          step.time
+        );
+      }
+
+      function nextStep() {
+        if (selectedStepIndex !== null) {
+          ++selectedStepIndex;
+          if (
+            selectedStepIndex <=
+            modules[currentModuleIndex].steps.length - 1
+          ) {
+            renderStep(currentModuleIndex, selectedStepIndex);
+          } else {
+            render(
+              resultPage.folder,
+              resultPage.page,
+              resultPage.title,
+              resultPage.subtitle,
+              resultPage.min
+            );
+            document.getElementById("nextButton").style.display = "none";
+          }
+        } else {
+          if (
+            currentStepIndex <=
+            modules[currentModuleIndex].steps.length - 1
+          ) {
+            renderStep(currentModuleIndex, currentStepIndex);
+            currentStepIndex++;
+          } else {
+            render(
+              resultPage.folder,
+              resultPage.page,
+              resultPage.title,
+              resultPage.subtitle,
+              resultPage.min
+            );
+            document.getElementById("nextButton").style.display = "none";
+          }
+        }
+      }
+
+      function goToStep(moduleIndex, stepIndex) {
+        currentModuleIndex = moduleIndex;
+        selectedStepIndex = stepIndex;
+        renderStep(currentModuleIndex, selectedStepIndex);
+      }
+
       let promise = new Promise((resolve, reject) => {
         setTimeout(() => resolve("done!"), 500);
       });
@@ -413,17 +539,17 @@
         xhr.send();
       }
     </script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    
+
     <script>
       hljs.highlightAll();
     </script>
 
     <style>
       .accordion {
-	      --bs-accordion-active-color: ghostwhite;
-	      --bs-accordion-active-bg: #0d6efd;
+        --bs-accordion-active-color: ghostwhite;
+        --bs-accordion-active-bg: #0d6efd;
       }
 
       .accordion-button::after {
