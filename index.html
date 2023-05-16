@@ -15,6 +15,9 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/styles/an-old-hope.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./resources/questions.css" />
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -141,6 +144,10 @@
                     <li>
                       <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
                         onclick="goToStep(0,5)">Highlight.js</a>
+                    </li>
+                    <li>
+                        <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        onclick="goToStep(0,6)">Task</a>
                     </li>
                   </ul>
                 </div>
@@ -380,6 +387,10 @@
             name: "Highlight.js",
             time: "17mins"
           },
+          { 
+            name: "", 
+            time: "17mins" 
+          },
         ],
       },
       {
@@ -514,6 +525,16 @@
       selectedStepIndex = stepIndex;
       renderStep(currentModuleIndex, selectedStepIndex);
     }
+
+    function toggleSolution() {
+      var solution = this.nextElementSibling;
+      if (solution.classList.contains("hidden")) {
+        solution.classList.remove("hidden");
+      } else {
+        solution.classList.add("hidden");
+      }
+    }
+
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => resolve("done!"), 500);
     });
@@ -540,6 +561,22 @@
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {
             cardText.innerHTML = xhr.responseText;
+
+            var solutionButtons =
+              document.getElementsByClassName("solution-btn");
+
+            if (solutionButtons.length) {
+              var solutions = document.getElementsByClassName("solution");
+
+              for (var i = 0; i < solutionButtons.length; i++) {
+                solutionButtons[i].addEventListener("click", toggleSolution);
+              }
+
+              for (var j = 0; j < solutions.length; j++) {
+                solutions[j].classList.add("hidden");
+              }
+            }
+
             hljs.highlightAll();
           } else {
             cardText.innerHTML = "<p>Bir hata oluştu.</p>";

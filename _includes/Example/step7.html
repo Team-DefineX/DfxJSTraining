@@ -1,0 +1,89 @@
+<h4 class="d-flex">
+  <i class="bi bi-check-circle-fill" style="color: green"></i>
+  <span class="px-2">Tasks</span>
+</h4>
+<div class="question">
+  <div>
+    <h5>Sum all numbers till the given one</h5>
+    <p>
+      Write a function <code>sumTo(n)</code> that calculates the sum of numbers
+      <code>1 + 2 + ... + n</code>.
+    </p>
+    <p>For instance:</p>
+    <pre>
+      <code class="javascript">
+        sumTo(1) = 1
+        sumTo(2) = 2 + 1 = 3
+        sumTo(3) = 3 + 2 + 1 = 6
+        sumTo(4) = 4 + 3 + 2 + 1 = 10
+        ...
+        sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050
+      </code>
+    </pre>
+    <p>Make 3 solution variants:</p>
+    <ol>
+      <li>Using a for loop.</li>
+      <li>
+        Using a recursion, cause <code>sumTo(n) = n + sumTo(n-1)</code> for
+        <code>n &gt; 1</code>.
+      </li>
+      <li>Using the arithmetic progressionformula.</li>
+    </ol>
+    <p>P.S. Which solution variant is the fastest? The slowest? Why?</p>
+    <p>P.P.S. Can we use recursion to count <code>sumTo(100000)</code>?</p>
+  </div>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+      <p>The solution using a loop:</p>
+      <iframe
+        width="100%"
+        height="300"
+        src="//jsfiddle.net/TeamDFX/6rfa7bpe/embedded/js,result/dark/"
+        allowfullscreen="allowfullscreen"
+        allowpaymentrequest
+        frameborder="0"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="question">
+  <div>
+    <h5>Fibonacci numbers</h5>
+    <p>
+      The sequence of Fibonacci numbers has the formula
+      <code>Fn = Fn-1 + Fn-2</code>. In other words, the next number is a sum of
+      the two preceding ones.
+    </p>
+    <p>An example of work:</p>
+    <pre>
+      <code class="javascript">
+        function fib(n) { /* your code */ }
+
+        alert(fib(3)); // 2
+        alert(fib(7)); // 13
+        alert(fib(77)); // 5527939700884757
+      </code>
+    </pre>
+    <p>
+      P.S. The function should be fast. The call to fib(77) should take no more
+      than a fraction of a second.
+    </p>
+  </div>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+      <p>The first solution we could try here is the recursive one.</p>
+      <p>Fibonacci numbers are recursive by definition:</p>
+      <iframe
+        width="100%"
+        height="300"
+        src="//jsfiddle.net/TeamDFX/6rfa7bpe/embedded/js,result/dark/"
+        allowfullscreen="allowfullscreen"
+        allowpaymentrequest
+        frameborder="0"
+      ></iframe>
+    </div>
+  </div>
+</div>
