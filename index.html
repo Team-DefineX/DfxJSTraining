@@ -152,7 +152,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="border-top my-3"></li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
@@ -183,7 +182,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="border-top my-3"></li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
@@ -264,7 +262,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="border-top my-3"></li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#dom-collapse" aria-expanded="false">
@@ -291,7 +288,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="border-top my-3"></li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#bom-collapse" aria-expanded="false">
@@ -360,111 +356,56 @@
 
   <script src="resources/prism.js"></script>
 
-  <script>
+  <script></script>
+
+  <script type="module">
+    import { modules } from './resources/moduleData.js';
+
     let currentModuleIndex = 0;
     let currentStepIndex = 0;
     let selectedStepIndex = null;
-    const modules = [{
-        fileName: "Example",
-        moduleName: "Sample Module",
-        steps: [{
-            name: "Table",
-            time: "10mins"
-          },
-          {
-            name: "Code Pen",
-            time: "30mins"
-          },
-          {
-            name: "Coden Pen 2",
-            time: "20mins"
-          },
-          {
-            name: "List",
-            time: "15mins"
-          },
-          {
-            name: "Code Snippet",
-            time: "12mins"
-          },
-          {
-            name: "Highlight.js",
-            time: "17mins"
-          },
-          { 
-            name: "", 
-            time: "17mins" 
-          },
-        ],
-      },
-      {
-        fileName: "IntroductionToJS",
-        moduleName: "Introduction To JS",
-        steps: [{
-            name: "Introduction",
-            time: "15mins"
-          },
-          {
-            name: "Console",
-            time: "5mins"
-          },
-          {
-            name: "Comments",
-            time: "5mins"
-          },
-          {
-            name: "Data Types",
-            time: "15mins"
-          },
-          {
-            name: "Undefined",
-            time: "10mins"
-          },
-        ],
-      },
-      {
-        fileName: "Objects",
-        moduleName: "Objects",
-        steps: [{
-            name: "Intro",
-            time: "20mins"
-          },
-          {
-            name: "Create Object",
-            time: "10mins"
-          },
-          {
-            name: "Accessors",
-            time: "14mins"
-          },
-          {
-            name: "Prototype",
-            time: "16mins"
-          },
-        ],
-      },
-      {
-        fileName: "Arrays",
-        moduleName: "Arrays",
-        steps: [{
-            name: "Property .length",
-            time: "20mins"
-          },
-          {
-            name: "Index",
-            time: "10mins"
-          },
-          {
-            name: "Method.push()",
-            time: "14mins"
-          },
-          {
-            name: "Method.pop()",
-            time: "16mins"
-          },
-        ],
-      },
-    ];
+
+
+    function createSidebar(sidebarData) {
+      const sidebar = document.createElement('ul');
+      sidebar.classList.add('btn-toggle-nav', 'list-unstyled', 'fw-normal', 'pb-1', 'small');
+      sidebarData.forEach((module, moduleIndex) => {
+        const moduleItem = document.createElement('li');
+        moduleItem.classList.add('mb-1');
+        const button = document.createElement('button');
+        button.classList.add('btn', 'btn-toggle', 'd-inline-flex', 'align-items-center', 'rounded', 'border-0',
+          'collapsed');
+        button.setAttribute('data-bs-toggle', 'collapse');
+        button.setAttribute('data-bs-target', `#${module.fileName}-collapse`);
+        button.setAttribute('aria-expanded', 'false');
+        button.textContent = module.moduleName;
+        const collapseDiv = document.createElement('div');
+        collapseDiv.classList.add('collapse');
+        collapseDiv.id = `${module.fileName}-collapse`;
+        const collapseList = document.createElement('ul');
+        collapseList.classList.add('btn-toggle-nav', 'list-unstyled', 'fw-normal', 'pb-1', 'small');
+        module.steps.forEach((step, index) => {
+          const stepItem = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = '#';
+          link.classList.add('link-body-emphasis', 'd-inline-flex', 'text-decoration-none', 'rounded');
+          link.textContent = step.name;
+          link.onclick = () => goToStep(moduleIndex, index);
+          stepItem.appendChild(link);
+          collapseList.appendChild(stepItem);
+        });
+        collapseDiv.appendChild(collapseList);
+        moduleItem.appendChild(button);
+        moduleItem.appendChild(collapseDiv);
+        sidebar.appendChild(moduleItem);
+      });
+      return sidebar;
+    }
+
+    const sidebar = document.getElementById('sidebar');
+    const prepateSlider = createSidebar(modules);
+    sidebar.appendChild(prepateSlider);
+
     const resultPage = {
       folder: "Result",
       page: "result",
@@ -486,7 +427,7 @@
       );
     }
 
-    function nextStep() {
+    window.nextStep = function () {
       if (selectedStepIndex !== null) {
         ++selectedStepIndex;
         if (
@@ -539,16 +480,17 @@
       }
     }
 
-    let promise = new Promise((resolve, reject) => {
-      setTimeout(() => resolve("done!"), 500);
-    });
-
     function load(url, element) {
       //document.getElementsByClassName("card-text").innerHTML='<object type="text/html" data="' + url + '" ></object>';
       fetch(url)
         .then((response) => response.text())
         .then((text) => (element.innerHTML = text));
     }
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 500);
+    });
+
     document.addEventListener("DOMContentLoaded", async () => {
       await promise;
       load("./_layouts/header.html", document.querySelector(".header"));
@@ -561,26 +503,21 @@
       let cardText = document.querySelector(".card-text");
       cardText.innerHTML = "";
       let xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
+      xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {
             cardText.innerHTML = xhr.responseText;
-
             var solutionButtons =
               document.getElementsByClassName("solution-btn");
-
             if (solutionButtons.length) {
               var solutions = document.getElementsByClassName("solution");
-
               for (var i = 0; i < solutionButtons.length; i++) {
                 solutionButtons[i].addEventListener("click", toggleSolution);
               }
-
               for (var j = 0; j < solutions.length; j++) {
                 solutions[j].classList.add("hidden");
               }
             }
-
             hljs.highlightAll();
           } else {
             cardText.innerHTML = "<p>Bir hata oluştu.</p>";
