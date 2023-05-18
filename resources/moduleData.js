@@ -54,7 +54,7 @@ export const modules = [
         time: "15mins",
       },
       {
-        name: "Undefined",
+        name: "Arithmetic Operators",
         time: "10mins",
       },
     ],
