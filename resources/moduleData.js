@@ -54,6 +54,14 @@ export const modules = [
         time: "5mins",
       },
       {
+        name: "Constants",
+        time: "5mins",
+      },
+      {
+        name: "let Statement",
+        time: "5mins",
+      },
+      {
         name: "Data Types",
         time: "15mins",
       },

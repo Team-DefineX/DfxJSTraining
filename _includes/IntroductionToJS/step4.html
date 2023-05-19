@@ -7,3 +7,89 @@
 <p align="justify">
     You can't use variable before the declaration otherwise gives an error.
 </p>
+    <pre>
+    <code class="javascript">
+    var variable_name = value;
+    </code>
+    </pre>
+<h4>Parameter</h4>
+<ul>
+    <li>
+        <strong>var:</strong> JavaScript reserved keyword.
+    </li>
+    <li>
+        <strong>var_name:</strong> Name of the variable.
+    </li>
+    <li>
+        <strong>value:</strong> Optional, Initial value assign at the time of declaration.
+    </li>
+</ul>
+<p align="justify">
+    Shorthand style, you can declare a one or more variables in single statement separated by comma.
+</p>
+    <pre>
+    <code class="javascript">
+    var var1 = val1, var2 = val2, ..., varN = valN;
+    </code>
+    </pre>
+<p align="justify">
+    In Strict Mode JavaScript, without var keyword you can't declare and initialize, give an error ReferenceError.
+</p>
+    <pre>
+    <code class="javascript">
+    "use strict";   // strict mode specification 
+    var a = "A";
+    b = "B";        // give an ReferenceError 
+    </code>
+    </pre>
+<p align="justify">
+    One or more variables declare and initialize
+</p>
+    <pre>
+    <code class="javascript">
+    var a = 0, b = 0;
+    </code>
+    </pre>
+<p align="justify">
+    <strong>Variable override:</strong> you can re-assignment the value of the variable.
+</p>
+    <pre>
+    <code class="javascript">
+    var a = "Team";
+    if (a){
+        console.log("variable a: " + a);
+    }
+
+    var a ="DefineX";
+    console.log("reinitializing a: " + a);
+    </code>
+    </pre>
+<p align="justify">
+    <strong>var in functional scope:</strong> The following var statement example, quote variable scope within callme() function scope. you can't access quote variable outside of function,
+</p>
+    <pre>
+    <code class="javascript">
+    function callme() {
+        var age = 35;
+        console.log("your age : " + age); // "your age : 35"
+    }
+
+    callme();
+    console.log("your age : " + age); // Uncaught ReferenceError: age is not defined"
+    </code>
+    </pre>
+<p align="justify">
+    <strong>var in global scope:</strong> Using var keyword to define variable globally. Once you define globally, you can access inside anywhere.
+</p>
+    <pre>
+    <code class="javascript">
+    var age = 35;
+    function callme() {
+        console.log("your age : " + age); // "your age : 35"
+    }
+
+    callme();
+    console.log("your age : " + age); // "your age : 35"
+    </code>
+    </pre>
+
