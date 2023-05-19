@@ -50,12 +50,16 @@ export const modules = [
         time: "5mins",
       },
       {
+        name: "Variables",
+        time: "5mins",
+      },
+      {
         name: "Data Types",
         time: "15mins",
       },
       {
-        name: "JavaScript Operators",
-        time: "10mins",
+        name: "Operators",
+        time: "15mins",
       },
     ],
   },
