@@ -1,0 +1,85 @@
+<p align="justify">
+    This lesson explain you, How to declare JavaScript constants. JavaScript <code>const</code> statement to declare a constant variable with a value. As per ECMA specification constant variable scope to the nearest enclosing block.
+</p>
+<p align="justify">
+    Constant variable can not re declare, and you can not reassign constant a value to a constant variable.
+</p>
+    <pre>
+    <code class="javascript">
+    const constant_name = value;
+    </code>
+    </pre>
+<h5>Parameter</h5>
+<ul>
+    <li>
+        <strong>const:</strong> JavaScript reserved keyword.
+    </li>
+    <li>
+        <strong>constant_name:</strong> Name of the constant variable.
+    </li>
+    <li>
+        <strong>value:</strong> Required, Initializing constant value.
+    </li>
+</ul>
+<p>
+    Shorthand style, you can declare a one or more constant in single statement separated by comma.
+</p>
+    <pre>
+    <code class="javascript">
+    const con1 = val1, con2 = val2, ..., conN = valN;
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    console.log("Constant a: ", a);     // Constant a: 10
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const b;                            // weird, const can define without initial value
+                                        // Error: Uncaught SyntaxError: Missing initializer in const declaration"
+    console.log("Constant b: ", b);     // automatic assign 'undefined'
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    const a = 20;     // Error: Identifier 'a' has already been declared"
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    var a = 20;     // Error: Identifier 'a' has already been declared"
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const c = 20;                    // Define and initializing 'c' constant variable
+    const d = c;                     // Define 'd' constant variable, initialize constant 'c'
+    console.log("Constant c: ", c);  // Constant c: 20
+    console.log("Constant d: ", d);  // Constant d: 20
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
+    console.log("Constant Object:", obj);   // { a: "A", b: "B" }
+    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "A"
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
+    obj.a = "AA";                           // 'a' key, try to reassign
+    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "AA"
+    </code>
+    </pre>
