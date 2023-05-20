@@ -1,0 +1,31 @@
+<h5>Why we need a polly fills</h5>
+<p>
+  New language features may include not only syntax constructs and operators, but also built-in functions.
+</p>
+<p>For example, Math.trunc(n) is a function that “cuts off” the decimal part of a number, e.g Math.trunc(1.23) returns 1.
+</p>
+<p>In some (very outdated) JavaScript engines, there’s no Math.trunc, so such code will fail.</p>
+
+<p>As we’re talking about new functions, not syntax changes, there’s no need to transpile anything here. 
+We just need to declare the missing function.</p>
+
+<p>A script that updates/adds new functions is called “polyfill”. It “fills in” the gap and adds missing implementations.</p>
+
+<p>For this particular case, the polyfill for Math.trunc is a script that implements it, like this:</p>
+
+<p>
+  <pre>
+    <code class="javascript">
+      if (!Math.trunc) { 
+        Math.trunc = function(number) {
+          return number < 0 ? Math.ceil(number) : Math.floor(number);
+        };
+      }
+    </code>
+  </pre>
+</p>
+
+<p>JavaScript is a highly dynamic language. Scripts may add/modify any function, even built-in ones.</p>
+
+<p>You can use that <a href="https://polyfill.io/v3/url-builder">site</a>.
+You can manage your custom polyfills in here.</p>

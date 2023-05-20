@@ -1,0 +1,116 @@
+<div>
+    <img src="/_includes/images/JStoES6.PNG" alt="">
+    <div>
+        <p>JavaScript (JS), web tarayıcılarında çalışan bir programlama dilidir. JS, dinamik ve etkileşimli web
+            sayfaları oluşturmak için kullanılır. Aynı zamanda sunucu tarafında da (Node.js kullanarak) uygulama
+            geliştirme imkanı sağlar.
+        </p>
+        <p>JS, web tarayıcılarında çalıştığı için, kullanıcının etkileşimde bulunabildiği öğeleri (HTML elementleri
+            gibi) kontrol etmek ve işlemek için kullanılır. Örneğin, bir butona tıklandığında bir işlem gerçekleştirmek,
+            form verilerini doğrulamak veya bir animasyon oluşturmak için JS kullanılabilir.
+        </p>
+        <p>ES5 (ECMAScript 5) ve ES6 (ECMAScript 2015), JS'in farklı sürümleridir. ES5, 2009 yılında yayınlanmıştır ve o
+            zamandan beri en yaygın olarak kullanılan JS sürümü olmuştur. ES6 ise 2015 yılında yayınlanmıştır ve JS'e
+            bir dizi yeni özellik eklemiştir.
+        </p>
+        <p>
+            <h4>ES6 (ECMAScript 2015)</h4> 2015 yılında yayınlanan JS'in altıncı sürümüdür. ES6, büyük bir dil
+            geliştirmesidir
+            ve birçok yeni özellik eklemiştir. Öne çıkan yenilikler arasında blok kapsamı değişkenleri (let ve const),
+            ok fonksiyonları, rest ve spread operatörleri, sınıflar, modüller, Promise, arrow fonksiyonlar ve
+            destructuring gibi birçok özellik bulunur. Bu yeni özellikler, kodun daha temiz, okunabilir ve
+            sürdürülebilir olmasını sağlar.
+
+        </p>
+        <p>
+            <h4>ECMAScript 6 da neler geldi?</h4>
+            <div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                #1 Let & Const - Arrow Function - Template Literal
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <iframe width="100%" height="300"
+                                    src="//jsfiddle.net/TeamDFX/sy10x973/21/embedded/js,html,css,result/dark/"
+                                    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                #2 Spread & destruction Operators
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <iframe width="100%" height="300"
+                                    src="//jsfiddle.net/TeamDFX/6s1toe9n/10/embedded/js,html,css,result/dark/"
+                                    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p>
+    </div>
+
+    <h4>es6 uygulamayı es5 e çalıştırma adımları</h4>
+    <img src="/_includes/images/babel.PNG" alt="">
+    <h6>1)Babel Kurulumu</h6> Öncelikle, Babel'ı projenize eklemeniz gerekmektedir. Babel, ES6 (ve daha yeni JavaScript
+    sürümleri) kodunu ES5'e dönüştürmek için kullanılır. Babel'ı yüklemek için aşağıdaki paketleri npm veya yarn
+    kullanarak projenize ekleyebilirsiniz
+    <pre>
+        <code class="bash">
+        npm install --save-dev @babel/core @babel/preset-env babel-loader
+        </code>
+    </pre>
+    <h6>2)Webpack Yapılandırması</h6>
+    <div>
+        Webpack yapılandırma dosyanızda bazı değişiklikler yapmanız gerekecektir.
+    </div>
+
+    <ul>
+        <li>Babel Loader Ekleme: Webpack yapılandırma dosyanıza Babel Loader'ı ekleyin. Babel Loader, webpack ile
+            birlikte kullanıldığında Babel'ı projenizdeki JavaScript dosyalarını dönüştürmek için kullanır. </li>
+        <li>Preset Ayarları: Babel Loader'ı kullanırken, @babel/preset-env ön ayarını kullanmanız gerekmektedir. Bu,
+            Babel'a ES5'e dönüştürme talimatlarını verecektir.</li>
+    </ul>
+    
+    <pre>
+          <code class="javascript">
+            module: {
+                rules: [
+                  {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                      loader: 'babel-loader',
+                      options: {
+                        presets: ['@babel/preset-env']
+                      }
+                    }
+                  }
+                ]
+              }
+          </code>
+        </pre>
+    <h6>3) .babelrc ayarlanması </h6>
+    Babel'ın nasıl davranacağını belirtmek için .babelrc dosyasını projenizin kök dizinine ekleyin. Bu dosyada aşağıdaki
+    içeriği kullanabilirsiniz:
+    <pre><code class="json">
+            {
+                "presets": ["@babel/preset-env"]
+              }
+          </code>
+        </pre>
+
+</div>
