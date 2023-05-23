@@ -1,83 +1,89 @@
 <p align="justify">
-    JavaScript operators operate the operands, these are symbols that are used to manipulate a certain value or operand. Operators are used to performing specific mathematical and logical computations on operands. 
-    In other words, we can say that an operator operates the operands. In JavaScript, operators are used to compare values, perform arithmetic operations, etc.
+    JavaScript operators operate the operands, these are symbols that are used to manipulate a certain value or operand.
+    Operators are used to performing specific mathematical and logical computations on operands.
+    In other words, we can say that an operator operates the operands. In JavaScript, operators are used to compare
+    values, perform arithmetic operations, etc.
 </p>
+<br>
 <p>
     <strong>JavaScript Operators:</strong> There are various operators supported by JavaScript.
 </p>
+<br>
 <ul>
     <li><strong>Arithmetic Operators</strong></li>
     <li><strong>Assignment Operators</strong></li>
     <li><strong>Comparison Operators</strong></li>
     <li><strong>Logical Operators</strong></li>
     <li><strong>Ternary Operators</strong></li>
-    <li><strong>typeof Operator</strong></li></ul>
+    <li><strong>typeof Operator</strong></li>
+</ul>
+<br>
 <h4>
     Arithmetic Operators
 </h4>
-<p align="justify">An operator is a character that performs a task in our code. JavaScript has several built-in <em>arithmetic operators</em>, that allow us to perform mathematical calculations on numbers. 
+<p align="justify">An operator is a character that performs a task in our code. JavaScript has several built-in
+    <em>arithmetic operators</em>, that allow us to perform mathematical calculations on numbers.
     These include the following operators and their corresponding symbols:
 </p>
-<li>
-    <strong>Addition (+)</strong><strong>:</strong> Addition ‘+’ operator performs addition on two operands. This ‘+’ operator can also be used to concatenate (add) strings.
-</li>
 <br>
-    <pre>
+<p align="justify">
+    <strong>Addition (+)</strong><strong>:</strong> Addition ‘+’ operator performs addition on two operands. This ‘+’
+    operator can also be used to concatenate (add) strings.
+</p>
+<pre>
     <code class="javascript">
     console.log(5 + 5);                 // 10
     console.log("Team" + "DefineX");    // "Team DefimeX"
     </code>
     </pre>
-<li>
+<p align="justify">
     <strong>Subtraction (-)</strong><strong>:</strong> Subtraction ‘-‘ operator performs subtraction on two operands.
-</li>
-<br>
-    <pre>
+</p>
+<pre>
     <code class="javascript">
     console.log(5 - 3); // 2
     </code>
     </pre>
-<li>
-    <strong>Multiplication (*)</strong><strong>:</strong> Multiplication ‘*’ operator performs multiplication on two operands.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Multiplication (*)</strong><strong>:</strong> Multiplication ‘*’ operator performs multiplication on two
+    operands.
+</p>
+<pre>
     <code class="javascript">
     console.log(5 * 5); // 25
     </code>
     </pre>
-<li>
-    <strong>Division (/)</strong><strong>:</strong> Division ‘/’ operator performs division on two operands (divide the numerator by the denominator).&nbsp;
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Division (/)</strong><strong>:</strong> Division ‘/’ operator performs division on two operands (divide the
+    numerator by the denominator).&nbsp;
+</p>
+<pre>
     <code class="javascript">
     console.log(5 / 5); // 1
     </code>
     </pre>
-<li>
-    <strong>Modulus (%)</strong><strong>:</strong> Modulus ‘%’ operator gives a remainder of an <strong>integer</strong> division.&nbsp;
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Modulus (%)</strong><strong>:</strong> Modulus ‘%’ operator gives a remainder of an <strong>integer</strong>
+    division.&nbsp;
+</p>
+<pre>
     <code class="javascript">
     console.log(5 / 4); // 1
     </code>
     </pre>
-<li>
-    <strong>Exponentiation (**)</strong><strong>:</strong> Exponentiation ‘**’ operator give the power of the first operator raised to the second operator.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Exponentiation (**)</strong><strong>:</strong> Exponentiation ‘**’ operator give the power of the first
+    operator raised to the second operator.
+</p>
+<pre>
     <code class="javascript">
     console.log(5 ** 3); // 125
     </code>
     </pre>
-<li>
+<p align="justify">
     <strong>Increment(++)</strong><strong>:</strong> Increment ‘+ +’ operator increases an integer value by one.&nbsp;
-</li>
-<br>
-    <pre>
+</p>
+<pre>
     <code class="javascript">
     let x = 10;
     let y = x++;
@@ -88,11 +94,10 @@
     console.log(z); // 11 
     </code>
     </pre>
-<li>
+<p align="justify">
     <strong>Decrement (- -)</strong><strong>:</strong> Decrement ‘- -‘ operator decreases an integer value by one.
-</li>
-<br>
-    <pre>
+</p>
+<pre>
     <code class="javascript">
     let x = 10;
     let y = x--;
@@ -107,23 +112,24 @@
     Assignment Operators
 </h4>
 <p align="justify">
-    The assignment operation evaluates the assigned value. Chaining the assignment operator is possible in order to assign a single value to multiple variables
+    The assignment operation evaluates the assigned value. Chaining the assignment operator is possible in order to
+    assign a single value to multiple variables
 </p>
-<li>
-    <strong>Assignment (=):</strong> This operator assigns the right operand value to the left operand.
-</li>
 <br>
-    <pre>
+<p align="justify">
+    <strong>Assignment (=):</strong> This operator assigns the right operand value to the left operand.
+</p>
+<pre>
     <code class="javascript">
     let x = "Team DefineX"; 
     console.log(x); // Team DefineX
     </code>
     </pre>
-<li>
-    <strong>Addition Assignment (+=)</strong><strong>:</strong> Sums up left and right operand values and then assigns the result to the left operand.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Addition Assignment (+=)</strong><strong>:</strong> Sums up left and right operand values and then assigns
+    the result to the left operand.
+</p>
+<pre>
     <code class="javascript">
     let x = 9;
     x += 1;
@@ -134,11 +140,11 @@
     console.log(y); // "Team DefineX"
     </code>
     </pre>
-<li>
-    <strong>Subtraction Assignment (-=)</strong><strong>:</strong> It subtracts the right side value from the left side value and then assigns the result to the left operand.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Subtraction Assignment (-=)</strong><strong>:</strong> It subtracts the right side value from the left side
+    value and then assigns the result to the left operand.
+</p>
+<pre>
     <code class="javascript">
     let x = 9;
     x -= 1;
@@ -149,44 +155,44 @@
     console.log(y); // NaN
     </code>
     </pre>
-<li>
-    <strong>Multiplication Assignment (*=):</strong> It multiplies a variable by the value of the right operand and assigns the result to the variable.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Multiplication Assignment (*=):</strong> It multiplies a variable by the value of the right operand and
+    assigns the result to the variable.
+</p>
+<pre>
     <code class="javascript">
     let x = 9;
     x *= 2;
     console.log(x); // 18
     </code>
     </pre>
-<li>
-    <strong>Division Assignment (/ =)</strong><strong>:</strong> It divides a variable by the value of the right operand and assigns the result to the variable.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Division Assignment (/ =)</strong><strong>:</strong> It divides a variable by the value of the right operand
+    and assigns the result to the variable.
+</p>
+<pre>
     <code class="javascript">
     let x = 9;
     x /= 3;
     console.log(x); // 3
     </code>
     </pre>
-<li>
-    <strong>Modules/Remainder Assignment (% =)</strong><strong>:</strong> It divides a variable by the value of the right operand and assigns the remainder to the variable.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Modules/Remainder Assignment (% =)</strong><strong>:</strong> It divides a variable by the value of the
+    right operand and assigns the remainder to the variable.
+</p>
+<pre>
     <code class="javascript">
     let x = 9;
     x %= 4;
     console.log(x); // 1
     </code>
     </pre>
-<li>
-    <strong>Exponentiation Assignment (**=)</strong><strong>:</strong> This raises the value of a variable to the power of the right operand.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Exponentiation Assignment (**=)</strong><strong>:</strong> This raises the value of a variable to the power
+    of the right operand.
+</p>
+<pre>
     <code class="javascript">
     let x = 5;
     x **= 3;
@@ -198,84 +204,88 @@
     Comparison Operators
 </h4>
 <p align="justify">
-    Comparison operators are mainly used to perform the logical operations that determine the equality or difference between the values.
+    Comparison operators are mainly used to perform the logical operations that determine the equality or difference
+    between the values.
 </p>
-<li>
-    <strong>Equality (==)</strong><strong>:</strong> It is a comparison operator, which transforms the operands having the same type before comparison.
-    <br>
-    So, when you compare string with a number, JavaScript converts any string to a number. An empty string is always converts to zero. A string with no numeric value is converts to NaN (Not a Number), which returns false.
-</li>
 <br>
-    <pre>
+<p align="justify">
+    <strong>Equality (==)</strong><strong>:</strong> It is a comparison operator, which transforms the operands having
+    the same type before comparison.
+    <br>
+    So, when you compare string with a number, JavaScript converts any string to a number. An empty string is always
+    converts to zero. A string with no numeric value is converts to NaN (Not a Number), which returns false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 == "2"); // true
     </code>
     </pre>
-<li>
-    <strong>Strict equality (===)</strong><strong>:</strong> It is a strict equality comparison operator in JavaScript, which returns false for the values which are not of a similar type. This operator performs type casting for equality. If we compare 2 with “2” using ===, then it will return a false value.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Strict equality (===)</strong><strong>:</strong> It is a strict equality comparison operator in JavaScript,
+    which returns false for the values which are not of a similar type. This operator performs type casting for
+    equality. If we compare 2 with “2” using ===, then it will return a false value.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 === "2"); // false
     </code>
     </pre>
-<li>
-    <strong>Inequality (!=)</strong><strong>:</strong> compare the equality of two operands with type. If both value and type are equal then the condition is true otherwise false.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Inequality (!=)</strong><strong>:</strong> compare the equality of two operands with type. If both value and
+    type are equal then the condition is true otherwise false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 != 2);    // false
     console.log("x" != 5);  // true
     </code>
     </pre>
-<li>
-    <strong>Strict inequality(!==)</strong><strong>:</strong>&nbsp;Compares inequality of two operands. True if operands are not equal.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Strict inequality(!==)</strong><strong>:</strong>&nbsp;Compares inequality of two operands. True if operands
+    are not equal.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 !== "2"); // true
     console.log(2 !== 5);   // true
     </code>
     </pre>
-<li>
-    <strong>Greater than (&gt;)</strong><strong>:</strong> This operator checks whether the left side value is greater than the right side value. If yes then it returns true otherwise it returns false.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Greater than (&gt;)</strong><strong>:</strong> This operator checks whether the left side value is greater
+    than the right side value. If yes then it returns true otherwise it returns false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 > 3); // false
     console.log(2 > 1); // true
     </code>
     </pre>
-<li>
-    <strong>Less than (&lt;)</strong><strong>:</strong> This operator checks whether the left side value is less than the right side value. If yes then it returns true otherwise it returns false.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Less than (&lt;)</strong><strong>:</strong> This operator checks whether the left side value is less than
+    the right side value. If yes then it returns true otherwise it returns false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 < 3); // true
     console.log(2 < 1); // false
     </code>
     </pre>
-<li>
-    <strong>Greater than or Equal to (&gt; =)</strong><strong>:</strong> This operator checks whether the left side operand is greater than or equal to the right side operand. If yes then it returns true otherwise it returns false.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Greater than or Equal to (&gt; =)</strong><strong>:</strong> This operator checks whether the left side
+    operand is greater than or equal to the right side operand. If yes then it returns true otherwise it returns false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 > 3);     // false
     console.log(2 >= 2);    // true
     console.log(2 > 1);     // true
     </code>
     </pre>
-<li>
-    <strong>Less than or Equal to (&lt;= )</strong><strong>:</strong> This operator checks whether the left side operand value is less than or equal to the right side operand value. If yes then it returns true otherwise it returns false.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Less than or Equal to (&lt;= )</strong><strong>:</strong> This operator checks whether the left side operand
+    value is less than or equal to the right side operand value. If yes then it returns true otherwise it returns false.
+</p>
+<pre>
     <code class="javascript">
     console.log(2 < 3);     // true
     console.log(2 <= 2);    // true
@@ -288,11 +298,13 @@
 <p align="justify">
     These operators are used to determine the logic between variables or values.
 </p>
-<li>
-    <strong>Logical AND (&amp;&amp;)</strong><strong>:</strong> It checks whether two operands are non-zero (0, false, undefined, null, or “” are considered as zero), if yes then return the last operand when evaluating from left to right.
-</li>
 <br>
-    <pre>
+<p align="justify">
+    <strong>Logical AND (&amp;&amp;)</strong><strong>:</strong> It checks whether two operands are non-zero (0, false,
+    undefined, null, or “” are considered as zero), if yes then return the last operand when evaluating from left to
+    right.
+</p>
+<pre>
     <code class="javascript">
     let x = true;
     let y = true;
@@ -304,11 +316,12 @@
     console.log(a && b); // 6
     </code>
     </pre>
-<li>
-    <strong>Logical OR (||)</strong></a><strong>:</strong> It checks whether two operands are non-zero (0, false, undefined, null, or “” is considered as zero), if yes then return the first operand when evaluating from left to right.
-</li>
-<br>
-    <pre>
+<p align="justify">
+    <strong>Logical OR (||)</strong></a><strong>:</strong> It checks whether two operands are non-zero (0, false,
+    undefined, null, or “” is considered as zero), if yes then return the first operand when evaluating from left to
+    right.
+</p>
+<pre>
     <code class="javascript">
     let x = true;
     let y = true;
@@ -320,11 +333,10 @@
     console.log(a || b); // 5
     </code>
     </pre>
-<li>
+<p align="justify">
     <strong>Logical NOT (!)</strong><strong>:</strong> It reverses the boolean result of the operand (or condition).
-</li>
-<br>
-    <pre>
+</p>
+<pre>
     <code class="javascript">
     let x = true;
     let y = true;
@@ -339,14 +351,15 @@
 <p align="justify">
     The ternary operator has three operands. It is the simplified operator of if/else.
 </p>
-<p>
+<br>
+<p align="justify">
     <strong>Ternary Operator(?):</strong> It is like the short form of the if-else condition.
 </p>
 <pre>
     Y =  ? A : B
     If the condition is true then Y = A otherwise Y = B
 </pre>
-    <pre>
+<pre>
     <code class="javascript">
     let x = 5;
     let y = 4;
@@ -358,15 +371,18 @@
     typeof Operator
 </h4>
 <p align="justify">
-    It returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
+    It returns the data type of its operand in the form of a string. The operand can be any object, function, or
+    variable.
 </p>
+<br>
 <p align="justify">
-    <strong>JavaScript typeof:</strong> It returns the operand type, The possible types that exist in javascript are undefined, Object, boolean, number, string, symbol, and function.
+    <strong>JavaScript typeof:</strong> It returns the operand type, The possible types that exist in javascript are
+    undefined, Object, boolean, number, string, symbol, and function.
 </p>
 <pre>
     typeof variable;
 </pre>
-    <pre>
+<pre>
     <code class="javascript">
     var x = 35;
     var y = "Team DefineX";
