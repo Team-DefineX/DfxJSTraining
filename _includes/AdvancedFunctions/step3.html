@@ -1,0 +1,97 @@
+<p>The <code>apply()</code>method is a built-in function in JavaScript that allows you to invoke a function and specify
+    the context (i.e., the value of <b>this</b>) explicitly, similar to the <code>call()</code> method. The difference
+    lies in how the arguments are passed to the function.
+</p>
+
+<h5 class="mt-3">Syntax</h5>
+
+<p>The syntax for using <code>apply()</code> is as follows:</p>
+
+<pre>
+    <code class="language-javascript">
+    functionName.apply(thisArg, [argsArray]);
+    </code>
+</pre>
+
+<ul>
+    <li><code>functionName</code>: The name of the function to be called.</li>
+    <li><code>thisArg</code>: The value to be passed as the <code>this</code> value within the function.</li>
+    <li>
+        <code>argsArray</code>: An array-like object or iterable containing the arguments to be passed to the function.
+    </li>
+</ul>
+
+<h5>Using the JavaScript apply() method for function borrowing</h5>
+
+<p>Here's an example that demonstrates the use of the apply() method for function borrowing:</p>
+
+<pre>
+    <code class="language-javascript">
+        function getProductInfo() {
+            return `Product: ${this.name}, Price: $${this.price}`;
+        }
+        
+        const laptop = {
+            name: 'Laptop',
+            price: 999,
+        };
+        
+        const phone = {
+            name: 'Phone',
+            price: 599,
+        };
+        
+        const productInfo1 = getProductInfo.apply(laptop);
+        console.log(productInfo1); // Output: Product: Laptop, Price: $999
+        
+        const productInfo2 = getProductInfo.apply(phone);
+        console.log(productInfo2); // Output: Product: Phone, Price: $599
+    </code>
+</pre>
+
+<p>
+    In the above example, we define a function called getProductInfo(). This function returns the product information by
+    using the name and price properties available in the this context.
+</p>
+
+<p class="mt-3">
+    Next, we create two objects named laptop and phone.
+</p>
+
+<p class="mt-3">
+    Finally, we use the expression getProductInfo.apply(laptop) to apply the getProductInfo() function to the laptop
+    object.
+    In this case, the this context is set to the laptop object, and the product information is returned as "Product:
+    Laptop,
+    Price: $999". Similarly, we apply the getProductInfo() function to the phone object using
+    getProductInfo.apply(phone),
+    which returns the product information as "Product: Phone, Price: $599".
+</p>
+
+<p class="mt-3">
+    This example demonstrates how to use the apply() method to invoke a function on different objects. By changing the
+    context in which the function is executed, you can reuse the same function for different objects and obtain
+    different
+    results for each one.
+</p>
+
+<h5 class="mt-3">Using the apply() method to append an array to another</h5>
+
+<p>The apply() method allows you to append elements of an array to another:</p>
+
+<pre>
+    <code class="language-javascript">
+        let arr = [1, 2, 3];
+        let numbers = [4, 5, 6];
+        
+        arr.push.apply(arr, numbers);
+        
+        console.log(arr);
+    </code>
+</pre>
+
+<p>
+    In this example, the apply() method modifies the original array arr. Note that the Array.prototype.concat() method
+    also
+    provides the same result except that it returns the new array instead of modifying the original array.
+</p>

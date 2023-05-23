@@ -10,6 +10,14 @@ body {
   color: #282a32;
 }
 
+p {
+  margin: 0px;
+}
+
+pre {
+  margin: 0px;
+}
+
 .mins {
   font-size: small;
 }

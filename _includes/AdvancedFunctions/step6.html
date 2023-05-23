@@ -1,0 +1,92 @@
+<p>
+    In JavaScript, functions typically return a single value. However, there are situations where you may need to return
+    multiple values from a function. While JavaScript doesn't have built-in support for returning multiple values, there
+    are
+    several approaches you can use to achieve this.
+</p>
+
+<h5 class="mt-3">Object Literal</h5>
+
+<p>One common approach is to return an object literal that contains multiple properties, each representing a different
+    value. This allows you to encapsulate and return multiple values as properties of an object.</p>
+<pre>
+    <code class="language-javascript">
+    function returnMultipleValues() {
+        return {
+            value1: 10,
+            value2: 'Hello',
+            value3: true
+        };
+    }
+    
+    const result = returnMultipleValues();
+    console.log(result.value1); // Output: 10
+    console.log(result.value2); // Output: Hello
+    console.log(result.value3); // Output: true
+    </code>
+</pre>
+
+<p>In this example, the returnMultipleValues function returns an object literal with three properties: value1, value2,
+    and
+    value3. Each property represents a different value, and the object is returned as the result. We can then access the
+    individual values by using dot notation or square bracket notation.</p>
+
+<h5 class="mt-3">Array</h5>
+
+<p>Another approach is to return an array that contains the multiple values. Arrays are a built-in data structure in
+    JavaScript that can hold multiple elements of any type.
+</p>
+
+<pre>
+    <code class="language-javascript">
+        function returnMultipleValues() {
+            return [10, 'Hello', true];
+        }
+        
+        const result = returnMultipleValues();
+        console.log(result[0]); // Output: 10
+        console.log(result[1]); // Output: Hello
+        console.log(result[2]); // Output: true
+    </code>
+</pre>
+
+<p>
+    In this example, the returnMultipleValues function returns an array with three elements. Each element represents a
+    different value, and the array is returned as the result. We can then access the individual values by using array
+    indexing.
+</p>
+
+<h5 class="mt-3">Destructuring Assignment</h5>
+
+<p>
+    When you receive the multiple values returned from a function, you can also use destructuring assignment to
+    conveniently
+    assign them to individual variables.
+
+</p>
+
+<pre>
+    <code class="language-javascript">
+        function returnMultipleValues() {
+            return [10, 'Hello', true];
+        }
+        
+        const [value1, value2, value3] = returnMultipleValues();
+        console.log(value1); // Output: 10
+        console.log(value2); // Output: Hello
+        console.log(value3); // Output: true
+
+    </code>
+</pre>
+
+<p>
+    In this example, the returnMultipleValues function returns an array with three elements. By using destructuring
+    assignment, we assign each element to a separate variable: value1, value2, and value3. We can then directly use
+    these
+    variables to access the individual values.
+</p>
+
+<p class="mt-3">Returning multiple values is useful when you want to bundle related information together and return them
+    as a
+    cohesive
+    unit. It provides flexibility and allows you to handle complex data structures in your JavaScript programs.</p>

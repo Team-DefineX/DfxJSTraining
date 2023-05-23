@@ -120,6 +120,40 @@ export const modules = [
     ],
   },
   {
+    fileName: "AdvancedFunctions",
+    moduleName: "Advanced Functions",
+    steps: [
+      {
+        name: "Function type",
+        time: "20mins",
+      },
+      {
+        name: "call()",
+        time: "10mins",
+      },
+      {
+        name: "apply()",
+        time: "14mins",
+      },
+      {
+        name: "bind()",
+        time: "16mins",
+      },
+      {
+        name: "Closure",
+        time: "16mins",
+      },
+      {
+        name: "Returning multiple values",
+        time: "16mins",
+      },
+      {
+        name: "Callback functions",
+        time: "16mins",
+      },
+    ],
+  },
+  {
     fileName: "ecmaScript",
     moduleName: "JS & EcmaScript 5-6",
     steps: [
