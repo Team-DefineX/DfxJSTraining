@@ -1,0 +1,153 @@
+<p>In JavaScript, functions are first-class objects, which means they can be assigned to variables, passed as arguments
+    to other functions, and returned from functions. Understanding the function type and its properties and methods is
+    essential for working with functions effectively.
+</p>
+
+<h5 class="mt-3">Function Declaration</h5>
+
+<p>The most common way to define a function is through function declarations. Here's an example:</p>
+
+<pre>
+    <code class="language-javascript">
+    const greeting = function(name) {
+        console.log(`Hello, ${name}!`);
+    };
+
+    greeting("Aslan"); // Output: Hello, Aslan!
+    </code>
+</pre>
+
+<p>In this example, we declare a function named greet that takes a name parameter and logs a greeting message to the
+    console.</p>
+
+<h5 class="mt-3">Function Expression</h5>
+
+<p>Another way to define functions is through function expressions. Here's an example:</p>
+
+<pre class="mt-3 mb-3"><code class="javascript">
+    const greet = function (name) {
+        console.log(`Hello, ${name}!`);
+    };
+
+    greet('Jane'); // Output: Hello, Jane!
+</code></pre>
+
+<p>In this case, we assign an anonymous function to the greet variable using a function expression.</p>
+
+<h5 class="mt-3">Function Properties and Methods</h5>
+
+<p>Functions in JavaScript are objects and, as such, have built-in properties and methods. Some commonly used properties
+    and methods of functions include:</p>
+
+<ul>
+    <li><code>name</code>: The name of the function.</li>
+    <li><code>length</code>: The number of named parameters the function expects.</li>
+    <li><code>toString()</code>: Returns the source code of the function as a string.</li>
+</ul>
+
+<pre><code class="javascript">
+    function sayHello() {
+        console.log('Hello!');
+    }
+
+    console.log(sayHello.name); // Output: sayHello
+    console.log(sayHello.length); // Output: 0
+    console.log(sayHello.toString()); // Output: function sayHello() { console.log('Hello!'); }
+</code></pre>
+
+<h5 class="mt-3">Function Invocation</h5>
+
+<p>Functions can be invoked using the function call syntax or the function apply syntax. Here's an example:</p>
+
+<pre class="mt-3 mb-3"><code class="javascript">
+    function greet(name) {
+    console.log(`Hello, ${name}!`);
+    }
+
+    greet.call(null, 'Michael'); // Output: Hello, Michael!
+    greet.apply(null, ['Sarah']); // Output: Hello, Sarah!
+</code></pre>
+
+<p>In the above code, <code>call</code> and <code>apply</code> are used to invoke the <code>greet</code> function,
+    passing the <code>name</code> parameter.
+</p>
+
+<p>Understanding the function type in JavaScript is fundamental to effectively work with functions and leverage their
+    versatility. It allows you to create reusable code, encapsulate logic, and build complex applications.
+</p>
+
+<h5 class="mt-3">new.target</h5>
+
+<p>The new.target is a special meta property in JavaScript that allows you to determine whether a function or
+    constructor
+    was called with the new keyword. It provides information about the target of the new operator within the function
+    body.
+</p>
+
+<p>Here are a few key points about new.target:</p>
+
+<ol style="list-style-type: decimal;">
+    <li>
+        Usage: new.target is accessed within the body of a function or constructor and returns a reference to the
+        constructor or
+        function that was directly invoked with new. It is undefined if the function was not called with new.
+    </li>
+    <li>
+        Constructor Functions: When a constructor function is invoked with new, new.target refers to the constructor
+        function
+        itself. This allows you to perform specific actions or customize behavior based on whether the function was
+        invoked as a
+        constructor or a regular function.
+    </li>
+    <pre>
+        <code class="javascript">
+            function sayHello() {
+                console.log('Hello!');
+            }
+        
+            console.log(sayHello.name); // Output: sayHello
+            console.log(sayHello.length); // Output: 0
+            console.log(sayHello.toString()); // Output: function sayHello() { console.log('Hello!'); }
+        </code>
+    </pre>
+    <li>
+        Inheritance and super: new.target is particularly useful in the context of inheritance and the super keyword. It
+        allows
+        you to access the constructor of the derived class when calling super within a subclass constructor.
+    </li>
+    <pre>
+        <code class="javascript">
+            class Parent {
+                constructor() {
+                    console.log(new.target); // Output: [Function: Child]
+                }
+            }
+            
+            class Child extends Parent {
+                constructor() {
+                    super();
+                }
+            }
+            
+            const child = new Child(); // Output: [Function: Child]
+        </code>
+    </pre>
+    <li>
+        Arrow Functions: Arrow functions do not have their own new.target. Instead, they inherit new.target from the
+        surrounding
+        non-arrow function.
+    </li>
+    <pre>
+        <code class="javascript">
+            function regularFunction() {
+                const arrowFunction = () => {
+                    console.log(new.target); // Inherited from regularFunction
+                };
+
+                arrowFunction();
+            }
+
+            regularFunction(); // Output: [Function: regularFunction]
+        </code>
+    </pre>
+</ol>
