@@ -1,95 +1,82 @@
 <p align="justify">
-    This lesson explain you, How to declare JavaScript variable. JavaScript var statement to declare a variables that are scoped to the nearest function block. Another word we can say function scope variable.
+    Programming is often highly collaborative. In addition, our own code can quickly become difficult to understand when we return to it— sometimes only an hour later! For these reasons, 
+    it’s often useful to leave notes in our code for other developers or ourselves.
 </p>
 <p align="justify">
-    If you don't assign variable's value at declaration time, JavaScript automatically assigns the undefined value.
+    As we write JavaScript, we can write comments in our code that the computer will ignore as our program runs. These comments exist just for human readers.
 </p>
 <p align="justify">
-    You can't use variable before the declaration otherwise gives an error.
+    Comments can explain what the code is doing, leave instructions for developers using the code, or add any other useful annotations.
 </p>
+<p align="justify">
+    There are two types of code comments in JavaScript:
+</p>
+<p align="justify">
+    &nbsp; &nbsp; &nbsp; &nbsp; <strong>1.</strong> A single line comment will comment out a single line and is denoted with two forward slashes // preceding it.
     <pre>
     <code class="javascript">
-    var variable_name = value;
+      // 5
+      console.log(5);
     </code>
     </pre>
-<h5>Parameter</h5>
-<ul>
-    <li>
-        <strong>var:</strong> JavaScript reserved keyword.
-    </li>
-    <li>
-        <strong>var_name:</strong> Name of the variable.
-    </li>
-    <li>
-        <strong>value:</strong> Optional, Initial value assign at the time of declaration.
-    </li>
-</ul>
-<p align="justify">
-    Shorthand style, you can declare a one or more variables in single statement separated by comma.
 </p>
+<p align="justify">
+    You can also use a single line comment to comment after a line of code:
     <pre>
     <code class="javascript">
-    var var1 = val1, var2 = val2, ..., varN = valN;
+    console.log(5);  // 5
     </code>
     </pre>
-<p align="justify">
-    In Strict Mode JavaScript, without var keyword you can't declare and initialize, give an error ReferenceError.
 </p>
+<p align="justify">
+    You can also use this syntax to comment something out in the middle of a line of code:
     <pre>
     <code class="javascript">
-    "use strict";   // strict mode specification 
-    var a = "A";
-    b = "B";        // give an ReferenceError 
+    console.log(/*IGNORED!*/ 5);  // 5
     </code>
     </pre>
-<p align="justify">
-    One or more variables declare and initialize
 </p>
+<p align="justify">
+    &nbsp; &nbsp; &nbsp; &nbsp; <strong>2.</strong> A multi-line comment will comment out multiple lines and is denoted with /* to begin the comment, and */ to end the comment.
     <pre>
     <code class="javascript">
-    var a = 0, b = 0;
-    </code>
+    /*
+    This is all commented 
+    console.log(10);
+    None of this is going to run!
+    console.log(99);
+     */
     </pre>
-<p align="justify">
-    <strong>Variable override:</strong> you can re-assignment the value of the variable.
 </p>
-    <pre>
-    <code class="javascript">
-    var a = "Team";
-    if (a){
-        console.log("variable a: " + a);
-    }
-
-    var a ="DefineX";
-    console.log("reinitializing a: " + a);
-    </code>
-    </pre>
-<p align="justify">
-    <strong>var in functional scope:</strong> The following var statement example, quote variable scope within callme() function scope. you can't access quote variable outside of function,
-</p>
-    <pre>
-    <code class="javascript">
-    function callme() {
-        var age = 35;
-        console.log("your age : " + age); // "your age : 35"
-    }
-
-    callme();
-    console.log("your age : " + age);    // Uncaught ReferenceError: age is not defined"
-    </code>
-    </pre>
-<p align="justify">
-    <strong>var in global scope:</strong> Using var keyword to define variable globally. Once you define globally, you can access inside anywhere.
-</p>
-    <pre>
-    <code class="javascript">
-    var age = 35;
-    function callme() {
-        console.log("your age : " + age); // "your age : 35"
-    }
-
-    callme();
-    console.log("your age : " + age);    // "your age : 35"
-    </code>
-    </pre>
-
+<br>
+<div class="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          #1 At the below, you will see the core values of defineX. On line 1, write a single line comment that says 
+             Opening line.
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/t3a9kz04/5/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          #2 Single line comments are great for adding context to your code. Multi-line comments are often best 
+             suited to prevent a block of code from running. However, both types of comments can be used for either
+             purpose. Use a multi-line comment so that the bottom 3 console.log() statements are all commented out.
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/t3a9kz04/5/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>

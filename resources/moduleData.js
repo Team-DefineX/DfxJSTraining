@@ -42,6 +42,10 @@ export const modules = [
         time: "15mins",
       },
       {
+        name: "Where to Put",
+        time: "5mins",
+      },
+      {
         name: "Console",
         time: "5mins",
       },
