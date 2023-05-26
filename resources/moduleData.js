@@ -39,7 +39,7 @@ export const modules = [
     steps: [
       {
         name: "Introduction",
-        time: "15mins",
+        time: "10mins",
       },
       {
         name: "Where to Put",
@@ -71,7 +71,11 @@ export const modules = [
       },
       {
         name: "Operators",
-        time: "15mins",
+        time: "20mins",
+      },
+      {
+        name: "String Interpolation",
+        time: "5mins",
       },
     ],
   },
