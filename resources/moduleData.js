@@ -38,8 +38,12 @@ export const modules = [
     moduleName: "Introduction To JS",
     steps: [
       {
-        name: "Introduction",
-        time: "15mins",
+        name: "Introduction to JS",
+        time: "10mins",
+      },
+      {
+        name: "Where to Put",
+        time: "5mins",
       },
       {
         name: "Console",
@@ -67,7 +71,11 @@ export const modules = [
       },
       {
         name: "Operators",
-        time: "15mins",
+        time: "20mins",
+      },
+      {
+        name: "String Interpolation",
+        time: "5mins",
       },
     ],
   },
@@ -76,20 +84,40 @@ export const modules = [
     moduleName: "Objects",
     steps: [
       {
-        name: "Intro",
-        time: "20mins",
+        name: "Introduction to Objects",
+        time: "5mins",
       },
       {
-        name: "Create Object",
-        time: "10mins",
+        name: "JavaScript Objects",
+        time: "10ins",
       },
       {
-        name: "Accessors",
-        time: "14mins",
+        name: "Accessing Properties",
+        time: "7mins",
+      },
+      {
+        name: "Bracket Notation",
+        time: "7mins",
+      },
+      {
+        name: "Property Assignment",
+        time: "7mins",
+      },
+      {
+        name: "Methods",
+        time: "7mins",
+      },
+      {
+        name: "Nested Objects",
+        time: "7mins",
+      },
+      {
+        name: "Getter and Setter",
+        time: "10ins",
       },
       {
         name: "Prototype",
-        time: "16mins",
+        time: "10ins",
       },
     ],
   },
@@ -111,6 +139,40 @@ export const modules = [
       },
       {
         name: "Method.pop()",
+        time: "16mins",
+      },
+    ],
+  },
+  {
+    fileName: "AdvancedFunctions",
+    moduleName: "Advanced Functions",
+    steps: [
+      {
+        name: "Function type",
+        time: "20mins",
+      },
+      {
+        name: "call()",
+        time: "10mins",
+      },
+      {
+        name: "apply()",
+        time: "14mins",
+      },
+      {
+        name: "bind()",
+        time: "16mins",
+      },
+      {
+        name: "Closure",
+        time: "16mins",
+      },
+      {
+        name: "Returning multiple values",
+        time: "16mins",
+      },
+      {
+        name: "Callback functions",
         time: "16mins",
       },
     ],

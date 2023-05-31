@@ -1,0 +1,159 @@
+<p>
+    There are 3 ways to create objects.
+</p>
+<br>
+<ol>
+    <li>By object literal</li>
+    <li>By creating instance of Object directly (using new keyword)</li>
+    <li>By using an object constructor (using new keyword)</li>
+</ol>
+<br>
+<h5>
+    1) JavaScript Object by object literal
+</h5>
+<p>
+    Objects can be assigned to variables just like any JavaScript type. We use curly braces, <code>{}</code>, to
+    designate an <em>object literal</em>:
+</p>
+<pre>
+    <code class="javascript">
+    let car = {}; // company is an empty object
+    </code>
+</pre>
+<p>
+    We fill an object with unordered data. This data is organized into <em>key-value pairs</em>. A key is like a
+    variable name that points to a location in memory that holds a value.
+</p>
+<br>
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/key_value.svg"> </object>
+</div>
+<br>
+<p align="justify">
+    A key’s value can be of any data type in the language including functions or other objects.
+</p>
+<br>
+<p align="justify">
+    We make a key-value pair by writing the key’s name, or <em>identifier</em>, followed by a colon and then the value.
+    We separate each key-value pair in an object literal with a comma (<code>,</code>).
+    Keys are strings, but when we have a key that does not have any special characters in it, JavaScript allows us to
+    omit the quotation marks:
+</p>
+<br>
+<div style=" display: block; margin-left: auto; margin-right: auto; width: 50%;">
+    <img src="/_includes/images/objectimage.png" />
+</div>
+<br>
+<pre>
+    <code class="javascript">
+    // An object literal with two key-value pairs
+    let car = {
+        'Car Brand': 'Volkswagen',
+        NumberOfEmployee: 300,
+        Headquartered: 'Wolfsburg' 
+    };   
+    </code>
+</pre>
+<p align="justify">
+    The <code>car</code> object has three properties <code>'Car Brand'</code>, <code>'NumberOfEmployee'</code> and <code>Headquartered</code>.
+    <code>'Car Brand'</code> has quotation marks because it contains a space character.
+</p>
+<br>
+<br>
+<h5>
+    2) By creating instance of Object
+</h5>
+<p>
+    The syntax of creating object directly is given below:
+</p>
+<pre>
+    <code class="javascript">
+    var car = new Object();    
+    </code>
+</pre>
+<p>
+    Here, <b>new keyword</b> is used to create object.
+</p>
+<br>
+<p>
+    Let’s see the example of creating object directly.
+</p>
+<pre>
+    <code class="javascript">
+    var car = new Object();  
+    car.carBrand = 'Volkswagen';
+    car.numberOfEmployee = 300;
+    car.headquartered = 'Wolfsburg';
+
+    console.log(car);  
+    </code>
+</pre>
+<br>
+<h5>
+    3) By using an Object constructor
+</h5>
+<p align="justify">
+    Here, you need to create function with arguments. Each argument value can be assigned in the current object by using
+    this keyword.
+</p>
+<br>
+<p>
+    The <b>this keyword</b> refers to the current object.
+</p>
+<br>
+<p>
+    The example of creating object by object constructor is given below.
+</p>
+<pre>
+    <code class="javascript">
+    function car(carBrand, numberOfEmployee, headquartered){  
+        this.carBrand = carBrand;  
+        this.numberOfEmployee = numberOfEmployee;  
+        this.headquartered = headquartered;  
+    }
+
+    let car1 = new car('Volkswagen', 300, 'Wolfsburg');  
+      
+    console.log(car1);   
+    </code>
+</pre>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Make a new Company object named <code>company</code> with the same <code>'Company Name'</code> equal to <code>'Team DefineX'</code>, <code>NumberOfEmployee</code> equal to <code>500</code> and <code>Location</code> equal to <code>'İstanbul'</code>
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/o3m417y9/4/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+           Print to company object with console.log
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/ywqudj06/2/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

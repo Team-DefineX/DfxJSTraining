@@ -1,0 +1,95 @@
+<p>
+    Callback functions are an essential concept in JavaScript, allowing you to pass a function as an argument to another
+    function and invoke it at a later time. They provide a way to achieve flexibility and extensibility in your code by
+    allowing functions to be dynamically defined and executed.
+</p>
+
+<h5 class="mt-3">Understanding Callback Functions</h5>
+
+<p>
+    A callback function is a function that is passed as an argument to another function and is executed inside that
+    function. It allows you to define custom behavior that can be executed at specific points during the execution of
+    the higher-order function.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function greet(name, callback) {
+        console.log(`Hello, ${name}!`);
+        callback();
+    }
+    
+    function sayGoodbye() {
+        console.log("Goodbye!");
+    }
+    
+    greet("John", sayGoodbye);
+    </code>
+</pre>
+
+<h5 class="mt-3">Benefits of Callback Functions</h5>
+
+<p>Callback functions offer several benefits in JavaScript programming:</p>
+
+<ul>
+    <li>
+        <code>Code Reusability</code>: Callback functions allow you to define reusable blocks of code that can be passed
+        to multiple functions.
+    </li>
+    <li>
+        <code>Asynchronous Operations</code>: Callback functions are widely used in handling asynchronous operations,
+        such as AJAX requests or timers, where the callback is invoked once the operation completes.
+    </li>
+    <li>
+        <code>Event Handling</code>: In event-driven programming, callback functions are used to respond to events such
+        as button clicks, mouse movements, or keyboard inputs.
+    </li>
+    <li>
+        <code>Customizable Behavior</code>: Callback functions enable you to define custom behavior to be executed at
+        specific points within a function, providing flexibility and extensibility.
+    </li>
+</ul>
+
+<h5>Common Use Cases</h5>
+
+<p>Callback functions are commonly used in scenarios such as:</p>
+
+<ul>
+    <li>
+        <code>Iterating over Arrays</code>: CCallback functions are used with array methods like forEach, map, filter,
+        and reduce to define custom operations on array elements.
+    </li>
+    <li>
+        <code>Error Handling</code>: Callback functions can be used to handle errors and exceptions that occur during
+        the execution of asynchronous operations.
+    </li>
+    <li>
+        <code>Dynamic Behavior</code>: Callback functions allow you to define dynamic behavior that can be changed or
+        replaced based on different conditions.
+    </li>
+</ul>
+
+<p>
+    Understanding and effectively using callback functions is essential for mastering JavaScript programming and enables
+    you to leverage the power of higher-order functions and asynchronous operations.
+</p>
+
+<h5 class="mt-3">Examples</h5>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/4t9be7z3/2/embedded/js,result/dark/"
+    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+<p>2. <b>Asynchronous Operations:</b></p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/0ud9zryf/1/embedded/js,result/dark/"
+    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+<p>3. <b>Event Handling:</b></p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/hf2yoznd/1/embedded/js,html,result/dark/"
+    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+<p>4. <b>Error Handling:</b></p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/r598Lzfe/3/embedded/js,result/dark/"
+    allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>

@@ -1,0 +1,150 @@
+<p align="justify">
+    This lesson explain you, How to declare JavaScript constants. JavaScript <code>const</code> statement to declare a constant variable with a value. As per ECMA specification constant variable scope to the nearest enclosing block. 
+    By the way, The const keyword was also introduced in ES6, and is short for the word constant.
+</p>
+<br>
+<p align="justify">
+    If you’re trying to decide between which keyword to use, let or const, think about whether you’ll need to reassign the variable later on. If you do need to reassign the variable use let, otherwise, use const.
+</p>
+    <pre>
+    <code class="javascript">
+    const constant_name = value;
+    </code>
+    </pre>
+<h5>Parameter</h5>
+<ul>
+    <li>
+        <strong>const:</strong> JavaScript reserved keyword.
+    </li>
+    <li>
+        <strong>constant_name:</strong> Name of the constant variable.
+    </li>
+    <li>
+        <strong>value:</strong> Required, Initializing constant value.
+    </li>
+</ul>
+<p>
+    Shorthand style, you can declare a one or more constant in single statement separated by comma.
+</p>
+    <pre>
+    <code class="javascript">
+    const con1 = val1, con2 = val2, ..., conN = valN;
+    </code>
+    </pre>
+<p>
+    Constant variables <em>must</em> be assigned a value when declared.  If you try to declare a <code>const</code> variable without a value, you’ll get a <code>SyntaxError</code>. 
+</p>
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    console.log("Constant a: ", a);     // Constant a: 10
+    </code>
+    </pre>
+
+    <pre>
+    <code class="javascript">
+    const b;                            // weird, const can define without initial value
+                                        // Error: Uncaught SyntaxError: Missing initializer in const declaration"
+    console.log("Constant b: ", b);     // automatic assign 'undefined'
+    </code>
+    </pre>
+
+<p>
+    However, a <code>const</code> variable cannot be reassigned because it is <em>constant</em>. If you try to reassign a <code>const</code> variable, you’ll get a <code>TypeError</code>.
+</p>
+    
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    a = 20;     // TypeError: Assignment to constant variable.
+    </code>
+    </pre>
+    
+    <pre>
+    <code class="javascript">
+    const a = 10;
+    var a = 20;     // Error: Identifier 'a' has already been declared"
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const c = 20;                    // Define and initializing 'c' constant variable
+    const d = c;                     // Define 'd' constant variable, initialize constant 'c'
+    console.log("Constant c: ", c);  // Constant c: 20
+    console.log("Constant d: ", d);  // Constant d: 20
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
+    console.log("Constant Object:", obj);   // { a: "A", b: "B" }
+    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "A"
+    </code>
+    </pre>
+<h5>Example</h5>
+    <pre>
+    <code class="javascript">
+    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
+    obj.a = "AA";                           // 'a' key, try to reassign
+    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "AA"
+    </code>
+    </pre>
+
+<br>
+<h4 class="d-flex">
+  <i class="bi bi-check-circle-fill" style="color: green"></i>
+  <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+  <div>
+    <h5>#1</h5>
+    <p align="justify">
+        Create a constant variable named <strong>pi</strong> and set it to equal to the string <strong>3.14159</strong>.
+    </p>
+  </div>
+  <br>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/43zbhoas/1/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="question">
+  <div>
+    <h5>#2</h5>
+    <p align="justify">
+        Just to check that you’ve saved the value of 3.14159 to pi, log the value of entree to the console.
+    </p>
+  </div>
+  <br>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/yht86ru0/1/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="question">
+    <div>
+      <h5>#3</h5>
+      <p align="justify">
+          Reassign a new value to a constant variable called <strong>pi</strong> and then let’s see what happens if you try to reassign a constant variable.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/u1m7nghL/3/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>

@@ -1,58 +1,91 @@
 <p align="justify">
-  The console is a panel that displays important messages, like errors, for developers. Much of the work the computer
-  does with our code is invisible to us by default. If we want to see things appear on our screen, we can print, or log,
-  to our console directly.
+    <strong>JavaScript can be added to your HTML file in three ways:</strong>
+</p>
+<br>
+<p>
+    <ul>
+        <li>Inline JavaScript</li>
+        <li>Internal JavaScript</li>
+        <li>External JavaScript</li>
+    </ul>
 </p>
 <p align="justify">
-  In JavaScript, the console keyword refers to an object, a collection of data and actions, that we can use in our code.
-  Keywords are words that are built into the JavaScript language, so the computer recognizes them and treats them
-  specially.
-</p>
-<p align="justify">
-  One action, or method, that is built into the console object is the .log() method. When we write console.log() what we
-  put inside the parentheses will get printed, or logged, to the console.
-</p>
-<p align="justify">
-  It’s going to be very useful for us to print values to the console, so we can see the work that we’re doing.
+    <strong>Inline JavaScript:</strong>
+    Here, you have the JavaScript code in HTML tags in some special JS-based attributes.
+    <br>
+    For example, HTML tags have event attributes that allow you to execute some code inline when an event is triggered.
 </p>
 <pre>
-    <code class="javascript">
-    console.log("Welcome to Definex Javascript Training");
+    <code class="html">
+        &lt;html&gt;
+        &lt;!DOCTYPE html&gt;
+        &lt;body&gt;
+            &lt;button onclick="alert('Welcome to Definex Javascript Training')"&gt;Click me!&lt;/button&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
     </code>
 </pre>
 <p align="justify">
-  The semicolon denotes the end of the line, or statement. Although in JavaScript your code will usually run as intended
-  without a semicolon, we recommend learning the habit of ending each statement with a semicolon so you never
-  leave one out in the few instances when they are required.
+    <strong>Internal JavaScript:</strong>
+    We can add JS code directly to our HTML file by writing the code inside the &lt;script&gt; &amp; &lt;/script&gt;.
+    The &lt;script&gt; tag can either be placed inside the &lt;head&gt; or the &lt;body&gt; tag according to the
+    requirement.
 </p>
-<div class="accordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-        #1 Use the console.log code in the editor to log your age to the console.
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-      <div class="accordion-body">
-        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/3ztr24g6/2/embedded/js,result/dark/"
-          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        #2 On the next line, write another console.log to print out a different number representing the number of weeks
-        you’ve been programming.
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-      <div class="accordion-body">
-        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/6rfa7bpe/embedded/js,result/dark/"
-          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
+<pre>
+    <code class="html">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;title&gt;Definex Javascript Training&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;!-- JavaScript Code --&gt;
+      &lt;script&gt;
+        console.log("Welcome to Definex Javascript Training");
+      &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </code>
+</pre>
+<p align="justify">
+    <strong>External JavaScript:</strong>
+    We can create the file with a .js extension and paste the JS code inside of it. After creating the file, add this
+    file in &lt;script src=”file_name.js”&gt; tag, and this <strong>&lt;script&gt;</strong> can import inside
+    <strong>&lt;head&gt;</strong> or <strong>&lt;body&gt;</strong> tag of the HTML file.
+</p>
+<pre>
+    <code class="html">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Definex Javascript Training&lt;/title&gt;
+        &lt;script src="main.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </code>
+</pre>
+<pre>
+    <code class="javascript">
+    /* JavaScript code can be embedded inside head section or body section */
+    console.log("Welcome to Definex Javascript Training");
+    // JavaScript file name: main.js
+    </code>
+</pre>
+<h3>External References</h3>
+An external script can be referenced in 3 different ways:
+<ul>
+    <li>With a full URL (a full web address)</li>
+    <li>With a file path (like /js/)</li>
+    <li>Without any path</li>
+</ul>
+<pre>
+    <code class="html">
+    &lt;script src="https://www.w3schools.com/js/myScript.js"&gt;&lt;/script&gt;
+    &lt;script src="/js/myScript.js"&gt;&lt;/script&gt;
+    &lt;script src="myScript.js"&gt;&lt;/script&gt;
+    </code>
+</pre>

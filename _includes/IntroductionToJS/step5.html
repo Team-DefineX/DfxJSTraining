@@ -1,85 +1,168 @@
 <p align="justify">
-    This lesson explain you, How to declare JavaScript constants. JavaScript <code>const</code> statement to declare a constant variable with a value. As per ECMA specification constant variable scope to the nearest enclosing block.
+    This lesson explain you, How to declare JavaScript variable. JavaScript var statement to declare a variables that are scoped to the nearest function block. Another word we can say function scope variable.
 </p>
+<br>
 <p align="justify">
-    Constant variable can not re declare, and you can not reassign constant a value to a constant variable.
+    If you don't assign variable's value at declaration time, JavaScript automatically assigns the undefined value.
 </p>
+<br>
+<p align="justify">
+    You can't use variable before the declaration otherwise gives an error.
+</p>
+<br>
+<p align="justify">
+   <strong>There are a few general rules for naming variables:</strong> 
+</p>
+<ul>
+    <li>
+        Variable names cannot start with numbers. 
+    </li>
+    <li>
+        Variable names are case sensitive, so <code>myName</code> and <code>myname</code> would be different variables. It is bad practice to create two variables that have the same name using different cases.
+    </li>
+    <li>
+        Variable names cannot be the same as <em>keywords</em>. For a comprehensive list of keywords check out <a target="_blank" rel="noopener" class="e14vpv2g1 gamut-xro1w8-ResetElement-Anchor-AnchorBase e1bhhzie0" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">MDN’s keyword documentation</a>.
+    </li>
+</ul>
     <pre>
     <code class="javascript">
-    const constant_name = value;
+    var variable_name = value;
     </code>
     </pre>
 <h5>Parameter</h5>
 <ul>
     <li>
-        <strong>const:</strong> JavaScript reserved keyword.
+        <strong>var:</strong> JavaScript reserved keyword.
     </li>
     <li>
-        <strong>constant_name:</strong> Name of the constant variable.
+        <strong>var_name:</strong> Name of the variable.
     </li>
     <li>
-        <strong>value:</strong> Required, Initializing constant value.
+        <strong>value:</strong> Optional, Initial value assign at the time of declaration.
     </li>
 </ul>
-<p>
-    Shorthand style, you can declare a one or more constant in single statement separated by comma.
+<p align="justify">
+    Shorthand style, you can declare a one or more variables in single statement separated by comma.
 </p>
     <pre>
     <code class="javascript">
-    const con1 = val1, con2 = val2, ..., conN = valN;
+    var var1 = val1, var2 = val2, ..., varN = valN;
     </code>
     </pre>
-<h5>Example</h5>
+<p align="justify">
+    In Strict Mode JavaScript, without var keyword you can't declare and initialize, give an error ReferenceError.
+</p>
     <pre>
     <code class="javascript">
-    const a = 10;
-    console.log("Constant a: ", a);     // Constant a: 10
+    "use strict";   // strict mode specification 
+    var a = "A";
+    b = "B";        // give an ReferenceError 
     </code>
     </pre>
-<h5>Example</h5>
+<p align="justify">
+    One or more variables declare and initialize
+</p>
     <pre>
     <code class="javascript">
-    const b;                            // weird, const can define without initial value
-                                        // Error: Uncaught SyntaxError: Missing initializer in const declaration"
-    console.log("Constant b: ", b);     // automatic assign 'undefined'
+    var a = 0, b = 0;
     </code>
     </pre>
-<h5>Example</h5>
+<p align="justify">
+    <strong>Variable override:</strong> you can re-assignment the value of the variable.
+</p>
     <pre>
     <code class="javascript">
-    const a = 10;
-    const a = 20;     // Error: Identifier 'a' has already been declared"
+    var a = "Team";
+    if (a){
+        console.log("variable a: " + a);
+    }
+
+    var a ="DefineX";
+    console.log("reinitializing a: " + a);
     </code>
     </pre>
-<h5>Example</h5>
+<p align="justify">
+    <strong>var in functional scope:</strong> The following var statement example, quote variable scope within callme() function scope. you can't access quote variable outside of function,
+</p>
     <pre>
     <code class="javascript">
-    const a = 10;
-    var a = 20;     // Error: Identifier 'a' has already been declared"
+    function callme() {
+        var age = 35;
+        console.log("your age : " + age); // "your age : 35"
+    }
+
+    callme();
+    console.log("your age : " + age);    // Uncaught ReferenceError: age is not defined"
     </code>
     </pre>
-<h5>Example</h5>
+<p align="justify">
+    <strong>var in global scope:</strong> Using var keyword to define variable globally. Once you define globally, you can access inside anywhere.
+</p>
     <pre>
     <code class="javascript">
-    const c = 20;                    // Define and initializing 'c' constant variable
-    const d = c;                     // Define 'd' constant variable, initialize constant 'c'
-    console.log("Constant c: ", c);  // Constant c: 20
-    console.log("Constant d: ", d);  // Constant d: 20
+    var age = 35;
+    function callme() {
+        console.log("your age : " + age); // "your age : 35"
+    }
+
+    callme();
+    console.log("your age : " + age);    // "your age : 35"
     </code>
     </pre>
-<h5>Example</h5>
-    <pre>
-    <code class="javascript">
-    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
-    console.log("Constant Object:", obj);   // { a: "A", b: "B" }
-    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "A"
-    </code>
-    </pre>
-<h5>Example</h5>
-    <pre>
-    <code class="javascript">
-    const obj = {"a": "A", "b": "B"};       // Define and initializing constant object
-    obj.a = "AA";                           // 'a' key, try to reassign
-    console.log("Constant obj.a:", obj.a);  // Constant obj.a: "AA"
-    </code>
-    </pre>
+
+<br>
+<h4 class="d-flex">
+  <i class="bi bi-check-circle-fill" style="color: green"></i>
+  <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+  <div>
+    <h5>#1</h5>
+    <p align="justify">
+      Declare a variable named yourCompanyName using the var keyword and assign to it the string 'Team DefineX'.
+    </p>
+  </div>
+  <br>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/ebxpz6q4/1/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="question">
+  <div>
+    <h5>#2</h5>
+    <p align="justify">
+      Declare a variable named yourAge using the var keyword and assign to your age.
+    </p>
+  </div>
+  <br>
+  <button class="solution-btn">Solution</button>
+  <div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/ert4ubnv/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="question">
+    <div>
+      <h5>#3</h5>
+      <p align="justify">
+        Under the yourCompanyName variable, use console.log() to print the value saved to yourCompanyName. On the following line, use console.log() to print the value saved to yourAge.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/x8tsnpq2/1/embedded/js,result/dark/" 
+        allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
