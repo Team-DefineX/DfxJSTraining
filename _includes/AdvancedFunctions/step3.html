@@ -21,58 +21,51 @@
     </li>
 </ul>
 
+<h5>Example</h5>
+
+<pre>
+    <code class="language-javascript">
+    function getFullName(firstName, lastName) {
+        return `${firstName} ${lastName}`;
+    }
+    
+    const fullName = getFullName.apply(null, ["Michael", "Smith"]);
+    console.log(fullName); // Output: Michael Smith
+    </code>
+</pre>
+
 <h5>Using the JavaScript apply() method for function borrowing</h5>
 
 <p>Here's an example that demonstrates the use of the apply() method for function borrowing:</p>
 
 <pre>
     <code class="language-javascript">
-        function getProductInfo() {
-            return `Product: ${this.name}, Price: $${this.price}`;
-        }
-        
-        const laptop = {
-            name: 'Laptop',
-            price: 999,
-        };
-        
-        const phone = {
-            name: 'Phone',
-            price: 599,
-        };
-        
-        const productInfo1 = getProductInfo.apply(laptop);
-        console.log(productInfo1); // Output: Product: Laptop, Price: $999
-        
-        const productInfo2 = getProductInfo.apply(phone);
-        console.log(productInfo2); // Output: Product: Phone, Price: $599
+    function getProductInfo() {
+        return `Product: ${this.name}, Price: $${this.price}`;
+    }
+    
+    const laptop = {
+        name: 'Laptop',
+        price: 999,
+    };
+    
+    const phone = {
+        name: 'Phone',
+        price: 599,
+    };
+    
+    const productInfo1 = getProductInfo.apply(laptop);
+    console.log(productInfo1); // Output: Product: Laptop, Price: $999
+    
+    const productInfo2 = getProductInfo.apply(phone);
+    console.log(productInfo2); // Output: Product: Phone, Price: $599
     </code>
 </pre>
 
 <p>
-    In the above example, we define a function called getProductInfo(). This function returns the product information by
-    using the name and price properties available in the this context.
-</p>
-
-<p class="mt-3">
-    Next, we create two objects named laptop and phone.
-</p>
-
-<p class="mt-3">
-    Finally, we use the expression getProductInfo.apply(laptop) to apply the getProductInfo() function to the laptop
-    object.
-    In this case, the this context is set to the laptop object, and the product information is returned as "Product:
-    Laptop,
-    Price: $999". Similarly, we apply the getProductInfo() function to the phone object using
-    getProductInfo.apply(phone),
-    which returns the product information as "Product: Phone, Price: $599".
-</p>
-
-<p class="mt-3">
     This example demonstrates how to use the apply() method to invoke a function on different objects. By changing the
     context in which the function is executed, you can reuse the same function for different objects and obtain
-    different
-    results for each one.
+    different results for each one.
 </p>
 
 <h5 class="mt-3">Using the apply() method to append an array to another</h5>
@@ -81,17 +74,40 @@
 
 <pre>
     <code class="language-javascript">
-        let arr = [1, 2, 3];
-        let numbers = [4, 5, 6];
-        
-        arr.push.apply(arr, numbers);
-        
-        console.log(arr);
+    let arr = [1, 2, 3];
+    let numbers = [4, 5, 6];
+    
+    arr.push.apply(arr, numbers);
+    
+    console.log(arr);
     </code>
 </pre>
 
-<p>
-    In this example, the apply() method modifies the original array arr. Note that the Array.prototype.concat() method
-    also
-    provides the same result except that it returns the new array instead of modifying the original array.
-</p>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <p class="mb-3">
+            Write a function called findMaxNumber that takes an array of numbers as input and returns the largest number
+            in the array. However, you should not use the Math.max() method or the built-in max() method of arrays.
+            Instead, you should simulate the functionality of the Math.max() method using the apply() method.
+        </p>
+        <p>Expected Output:</p>
+        <pre>
+            <code class="javascript">
+    For example, calling findMaxNumber([6, 3, 22, 32, 15]) 
+    should return 32
+            </code>
+        </pre>
+    </div>
+    <button class="solution-btn mt-3">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/kt5yqcnp/embedded/js,result/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

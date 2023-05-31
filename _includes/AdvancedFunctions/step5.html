@@ -10,60 +10,43 @@
 
 <h5 class="mt-3">How Closure Works</h5>
 
-<p>When a function is defined, it forms a closure along with its lexical environment. The closure consists of the
-    function
-    itself and the references to all variables and functions that were in scope at the time of its creation. This means
-    that
-    even if the outer function is no longer executing, the inner function still retains access to the variables and
-    functions from its parent scope.</p>
+<p>
+    When a function is defined, it forms a closure along with its lexical environment. The closure consists of the
+    function itself and the references to all variables and functions that were in scope at the time of its creation.
+    This means that even if the outer function is no longer executing, the inner function still retains access to the
+    variables and functions from its parent scope.
+</p>
 
 <h5 class="mt-3">Example</h5>
 
-<p>Let's consider an example to understand how closure works:</p>
-
 <pre>
     <code class="language-javascript">
-        function outerFunction() {
-            const outerVariable = 'I am from outer function';
-            
-            function innerFunction() {
-                console.log(outerVariable);
-            }
-
-            return innerFunction;
-        }
+    function outerFunction() {
+        const outerVariable = 'I am from outer function';
         
-        const inner = outerFunction();
-        inner(); // Output: I am from outer function
+        function innerFunction() {
+            console.log(outerVariable);
+        }
+        return innerFunction;
+    }
+    
+    const inner = outerFunction();
+    inner(); // Output: I am from outer function
     </code>
 </pre>
 
 <p>
-    In this example, the outerFunction defines a variable outerVariable and a nested function innerFunction. The
-    innerFunction has access to the outerVariable even after the outerFunction has finished executing. When we invoke
-    outerFunction, it returns the innerFunction, and we store it in the inner variable. Finally, when we invoke inner(),
-    it
-    logs the value of outerVariable, demonstrating that the inner function has access to the variable from its parent
-    scope.
-</p>
-
-<p class="mt-3">
     Closures are commonly used for maintaining private variables and creating encapsulated modules in JavaScript. They
-    allow
-    you to control the visibility and lifetime of variables, preventing them from being accessed or modified from
-    outside
-    the function.
+    allow you to control the visibility and lifetime of variables, preventing them from being accessed or modified from
+    outside the function.
 </p>
 
 <p class="mt-3">
     Understanding closures is important for writing more advanced JavaScript programs and leveraging powerful
-    programming
-    techniques.
+    programming techniques.
 </p>
 
 <h5 class="mt-3">More JavaScript Closure example</h5>
-
-<p>Here's another example that demonstrates JavaScript closures:</p>
 
 <pre>
     <code class="language-javascript">
@@ -94,32 +77,41 @@
 </pre>
 
 <p>
-    In this example, the counter function creates an inner scope with a variable count. It defines two inner functions,
-    increment and decrement, which have access to the count variable due to closures.
-</p>
-
-<p class="mt-3">
-    When counter is invoked, it returns an object containing the increment and decrement functions. This object serves
-    as a
-    closure, allowing the returned functions to access and modify the count variable.
-</p>
-
-<p class="mt-3">
-    Each time the increment function is called, it increments the count variable and logs the updated value to the
-    console.
-    Similarly, the decrement function decrements the count variable and logs the updated value.
-</p>
-
-<p class="mt-3">
-    By using closures, the increment and decrement functions retain access to the count variable even after the counter
-    function has finished executing. This allows them to maintain their own separate instances of count and operate
-    independently.
-</p>
-
-<p class="mt-3">
     Closures are powerful in scenarios where you need to maintain state or encapsulate data within functions. They
-    provide a
-    way to create private variables and define functions that can access and manipulate those variables. Closures enable
-    you
-    to create modular and reusable code, enhancing the flexibility and functionality of your JavaScript programs.
+    provide a way to create private variables and define functions that can access and manipulate those variables.
+    Closures enable you to create modular and reusable code, enhancing the flexibility and functionality of your
+    JavaScript programs.
 </p>
+
+<h4 class="d-flex mt-3">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <p>
+            Create a function called "calculator". This function should take a starting value as a parameter and return
+            inner functions capable of performing four basic arithmetic operations. The inner functions should be named
+            "add", "subtract", "multiply", and "divide", and each of them should take two parameters to perform the
+            respective operation.
+        </p>
+        <p class="mt-3">Expected Output:</p>
+        <pre>
+            <code class="javascript">
+    const calc = calculator(5);
+    console.log(calc.add(3)); // Expected Output: 8
+    console.log(calc.subtract(2)); // Expected Output: 6
+    console.log(calc.multiply(4)); // Expected Output: 24
+    console.log(calc.divide(2)); // Expected Output: 12
+            </code>
+        </pre>
+    </div>
+    <button class="solution-btn mt-3">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/w9oLx84q/embedded/js,result/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

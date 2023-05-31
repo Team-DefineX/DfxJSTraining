@@ -7,7 +7,8 @@
 
 <h5 class="mt-3">Object Literal</h5>
 
-<p>One common approach is to return an object literal that contains multiple properties, each representing a different
+<p>
+    One common approach is to return an object literal that contains multiple properties, each representing a different
     value. This allows you to encapsulate and return multiple values as properties of an object.</p>
 <pre>
     <code class="language-javascript">
@@ -26,67 +27,77 @@
     </code>
 </pre>
 
-<p>In this example, the returnMultipleValues function returns an object literal with three properties: value1, value2,
-    and
-    value3. Each property represents a different value, and the object is returned as the result. We can then access the
-    individual values by using dot notation or square bracket notation.</p>
-
 <h5 class="mt-3">Array</h5>
 
-<p>Another approach is to return an array that contains the multiple values. Arrays are a built-in data structure in
+<p>
+    Another approach is to return an array that contains the multiple values. Arrays are a built-in data structure in
     JavaScript that can hold multiple elements of any type.
 </p>
 
 <pre>
     <code class="language-javascript">
-        function returnMultipleValues() {
-            return [10, 'Hello', true];
-        }
-        
-        const result = returnMultipleValues();
-        console.log(result[0]); // Output: 10
-        console.log(result[1]); // Output: Hello
-        console.log(result[2]); // Output: true
+    function returnMultipleValues() {
+        return [10, 'Hello', true];
+    }
+
+    const result = returnMultipleValues();
+    console.log(result[0]); // Output: 10
+    console.log(result[1]); // Output: Hello
+    console.log(result[2]); // Output: true
     </code>
 </pre>
-
-<p>
-    In this example, the returnMultipleValues function returns an array with three elements. Each element represents a
-    different value, and the array is returned as the result. We can then access the individual values by using array
-    indexing.
-</p>
 
 <h5 class="mt-3">Destructuring Assignment</h5>
 
 <p>
     When you receive the multiple values returned from a function, you can also use destructuring assignment to
-    conveniently
-    assign them to individual variables.
-
+    conveniently assign them to individual variables.
 </p>
 
 <pre>
     <code class="language-javascript">
-        function returnMultipleValues() {
-            return [10, 'Hello', true];
-        }
-        
-        const [value1, value2, value3] = returnMultipleValues();
-        console.log(value1); // Output: 10
-        console.log(value2); // Output: Hello
-        console.log(value3); // Output: true
-
+    function returnMultipleValues() {
+        return [10, 'Hello', true];
+    }
+    
+    const [value1, value2, value3] = returnMultipleValues();
+    console.log(value1); // Output: 10
+    console.log(value2); // Output: Hello
+    console.log(value3); // Output: true
     </code>
 </pre>
 
 <p>
-    In this example, the returnMultipleValues function returns an array with three elements. By using destructuring
-    assignment, we assign each element to a separate variable: value1, value2, and value3. We can then directly use
-    these
-    variables to access the individual values.
+    Returning multiple values is useful when you want to bundle related information together and return them
+    as a cohesive unit. It provides flexibility and allows you to handle complex data structures in your JavaScript
+    programs.
 </p>
 
-<p class="mt-3">Returning multiple values is useful when you want to bundle related information together and return them
-    as a
-    cohesive
-    unit. It provides flexibility and allows you to handle complex data structures in your JavaScript programs.</p>
+<h4 class="d-flex mt-3">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <p>
+            Create a function called "getRectangleInfo" that takes the length and width of a rectangle as parameters.
+            This function should calculate and return multiple values: the area and perimeter of the rectangle.
+        </p>
+        <p class="mt-3">Expected Output:</p>
+        <pre>
+            <code class="javascript">
+    length = 5 and width = 3
+    Area: 15
+    Perimeter: 16
+            </code>
+        </pre>
+    </div>
+    <button class="solution-btn mt-3">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/8b97orz6/embedded/js,result/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
