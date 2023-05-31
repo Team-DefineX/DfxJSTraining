@@ -2,7 +2,71 @@
 <p>
   New language features may include not only syntax constructs and operators, but also built-in functions.
 </p>
-<p>For example, Math.trunc(n) is a function that “cuts off” the decimal part of a number, e.g Math.trunc(1.23) returns 1.
+<h4>Switching from es6 to es5</h4>
+<div class="centered-img">
+    <img src="/_includes/images/babel.PNG" alt="">
+</div>
+    
+<h6>1) Babel Load</h6> 
+<div>
+    First, you need to add Babel to your project. Babel, ES6 (and newer JavaScript
+    versions) code to ES5. npm or yarn the following packages to install Babel
+    You can add it to your project using
+</div>
+
+<pre>
+    <code class="bash">
+    npm install --save-dev @babel/core @babel/preset-env babel-loader
+    </code>
+</pre>
+
+<h6>2) Webpack Configuration</h6>
+
+<div>
+    You will need to make some changes to your webpack config file.
+</div>
+
+<ul>
+    <li>Adding Babel Loader: Add Babel Loader to your Webpack config file. Babel Loader with webpack
+        used with Babel to convert JavaScript files in your project. </li>
+    <li>Preset Settings: When using Babel Loader, you must use the @babel/preset-env preset. This,
+        It will give instructions to convert Babel to ES5.</li>
+</ul>
+    
+<pre>
+        <code class="javascript">
+        module: {
+            rules: [
+                {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                    presets: ['@babel/preset-env']
+                    }
+                }
+                }
+            ]
+            }
+        </code>
+</pre>
+<h6>3) .babelrc </h6>
+
+<div>
+    To specify how Babel will behave, add the .babelrc file to your project's root directory. In this file the following
+You can use the content:
+</div>
+    
+<pre>
+    <code class="json">
+        {
+            "presets": ["@babel/preset-env"]
+        }
+    </code>
+</pre>
+
+<p>In other hand, if we dont use this way we can add ES6 features manually. For example, Math.trunc(n) is a function that “cuts off” the decimal part of a number, e.g Math.trunc(1.23) returns 1.
 </p>
 <p>In some (very outdated) JavaScript engines, there’s no Math.trunc, so such code will fail.</p>
 
