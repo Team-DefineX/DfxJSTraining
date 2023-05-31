@@ -120,11 +120,11 @@ export const modules = [
     moduleName: "JS & EcmaScript 5-6",
     steps: [
       {
-        name: "What is the JavaScript?",
+        name: "What is the EcmaScript?",
         time: "20mins",
       },
       {
-        name: "EcmaScript? ES5-ES6",
+        name: "ES5-ES6",
         time: "10mins",
       },
       {

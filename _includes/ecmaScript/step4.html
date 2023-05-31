@@ -1,14 +1,144 @@
-<div>
-    https://www.w3schools.com/Js/js_2020.asp
+<p><h5>ECMAScript 2021</h5></p>
+<P>The at() method returns the same as [].</P>
+<pre>
+    <code class="javascript">
+        const elements = ["Earth", "Water", "Air", "Fire"];
+        let element = elements[2];  // Air
 
-</div>
-<div>https://www.w3schools.com/Js/js_2019.asp</div>
+        const elements = ["Earth", "Water", "Air", "Fire"];
+        let element = elements.at(2); // Air
+    </code>
+</pre>
 
-<div>https://www.w3schools.com/Js/js_2018.asp</div>
+<p><h5>ECMAScript 2020</h5></p>
+<p>BigInt variables</p>
+<pre>
+    <code class="javascript">
+        let y = BigInt("9999999999999999");
+    </code>
+</pre>
 
-<div>https://www.w3schools.com/Js/js_2017.asp</div>
+<P>The matchAll() method ?. and ?? and &&=</P>
+<pre>
+    <code class="javascript">
+        let text = "I love Definex."
+        const iterator = text.matchAll(/Definex/g);
+        
+        document.getElementById("demo").innerHTML = Array.from(iterator);
 
-<div>https://www.w3schools.com/Js/js_2016.asp</div>
+        const car = {type:"JS", model:"2020"};
+        let name = car?.type;
 
+        let result = text ?? true;
 
-Add examples in plunker and descriptions
+        let x = 100;
+        let y = undefined;
+
+        x &&= 5;
+        y &&= 5;
+    </code>
+</pre>
+
+<p><h5>ECMAScript 2019</h5></p>
+<p>trimEnd & trimStart</p>
+<pre>
+    <code class="javascript">
+        let text1 = "     Hello World!     ";
+        let text2 = text1.trimStart();
+        let text3 = text1.trimEnd();
+    </code>
+</pre>
+
+<br>
+<p>catch() & catch</p>
+<pre>
+    <code class="javascript">
+        // Before 2019:
+        try {
+        // code
+        } catch (err) {
+        // code
+        }
+
+        // After 2019:
+        try {
+        // code
+        } catch {
+        // code
+        }
+    </code>
+</pre>
+
+<p>Flat</p>
+<pre>
+    <code class="javascript">
+        const myArr = [[1,2],[3,4],[5,6]];
+        const newArr = myArr.flat();
+    </code>
+</pre>
+
+<p><h5>ECMAScript 2018</h5></p>
+<p>JavaScript Threads</p>
+In JavaScript you use the Web Workers API to create threads.
+<br><br>
+
+<p>Promise</p>
+<pre>
+    <code class="javascript">
+        let myPromise = new Promise();
+
+        myPromise.then();
+        myPromise.catch();
+        myPromise.finally();
+    </code>
+</pre>
+
+<p><h5>ECMAScript 2017</h5></p>
+<p>padStart & padEnd</p>
+<pre>
+    <code class="javascript">
+        let text = "5";
+        text = text.padStart(4,"0"); // 00005
+        text = text.padEnd(4,"0"); // 000050000
+
+    </code>
+</pre>
+
+<p>Object.entries</p>
+<pre>
+    <code class="javascript">
+        const person = {
+            firstName : "First",
+            lastName  : "Last",
+            age     : 29
+        };
+        
+        let text = Object.entries(person); // firstName,First,lastName,Last,age,29
+
+    </code>
+</pre>
+
+<p><h5>ECMAScript 2016</h5></p>
+<p>Includes</p>
+<pre>
+    <code class="javascript">
+        const fruits = ["D", "E", "F", "I","N","E","X"];
+
+        fruits.includes("E"); // true
+    </code>
+  </pre>
+
+<p>Pow</p>
+<pre>
+    <code class="javascript">
+        // x ** y produces the same result as Math.pow(x, y)
+        let x = 5;
+        let z = x ** 2;  //z =25
+
+        // Second usage  **=
+        let x = 5;
+        x **= 2; // x =25
+    </code>
+  </pre>
+<pre>
+
