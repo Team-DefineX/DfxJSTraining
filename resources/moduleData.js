@@ -89,7 +89,7 @@ export const modules = [
       },
       {
         name: "JavaScript Objects",
-        time: "10ins",
+        time: "10mins",
       },
       {
         name: "Accessing Properties",

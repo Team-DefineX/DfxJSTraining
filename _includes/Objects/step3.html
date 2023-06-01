@@ -1,0 +1,95 @@
+<p>
+    There are two ways we can access an object’s property. Let’s explore the first way— dot notation, <code>.</code>.
+</p>
+<br>
+<p>
+    You’ve used dot notation to access the properties and methods of built-in objects and data instances:
+</p>
+<pre>
+    <code class="javascript">
+    'Volkswagen'.length; // Returns 10
+    </code>
+</pre>
+<p>
+    With property dot notation, we write the object’s name, followed by the dot operator and then the property name (key):
+</p>
+<pre>
+    <code class="javascript">
+    let car = {
+        'Car Brand': 'Volkswagen',
+        numberOfEmployee: 5400
+    };
+
+    car['Car Brand'];       // Returns 'Volkswagen'
+    car.numberOfEmployee;   // Returns 5400
+    </code>
+</pre>
+<div style=" display: block; margin-left: auto; margin-right: auto; width: 50%;">
+    <img src="/_includes/images/objectnamedotprop.png" />
+</div>
+<p>
+    If we try to access a property that does not exist on that object, <code>undefined</code> will be returned.
+</p>
+<pre>
+    <code class="javascript">
+    car.Headquartered; // Returns undefined
+    </code>
+</pre>
+<p>
+    Let’s get some more practice using dot notation on an object!
+</p>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<pre>
+    <code class="javascript">
+    let company = {
+        'Company Name': 'Team DefineX',
+        numberOfEmployee: 5400,
+        headquartered: 'İstanbul',
+        employees: ['Gökhan Ertaş', 'Emre Çakır', 'Ozan Avcular']
+    };
+  
+    // Write your code below
+    </code>
+</pre>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Let’s use the dot operator to access the value of <code>numberOfEmployee</code> from the <code>company</code> object in the code editor. Create a variable 
+            <code>employeeCount</code> and assign the <code>company</code>‘s <code>numberOfEmployee</code> property to it. After that, print to <code>employeeCount</code> with console.log 
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/2v5x40e1/2/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            Again using the dot operator, create a variable <code>employeesArray</code> and assign the <code>company</code>‘s <code>employees</code> property to it. 
+            After that, print to <code>employeesArray</code> with console.log 
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/a6nvo59j/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
