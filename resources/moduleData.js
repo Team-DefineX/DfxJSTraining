@@ -183,19 +183,19 @@ export const modules = [
     steps: [
       {
         name: "What is the EcmaScript?",
-        time: "20mins",
-      },
-      {
-        name: "ES5-ES6",
         time: "10mins",
       },
       {
+        name: "ES6 Modules",
+        time: "20mins",
+      },
+      {
         name: "PolyFills",
-        time: "14mins",
+        time: "10mins",
       },
       {
         name: "Other Versions",
-        time: "16mins",
+        time: "20mins",
       },
     ],
   },
