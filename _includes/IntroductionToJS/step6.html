@@ -1,10 +1,11 @@
 <p align="justify">
-    This lesson explain you, How to declare JavaScript constants. JavaScript <code>const</code> statement to declare a constant variable with a value. As per ECMA specification constant variable scope to the nearest enclosing block. 
-    By the way, The const keyword was also introduced in ES6, and is short for the word constant.
+    This section mentions how to declare JavaScript constants. 
+    <br>
+    A constant variable with a value is declared using the const statement in JavaScript. By the way, the keyword const, which stands for constant, was introduced in ES6.
 </p>
 <br>
 <p align="justify">
-    If you’re trying to decide between which keyword to use, let or const, think about whether you’ll need to reassign the variable later on. If you do need to reassign the variable use let, otherwise, use const.
+    If you're not sure whether to use the let or const keyword, think about whether you'll need to change the value of the variable later. If you need to change the variable's value, use let. If not, use const.    
 </p>
     <pre>
     <code class="javascript">
@@ -23,16 +24,18 @@
         <strong>value:</strong> Required, Initializing constant value.
     </li>
 </ul>
-<p>
-    Shorthand style, you can declare a one or more constant in single statement separated by comma.
+<p align="justify">
+    You can declare one or more constants in single statement separated by a comma.
 </p>
     <pre>
     <code class="javascript">
     const con1 = val1, con2 = val2, ..., conN = valN;
     </code>
     </pre>
-<p>
-    Constant variables <em>must</em> be assigned a value when declared.  If you try to declare a <code>const</code> variable without a value, you’ll get a <code>SyntaxError</code>. 
+<p align="justify">
+    Constant variables must be assigned a value when declared. If you try to declare a <code>const</code> variable without a value, you’ll get a <code>SyntaxError</code>.
+    <br>
+    Constant variables must be initialized with a value. You will receive a SyntaxError if you attempt to declare a constant variable without a value.
 </p>
     <pre>
     <code class="javascript">
@@ -50,7 +53,7 @@
     </pre>
 
 <p>
-    However, a <code>const</code> variable cannot be reassigned because it is <em>constant</em>. If you try to reassign a <code>const</code> variable, you’ll get a <code>TypeError</code>.
+    Const variables cannot be reassigned because they are constant. Attempting to reassign a const variable will result in a <code>TypeError</code>.
 </p>
     
     <pre>
@@ -102,7 +105,7 @@
   <div>
     <h5>#1</h5>
     <p align="justify">
-        Create a constant variable named <strong>pi</strong> and set it to equal to the string <strong>3.14159</strong>.
+        Create a <code>constant</code> variable called <strong>pi</strong> and assign its value to the string <strong>3.14159</strong>.
     </p>
   </div>
   <br>
@@ -119,7 +122,7 @@
   <div>
     <h5>#2</h5>
     <p align="justify">
-        Just to check that you’ve saved the value of 3.14159 to pi, log the value of entree to the console.
+        Print the value of entree to the console to ensure that the value <strong>3.14159</strong> has been saved to <strong>pi</strong>.
     </p>
   </div>
   <br>
@@ -136,7 +139,7 @@
     <div>
       <h5>#3</h5>
       <p align="justify">
-          Reassign a new value to a constant variable called <strong>pi</strong> and then let’s see what happens if you try to reassign a constant variable.
+        Let's try reassigning a new value to a constant variable called <strong>pi</strong> and see what happens.
       </p>
     </div>
     <br>

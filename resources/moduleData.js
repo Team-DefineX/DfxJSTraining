@@ -39,7 +39,7 @@ export const modules = [
     steps: [
       {
         name: "Introduction to JS",
-        time: "10mins",
+        time: "15mins",
       },
       {
         name: "Where to Put",

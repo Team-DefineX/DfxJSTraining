@@ -1,27 +1,28 @@
 <p align="justify">
-    This lesson explain you, How to declare JavaScript variable. JavaScript var statement to declare a variables that are scoped to the nearest function block. Another word we can say function scope variable.
+    This section discusses how to declare variables in JavaScript. The var statement in JavaScript is used to declare variables that are scoped to the closest function block.
 </p>
 <br>
 <p align="justify">
-    If you don't assign variable's value at declaration time, JavaScript automatically assigns the undefined value.
+    JavaScript will automatically assign an undefined value to a variable if its value is not set at the time of declaration.
 </p>
 <br>
 <p align="justify">
-    You can't use variable before the declaration otherwise gives an error.
+    Variables cannot be used prior to the declaration; otherwise, an error will occur.
 </p>
 <br>
 <p align="justify">
-   <strong>There are a few general rules for naming variables:</strong> 
+   <strong>A few general guidelines for naming variables include:</strong> 
 </p>
 <ul>
     <li>
-        Variable names cannot start with numbers. 
+        The names of variables can never begin with a number.
     </li>
     <li>
-        Variable names are case sensitive, so <code>myName</code> and <code>myname</code> would be different variables. It is bad practice to create two variables that have the same name using different cases.
+        <code>MyName</code> and <code>myname</code> are two separate variables because of the case sensitivity of variable names. Using two variables with the same name but different case is not recommended.
     </li>
     <li>
-        Variable names cannot be the same as <em>keywords</em>. For a comprehensive list of keywords check out <a target="_blank" rel="noopener" class="e14vpv2g1 gamut-xro1w8-ResetElement-Anchor-AnchorBase e1bhhzie0" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">MDN’s keyword documentation</a>.
+        The names of variables and keywords can't be the same. Check out the 
+        <a target="_blank" rel="noopener" class="e14vpv2g1 gamut-xro1w8-ResetElement-Anchor-AnchorBase e1bhhzie0" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">MDN’s keyword documentation</a> for a detailed list of keywords.
     </li>
 </ul>
     <pre>
@@ -42,7 +43,7 @@
     </li>
 </ul>
 <p align="justify">
-    Shorthand style, you can declare a one or more variables in single statement separated by comma.
+    You can declare one or more variables in a single statement separated by a comma.
 </p>
     <pre>
     <code class="javascript">
@@ -50,7 +51,7 @@
     </code>
     </pre>
 <p align="justify">
-    In Strict Mode JavaScript, without var keyword you can't declare and initialize, give an error ReferenceError.
+    Without the var keyword, a variable cannot be declared or initialized in ''Strict Mode JavaScript'' because the system generates an error known as ''a reference error''.
 </p>
     <pre>
     <code class="javascript">
@@ -60,7 +61,7 @@
     </code>
     </pre>
 <p align="justify">
-    One or more variables declare and initialize
+    One or more variables are defined and set to their values.
 </p>
     <pre>
     <code class="javascript">
@@ -68,7 +69,7 @@
     </code>
     </pre>
 <p align="justify">
-    <strong>Variable override:</strong> you can re-assignment the value of the variable.
+    <strong>Variable override:</strong> The variable's value can be reassigned.
 </p>
     <pre>
     <code class="javascript">
@@ -82,7 +83,7 @@
     </code>
     </pre>
 <p align="justify">
-    <strong>var in functional scope:</strong> The following var statement example, quote variable scope within callme() function scope. you can't access quote variable outside of function,
+    <strong>var in functional scope:</strong> In the following var statement example, the scope of the quote variable can be accessed within the scope of the callme() function. The variable cannot be accessed outside of the function:
 </p>
     <pre>
     <code class="javascript">
@@ -96,7 +97,7 @@
     </code>
     </pre>
 <p align="justify">
-    <strong>var in global scope:</strong> Using var keyword to define variable globally. Once you define globally, you can access inside anywhere.
+    <strong>var in global scope:</strong> Since the variable is declared outside of the function, it can be accessed both within and without the function's scope:
 </p>
     <pre>
     <code class="javascript">
@@ -120,7 +121,7 @@
   <div>
     <h5>#1</h5>
     <p align="justify">
-      Declare a variable named yourCompanyName using the var keyword and assign to it the string 'Team DefineX'.
+        Declare a variable called <strong>yourCompanyName</strong> using the var keyword and assign the string <strong>"Team DefineX"</strong> to it.
     </p>
   </div>
   <br>
@@ -137,7 +138,7 @@
   <div>
     <h5>#2</h5>
     <p align="justify">
-      Declare a variable named yourAge using the var keyword and assign to your age.
+        Declare a variable with the name <strong>yourAge</strong> using the var keyword and attribute your age to it.
     </p>
   </div>
   <br>
@@ -154,7 +155,7 @@
     <div>
       <h5>#3</h5>
       <p align="justify">
-        Under the yourCompanyName variable, use console.log() to print the value saved to yourCompanyName. On the following line, use console.log() to print the value saved to yourAge.
+        To print the value stored to <strong>yourCompanyName</strong>, use console.log(). On the next line, use console.log() to print the value saved to <strong>yourAge</strong>.
       </p>
     </div>
     <br>
