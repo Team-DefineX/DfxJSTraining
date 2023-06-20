@@ -178,6 +178,28 @@ export const modules = [
     ],
   },
   {
+    fileName: "ErrorHandling",
+    moduleName: "Error Handling",
+    steps: [
+      {
+        name: "Exception Concepts",
+        time: "20mins",
+      },
+      {
+        name: "Custom Error Creation",
+        time: "20mins",
+      },
+      {
+        name: "Error Handling Chain",
+        time: "10mins",
+      },
+      {
+        name: "Error Types",
+        time: "10mins",
+      },
+    ],
+  },
+  {
     fileName: "ecmaScript",
     moduleName: "JS & EcmaScript 5-6",
     steps: [

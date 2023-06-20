@@ -1,0 +1,83 @@
+<h5>TypeError</h5>
+
+<p>
+    TypeError occurs when a value is incompatible with the expected type. For example, if a function expects a number
+    but receives a string, a TypeError can be thrown.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function multiply(a, b) {
+        if (typeof a !== 'number' || typeof b !== 'number') {
+            throw new TypeError('Two numerical values are expected');
+        }
+
+        return a * b;
+    }
+    
+    multiply('5', 2); // TypeError: Two numerical values are expected
+    </code>
+</pre>
+
+<h5 class="mt-3">RangeError</h5>
+
+<p>
+    RangeError occurs when a value is outside the expected range. For example, if an index outside the valid range is
+    used in a loop, a RangeError can be thrown.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function getIndex(arr, index) {
+        if (index < 0 || index>= arr.length) {
+            throw new RangeError('Invalid index');
+        }
+    
+        return arr[index];
+    }
+    
+    const numbers = [1, 2, 3, 4, 5];
+    getIndex(numbers, 10); // RangeError: Invalid index
+    </code>
+</pre>
+
+<h5 class="mt-3">SyntaxError</h5>
+
+<p>
+    SyntaxError occurs when invalid JavaScript syntax is used. For example, using an undeclared variable or having an
+    unclosed parenthesis can result in a SyntaxError.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    console.log(undeclaredVariable); // SyntaxError: Undeclared variable
+    
+    if (condition {
+        // SyntaxError: Unclosed parenthesis
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">Reference Error</h5>
+
+<p>
+    A ReferenceError is an error that occurs when you try to access or reference a variable or identifier that has not
+    been declared or is out of scope. It typically happens when you use a variable that has not been defined or when you
+    mistype a variable name.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    let x = 5;
+    try {
+        x = y + 1; // Here, 'y' is not declared or defined
+    } catch (err) {
+        console.log(err.name); // ReferenceError: y is not defined
+    }
+    </code>
+</pre>
+
+<p>
+    These error types help in identifying and handling specific kinds of errors, allowing for better error management
+    and debugging in your JavaScript code.
+</p>

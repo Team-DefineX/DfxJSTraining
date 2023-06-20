@@ -1,0 +1,136 @@
+<p>
+    Error handling chain is a method used to handle errors and perform specific actions for different scenarios by using
+    multiple catch blocks consecutively. This allows you to manage errors more effectively and make your code more
+    flexible.
+</p>
+
+<p>
+    In JavaScript, the error handling chain is used as follows:
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+        // Code that might throw an error
+    } catch (error1) {
+        // First catch block
+    } catch (error2) {
+        // Second catch block
+    } finally {
+        // Block that always executes
+    }
+    </code>
+</pre>
+
+
+<p>
+    The error handling chain is beneficial when dealing with complex error situations. For instance, it allows you to
+    take different actions depending on the type of error encountered or manage errors at specific levels. By utilizing
+    separate catch blocks for different error types, you can enhance the organization and readability of your code.
+</p>
+
+<p>
+    Example: Database Connection
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+        // Opening the database connection
+        openDatabaseConnection();
+        
+        // Performing database operations
+        performDatabaseOperations();
+    } catch (error) {
+        if (error instanceof ConnectionError) {
+            // Database connection error
+            handleConnectionError(error);
+        } else if (error instanceof QueryError) {
+            // Database query error
+            handleQueryError(error);
+        } else {
+            // Other types of errors
+            handleOtherErrors(error);
+        }
+    } finally {
+        // Closing the database connection
+        closeDatabaseConnection();
+    }
+    </code>
+</pre>
+
+<p>
+    Example: File Operations
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+        // File reading operation
+        readFile();
+    } catch (error) {
+        if (error instanceof ReadError) {
+            // File reading error
+            handleReadError(error);
+        } else if (error instanceof WriteError) {
+            // File writing error
+            handleWriteError(error);
+        } else if (error instanceof DeleteError) {
+            // File deletion error
+            handleDeleteError(error);
+        } else {
+            // Other types of errors
+            handleOtherErrors(error);
+        }
+    } finally {
+        // Releasing file resources
+        releaseFileResources();
+    }
+    </code>
+</pre>
+
+<p>
+    By using the error handling chain, you can handle errors more efficiently and create a more robust error management
+    system in your code.
+</p>
+
+<!--
+
+<h4 class="d-flex mt-3">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <p>
+            You are required to implement error handling while performing a file upload operation in a web application.
+            Based on the
+            following scenario, you need to securely handle the file upload process and appropriately manage potential
+            errors:
+        </p>
+        <ol>
+            <li>Retrieve the selected file information from the user.</li>
+            <li>Validate the file type. Only specific file types should be allowed (e.g., image files: jpg, png).</li>
+            <li>Check the file size. If the file size exceeds a certain limit, throw an error.</li>
+            <li>Upload the file to the server.</li>
+            <li>Display a success message to the user when the file is uploaded successfully.</li>
+        </ol>
+        <p class="mt-3">Expected Output:</p>
+        <pre>
+            <code class="javascript">
+    * If the file type is invalid, display an error message as "Invalid file type!".
+    * If the file size exceeds a certain limit, display an error message as "File size is too large!".
+    * When the file is successfully uploaded, display a success message as "File uploaded successfully!".
+            </code>
+        </pre>
+    </div>
+    <button class="solution-btn mt-3">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/1f893pky/2/embedded/js,result/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+-->
