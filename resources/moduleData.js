@@ -85,39 +85,43 @@ export const modules = [
     steps: [
       {
         name: "Introduction to Objects",
-        time: "5mins",
+        time: "3mins",
       },
       {
         name: "JavaScript Objects",
-        time: "10mins",
+        time: "7mins",
       },
       {
         name: "Accessing Properties",
-        time: "7mins",
+        time: "5mins",
       },
-      {
+      { 
         name: "Bracket Notation",
-        time: "7mins",
-      },
-      {
-        name: "Property Assignment",
-        time: "7mins",
+        time: "5mins",
       },
       {
         name: "Methods",
         time: "7mins",
       },
       {
-        name: "Nested Objects",
-        time: "7mins",
+        name: "Properties",
+        time: "10mins",
       },
       {
-        name: "Getter and Setter",
+        name: "Nested Objects",
+        time: "5mins",
+      },
+      {
+        name: "this",
         time: "10ins",
       },
       {
         name: "Prototype",
         time: "10ins",
+      },
+      {
+        name: "Arrow Function",
+        time: "5ins",
       },
     ],
   },

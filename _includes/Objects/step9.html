@@ -1,1 +1,383 @@
-<h1>step9</h1>
+<h4>
+    Neden Prototype’e İhtiyacımız Var ?
+</h4>
+Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
+<pre>
+    <code class="javascript">
+    let car = {}
+    car.brand = 'Volkswagen'
+    car.hasElectricModels = true
+    car.headquartered = 'Wolfsburg'
+    car.numberOfEmployee = 5400
+
+    car.getheadquarteredInfo = function() {
+        console.log(`${this.brand} headquartered is ${this.headquartered}`)
+    }
+
+    car.getNumberOfEmployeeInfo = function() {
+        console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+    }
+    </code>
+</pre> 
+<p align="justify">
+    Bu ihtiyacımızı görür fakat birden çok car nesnesine ihtiyacımız olduğu senaryoyu düşünelim. Muhtemelen bu işi yapması için bir fonksiyon yazardık.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        let car = {}
+        car.brand = brand
+        car.hasElectricModels = hasElectricModels
+        car.headquartered = headquartered
+        car.numberOfEmployee = numberOfEmployee
+
+        car.getheadquarteredInfo = function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`)
+        }
+
+        car.getNumberOfEmployeeInfo = function() {
+            console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+        }
+
+        return car
+    }
+
+    var car = Car('Volkswagen', true, 'Wolfsburg', 5400)
+
+    console.log(car)
+    </code>
+</pre> 
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code>
+    {
+        brand: "Volkswagen",
+        getheadquarteredInfo: function() {
+                  console.log(`${this.brand} headquartered is ${this.headquartered}`)
+              },
+        getNumberOfEmployeeInfo: function() {
+                  console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+              },
+        hasElectricModels: true,
+        headquartered: "Wolfsburg",
+        numberOfEmployee: 5400
+    }   
+    </code>
+</pre>
+<p align="justify">
+    Bu güzel ama bunu yapmak için doğru yol bu mu?
+</p>
+<br>
+<p align="justify">
+    Eğer milyonlarca <code>car</code> nesnesine ihtiyacınız olursa bu fonksiyonu kullanmak iyi bir fikir değil çünkü her nesne için hafızada <code>getheadquarteredInfo()</code> ve <code>getNumberOfEmployeeInfo()</code> fonksiyonları oluşacak bu da hafızayı 
+    gereksiz yere harcamaktan başka bir şey değil.
+</p>
+<br>
+<p>
+    Bunun yerine <code>car</code> fonksiyonunda yazdığımız fonksiyonları bir kez oluşturup fonksiyonun içerisinde bu fonksiyonlara referans verirsek <code>getheadquarteredInfo()</code> ve <code>getNumberOfEmployeeInfo()</code> fonksiyonları hafızada her 
+    seferinde yeniden oluşmak yerine bir kere oluşur.
+</p>
+<pre>
+    <code class="javascript">
+    const CarMethods = {
+        getheadquarteredInfo : function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`)
+        },
+        getNumberOfEmployeeInfo : function() {
+            console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+        }
+    }
+
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        let car = {}
+        car.brand = brand
+        car.hasElectricModels = hasElectricModels
+        car.headquartered = headquartered
+        car.numberOfEmployee = numberOfEmployee
+
+        car.getheadquarteredInfo = CarMethods.getheadquarteredInfo
+        car.getNumberOfEmployeeInfo = CarMethods.getNumberOfEmployeeInfo
+
+        return car
+    }
+
+    var car = Car('Volkswagen', true, 'Wolfsburg', 5400)
+
+    console.log(car)
+    </code>
+</pre> 
+<p>
+   <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    {
+        brand: "Volkswagen",
+        getheadquarteredInfo: function() {
+                  console.log(`${this.brand} headquartered is ${this.headquartered}`)
+              },
+        getNumberOfEmployeeInfo: function() {
+                  console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+              },
+        hasElectricModels: true,
+        headquartered: "Wolfsburg",
+        numberOfEmployee: 5400
+    }
+    </code>
+</pre>
+<p align="justify">
+    Ancak bu yöntemin de bazı dezavantajları vardır. Ne olduğunu tahmin edebilir misiniz? Ben açıklamadan önce bir düşünün. 
+</p>
+<br>
+<p align="justify">
+    Diyelim ki daha sonradan <code>Car</code> nesnesine bir fonksiyon ekleme ihtiyacı duydunuz. Bu durumda, önce <code>CarMethods</code>‘a fonksiyonumuzu ekler sonrada <code>Car</code> fonksiyonundan tekrar referansını alırdık.
+</p>
+<br>
+<pre>
+    <code class="javascript">
+    const CarMethods = {
+        getheadquarteredInfo : function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`)
+        },
+        getNumberOfEmployeeInfo : function() {
+            console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+        },
+        getCompanyInfo : function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered} and has ${this.numberOfEmployee} employee`)
+        }
+    }
+
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        let car = {}
+        car.brand = brand
+        car.hasElectricModels = hasElectricModels
+        car.headquartered = headquartered
+        car.numberOfEmployee = numberOfEmployee
+
+        car.getheadquarteredInfo = CarMethods.getheadquarteredInfo
+        car.getNumberOfEmployeeInfo = CarMethods.getNumberOfEmployeeInfo
+        car.getCompanyInfo = CarMethods.getCompanyInfo
+
+        return car
+    }
+
+    var car = Car('Volkswagen', true, 'Wolfsburg', 5400)
+
+    console.log(car)
+    </code>
+</pre> 
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    {
+        brand: "Volkswagen",
+        getCompanyInfo: function() {
+                  console.log(`${this.brand} headquartered is ${this.headquartered} and has ${this.numberOfEmployee} employee`)
+              },
+        getheadquarteredInfo: function() {
+                  console.log(`${this.brand} headquartered is ${this.headquartered}`)
+              },
+        getNumberOfEmployeeInfo: function() {
+                  console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+              },
+        hasElectricModels: true,
+        headquartered: "Wolfsburg",
+        numberOfEmployee: 5400
+    }
+    </code>
+</pre>
+<p align="justify">
+    Bu büyük bir sorun değil fakat bu gibi değişiklikleri yapabileceğimiz ve bu değişikliklerin tüm instance lara yansıtılacağı ortak bir yerin olması elbette güzel olurdu. İşte Javascriptte <strong>Prototype</strong>ların devreye girdiği yer burasıdır.
+</p>
+<br>
+<h3>
+    Prototype
+</h3>
+<p align="justify">
+    <code>Prototype</code> temel olarak javascriptte bir fonksiyonun özelliği(Property) dir. Javascriptte bir fonksiyon oluşturduğumuzda javascript motoru fonksiyona otomatik olarak <code>Prototype</code> adında bir özellik(Property) ekler. 
+    Bu prototype özelliği bir nesnedir ve bu nesne de <code>constructor</code> adında <code>property</code> e sahiptir. Bu constructor <code>property</code>si oluşturulan fonksiyona işaret eder aşağıdaki resimde görüldüğü gibi.
+</p>
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/objectprototype.png"> </object>
+</div>
+<p align="justify">
+    Prototype özelliği ise bahsettiğimiz prototip nesnesine işaret eder.
+</p>
+<br>
+<p align="justify">
+    Fonksiyonun prototip özelliğine <code>functionName.prototype</code> sözdizimini kullanarak erişebiliriz. Ve bir fonksiyonun <code>Prototype</code> nesnesinden, <code>functionName.prototype.constructor</code> ile fonksiyon nesnesine 
+    tekrar erişebiliriz. Hala kafanız karıştıysa bunu anlamak için birkaç kod yazalım.
+</p>
+<br>
+<h3>
+    Constructor Fonksiyonları Kullanarak Nesnelere Oluşturmak
+</h3>
+<p align="justify">
+    Şimdi name ve age olmak üzere iki adet parametre alan <code>constructor</code> fonksiyonumuzu ve bu fonksiyonun 
+    <code>prototype</code> nesnesini konsola yazdıralım.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        this.brand = brand
+        this.hasElectricModels = brand
+        this.headquartered = headquartered
+        this.numberOfEmployee = numberOfEmployee
+    }
+
+    console.log(Car.prototype)
+    </code>
+</pre>
+<p align="justify">
+    Aşağıdaki gibi bir çıktı göreceksiniz.
+</p>
+<br> 
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/objectprototype2.png"> </object>
+</div>
+<p align="justify">
+    Görüldüğü gibi <code>console.log(Car.prototype)</code> ile fonksiyonumuzun prototype nesnesine ulaştık ve bu nesnenin söylediğim gibi bir <code>constructor</code> özelliği bulunuyor. Şimdilik <code>__proto__</code> 
+    özelliğini kafanıza takmayın. Şimdi ise konsolumuza <code>console.log(Car.prototype.constructor)</code>'ı yazdıralım. 
+</p>
+<br>
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/objectprototype3.png"> </object>
+</div>
+<br>
+<p align="justify">
+    Bir fonksiyon oluşturduğumuzda javascript motoru fonksiyona prototype adında bir property oluşturur bu property ile fonksiyonun prototip nesnesine ulaşırız bu nesnenin içerisinde de constructor adında bir property daha vardır bu 
+    property ise fonksiyona işaret eder. şimdi ise bu anlattıklarımızı kanıtlayalım.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        this.brand = brand
+        this.hasElectricModels = brand
+        this.headquartered = headquartered
+        this.numberOfEmployee = numberOfEmployee
+    }
+
+    console.log(Car.prototype.constructor === Car)
+    console.log(Car.prototype === Car.prototype.constructor.prototype)
+    </code>
+</pre>
+<p align="justify">
+    Burada ilk logumuzda beklediğimiz sonuç <code>Car</code> fonksiyonumuzun <code>prototype</code> nesnesinde bulunan <code>constructor property</code> sinin bizi tekrar <code>Car</code> fonksiyonuna getirmesi, ikinci logda ise <code>Car</code> 
+    fonksiyonunun <code>prototype</code> nesnesindeki <code>constructor propertysi</code> fonksiyonumuza geri işaret ediyor o zaman constructorun prototype'ı <code>Car.prototype</code>'a eşit olmalı.
+</p>
+<br>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    true
+    true
+    </code>
+</pre>
+<p align="justify">
+    Şimdi ise daha önce bahsettiğimiz sorun için Prototype kullanalım.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+        this.brand = brand
+        this.hasElectricModels = brand
+        this.headquartered = headquartered
+        this.numberOfEmployee = numberOfEmployee
+    }
+
+    Car.prototype.getCompanyInfo = function() {
+        console.log(`${this.brand} headquartered is ${this.headquartered} and has ${this.numberOfEmployee} employee`)
+    }
+
+    Car.prototype.getheadquarteredInfo = function() {
+        console.log(`${this.brand} headquartered is ${this.headquartered}`)
+    }
+
+    Car.prototype.getNumberOfEmployeeInfo = function() {
+        console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+    }
+
+    const car = new Car('Volkswagen', true, 'Wolfsburg', 5400)
+
+    console.log(car)
+    </code>
+</pre> 
+<p align="justify">
+    Yeni bir <code>Car</code> nesnesi oluşturup onu konsola loglayalım.
+</p>
+<br>
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/objectprototype4.png"> </object>
+</div>
+<br>
+<p align="justify">
+    Peki ya metodlarımız nerde? Onları <code>prototype</code> nesnesine eklemiştik. Ancak <code>car</code> 
+    nesnemizde görünmüyor fakat orada başka birşey var <code>__proto__</code> ne olduğuna bakalım.
+</p>
+<br>
+<div style="display: block; margin: auto; text-align: center">
+    <object data="/_includes/images/objectprototype5.png"> </object>
+</div>
+<br>
+<p align="justify">
+    Metodlarımız burada. Görünen o ki <code>__proto__</code> özelliği <code>prototype</code> nesnesine işaret ediyor.
+    <strong>Javascirpt</strong>, bir instance oluşturduğumzda ona <code>__proto__</code> adında prototype nesnesine 
+    işaret eden bir özellik ekler. 
+</p>
+<br>
+<p align="justify">
+    Eğer konunun başından beri anlattığımız şey doğruysa yani <code>__proto__</code> özelliği <code>prototype</code> 
+    nesnesine işaret ediyorsa onu genişlettiğimizde metotları görüyor olmalıyız.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, hasElectricModels, headquartered, numberOfEmployee) {
+         this.brand = brand
+         this.hasElectricModels = brand
+         this.headquartered = headquartered
+         this.numberOfEmployee = numberOfEmployee
+     }
+ 
+     Car.prototype.getCompanyInfo = function() {
+         console.log(`${this.brand} headquartered is ${this.headquartered} and has ${this.numberOfEmployee} employee`)
+     }
+ 
+     Car.prototype.getheadquarteredInfo = function() {
+         console.log(`${this.brand} headquartered is ${this.headquartered}`)
+     }
+ 
+     Car.prototype.getNumberOfEmployeeInfo = function() {
+         console.log(`${this.brand} has ${this.numberOfEmployee} employee`)
+     }
+ 
+     const car = new Car('Volkswagen', true, 'Wolfsburg', 5400)
+ 
+     console.log(Car.prototype === car.__proto__)
+    </code>
+</pre> 
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    true
+    </code>
+</pre> 
+<p align="justify">
+    Son olarak Prototype konusunu özetlmek gerekirse;
+</p>
+<br>
+<p align="justify">
+    Bir fonksiyon oluşturduğumuzda <strong>javascript</strong> motoru otomatik olarak o fonksiyon için bir <code>Prototype</code> nesnesi oluşturur ve fonksiyona o nesneye erişmek için kullanabilecek bir <code>prototype</code> özelliği ekler 
+    ve <code>prototype</code> nesnesi içerisine de <code>constructor</code> adında bir özellik ekler bu da fonksiyona işaret eder.
+</p>
+<br>
+<p align="justify">
+    <code>Constructor</code> fonksiyondan bir instance oluşturduğumuzda ise bu instance <code>__proto__</code> adında bir özellik eklenir ve bu özellik fonksiyonun <code>prototype</code> nesnesine işaret eder.
+</p>

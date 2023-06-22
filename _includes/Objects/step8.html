@@ -1,0 +1,242 @@
+<p align="justify">
+    we’re going to learn about the JavaScript keyword this and how the value of this is assigned in different scenarios.
+</p>
+<br>
+<p align="justify">
+    Objects are the basic building blocks in JavaScript. There’s one special object available in JavaScript, the
+    <code>this</code> object. You can see the value of <code>this</code> at every line
+    of JavaScript execution. The value of <code>this</code> is decided based on how the code is being executed.
+</p>
+<br>
+<h4>
+    “this” Refers to a Global Object
+</h4>
+<p align="justify">
+    By default, the execution context for an execution is global — which means if a code is being executed as part of a
+    simple function call, then this refers to a global object.
+</p>
+<br>
+<p align="justify">
+    The window object is the global object in the case of the browser. And in a NodeJS environment, a special object
+    called global will be the value of this.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+<pre>
+    <code class="javascript">
+    function myFunc () {
+        console.log(this === window); 
+    }
+    
+    myFunc();	// true
+    console.log(this === window) // true
+    </code>
+</pre>
+<h4>
+    Immediately Invoked Function Expression (IIFE)
+</h4>
+<pre>
+    <code class="javascript">
+    (function(){
+        console.log("Anonymous function invocation");
+        console.log(this === window); // true
+    })();
+    </code>
+</pre>
+<p align="justify">
+    If strict mode is enabled for any function, then the value of <code>this</code> will be marked as <code>undefined</code> as in strict mode. 
+    The global object refers to <code>undefined</code> in place of the windows object.
+</p>
+<br>
+<pre>
+    <code class="javascript">
+    function myFunc () {
+        'use strict';
+        console.log(this === window); 
+    }
+    
+    myFunc();	//prints false on console as in “strict mode” value of “this” in global execution context is undefined.
+    </code>
+</pre>
+<p align="justify">
+    <code>myFunc();</code> prints false into the console since in strict mode the value of <code>this</code> in a global-execution context is <code>undefined</code>.
+</p>
+<br>
+<h4>
+    “this” Refers to a New Instance
+</h4>
+<p align="justify">
+    When a function is invoked with the <code>new</code> keyword, then the function is known as a constructor function and returns a new instance. In such cases, 
+    the value of <code>this</code> refers to a newly created instance.
+</p>
+<br>
+<pre>
+    <code class="javascript">
+    function Car(brand, headquartered) {
+        this.brand = brand;
+        this.headquartered = headquartered;
+    
+        this.companyInfo = function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`);
+        }
+    }
+    
+    let car = new Car("Volkswagen", "Wolfsburg");
+    car.companyInfo();  // Volkswagen headquartered is Wolfsburg
+    let car2 = new Car("Mercedes", "Stuttgart");
+    car2.companyInfo();  // "Mercedes headquartered is Stuttgart"
+    </code>
+</pre>
+<p align="justify">
+    In the case of <code>car.companyInfo</code>, this refers to a new instance <code>car</code>, and in case of <code>car2.companyInfo()</code>, 
+    <code>this</code> refers to <code>car2</code> (which is a different instance than <code>car</code>).
+</p>
+<br>
+<h4>
+    “this” Refers to an Invoker Object (Parent Object)
+</h4>
+<p align="justify">
+    In JavaScript, the property of an object can be a method or a simple value. When an object’s method is invoked, then <code>this</code> refers to the object which 
+    contains the method being invoked.
+</p>
+<br>
+<p align="justify">
+    In this example, we’re going to use the method <code>myFunc</code> as defined in the first example.
+</p>
+<pre>
+    <code class="javascript">
+    function companyInfo () {
+        'use strict';
+        console.log(this === window); 
+    }
+    
+    let car = {
+        numberOfEmployee: 5400,
+        companyInfo: companyInfo,
+        companyInfo1: function() {
+            console.log(this === window);
+        }
+    }
+    
+    car.companyInfo()  // Prints false because now “this” refers to user object instead of global object.
+    let companyInfo1 = car.companyInfo1;
+    companyInfo1() // Prints true as this method is invoked as a simple function.
+    car.companyInfo1()  // Prints false on console as companyInfo1 is invoked as a object’s method
+    </code>
+</pre>
+<p align="justify">
+    <code>car.companyInfo()</code> prints false because now <code>this</code> refers to the <code>car</code>"" object instead of the global object.
+</p>
+<br>
+<p>
+    The function definition of <code>companyInfo1</code> is the same, but when it’s being called as a simple function call, then <code>this</code> refers to a global object. 
+    And when the same definition is invoked as an object’s method, then <code>this</code> refers to the parent object. So the value of this depends on how a method is being invoked.
+</p>
+<br>
+<h4>
+    “this” With the Call and Apply Methods
+</h4>
+<p align="justify">
+    A function in JavaScript is also a special type of object. Every function has <code>call</code>, <code>bind</code>, and  <code>apply</code> methods. These methods can be used to set a 
+    custom value to <code>this</code> in the execution context of the function.
+</p>
+<br>
+<p align="justify">
+    We’re going to use the second example defined above to explain the use of <code>call</code>:
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, headquartered) {
+        this.brand = brand;
+        this.headquartered = headquartered;
+    
+        this.companyInfo = function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`);
+        }
+    }
+    
+    let car = new Car("Volkswagen", "Wolfsburg");
+    car.companyInfo();  // Volkswagen headquartered is Wolfsburg
+    let car2 = new Car("Mercedes", "Stuttgart");
+    car2.companyInfo();  // "Mercedes headquartered is Stuttgart"
+    
+    car.companyInfo.call(car2); // Here we are setting value of this to be car2 object
+    // Prints "Mercedes headquartered is Stuttgart"
+    </code>
+</pre>
+<p>
+    The only difference between the <code>call</code> and <code>apply</code> methods is the way an argument is passed. In the case of <code>apply</code>, the second argument 
+    is an array of arguments,  whereas in the case of the <code>call</code> method, the arguments are passed individually.
+</p>
+<br>
+<h4>
+    “this” With the Bind Method
+</h4>
+<p align="justify">
+    The <code>bind</code> method returns a new method with <code>this</code> referring to the first argument passed. We’re going to use the above example to explain the <code>bind</code> method.
+</p>
+<pre>
+    <code class="javascript">
+    function Car(brand, headquartered) {
+        this.brand = brand;
+        this.headquartered = headquartered;
+    
+        this.companyInfo = function() {
+            console.log(`${this.brand} headquartered is ${this.headquartered}`);
+        }
+    }
+    
+    let car = new Car("Volkswagen", "Wolfsburg");
+    car.companyInfo();  // Volkswagen headquartered is Wolfsburg
+    let car2 = new Car("Mercedes", "Stuttgart");
+    car2.companyInfo();  // "Mercedes headquartered is Stuttgart"
+
+    let car2Display = car.companyInfo.bind(car2);  // Creates new function with value of “this” equals to car2 object
+    car2Display(); // "Mercedes headquartered is Stuttgart"
+    </code>
+</pre>
+<br>
+<h4>
+    “this” With the Arrow Function
+</h4>
+<p align="justify"> 
+    ES6 introduced a new concept called arrow function. In arrow functions, JavaScript sets the <code>this</code> lexically.
+</p>
+<br>
+<p align="justify">
+    It means the arrow function does not create its own execution context but inherits the <code>this</code> from the outer function where the arrow function is defined. 
+    See the following example:
+</p>
+<pre>
+    <code class="javascript">
+    let getThis = () => this;
+    console.log(getThis() === window); // true
+    </code>
+</pre>
+<p align="justify">
+    In this example, the <code>this</code> value is set to the global object i.e., <code>window</code> in the web browser.
+</p>
+<br>
+<p align="justify">
+    Since an arrow function does not create its own execution context, defining a method using an arrow function will cause an issue. For example:
+</p>
+<pre>
+    <code class="javascript">
+    function Car() {
+        this.brand = 'Volkswagen';    
+    }
+
+    Car.prototype.getheadquartered = () => {
+      return this.headquartered;
+    };
+      
+    var car = new Car();
+    console.log(car.getheadquartered()); // undefined
+    </code>
+</pre>
+<p align="justify">
+    Inside the <code>getheadquartered()</code> method, the <code>this</code> value reference the global object, not the <code>Car</code> object but the global object doesn’t have a property called 
+    headquartered. Therefore, the <code>this.headquartered</code> in the <code>getheadquartered()</code> method returns <code>undefined</code>.
+</p>
