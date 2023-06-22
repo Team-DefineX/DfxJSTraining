@@ -1,0 +1,159 @@
+<p align="justify">
+    Arrow functions are a clear and concise method of writing normal/regular Javascript functions in a more accurate and shorter way. Arrow functions were introduced in the ES6 version. 
+    They make our code more structured and readable.
+</p>
+<br>
+<p align="justify">
+    Arrow functions are anonymous functions i.e. they are functions without a name and are not bound by an identifier. Arrow functions do not return any value and can be declared without 
+    the function keyword. They are also called Lambda Functions.
+</p>
+<br>
+<p align="justify">
+    It looks like this:
+</p>
+<pre>
+    <code class="javascript">
+    let func = (arg1, arg2, ..., argN) => expression;
+    </code>
+</pre>
+<p align="justify">
+    This creates a function <code>func</code> that accepts arguments <code>arg1..argN</code>, then evaluates the expression on the right side with their use and returns its result.
+</p>
+<br>
+<p align="justify">
+    In other words, it’s the shorter version of:
+</p>
+<pre>
+    <code class="javascript">
+    let func = function(arg1, arg2, ..., argN) {
+        return expression;
+    };
+    </code>
+</pre>
+<p align="justify">
+    Let’s see a concrete example:
+</p>
+<pre>
+    <code class="javascript">
+    let sum = (a, b) => a + b;
+    /* This arrow function is a shorter form of:
+    
+    let sum = function(a, b) {
+      return a + b;
+    };
+    */
+    
+    alert( sum(1, 2) ); // 3
+    </code>
+</pre>
+<p align="justify">
+    As you can see, <code>(a, b) => a + b</code> means a function that accepts two arguments named  <code>a</code> and <code>b</code>. Upon the execution, it evaluates the expression <code>a + b</code> and returns the result.
+</p>
+<br>
+<p align="justify">
+    <strong>#1</strong> If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+<pre>
+    <code class="javascript">
+    let double = n => n * 2;
+    // roughly the same as: let double = function(n) { return n * 2 }
+    
+    alert( double(3) ); // 6
+    </code>
+</pre>
+<p align="justify">
+    <strong>#2</strong> If there are no arguments, parentheses are empty, but they must be present:
+</p>
+<pre>
+    <code class="javascript">
+    let sayHi = () => alert("Hello!");
+    
+    sayHi();
+    </code>
+</pre>
+<p align="justify">
+    Arrow functions can be used in the same way as Function Expressions.
+</p>
+<br>
+<p align="justify">
+    For instance, to dynamically create a function:
+</p>
+<pre>
+    <code class="javascript">
+    let age = 18;
+    
+    let welcome = (age < 18) ?
+      () => alert('Hello!') :
+      () => alert("Greetings!");
+    
+    welcome();
+    </code>
+</pre>
+<p align="justify">
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Greetings!
+    </code>
+</pre>
+<h4>
+    Multiline arrow functions
+</h4>
+<p align="justify">
+    The arrow functions that we’ve seen so far were very simple. They took arguments from the left of =>, evaluated and returned the right-side expression with them.
+</p>
+<br>
+<p align="justify">
+    Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that 
+    curly braces require a return within them to return a value (just like a regular function does).
+</p>
+<pre>
+    <code class="javascript">
+    let sum = (a, b) => {  // the curly brace opens a multiline function
+        let result = a + b;
+        return result; // if we use curly braces, then we need an explicit "return"
+    };
+      
+    alert( sum(1, 2) ); // 3
+    </code>
+</pre>
+<h4>
+    Advantages of Arrow functions:
+</h4>
+<ul>
+    <li>
+        Arrow functions reduce the size of the code
+    </li>
+    <li>
+        The return statement and functional braces are optional for single-line functions
+    </li>
+    <li>
+        It increases the readability of the code
+    </li>
+    <li>
+        Arrow functions provide a lexical this binding, which means that they inherit the value of “this” from the enclosing scope. This feature can be advantageous when dealing with event listeners or 
+        callback functions where the value of “this” can be uncertain
+    </li>
+</ul>
+<h4>
+    Disadvantage of Arrow functions:
+</h4>
+<ul>
+    <li>
+        Arrow functions do not have the prototype property
+    </li>
+    <li>
+        Arrow functions cannot be used with the new keyword
+    </li>
+    <li>
+        Arrow functions cannot be used as constructors
+    </li>
+    <li>
+        These functions are anonymous and it is hard to debug the code
+    </li>
+</ul>

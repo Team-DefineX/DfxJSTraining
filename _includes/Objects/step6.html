@@ -1,0 +1,410 @@
+<p align="justify">
+    Objects have two types of properties: data and accessor properties.
+</p>
+<br>
+<h4>
+    1) Data properties
+</h4>
+<br>
+<p align="justify"> 
+    A data property contains a single location for a data value. A data property has four attributes:
+</p>
+<br>
+<ul>
+    <li>&nbsp;<code>Configurarable</code> – determines whether a property can be redefined or removed via <code>delete</code> operator.</li>
+    <li>&nbsp;<code>Enumerable</code> – indicates if a property can be returned in the <code>for...in</code> loop.</li>
+    <li>&nbsp;<code>Writable</code> – specifies that the value of a property can be changed.</li>
+    <li>&nbsp;<code>Value</code> – contains the actual value of a property.</li>
+</ul>
+<p align="justify">
+    By default, the <code>Configurable</code>, <code>Enumerable</code>and <code>Writable</code> attributes set to <code>true</code> for all properties defined directly on an object. The default value of the<code>Value</code> attribute is <code>undefined</code>.
+</p>
+<br>
+<p align="justify">
+    The following example creates a <code>car</code> object with two properties <code>'Car Brand'</code>, 
+    <code>headquartered</code> and <code>numberOfEmployee</code> with the <code>configurable</code>, 
+    <code>enumerable</code>, and  <code>writable</code> attributes set to <code>true</code>. And their values 
+    are set to <code>'Volkswagen'</code>, <code>'Wolfsburg'</code> and <code>5400</code> respectively:
+</p>
+<pre>
+    <code class="javascript">
+    let car = {
+        'Car Brand': 'Volkswagen',
+        headquartered: 'Wolfsburg',
+        numberOfEmployee: 5400
+    }
+    </code>
+</pre>
+<p align="justify">
+    To change any attribute of a property, you use the <code>Object.defineProperty()</code> method.
+</p>
+<br>
+<p align="justify">
+    The <code>Object.defineProperty()</code> method accepts three arguments:
+</p>
+<br>
+<ul>
+    <li>
+        An object.
+    </li>
+    <li>
+        A property name of the object.
+    </li>
+    <li>
+        A property descriptor object that has four properties: <code>configurable</code>, <code>enumerable</code>, 
+        <code>writable</code>, and <code>value</code>.
+    </li>
+</ul>
+<p align="justify">
+    If you use the <code>Object.defineProperty()</code> method to define a property of the object, the default 
+    values of <code>Configurable</code>, <code>Enumerable</code>, and <code>Writable</code> are set to 
+    <code>false</code> unless otherwise specified.
+</p>
+<br>
+<p align="justify"> 
+    The following example creates a <code>car</code> object with the <code>'Car Brand'</code> property:
+</p>
+<pre>
+    <code class="javascript">
+    let car = {};
+    car['Car Brand'] = 'Volkswagen';
+    </code>
+</pre>
+<p align="justify"> 
+    Since the default value of the <code>Configurable</code> attribute is set to <code>true</code>, you can 
+    remove it via the <code>delete</code> operator:
+</p>
+<pre>
+    <code class="javascript">
+    delete car['Car Brand'];
+    
+    console.log(car['Car Brand']); // undefined
+    </code>
+</pre>
+<p align="justify">
+    The following example creates a <code>car</code> object and adds the <code>numberOfEmployee</code> property 
+    to it using the <code>Object.defineProperty()</code> method:
+</p>
+<pre>
+    <code class="javascript">
+    'use strict';
+    
+    let car = {};
+    
+    Object.defineProperty(car, 'numberOfEmployee', {
+        configurable: false,
+        value: 5400
+    });
+    
+    delete car.numberOfEmployee; // TypeError: Cannot delete property 'numberOfEmployee' of #&lt;Object&gt;
+    </code>
+</pre>
+<p align="justify">
+    In this example, the <code>configurable</code> attribute is set to <code>false</code>. Therefore, deleting 
+    the <code>numberOfEmployee</code> property causes&nbsp; an error.
+</p>
+<br>
+<p align="justify">
+    Also, once you define a property as non-configurable, you cannot change it to configurable.
+</p>
+<br>
+<p align="justify">
+    If you use the <code>Object.defineProperty()</code> method to change any attribute other than the writable, 
+    you’ll get an error. or example:
+</p>
+<pre>
+    <code class="javascript">
+    'use strict';
+    
+    let car = {};
+    
+    Object.defineProperty(car, 'numberOfEmployee', {
+        configurable: false,
+        value: 5400
+    });
+    
+    
+    Object.defineProperty(car, 'numberOfEmployee', { // TypeError: Cannot redefine property: numberOfEmployee
+        configurable: true
+    });
+    </code>
+</pre>
+<p align="justify">
+    By default, the <code>enumerable</code> attribute of all the properties defined on an object is 
+    <code>true</code>. It means that you can iterate over all object properties using the <code>for...in</code> 
+    loop like this:
+</p>
+<pre>
+    <code class="javascript">
+    let car = {}
+
+    car.headquartered = 'Wolfsburg'
+    car.numberOfEmployee = 5400
+    
+    for (let property in car) { // "headquartered" "numberOfEmployee"
+        console.log(property)
+    }
+    </code>
+</pre>
+<p align="justify">
+    The following makes the <code>headquartered</code> property non-enumerable by setting the <code>enumerable</code> 
+    attribute to <code>false</code>.
+</p>
+<pre>
+    <code class="javascript">
+    let car = {}
+
+    car.headquartered = 'Wolfsburg'
+    car.numberOfEmployee = 5400
+    
+    Object.defineProperty(car, 'headquartered', {
+        enumerable: false
+    })
+    
+    for (let property in car) { // "numberOfEmployee"
+        console.log(property);
+    }
+    </code>
+</pre>
+<h4>
+    2) Accessor properties
+</h4>
+<br>
+<p align="justify">
+    Similar to data properties, accessor properties also have <code>Configurable</code> and <code>Enumerable</code> 
+    attributes.
+</p>
+<br>
+<p align="justify">
+    But the accessor properties have the <code>Get</code> and <code>Set</code> attributes instead of <code>Value</code> 
+    and <code>Writable</code>.
+</p>
+<br>
+<p align="justify">
+    When you read data from an accessor property, the <code>Get</code> function is called automatically to return 
+    a value. The default return value of the <code>Get</code> function is <code>undefined</code>.
+</p>
+<br>
+<p align="justify">
+    If you assign a value to an accessor property, the <code>Set</code> function is called automatically.
+</p>
+<br>
+<p align="justify">
+    To define an accessor property, you must use the <code>Object.defineProperty()</code> method.  
+    or example:
+</p>
+<pre>
+    <code class="javascript">
+     let car = {
+        'Car Brand': 'Volkswagen',
+        headquartered: 'Wolfsburg',
+        numberOfEmployee: 5400
+    }
+    
+    Object.defineProperty(car, 'companyInfo', {
+        get: function () {
+            return this['Car Brand'] + ' headquartered is ' + this.headquartered + 'and has ' + this.numberOfEmployee + ' employee'
+        },
+        set: function (value) {
+            let parts = value.split(' ');
+            if (parts.length == 3) {
+                this['Car Brand'] = parts[0]
+                this.headquartered = parts[1]
+                this.numberOfEmployee = parts[2]
+            } else {
+                throw 'Invalid name format';
+            }
+        }
+    })
+    
+    console.log(car.companyInfo) // "Volkswagen headquartered is Wolfsburgand has 5400 employee"
+
+    car.companyInfo = "Mercedes Stuttgart 6000"
+		
+    console.log(car.companyInfo) // "Mercedes headquartered is Stuttgart has 6000 employee"
+    </code>
+</pre>
+<h5>
+    Define multiple properties: <code>Object.defineProperties()</code>
+</h5>
+<br>
+<p align="justify">
+    In ES5, you can define multiple properties in a single statement using the <code>Object.defineProperties()</code> 
+    method or example:
+</p>
+<pre>
+    <code class="javascript">
+    var car = {}
+    
+    Object.defineProperties(car, {
+        'Car Brand': {
+            value: 'Volkswagen'
+        },
+        headquartered: {
+            value: 'Wolfsburg'
+        },
+        numberOfEmployee: {
+            value: 5400
+        },
+        companyInfo: {
+            get: function () {
+                return `${this['Car Brand']} headquartered is ${this.headquartered} has ${this.numberOfEmployee} employee`
+            }
+        }
+    })
+    
+    console.log(car.companyInfo); // "Volkswagen headquartered is Wolfsburg has 5400 employee"
+    </code>
+</pre>
+<p align="justify">
+    In this example, we defined three data properties: <code>'Car Brand'</code>, <code>headquartered</code>, 
+    and <code>numberOfEmployee</code>, and one accessor property <code>companyInfo</code> for the <code>car</code> 
+    object.
+</p>
+<br>
+<h4 class="wp-block-heading">
+    JavaScript object property descriptor
+</h4>
+<br>
+<p align="justify">
+    The <code>Object.getOwnPropertyDescriptor()</code> method allows you to get the descriptor object of a property. 
+    The <code>Object.getOwnPropertyDescriptor()</code> method takes two arguments:
+</p>
+<br>
+<ul>
+    <li>
+        An object
+    </li>
+    <li>
+        A property of the object
+    </li>
+</ul>
+<p align="justify"> 
+    It returns a descriptor object that describes a property. The descriptor object has four properties: 
+    <code>configurable</code>, <code>enumerable</code>, <code>writable</code>, and <code>value</code>.
+</p>
+<br>
+<p align="justify">
+    The following example gets the descriptor object of the <code>'Car Brand'</code> property of the 
+    <code>car</code> object in the prior example.
+</p>
+<pre>
+    <code class="javascript">
+    let car = {
+        'Car Brand': 'Volkswagen',
+    };
+    
+    let descriptor = Object.getOwnPropertyDescriptor(car, 'Car Brand');
+    
+    console.log(descriptor);
+    </code>
+</pre>
+<p>
+    Output:
+</p>
+<pre>
+    <code class="javascript">
+    {
+        configurable: true,
+        enumerable: true,
+        value: "Volkswagen",
+        writable: true
+    }
+    </code>
+</pre>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<pre>
+    <code class="javascript">
+    let company = {
+        'Company Name': 'Team DefineX',
+        numberOfEmployee: 5400,
+        headquartered: 'İstanbul',
+        'Has Global Customer': true,
+        employees: ['Gökhan Ertaş', 'Emre Çakır', 'Ozan Avcular', 'İlkay İvrendi'],
+        companyInfo() { 
+            // Write your code here
+        }
+    }
+    </code>
+</pre>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Yukarıda bulunan <code>company</code> objesine propertylerini <code>for...in</code> loop kullanarak console'a yazdırınız.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/0t7zo4xk/4/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+            <br>
+            <strong>Output</strong>
+            <br>
+            <pre>
+            <code class="javascript">
+            "Company Name"
+            "numberOfEmployee"
+            "headquartered"
+            "Has Global Customer"
+            "employees"
+            </code>
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            delete operatörünü kullanarak <code>company</code> objesinin içinde bulunan <code>'Has Global Customer'</code> propertysini siliniz daha sonra <code>for...in</code> loop kullanarak objenin propertylerini console'a yazdırınız.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/fgnhecLu/3/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+            <br>
+            <strong>Output</strong>
+            <br>
+            <pre>
+            <code class="javascript">
+            "Company Name"
+            "numberOfEmployee"
+            "headquartered"
+            "employees"
+            </code>
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#3</h5>
+        <p align="justify">
+            <code>company</code> objesine <code>defineProperty</code> methodunu kullanarak <code>coreValues</code> adında ve <code>configurable</code> özelliği <code>false</code> olan bir property ekleyiniz.
+            Bu property'i <code>delete</code> opertatörü kullanarak silmeye çalışınız ve sonucunu görünüz.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/atx2o9ye/8/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

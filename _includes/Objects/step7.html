@@ -1,0 +1,160 @@
+<p align="justify">
+    In application code, objects are often nested— an object might have another object as a property which in 
+    turn could have a property that’s an array of even more objects!
+</p>
+<br>
+<p align="justify">
+    In our <code>car</code> object, we want a <code>employees</code> object. This will contain all <code>employees</code> 
+    who do work on the company. Each of those <code>employees</code> are objects themselves. They have properties 
+    like <code>name</code>, <code>surname</code> and <code>level</code>, and they each have unique methods based 
+    on their informations. We can also nest other objects in the <code>car</code> such as a <code>administration department</code> 
+    object.
+</p>
+<br>
+<pre>
+    <code class="javascript">
+     let car = {
+        'Car Brand': 'Volkswagen',
+        hasElectricModels: true,
+        headquartered: 'Wolfsburg',
+        numberOfEmployee: 5400,
+        employees : {
+            employee1 : {
+                name : "Gökhan",
+                surname : "Ertaş",
+                level : "Team Leader",
+                employeeInfo() {
+                    console.log(`${this.name} ${this.surname} as a ${this.level}, manages the teams`)
+                }
+            },
+            employee2 : {
+                name : "Emre",
+                surname : "Çakır",
+                level : "Architect",
+                employeeInfo() {
+                    console.log(`${this.name} ${this.surname}, as an ${this.level}, establishes the architecture of the projects.`)
+                }
+            },
+            employee3 : {
+                name : "Ozan",
+                surname : "Avcular",
+                level : "Architect",
+                employeeInfo() {
+                    console.log(`${this.name} ${this.surname}, as an ${this.level}, establishes the architecture of the projects.`)
+                }
+            },
+            employee4 : {
+                name : "İlkay",
+                surname : "İvrendi",
+                level : "Architect",
+                employeeInfo() {
+                    console.log(`${this.name} ${this.surname}, as an ${this.level}, establishes the architecture of the projects.`)
+                }
+            },
+        },
+        'Administration Department' : {
+            'Chairman of the Board of Management' : {
+                name : 'Oliver',
+                surname : 'Blume',
+                birthDate : '06.05.1968'
+            },
+            'Finance and Operations' : {
+                name : 'Arno',
+                surname : 'Antlitz',
+                birthDate: '30.05.1970'
+            },
+            'Integrity and Legal Affairs' : {
+                name : 'Manfred',
+                surname : 'Döss',
+                birthDate: '01.01.1958'
+            },
+            'Human Resources and Truck & Bus' : {
+                name : 'Gunnar',
+                surname : 'Kilian',
+                birthDate: '31.01.1975'
+            }
+        }
+    }
+    </code>
+</pre>
+<p align="justify">
+    We can chain operators to access nested properties. We’ll have to pay attention to which operator makes sense 
+    to use in each layer.
+</p>
+<pre>
+    <code class="javascript">
+    car.employees.employee1.employeeInfo() // Returns 'Gökhan Ertaş as a Team Leader, manages the teams'
+    </code>
+</pre>
+<p>
+    In the preceding code:
+</p>
+<br>
+<ul>
+    <li>
+        First the computer evaluates <code>car.employees</code>, which results in an object containing 
+        the <code>employee1</code>, <code>employee2</code>, <code>employee3</code> and <code>employee4</code> 
+        objects. 
+    </li>
+    <li>
+        We accessed the <code>employee1</code> object by appending <code>employeeInfo</code>. 
+    </li>
+    <li>
+        The <code>employeeInfo</code> function return <code>name</code>, <code>surname</code>, and <code>level</code>
+        which returned the value stored there: <code>'Gökhan Ertaş as a Team Leader, manages the teams'</code>
+    </li>
+</ul>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<pre>
+    <code class="javascript">
+    let company = {
+        'Company Name': 'Team DefineX',
+        numberOfEmployee: 5400,
+        headquartered: 'İstanbul',
+        'Has Global Customer': true,
+        employees: ['Gökhan Ertaş', 'Emre Çakır', 'Ozan Avcular', 'İlkay İvrendi']
+    }
+    </code>
+</pre>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Yukarıda belirtilen <code>company</code> objesine <code>administrativeLevel</code> adında bir property yaratın. Bu property içine <code>CEO</code> ve <code>COO</code> adında iki obje ekleyin. Bu objelerin 
+            <code>name</code> ve <code>surname</code> adında 2 propertysi olsun. Bu poroprtyleri doldurduktan sonra objeyi console'a basın. 
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/d17hmo3x/3/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            <code>administrativeLevel</code> altında yer alan <code>CEO</code> objesindeki <code>name</code> ve <code>surname</code> bilgilerini <strong>concat ederek</strong> yeni yaratacağımız <code>CEO</code> değişkenine atayalım.
+            Bu atama işleminden sonra <code>CEO</code> değişkenini console'a yazdıralım.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/3Lg07qfp/2/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
