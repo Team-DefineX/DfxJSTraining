@@ -95,7 +95,7 @@ export const modules = [
         name: "Accessing Properties",
         time: "5mins",
       },
-      {
+      { 
         name: "Bracket Notation",
         time: "5mins",
       },
