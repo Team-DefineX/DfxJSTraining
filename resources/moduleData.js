@@ -122,28 +122,6 @@ export const modules = [
     ],
   },
   {
-    fileName: "Arrays",
-    moduleName: "Arrays",
-    steps: [
-      {
-        name: "Property .length",
-        time: "20mins",
-      },
-      {
-        name: "Index",
-        time: "10mins",
-      },
-      {
-        name: "Method.push()",
-        time: "14mins",
-      },
-      {
-        name: "Method.pop()",
-        time: "16mins",
-      },
-    ],
-  },
-  {
     fileName: "AdvancedFunctions",
     moduleName: "Advanced Functions",
     steps: [
@@ -262,6 +240,24 @@ export const modules = [
       {
         name: "Cookie",
         time: "16mins",
+      },
+    ],
+  },
+  {
+    fileName: "Arrays",
+    moduleName: "Arrays",
+    steps: [
+      {
+        name: "Useage of Arrays",
+        time: "20mins",
+      },
+      {
+        name: "Arrays Filtering",
+        time: "10mins",
+      },
+      {
+        name: "Array Mapping",
+        time: "14mins",
       },
     ],
   },
