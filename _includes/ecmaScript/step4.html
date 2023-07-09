@@ -1,41 +1,64 @@
-<p><h5>ECMAScript 2021</h5></p>
-<P>The at() method returns the same as [].</P>
+<p><h5>ECMAScript 2016</h5></p>
+<p>Includes</p>
 <pre>
     <code class="javascript">
-        const elements = ["Earth", "Water", "Air", "Fire"];
-        let element = elements[2];  // Air
+        const fruits = ["D", "E", "F", "I","N","E","X"];
 
-        const elements = ["Earth", "Water", "Air", "Fire"];
-        let element = elements.at(2); // Air
+        fruits.includes("E"); // true
+    </code>
+  </pre>
+
+<p>Pow</p>
+<pre>
+    <code class="javascript">
+        // x ** y produces the same result as Math.pow(x, y)
+        let x = 5;
+        let z = x ** 2;  //z =25
+
+        // Second usage  **=
+        let x = 5;
+        x **= 2; // x =25
+    </code>
+  </pre>
+
+<p><h5>ECMAScript 2017</h5></p>
+<p>padStart & padEnd</p>
+<pre>
+    <code class="javascript">
+        let text = "5";
+        text = text.padStart(4,"0"); // 00005
+        text = text.padEnd(4,"0"); // 000050000
+
     </code>
 </pre>
 
-<p><h5>ECMAScript 2020</h5></p>
-<p>BigInt variables</p>
+<p>Object.entries</p>
 <pre>
     <code class="javascript">
-        let y = BigInt("9999999999999999");
-    </code>
-</pre>
-
-<P>The matchAll() method ?. and ?? and &&=</P>
-<pre>
-    <code class="javascript">
-        let text = "I love Definex."
-        const iterator = text.matchAll(/Definex/g);
+        const person = {
+            firstName : "First",
+            lastName  : "Last",
+            age     : 29
+        };
         
-        document.getElementById("demo").innerHTML = Array.from(iterator);
+        let text = Object.entries(person); // firstName,First,lastName,Last,age,29
 
-        const car = {type:"JS", model:"2020"};
-        let name = car?.type;
+    </code>
+</pre>
 
-        let result = text ?? true;
+<p><h5>ECMAScript 2018</h5></p>
+<p>JavaScript Threads</p>
+In JavaScript you use the Web Workers API to create threads.
+<br>
 
-        let x = 100;
-        let y = undefined;
+<p>Promise</p>
+<pre>
+    <code class="javascript">
+        let myPromise = new Promise();
 
-        x &&= 5;
-        y &&= 5;
+        myPromise.then();
+        myPromise.catch();
+        myPromise.finally();
     </code>
 </pre>
 
@@ -77,68 +100,74 @@
     </code>
 </pre>
 
-<p><h5>ECMAScript 2018</h5></p>
-<p>JavaScript Threads</p>
-In JavaScript you use the Web Workers API to create threads.
-<br><br>
 
-<p>Promise</p>
+
+
+<p><h5>ECMAScript 2020</h5></p>
+<p>BigInt variables</p>
 <pre>
     <code class="javascript">
-        let myPromise = new Promise();
-
-        myPromise.then();
-        myPromise.catch();
-        myPromise.finally();
+        let y = BigInt("9999999999999999");
     </code>
 </pre>
 
-<p><h5>ECMAScript 2017</h5></p>
-<p>padStart & padEnd</p>
+<P>The matchAll() method ?. and ?? and &&=</P>
 <pre>
     <code class="javascript">
-        let text = "5";
-        text = text.padStart(4,"0"); // 00005
-        text = text.padEnd(4,"0"); // 000050000
-
-    </code>
-</pre>
-
-<p>Object.entries</p>
-<pre>
-    <code class="javascript">
-        const person = {
-            firstName : "First",
-            lastName  : "Last",
-            age     : 29
-        };
+        let text = "I love Definex."
+        const iterator = text.matchAll(/Definex/g);
         
-        let text = Object.entries(person); // firstName,First,lastName,Last,age,29
+        document.getElementById("demo").innerHTML = Array.from(iterator);
 
+        const car = {type:"JS", model:"2020"};
+        let name = car?.type;
+
+        let result = text ?? true;
+
+        let x = 100;
+        let y = undefined;
+
+        x &&= 5;
+        y &&= 5;
+    </code>
+</pre>
+   
+<p><h5>ECMAScript 2021</h5></p>
+<P>The at() method returns the same as [].</P>
+<pre>
+    <code class="javascript">
+        const elements = ["Earth", "Water", "Air", "Fire"];
+        let element = elements[2];  // Air
+
+        const elements = ["Earth", "Water", "Air", "Fire"];
+        let element = elements.at(2); // Air
     </code>
 </pre>
 
-<p><h5>ECMAScript 2016</h5></p>
-<p>Includes</p>
-<pre>
-    <code class="javascript">
-        const fruits = ["D", "E", "F", "I","N","E","X"];
-
-        fruits.includes("E"); // true
-    </code>
-  </pre>
-
-<p>Pow</p>
-<pre>
-    <code class="javascript">
-        // x ** y produces the same result as Math.pow(x, y)
-        let x = 5;
-        let z = x ** 2;  //z =25
-
-        // Second usage  **=
-        let x = 5;
-        x **= 2; // x =25
-    </code>
-  </pre>
-<pre>
-
+    <div>
+        <div class="accordion">
+                <div class="accordion-item">
+                <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsSnippet-3" aria-expanded="false"
+                        aria-controls="panelsSnippet-3">
+                        Snippet
+                        </button>
+                </h2>
+                <div id="panelsSnippet-3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <div >
+                                <p>Improve JSON Readability</p>
+                                JSON.stringify({ a: 'A', b: 'B' }, null, '\t');
+                                Output:
+                                {
+                                    "a": "A",
+                                    "b": "B"
+                              }
+                            </div>
+                        </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    
