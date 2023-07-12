@@ -35,19 +35,19 @@
 </p>
 <pre>
     <code class="javascript">
-    let sum = (a, b) => a + b;
+    let multiply = (x, y) => x + y;
     /* This arrow function is a shorter form of:
     
-    let sum = function(a, b) {
-      return a + b;
+    let multiply = function(x, y) {
+      return x + y;
     };
     */
     
-    alert( sum(1, 2) ); // 3
+    alert(multiply(4, 5)); // 20
     </code>
 </pre>
 <p align="justify">
-    As you can see, <code>(a, b) => a + b</code> means a function that accepts two arguments named  <code>a</code> and <code>b</code>. Upon the execution, it evaluates the expression <code>a + b</code> and returns the result.
+    As you can see, <code>(x, y) => x * y</code> means a function that accepts two arguments named <code>x</code> and <code>y</code>. Upon the execution, it evaluates the expression <code>x * y</code> and returns the result.
 </p>
 <br>
 <p align="justify">
@@ -59,10 +59,10 @@
 </p>
 <pre>
     <code class="javascript">
-    let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
+    let divideIntoTwo = x => x / 2;
+    // roughly the same as: let divideIntoTwo = function(x) { return x / 2 }
     
-    alert( double(3) ); // 6
+    alert(divideIntoTwo(10)); // 5
     </code>
 </pre>
 <p align="justify">
@@ -70,9 +70,9 @@
 </p>
 <pre>
     <code class="javascript">
-    let sayHi = () => alert("Hello!");
+    let welcomeMessage = () => alert("Welcome to Definex Javascript Training!");
     
-    sayHi();
+    welcomeMessage(); // Welcome to Definex Javascript Training!
     </code>
 </pre>
 <p align="justify">
@@ -84,21 +84,13 @@
 </p>
 <pre>
     <code class="javascript">
-    let age = 18;
+    let yourAge = 18;
     
-    let welcome = (age < 18) ?
-      () => alert('Hello!') :
-      () => alert("Greetings!");
+    let accessControlPoint = (yourAge < 18) ?
+      () => alert('Children Are Not Allowed!') :
+      () => alert("Go Into!");
     
-    welcome();
-    </code>
-</pre>
-<p align="justify">
-    <strong>Output</strong>
-</p>
-<pre>
-    <code class="javascript">
-    Greetings!
+      accessControlPoint(); // Go Into!
     </code>
 </pre>
 <h4>
@@ -114,12 +106,12 @@
 </p>
 <pre> 
     <code class="javascript">
-    let sum = (a, b) => {  // the curly brace opens a multiline function
-        let result = a + b;
+    let pow = (x, y) => {  // the curly brace opens a multiline function
+        let result = x ** y;
         return result; // if we use curly braces, then we need an explicit "return"
     };
       
-    alert( sum(1, 2) ); // 3
+    alert(pow(8, 2)); // 64
     </code>
 </pre>
 <h4>
