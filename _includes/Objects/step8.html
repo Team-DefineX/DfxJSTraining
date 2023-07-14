@@ -1,24 +1,25 @@
 <p align="justify">
-    we’re going to learn about the JavaScript keyword this and how the value of this is assigned in different scenarios.
+    This lesson will cover the <code>JavaScript</code> keyword <code>this</code> and how its value is 
+    assigned in different scenarios.
 </p>
 <br>
 <p align="justify">
-    Objects are the basic building blocks in JavaScript. There’s one special object available in JavaScript, the
-    <code>this</code> object. You can see the value of <code>this</code> at every line
-    of JavaScript execution. The value of <code>this</code> is decided based on how the code is being executed.
+    In <b>JavaScript</b>, objects serve as the fundamental building elements. <code>this</code> object is the only 
+    special object accessible in <b>JavaScript</b>. The value of this variable is displayed at each 
+    line of <b>JavaScript</b> execution. The value of this depends on how the code is being run.
 </p>
 <br>
 <h4>
     “this” Refers to a Global Object
 </h4>
 <p align="justify">
-    By default, the execution context for an execution is global — which means if a code is being executed as part of a
-    simple function call, then this refers to a global object.
+    The execution context for an execution is, by default, global. Therefore, if code is being 
+    run as part of a simple function call, this refers to a global object.
 </p>
 <br>
 <p align="justify">
-    The window object is the global object in the case of the browser. And in a NodeJS environment, a special object
-    called global will be the value of this.
+    For the browser, the global object is the window object. So, the value of this will be a special 
+    object called global in a <b>NodeJS</b> environment.
 </p>
 <br>
 <p align="justify">
@@ -46,8 +47,9 @@
     </code>
 </pre>
 <p align="justify">
-    If strict mode is enabled for any function, then the value of <code>this</code> will be marked as <code>undefined</code> as in strict mode. 
-    The global object refers to <code>undefined</code> in place of the windows object.
+    If <b>strict</b> mode is enabled for any function, the value of this will be marked as 
+    <code>undefined</code>. Instead of the <b>windows</b> object, the global object refers to 
+    <code>undefined</code>.
 </p>
 <br>
 <pre>
@@ -61,15 +63,17 @@
     </code>
 </pre>
 <p align="justify">
-    <code>myFunc();</code> prints false into the console since in strict mode the value of <code>this</code> in a global-execution context is <code>undefined</code>.
+    <code>myFunc</code> prints <code>false</code> into the console since, in <b>strict mode</b>, the 
+    value of <code>this</code> in a global-execution context is <code>undefined</code>.
 </p>
 <br>
 <h4>
     “this” Refers to a New Instance
 </h4>
 <p align="justify">
-    When a function is invoked with the <code>new</code> keyword, then the function is known as a constructor function and returns a new instance. In such cases, 
-    the value of <code>this</code> refers to a newly created instance.
+    A function is referred to as a constructor function and returns a new instance when it is called 
+    with the new keyword. The value of <code>this</code> in such circumstances corresponds to a newly formed 
+    instance.
 </p>
 <br>
 <pre>
@@ -90,20 +94,21 @@
     </code>
 </pre>
 <p align="justify">
-    In the case of <code>car.companyInfo</code>, this refers to a new instance <code>car</code>, and in case of <code>car2.companyInfo()</code>, 
-    <code>this</code> refers to <code>car2</code> (which is a different instance than <code>car</code>).
+    In the case of <code>car.companyInfo</code>, <code>this</code> refers to a new instance of 
+    <code>car</code>, whereas <code>car2.companyInfo()</code> refers to <code>car2</code> 
+    (a different instance from <code>car</code>).
 </p>
 <br>
 <h4>
     “this” Refers to an Invoker Object (Parent Object)
 </h4>
 <p align="justify">
-    In JavaScript, the property of an object can be a method or a simple value. When an object’s method is invoked, then <code>this</code> refers to the object which 
-    contains the method being invoked.
+    A method or simple value can serve as an object's property in <b>JavaScript</b>. <code>this</code> 
+    refers to the object that holds the method that is being called when an object's method is called.
 </p>
 <br>
 <p align="justify">
-    In this example, we’re going to use the method <code>myFunc</code> as defined in the first example.
+    The method <code>myFunc</code> from the first example will be used in this one.
 </p>
 <pre>
     <code class="javascript">
@@ -127,24 +132,28 @@
     </code>
 </pre>
 <p align="justify">
-    <code>car.companyInfo()</code> prints false because now <code>this</code> refers to the <code>car</code>"" object instead of the global object.
+    Since the reference of this is now to the <code>car</code> object rather than the global object, 
+    the call to <code>car.companyInfo</code> returns <code>false</code>.
 </p>
 <br>
 <p>
-    The function definition of <code>companyInfo1</code> is the same, but when it’s being called as a simple function call, then <code>this</code> refers to a global object. 
-    And when the same definition is invoked as an object’s method, then <code>this</code> refers to the parent object. So the value of this depends on how a method is being invoked.
+    <code>companyInfo1</code> has the the same function description, but when it is called using a basic 
+    function call, a global object is referenced. Furthermore, this relates to the parent object when 
+    the same definition is used in an object's method. Thus, how a method is called determines the 
+    value of <code>this</code>.
 </p>
 <br>
 <h4>
     “this” With the Call and Apply Methods
 </h4>
 <p align="justify">
-    A function in JavaScript is also a special type of object. Every function has <code>call</code>, <code>bind</code>, and  <code>apply</code> methods. These methods can be used to set a 
-    custom value to <code>this</code> in the execution context of the function.
+    In JavaScript, a function is a particular kind of object. There are <code>call</code>, <code>bind</code>, 
+    and <code>apply</code> methods in every function. In the context of the function's execution, this 
+    can be given a specific value using these techniques.
 </p>
 <br>
 <p align="justify">
-    We’re going to use the second example defined above to explain the use of <code>call</code>:
+    We'll use the second example outlined above to clarify how to use <code>call</code>:
 </p>
 <pre>
     <code class="javascript">
@@ -167,15 +176,17 @@
     </code>
 </pre>
 <p>
-    The only difference between the <code>call</code> and <code>apply</code> methods is the way an argument is passed. In the case of <code>apply</code>, the second argument 
-    is an array of arguments,  whereas in the case of the <code>call</code> method, the arguments are passed individually.
+    The method by which an argument is given is the only distinction between the <code>call</code> and 
+    <code>apply</code> methods. The second argument for the <code>apply</code> method is an array of 
+    arguments, whereas the arguments are supplied separately for the <code>call</code> function.
 </p>
 <br>
 <h4>
     “this” With the Bind Method
 </h4>
 <p align="justify">
-    The <code>bind</code> method returns a new method with <code>this</code> referring to the first argument passed. We’re going to use the above example to explain the <code>bind</code> method.
+    The <code>bind</code> method returns a new method with this referencing the first given argument. 
+    We will use the preceding example to show the <code>bind</code> method.
 </p>
 <pre>
     <code class="javascript">
@@ -202,12 +213,13 @@
     “this” With the Arrow Function
 </h4>
 <p align="justify"> 
-    ES6 introduced a new concept called arrow function. In arrow functions, JavaScript sets the <code>this</code> lexically.
+    A new concept called arrow function was introduced by <b>ES6</b>. <b>JavaScript</b> sets <code>this</code> 
+    lexically in arrow functions.
 </p>
 <br>
 <p align="justify">
-    It means the arrow function does not create its own execution context but inherits the <code>this</code> from the outer function where the arrow function is defined. 
-    See the following example:
+    This indicates that the arrow function inherits the execution context from the outer function 
+    where it is defined rather than creating its own. See the example below:
 </p>
 <pre>
     <code class="javascript">
@@ -216,11 +228,12 @@
     </code>
 </pre>
 <p align="justify">
-    In this example, the <code>this</code> value is set to the global object i.e., <code>window</code> in the web browser.
+    This example sets the global object, or window in the web browser, as the value for <code>this</code>.
 </p>
 <br>
 <p align="justify">
-    Since an arrow function does not create its own execution context, defining a method using an arrow function will cause an issue. For example:
+    Using an arrow function while constructing a method will result in a problem because it lacks 
+    the ability to create its own execution context. For instance:
 </p>
 <pre>
     <code class="javascript">
@@ -237,6 +250,8 @@
     </code>
 </pre>
 <p align="justify">
-    Inside the <code>getheadquartered()</code> method, the <code>this</code> value reference the global object, not the <code>Car</code> object but the global object doesn’t have a property called 
-    headquartered. Therefore, the <code>this.headquartered</code> in the <code>getheadquartered()</code> method returns <code>undefined</code>.
+    The value of <code>this</code> within the <code>getheadquartered</code> method refers to the 
+    global object, not the <code>Car</code> object, but the global object has no <code>headquartered</code> 
+    property. Therefore, <code>this.headquartered</code> returns <code>undefined</code> in the 
+    <code>getheadquartered</code> method.
 </p>

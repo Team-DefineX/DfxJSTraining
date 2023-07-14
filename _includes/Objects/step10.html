@@ -1,15 +1,17 @@
 <p align="justify">
-    Arrow functions are a clear and concise method of writing normal/regular Javascript functions in a more accurate and shorter way. Arrow functions were introduced in the ES6 version. 
-    They make our code more structured and readable.
+    Arrow functions are a clear and concise way to write regular <b>Javascript</b> functions in a more 
+    precise and shorter manner. In version <b>ES6</b>, arrow functions were introduced. They improve 
+    the structure and readability of our code.
 </p>
 <br>
 <p align="justify">
-    Arrow functions are anonymous functions i.e. they are functions without a name and are not bound by an identifier. Arrow functions do not return any value and can be declared without 
-    the function keyword. They are also called Lambda Functions.
+    Arrow functions are anonymous functions, which lack a name and are not associated with an 
+    identifier. Arrow functions do not return a value and can be declared without the keyword 
+    function. They are also referred to as <b>Lambda</b> Functions.
 </p>
 <br>
 <p align="justify">
-    It looks like this:
+    It appears as follows:
 </p>
 <pre>
     <code class="javascript">
@@ -17,11 +19,12 @@
     </code>
 </pre>
 <p align="justify">
-    This creates a function <code>func</code> that accepts arguments <code>arg1..argN</code>, then evaluates the expression on the right side with their use and returns its result.
+    This creates a function named <code>func</code> that accepts the arguments <code>arg1..argN</code>, then 
+    evaluates the expression on the right using those arguments and returns the result.
 </p>
 <br>
 <p align="justify">
-    In other words, it’s the shorter version of:
+    In other terms, it is the shorter version of:
 </p>
 <pre>
     <code class="javascript">
@@ -31,7 +34,7 @@
     </code>
 </pre>
 <p align="justify">
-    Let’s see a concrete example:
+    Let’s see an example:
 </p>
 <pre>
     <code class="javascript">
@@ -47,15 +50,18 @@
     </code>
 </pre>
 <p align="justify">
-    As you can see, <code>(x, y) => x * y</code> means a function that accepts two arguments named <code>x</code> and <code>y</code>. Upon the execution, it evaluates the expression <code>x * y</code> and returns the result.
+    As you can see, a function that takes the two inputs <code>x</code> and <code>y</code> is denoted 
+    by <code>(x, y) => x * y</code>. It evaluates the expression <code>x * y</code> during execution 
+    and returns the outcome.
 </p>
 <br>
 <p align="justify">
-    <strong>#1</strong> If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+    <strong>#1</strong> If there is only one argument, the parentheses surrounding parameters can 
+    be omitted, making the code even shorter.
 </p>
 <br>
 <p align="justify">
-    For example:
+    For instance:
 </p>
 <pre>
     <code class="javascript">
@@ -66,7 +72,7 @@
     </code>
 </pre>
 <p align="justify">
-    <strong>#2</strong> If there are no arguments, parentheses are empty, but they must be present:
+    <strong>#2</strong> If there are no arguments, the parentheses must be empty but present:
 </p>
 <pre>
     <code class="javascript">
@@ -76,11 +82,11 @@
     </code>
 </pre>
 <p align="justify">
-    Arrow functions can be used in the same way as Function Expressions.
+    Arrow functions can be applied similarly to Function Expressions.
 </p>
 <br>
 <p align="justify">
-    For instance, to dynamically create a function:
+    For example, to create a function dynamically:
 </p>
 <pre>
     <code class="javascript">
@@ -97,12 +103,14 @@
     Multiline arrow functions
 </h4>
 <p align="justify">
-    The arrow functions that we’ve seen so far were very simple. They took arguments from the left of =>, evaluated and returned the right-side expression with them.
+    The arrow functions we've seen until now have been basic. They evaluated the left-side arguments 
+    and returned the right-side expression with them.
 </p>
 <br>
 <p align="justify">
-    Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that 
-    curly braces require a return within them to return a value (just like a regular function does).
+    From time to time, we require a complex function with multiple expressions and statements. 
+    Then we can surround them in curly braces. Similar to regular functions, curly braces require a 
+    return statement to return a value. 
 </p>
 <pre> 
     <code class="javascript">
@@ -119,17 +127,19 @@
 </h4>
 <ul>
     <li>
-        Arrow functions reduce the size of the code
+        Arrow functions decrease the amount of code.
     </li>
     <li>
-        The return statement and functional braces are optional for single-line functions
+        Single-line functions may omit the return statement and functional braces.
     </li>
     <li>
-        It increases the readability of the code
+        It improves the code's readability.
     </li>
     <li>
-        Arrow functions provide a lexical this binding, which means that they inherit the value of “this” from the enclosing scope. This feature can be advantageous when dealing with event listeners or 
-        callback functions where the value of “this” can be uncertain
+        Arrow functions offer lexical this binding, which allows them to take the value of 
+        <code>this</code> from the scope in which they are used. When working with event listeners 
+        or callback functions, where the value of <code>this</code> can be unclear, this feature can 
+        be helpful.
     </li>
 </ul>
 <h4>
@@ -137,15 +147,15 @@
 </h4>
 <ul>
     <li>
-        Arrow functions do not have the prototype property
+        There is no prototype property for arrow functions.
     </li>
     <li>
-        Arrow functions cannot be used with the new keyword
+        Using the new keyword with arrow functions is not permitted.
     </li>
     <li>
-        Arrow functions cannot be used as constructors
+        It is not possible to utilize arrow functions as constructors.
     </li>
     <li>
-        These functions are anonymous and it is hard to debug the code
+        These methods are anonymous, which makes it difficult to debug the code.
     </li>
 </ul>

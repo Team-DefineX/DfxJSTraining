@@ -1,7 +1,7 @@
 <h4>
-    Neden Prototype’e İhtiyacımız Var ?
+    Why are Prototypes required?
 </h4>
-Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
+Let's imagine that we need a <code>car</code> object in our <b>Javascript</b> program:
 <pre>
     <code class="javascript">
     let car = {}
@@ -20,7 +20,8 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre> 
 <p align="justify">
-    Bu ihtiyacımızı görür fakat birden çok car nesnesine ihtiyacımız olduğu senaryoyu düşünelim. Muhtemelen bu işi yapması için bir fonksiyon yazardık.
+    This code can meet the requirements, but let's consider the scenario where we need multiple 
+    <code>car</code> objects. We would probably write a function to perform this task.
 </p>
 <pre>
     <code class="javascript">
@@ -67,17 +68,19 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Bu güzel ama bunu yapmak için doğru yol bu mu?
+    That works, but is this really the best way to do it?
 </p>
 <br>
 <p align="justify">
-    Eğer milyonlarca <code>car</code> nesnesine ihtiyacınız olursa bu fonksiyonu kullanmak iyi bir fikir değil çünkü her nesne için hafızada <code>getheadquarteredInfo()</code> ve <code>getNumberOfEmployeeInfo()</code> fonksiyonları oluşacak bu da hafızayı 
-    gereksiz yere harcamaktan başka bir şey değil.
+    If you need a million <code>car</code> objects, it's not a good idea to use this method because the 
+    <code>getheadquarteredInfo</code> and <code>getNumberOfEmployeeInfo</code> functions will be stored 
+    in memory for each object, which is not a good idea.
 </p>
 <br>
 <p>
-    Bunun yerine <code>car</code> fonksiyonunda yazdığımız fonksiyonları bir kez oluşturup fonksiyonun içerisinde bu fonksiyonlara referans verirsek <code>getheadquarteredInfo()</code> ve <code>getNumberOfEmployeeInfo()</code> fonksiyonları hafızada her 
-    seferinde yeniden oluşmak yerine bir kere oluşur.
+    Instead, if we only create the functions once in the <code>car</code> function and then refer to 
+    them inside the function, the <code>getheadquarteredInfo</code> and <code>getNumberOfEmployeeInfo</code> 
+    functions will only be created once in memory and won't need to be made again.
 </p>
 <pre>
     <code class="javascript">
@@ -128,11 +131,13 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Ancak bu yöntemin de bazı dezavantajları vardır. Ne olduğunu tahmin edebilir misiniz? Ben açıklamadan önce bir düşünün. 
+    However, there are several drawbacks to this strategy. Can you figure it out? 
 </p>
 <br>
 <p align="justify">
-    Diyelim ki daha sonradan <code>Car</code> nesnesine bir fonksiyon ekleme ihtiyacı duydunuz. Bu durumda, önce <code>CarMethods</code>‘a fonksiyonumuzu ekler sonrada <code>Car</code> fonksiyonundan tekrar referansını alırdık.
+    Assume that you need to add a function to the <code>Car</code> object later on. In this situation, 
+    we would add our method to <code>CarMethods</code> first, then retrieve the reference from the 
+    <code>Car</code> function again.
 </p>
 <br>
 <pre>
@@ -191,34 +196,42 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Bu büyük bir sorun değil fakat bu gibi değişiklikleri yapabileceğimiz ve bu değişikliklerin tüm instance lara yansıtılacağı ortak bir yerin olması elbette güzel olurdu. İşte Javascriptte <strong>Prototype</strong>ların devreye girdiği yer burasıdır.
+    Even if it's not a major concern, it would be useful to have a single place where we could 
+    create these instances and have them reflected in all instances. <b>Javascript</b> prototypes are 
+    useful in situations like these.
 </p>
 <br>
 <h3>
     Prototype
 </h3>
 <p align="justify">
-    <code>Prototype</code> temel olarak javascriptte bir fonksiyonun özelliği(Property) dir. Javascriptte bir fonksiyon oluşturduğumuzda javascript motoru fonksiyona otomatik olarak <code>Prototype</code> adında bir özellik(Property) ekler. 
-    Bu prototype özelliği bir nesnedir ve bu nesne de <code>constructor</code> adında <code>property</code> e sahiptir. Bu constructor <code>property</code>si oluşturulan fonksiyona işaret eder aşağıdaki resimde görüldüğü gibi.
+    In <b>Javascript</b>, a <b>prototype</b> is basically a property of a function. When a function is 
+    created, the <b>Javascript</b> engine automatically assigns a <b>Prototype</b> property to the 
+    function. This <b>prototype</b> property is an object, and this object has a property called 
+    <code>constructor</code>. As shown in the image below, this constructor property refers to the 
+    function that was created.
 </p>
 <div style="display: block; margin: auto; text-align: center">
     <object data="/_includes/images/objectprototype.png"> </object>
 </div>
 <p align="justify">
-    Prototype özelliği ise bahsettiğimiz prototip nesnesine işaret eder.
+    The <b>prototype</b> property identifies the <b>prototype</b> object being discussed.
 </p>
 <br>
 <p align="justify">
-    Fonksiyonun prototip özelliğine <code>functionName.prototype</code> sözdizimini kullanarak erişebiliriz. Ve bir fonksiyonun <code>Prototype</code> nesnesinden, <code>functionName.prototype.constructor</code> ile fonksiyon nesnesine 
-    tekrar erişebiliriz. Hala kafanız karıştıysa bunu anlamak için birkaç kod yazalım.
+    We can access the function's <b>prototype</b> property with the syntax <code>functionName.prototype</code>. 
+    And using <code>functionName.prototype.constructor</code>, we can access the function object from 
+    the <b>Prototype</b> object of a function. If you are confused, let's write some code to clarify 
+    the situation.
 </p>
 <br>
 <h3>
-    Constructor Fonksiyonları Kullanarak Nesnelere Oluşturmak
+    Creating Objects Using Constructor Functions
 </h3>
 <p align="justify">
-    Şimdi name ve age olmak üzere iki adet parametre alan <code>constructor</code> fonksiyonumuzu ve bu fonksiyonun 
-    <code>prototype</code> nesnesini konsola yazdıralım.
+    Now, let's print our <code>constructor</code> function that takes four parameters, 
+    <code>brand</code>, <code>hasElectricModels</code>, <code>headquartered</code> and 
+    <code>numberOfEmployee</code>, and the prototype object of this function to the console.
 </p>
 <pre>
     <code class="javascript">
@@ -233,15 +246,17 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Aşağıdaki gibi bir çıktı göreceksiniz.
+    You will see an output like the one below:
 </p>
 <br> 
 <div style="display: block; margin: auto; text-align: center">
     <object data="/_includes/images/objectprototype2.png"> </object>
 </div>
 <p align="justify">
-    Görüldüğü gibi <code>console.log(Car.prototype)</code> ile fonksiyonumuzun prototype nesnesine ulaştık ve bu nesnenin söylediğim gibi bir <code>constructor</code> özelliği bulunuyor. Şimdilik <code>__proto__</code> 
-    özelliğini kafanıza takmayın. Şimdi ise konsolumuza <code>console.log(Car.prototype.constructor)</code>'ı yazdıralım. 
+    You can see that <code>console.log(Car.prototype)</code> takes us to the <b>prototype</b> object 
+    of our function, and as we said, this object has a constructor property. For now, you don't need 
+    to worry about the <code>__proto__ property</code>. Now let's print <code>console.log(Car.prototype.constructor)</code> 
+    to our console.
 </p>
 <br>
 <div style="display: block; margin: auto; text-align: center">
@@ -249,8 +264,10 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
 </div>
 <br>
 <p align="justify">
-    Bir fonksiyon oluşturduğumuzda javascript motoru fonksiyona prototype adında bir property oluşturur bu property ile fonksiyonun prototip nesnesine ulaşırız bu nesnenin içerisinde de constructor adında bir property daha vardır bu 
-    property ise fonksiyona işaret eder. şimdi ise bu anlattıklarımızı kanıtlayalım.
+    When we create a function, the <b>JavaScript</b> engine gives the function a value called 
+    <b>prototype</b>. With this property, we can get to the function's <b>prototype</b> object, 
+    which has another property called <code>constructor</code> in it. This feature points at a function. 
+    Let's prove this now.
 </p>
 <pre>
     <code class="javascript">
@@ -266,8 +283,11 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Burada ilk logumuzda beklediğimiz sonuç <code>Car</code> fonksiyonumuzun <code>prototype</code> nesnesinde bulunan <code>constructor property</code> sinin bizi tekrar <code>Car</code> fonksiyonuna getirmesi, ikinci logda ise <code>Car</code> 
-    fonksiyonunun <code>prototype</code> nesnesindeki <code>constructor propertysi</code> fonksiyonumuza geri işaret ediyor o zaman constructorun prototype'ı <code>Car.prototype</code>'a eşit olmalı.
+    The result we should expect in our first log is that the constructor property in the 
+    <b>prototype</b> object of our <code>Car</code> function brings us back to the <code>Car</code> 
+    function. In the second log, the constructor property on the <b>prototype</b> object of the 
+    <code>Car</code> function points back to our function. Then, the <b>prototype</b> of the 
+    <code>constructor</code> is equal to <code>Car.prototype</code>.
 </p>
 <br>
 <p>
@@ -280,7 +300,7 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre>
 <p align="justify">
-    Şimdi ise daha önce bahsettiğimiz sorun için Prototype kullanalım.
+    Now let's use <b>Prototype</b> for the problem we mentioned earlier.
 </p>
 <pre>
     <code class="javascript">
@@ -309,7 +329,7 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre> 
 <p align="justify">
-    Yeni bir <code>Car</code> nesnesi oluşturup onu konsola loglayalım.
+    Let's create a new <code>Car</code> object and print it to the console.
 </p>
 <br>
 <div style="display: block; margin: auto; text-align: center">
@@ -317,8 +337,14 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
 </div>
 <br>
 <p align="justify">
-    Peki ya metodlarımız nerde? Onları <code>prototype</code> nesnesine eklemiştik. Ancak <code>car</code> 
-    nesnemizde görünmüyor fakat orada başka birşey var <code>__proto__</code> ne olduğuna bakalım.
+    Where are our methods? They were added to the <b>prototype</b> object. However, it does not appear 
+    in our <code>car</code> object. There is something else in there. Let's find out what it is.
+</p>
+<br>
+<p align="justify">
+    Our methods are here. It seems that the <code>__proto__</code> property points to the <b>prototype</b> 
+    object. When we create an instance, <b>JavaScript</b> adds a property named <code>__proto__</code> 
+    that points to the <b>prototype</b> object.
 </p>
 <br>
 <div style="display: block; margin: auto; text-align: center">
@@ -326,14 +352,8 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
 </div>
 <br>
 <p align="justify">
-    Metodlarımız burada. Görünen o ki <code>__proto__</code> özelliği <code>prototype</code> nesnesine işaret ediyor.
-    <strong>Javascirpt</strong>, bir instance oluşturduğumzda ona <code>__proto__</code> adında prototype nesnesine 
-    işaret eden bir özellik ekler. 
-</p>
-<br>
-<p align="justify">
-    Eğer konunun başından beri anlattığımız şey doğruysa yani <code>__proto__</code> özelliği <code>prototype</code> 
-    nesnesine işaret ediyorsa onu genişlettiğimizde metotları görüyor olmalıyız.
+    If what we have been explaining from the beginning is true, that is, if the <code>__proto__</code> 
+    property points to the <b>prototype</b> object, we should be seeing the methods when we extend it.
 </p>
 <pre>
     <code class="javascript">
@@ -370,14 +390,14 @@ Javascript programımızda Car nesnesine ihtiyacımız olduğunu düşünelim.
     </code>
 </pre> 
 <p align="justify">
-    Son olarak Prototype konusunu özetlmek gerekirse;
+    When we create a function, the <b>JavaScript</b> engine automatically creates a <b>Prototype</b> 
+    object for that function and adds a <b>prototype</b> property to the function that can be used to 
+    access that object. It also adds a property called <code>constructor</code> inside the 
+    <b>prototype</b> object, which points to the function.
 </p>
 <br>
 <p align="justify">
-    Bir fonksiyon oluşturduğumuzda <strong>javascript</strong> motoru otomatik olarak o fonksiyon için bir <code>Prototype</code> nesnesi oluşturur ve fonksiyona o nesneye erişmek için kullanabilecek bir <code>prototype</code> özelliği ekler 
-    ve <code>prototype</code> nesnesi içerisine de <code>constructor</code> adında bir özellik ekler bu da fonksiyona işaret eder.
-</p>
-<br>
-<p align="justify">
-    <code>Constructor</code> fonksiyondan bir instance oluşturduğumuzda ise bu instance <code>__proto__</code> adında bir özellik eklenir ve bu özellik fonksiyonun <code>prototype</code> nesnesine işaret eder.
+    When we create an instance from the <code>constructor</code> function, a property named 
+    <code>__proto__</code> is added to this instance, and this property points to the <b>prototype</b> 
+    object of the function.
 </p>
