@@ -5,7 +5,6 @@ It set a standard for not re-coding. Let's look at the use of import and export 
 <h6>Destructuring</h6>
 <pre>
         <code class="javascript">
-                // Yeniden yapılandırma ile içe aktarma
                 import Link from './example.js';    
                 let {history} = Link;
         </code>
@@ -225,7 +224,6 @@ This allows the user to access the application more quickly and reduces the init
 Below is an example of using Dynamic Import:<br>  
 </p>
 
-
 <pre>
         <code class="javascript">
                // When you needed, load module
@@ -248,11 +246,10 @@ Then, the functions or objects of the loaded module become available and the des
     In this way, modules are loaded and used when needed using Dynamic Import.<br>    
 </p>
 
-
 <p>
    What should be done for Module System Optimization and Performance Improvements:<br>     
 </p>
-
+<br>
 <p>
    <b>Module Bundling:</b> Module bundling reduces network traffic and improves load time by combining multiple modules into a single file. This is usually done using a module packager or configuration tool, for example tools such as Webpack, Rollup or Parcel can be used.
 <br><br>
@@ -269,7 +266,6 @@ Then, the functions or objects of the loaded module become available and the des
 <b>Tree Shaking:</b> Tree shaking detects unused or inaccessible pieces of code and removes them during the build process. This allows you to get a smaller file size containing only the modules and functions used.
      
 </p>
-
 
 <p>
         Class structure is again one of the new topics and will be focused on.
@@ -288,7 +284,6 @@ Then, the functions or objects of the loaded module become available and the des
                 <li>Opera: 48 and later</li>
             </ul>
 </p>
-       
 
 <p>
    Partial Support:
@@ -297,7 +292,6 @@ Then, the functions or objects of the loaded module become available and the des
                 However, you can generate compatible JavaScript code for Internet Explorer using ES6 modules with tools like Babel or Webpack.
                    </li>
     </ul>
- 
 </p>
 
 <p>
