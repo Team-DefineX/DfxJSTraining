@@ -31,30 +31,30 @@
             <p>"use strict" scope</p>
             <pre>
                 <code class="javascript">
-                    x = 3.14; 
-                    function1();
+                x = 3.14; 
+                function1();
 
-                    function function1() {
-                        "use strict";
-                        y = 3.14;   // Error
-                    }
+                function function1() {
+                    "use strict";
+                    y = 3.14;   // Error
+                }
                 </code>
             </pre>
 
             <p><b> Multiple Lines String   </b></p>
                 <pre>
                     <code class="javascript">
-                        "Hello \
-                        DEFINEX!";
+                "Hello \
+                DEFINEX!";
 
-                        "Hello " +
-                        "DEFINEX!";
+                "Hello " +
+                "DEFINEX!";
                     </code>
                 </pre>
             <p><b> Reserved Word   </b></p>
             <pre>
                 <code class="javascript">
-                    var obj = {name: "John", new: "yes"}
+                var obj = {name: "John", new: "yes"}
                 </code>
             </pre>
         </div>
@@ -71,7 +71,7 @@
         <p><b> String isArray():   </b>It checks whether an object is an array.</p>
         <pre>
                 <code class="javascript">
-                    var IsArr = Array.isArray(["D","e","f","i","n","e","x"])
+                var IsArr = Array.isArray(["D","e","f","i","n","e","x"])
                 </code>
         </pre>
 
@@ -245,232 +245,3 @@
 </p>
 
 </div>
-<div>
-    <p>
-        <h4>ES6 (ECMAScript 2015)</h4> It is the sixth version of JS released in 2015. ES6, a big language
-        is the development and added many new features. Notable innovations include block scope variables (let and const),
-        arrow functions, rest and spread operators, classes, modules, Promise, arrow functions and
-        There are many features such as destructuring. These new features make code cleaner, readable and
-        makes it sustainable.
-
-    </p>
-    <p>
-        <div class="centered-img">
-            <h4>What's new in ECMAScript 6</h4>
-        </div>
-        
-        <div>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseOne">
-                            #1 Let & Const - Arrow Function - Template Literal
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <iframe width="100%" height="300"
-                                src="//jsfiddle.net/TeamDFX/sy10x973/21/embedded/js,html,css,result/dark/"
-                                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
-                            #2 Spread & destruction Operators
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <iframe width="100%" height="300"
-                                src="//jsfiddle.net/TeamDFX/6s1toe9n/10/embedded/js,html,css,result/dark/"
-                                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse3">
-                            #3 String Creator
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>String Creator</p>
-                            <pre>
-                                <code class="javascript">
-                                const age = 41;
-                                const sentence = `I'm ${age} years old`;
-                            </code>
-                        </pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse4" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse4">
-                            #4 Yield
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse4" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            Yield effect the memory usages. It wait the your needed. Using generators can be beneficial whenever you’re looping through a large group of items and you don’t need to store them all at once.
-                            Without memory issue, You have to write bad code to project. like below:
-                            <pre>
-                                <code class="javascript">
-                                    // Without memory problem
-                                    // Without yield
-                                    return {
-                                        next() {
-                                          count++;
-                                          if (count === 1) {
-                                            return { value: 'Hello', done: false};
-                                          } else if (count === 2) {
-                                            return { value: 'World', done: false};
-                                          } else if (count === 3) {
-                                            return { value: 'Its me', done: false};
-                                          }
-                                          return { value: '', done: true };
-                                        }
-                                      }
-                                </code>
-                            </pre>
-                            Our code becomes more readable and non-memory issue.
-                            <pre>
-                                <code class="javascript">
-                                    function* square(numbers){
-                                        for (const n of numbers){
-                                          yield n * n;
-                                        }
-                                      }
-                                          
-                                      const numbers = [1, 2, 3, 4, 5];
-                                      const squared_numbers = square(numbers);
-                                      
-                                      console.log(squared_numbers);
-                                      console.log(squared_numbers.next());
-                                </code>
-                            </pre>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse5" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse5">
-                            #5 Rest  Parameter
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>Rest  Parameter</p>
-                            <pre>
-                                <code class="javascript">
-                                    function sum(...args) {
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse6" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse6">
-                            #6 Default Parameter 
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse6" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>Default Parameter </p>
-                            <pre>
-                                <code class="javascript">
-                                    function myFunction(x, y = 10)
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse7" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse7">
-                            #7 String
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse7" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>String</p>
-                            <pre>
-                                <code class="javascript">
-                                    let text = "Hello world";
-                    
-                                    text.includes("world")
-                                    text.startsWith("Hello")
-                                    text.endsWith("rld")
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapse8" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapse8">
-                            #8 Math
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapse8" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>Math</p>
-                            <pre>
-                                <code class="javascript">
-                                    let text = "Hello world";
-                    
-                                    Math.trunc(4.9);   // 4
-                                    Math.trunc(-4.7);  // -4
-                    
-                                    Math.sign(-4);    //  -1
-                                    Math.sign(0);    //  0
-                                    Math.sign(4);    //  1
-                    
-                                    Math.cbrt(8);    // returns 2
-                                    Math.cbrt(64);    // returns 4
-                                    Math.cbrt(125);    // returns 5
-                    
-                                    Math.log2(2);    // 1
-                                    Math.log2(8);    // 3
-                                    Math.log2(128)  // 7
-                                    Math.log10(10)  // 1
-                    
-                                    isFinite(10/0);       // returns false
-                                    isFinite(10/1);       // returns true
-                    
-                                    isNaN("Hello");       // returns true
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </p>
-<br>        
-</div>
-
-
-
