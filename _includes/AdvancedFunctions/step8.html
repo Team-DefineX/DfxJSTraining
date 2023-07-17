@@ -1,0 +1,179 @@
+<p>
+    Recursive functions in JavaScript refer to a function that calls itself. This programming technique is used to break
+    down a problem into smaller and more manageable pieces. Recursive functions are particularly powerful in algorithm
+    design and solving certain problems. Let's explore this concept with some examples to gain a better understanding.
+</p>
+
+<h5 class="mt-3">Basic Principles</h5>
+
+<p>
+    To work with recursive functions, it is essential to consider two important principles:
+</p>
+
+<ol>
+    <li><b>Base Case:</b> A base case is a condition that allows an recursive function to terminate its self-calls. This
+        prevents recursive calls from entering an infinite loop. Once the base case is reached, the function returns a
+        result to terminate itself.
+    </li>
+    <li><b>Recursive Step:</b> n a recursive function, as long as the base case is not met, it calls itself again to
+        continue the process. This process breaks the problem down into smaller sub-problems and combines the results to
+        obtain a solution.
+    </li>
+</ol>
+
+<h5 class="mt-3">Example: Calculating Factorial</h5>
+
+<p class="mt-3">
+    Factorial is the product of all positive integers up to a given number.
+</p>
+
+<p class="mt-3">
+    For example: 5! = 5 x 4 x 3 x 2 x 1 = 120
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function factorial(n) {
+        // Base case: if n is 0 or 1, the factorial is 1.
+        if (n === 0 || n === 1) {
+            return 1;
+        } else {
+            // Recursive step: calling the factorial function with n - 1 to reach the result.
+            return n * factorial(n - 1);
+        }
+    }
+
+    // Test the function:
+    console.log(factorial(5)); // Output: 120
+    </code>
+</pre>
+
+<h5 class="mt-3">Example: Fibonacci Series</h5>
+
+<p class="mt-3">
+    The Fibonacci series is a sequence of numbers where each number is the sum of the two preceding ones.
+</p>
+
+<p class="mt-3">
+    For example: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function fibonacci(n) {
+        // Base case: if n is 0 or 1, the fibonacci number is n.
+        if (n === 0 || n === 1) {
+            return n;
+        } else {
+            // Recursive step: calling the fibonacci function with n - 1 and n - 2 to reach the result.
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+    
+    // Test the function:
+    console.log(fibonacci(6)); // Output: 8
+    </code>
+</pre>
+
+<h5 class="mt-3">Example: Summing Array Elements</h5>
+
+<p class="mt-3">
+    We can use a recursive function to sum all elements in an array.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function sumArray(arr) {
+        // Base case: if the array is empty or has only one element, return the element.
+        if (arr.length === 0) {
+            return 0;
+        } else if (arr.length === 1) {
+            return arr[0];
+        } else {
+            // Recursive step: Divide the array into two halves and sum them individually.
+            const mid = Math.floor(arr.length / 2);
+            const leftHalf = arr.slice(0, mid);
+            const rightHalf = arr.slice(mid);
+            return sumArray(leftHalf) + sumArray(rightHalf);
+        }
+    }
+    
+    // Test the function:
+    const numbers = [1, 2, 3, 4, 5];
+    console.log(sumArray(numbers)); // Output: 15
+    </code>
+</pre>
+
+<h5 class="mt-3">Conclusion</h5>
+
+<p>
+    With these examples, we have seen what recursive functions are, how they work, and how to use them. Recursive
+    functions are a powerful tool in the world of programming and can help solve certain algorithms more efficiently.
+    However, it is important to identify the correct base cases and avoid unnecessary self-calls.
+</p>
+
+<h4 class="d-flex mt-3">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <p>
+            Output a Single-Linked List
+        </p>
+        <p>
+            Let's assume we have a single-linked list:
+        </p>
+        <pre>
+            <code class="javascript">
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+            </code>
+        </pre>
+
+        <p>
+            Write a function called <code>printList</code> that outputs list items one-by-one.
+        </p>
+        <p>
+            Create two variants of the solution: one using a loop and the other using recursion.
+        </p>
+        <p>
+            Which one is better: recursion or a loop?
+        </p>
+    </div>
+
+    <button class="solution-btn mt-3">Solutions</button>
+
+    <div class="solution">
+        <div class="solution-content">
+            <h5>Solution 1: Printing with a Loop</h5>
+
+            <p class="mb-3">
+                To print the linked list using a loop, we can use a while loop.
+            </p>
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/kuv89Lhn/3/embedded/js/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+            <h5 class="mt-3">Solution 2: Printing with Recursion</h5>
+
+            <p class="mb-3">
+                To print the linked list using recursion, we can create a function that calls itself within the function
+                body.
+            </p>
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/3o41reL2/embedded/js/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

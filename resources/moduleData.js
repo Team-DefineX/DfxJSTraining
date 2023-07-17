@@ -95,7 +95,7 @@ export const modules = [
         name: "Accessing Properties",
         time: "5mins",
       },
-      { 
+      {
         name: "Bracket Notation",
         time: "5mins",
       },
@@ -155,6 +155,10 @@ export const modules = [
       },
       {
         name: "Callback functions",
+        time: "16mins",
+      },
+      {
+        name: "Recursive functions",
         time: "16mins",
       },
     ],
