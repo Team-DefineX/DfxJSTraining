@@ -190,8 +190,12 @@ export const modules = [
         time: "10mins",
       },
       {
+        name: "ES6",
+        time: "10mins",
+      },
+      {
         name: "ES6 Modules",
-        time: "20mins",
+        time: "10mins",
       },
       {
         name: "PolyFills",
