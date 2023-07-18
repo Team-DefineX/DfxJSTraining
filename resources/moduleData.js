@@ -126,6 +126,24 @@ export const modules = [
     ],
   },
   {
+    fileName: "Arrays",
+    moduleName: "Arrays",
+    steps: [
+      {
+        name: "Useage of Arrays",
+        time: "20mins",
+      },
+      {
+        name: "Arrays Filtering",
+        time: "10mins",
+      },
+      {
+        name: "Array Mapping",
+        time: "14mins",
+      },
+    ],
+  },
+  {
     fileName: "AdvancedFunctions",
     moduleName: "Advanced Functions",
     steps: [
@@ -186,6 +204,16 @@ export const modules = [
     ],
   },
   {
+    fileName: "Classes",
+    moduleName: "Classes",
+    steps: [
+      {
+        name: "Useage of Classes",
+        time: "20mins",
+      },
+    ],
+  },
+  {
     fileName: "ecmaScript",
     moduleName: "JS & EcmaScript 5-6",
     steps: [
@@ -234,35 +262,7 @@ export const modules = [
     ],
   },
   {
-    fileName: "Arrays",
-    moduleName: "Arrays",
-    steps: [
-      {
-        name: "Useage of Arrays",
-        time: "20mins",
-      },
-      {
-        name: "Arrays Filtering",
-        time: "10mins",
-      },
-      {
-        name: "Array Mapping",
-        time: "14mins",
-      },
-    ],
-  },
-  {
-    fileName: "Classes",
-    moduleName: "Classes",
-    steps: [
-      {
-        name: "Useage of Classes",
-        time: "20mins",
-      },
-    ],
-  },
-  {
-    fileName: "BOM",
+    fileName: "bom",
     moduleName: "BOM",
     steps: [
       {
