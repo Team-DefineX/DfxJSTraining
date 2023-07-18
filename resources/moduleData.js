@@ -273,4 +273,14 @@ export const modules = [
       },
     ],
   },
+  {
+    fileName: "Classes",
+    moduleName: "Classes",
+    steps: [
+      {
+        name: "Useage of Classes",
+        time: "20mins",
+      },
+    ],
+  },
 ];
