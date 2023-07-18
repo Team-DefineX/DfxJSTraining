@@ -1,19 +1,18 @@
 <div>
-  <h5 class="my-3">Classes for JavaScript</h5>
+  <h5 class="my-3">The Browser Object Model (BOM)</h5>
   <p class="my-3">
-    Classes are a fundamental part of the language introduced in ECMAScript 6
-    (ES6) to provide a more structured and object-oriented approach to
-    organizing and defining objects. They allow you to create reusable templates
-    for objects with shared properties and methods. Here are three key details
-    about JavaScript classes:
+    The Browser Object Model (BOM) is a collection of objects and methods
+    provided by web browsers to interact with the browser window. It allows
+    JavaScript code to control various aspects of the browser environment, such
+    as manipulating the window, managing history, handling dialogs, and more.
   </p>
   <p></p>
 
   <div>
-    <h5 class="my-3">
-      Let's create a HeroProfile class step-by-step, explaining each part along
-      the way. We'll build upon it to demonstrate class inheritance later.
-    </h5>
+    <p class="my-3">
+      The Browser Object Model (BOM) is a set of objects and methods that allow
+      JavaScript to interact with the browser window and its various components.
+    </p>
     <div class="accordion">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -25,7 +24,7 @@
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseOne"
           >
-            #1 Class Declaration and Constructor:
+            #1 Accessing BOM Objects
           </button>
         </h2>
         <div
@@ -34,28 +33,21 @@
         >
           <div class="accordion-body">
             <p>
-              First, we'll declare the HeroProfile class and define its
-              constructor. The constructor is a special method that gets called
-              automatically when we create a new instance of the class using the
-              new keyword. It allows us to initialize the properties of the
-              hero.
+              To access BOM objects, you can use the window object. The window
+              object is a global object in the browser, and most BOM objects are
+              properties of this object. For example:
             </p>
             <pre>
             <code class="javascript">
-                class HeroProfile {
-                    constructor(name, age, power) {
-                      this.name = name;
-                      this.age = age;
-                      this.power = power;
-                    }
-                  }
+                // Accessing BOM objects using the window object.
+                console.log(window.innerWidth); // Output: Current inner width of the browser window.
+                console.log(window.innerHeight); // Output: Current inner height of the browser window.
             </code>
             </pre>
             <p>
-              In this step, we've defined the HeroProfile class with a
-              constructor that takes three parameters: name, age, and power. The
-              constructor sets these values as properties of the object being
-              created.
+              In this step, we accessed the innerWidth and innerHeight
+              properties of the window object to get the current inner width and
+              height of the browser window, respectively.
             </p>
           </div>
         </div>
@@ -70,7 +62,7 @@
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseTwo"
           >
-            #2 Class Methods:
+            #2 Manipulating the Browser Window:
           </button>
         </h2>
         <div
@@ -78,38 +70,23 @@
           class="accordion-collapse collapse"
         >
           <div class="accordion-body">
-            Next, let's add some methods to the HeroProfile class to perform
-            actions related to the hero.
+            You can manipulate the browser window using the window object. For
+            instance, you can open new browser windows or change the location of
+            the current window.
             <pre>
             <code class="javascript">
-                class HeroProfile {
-                    constructor(name, age, power) {
-                      this.name = name;
-                      this.age = age;
-                      this.power = power;
-                    }
-                  
-                    // Method to introduce the hero.
-                    introduce() {
-                      console.log(`Hi, I'm ${this.name}, and I'm a superhero!`);
-                    }
-                  
-                    // Method to display the hero's age.
-                    displayAge() {
-                      console.log(`${this.name} is ${this.age} years old.`);
-                    }
-                  
-                    // Method to use the hero's power.
-                    usePower() {
-                      console.log(`${this.name} uses ${this.power}!`);
-                    }
-                  }
+                // Manipulating the browser window using the window object.
+                const newWindow = window.open('https://www.example.com', '_blank');
+                window.location.href = 'https://www.anotherexample.com';
             </code>
             </pre>
-            In this step, we've added three methods to the HeroProfile class:
-            introduce(), displayAge(), and usePower(). These methods allow us to
-            introduce the hero, display their age, and use their power,
-            respectively.
+            <p>
+              In this step, we used the window.open() method to open a new
+              browser window with the URL 'https://www.example.com'. We also
+              changed the current window's location to
+              'https://www.anotherexample.com' using the window.location.href
+              property.
+            </p>
           </div>
         </div>
       </div>
@@ -123,7 +100,7 @@
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseThree"
           >
-            #3 Creating an Instance of the Class:
+            #3 Managing Browser History:
           </button>
         </h2>
         <div
@@ -131,26 +108,21 @@
           class="accordion-collapse collapse"
         >
           <div class="accordion-body">
-            Now that we have defined the HeroProfile class, we can create an
-            instance of it by using the new keyword and passing the necessary
-            parameters to the constructor.
+            The BOM provides methods to navigate and manipulate the browser's
+            history.
             <pre>
             <code class="javascript">
-                // Creating an instance of the HeroProfile class.
-                const ironMan = new HeroProfile('Iron Man', 40, 'Repulsor Rays');
-                
-                // Using the methods on the instance.
-                ironMan.introduce(); // Output: "Hi, I'm Iron Man, and I'm a superhero!"
-                ironMan.displayAge(); // Output: "Iron Man is 40 years old."
-                ironMan.usePower(); // Output: "Iron Man uses Repulsor Rays!"
+                // Managing browser history using the BOM.
+                window.history.back(); // Go back one page in the browser history.
+                window.history.forward(); // Go forward one page in the browser history.
+                window.history.go(-2); // Go back two pages in the browser history.
             </code>
             </pre>
-
-            In this step, we've created an instance of the HeroProfile class
-            named ironMan with the provided parameters. We then used the methods
-            introduce(), displayAge(), and usePower() on the ironMan object to
-            introduce the hero, display their age, and use their power,
-            respectively.
+            <p>
+              In this step, we used the window.history object to navigate
+              through the browser's history using the back(), forward(), and
+              go() methods.
+            </p>
           </div>
         </div>
       </div>
@@ -164,7 +136,7 @@
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseFour"
           >
-            #4 Class Inheritance (Extending Classes)
+            #4 Handling Dialogs
           </button>
         </h2>
         <div
@@ -172,36 +144,21 @@
           class="accordion-collapse collapse"
         >
           <div class="accordion-body">
-            Now, let's demonstrate class inheritance by creating a subclass
-            called SuperVillainProfile that inherits from the HeroProfile class.
-            The SuperVillainProfile class will have additional properties and
-            methods specific to villains.
+            The BOM allows you to interact with dialogs, such as alerts,
+            prompts, and confirmations.
             <pre>
             <code class="javascript">
-                class SuperVillainProfile extends HeroProfile {
-                    constructor(name, age, power, evilPlan) {
-                      // Call the constructor of the parent class using super().
-                      super(name, age, power);
-                      this.evilPlan = evilPlan;
-                    }
-                  
-                    // Override the usePower() method from the parent class.
-                    usePower() {
-                      console.log(`${this.name} uses ${this.power} to execute their evil plan: ${this.evilPlan}`);
-                    }
-                  
-                    // New method specific to SuperVillainProfile class.
-                    revealEvilPlan() {
-                      console.log(`${this.name}'s evil plan is to ${this.evilPlan}`);
-                    }
-                  }
+                // Handling dialogs using the BOM.
+                window.alert('This is an alert dialog.'); // Display an alert dialog.
+                const userInput = window.prompt('Enter your name:', 'John Doe'); // Display a prompt dialog with a default value.
+                const userConfirmed = window.confirm('Are you sure you want to proceed?'); // Display a confirmation dialog.
             </code>
             </pre>
-            In this step, we've defined the SuperVillainProfile class that
-            extends the HeroProfile class using the extends keyword. It has an
-            additional property evilPlan, and the usePower() method is
-            overridden to include the evil plan. We've also added a new method
-            revealEvilPlan() specific to villains.
+            <p>
+              In this step, we used the window.alert(), window.prompt(), and
+              window.confirm() methods to display alert, prompt, and
+              confirmation dialogs, respectively.
+            </p>
           </div>
         </div>
       </div>
@@ -215,7 +172,7 @@
             aria-expanded="false"
             aria-controls="panelsStayOpen-collapseFive"
           >
-            #5 Creating an Instance of the Subclass
+            #5 Accessing Navigator Object
           </button>
         </h2>
         <div
@@ -223,35 +180,22 @@
           class="accordion-collapse collapse"
         >
           <div class="accordion-body">
-            Finally, let's create an instance of the SuperVillainProfile class
-            and see how it inherits properties and methods from the parent class
-            while having its own unique features.
+            The BOM provides the navigator object to access information about
+            the user's browser and operating system.
             <pre>
             <code class="javascript">
-                // Creating an instance of the SuperVillainProfile class.
-                const joker = new SuperVillainProfile('Joker', 35, 'Chaos', 'create anarchy in Gotham City');
-                
-                // Using methods on the instance.
-                joker.introduce(); // Output: "Hi, I'm Joker, and I'm a superhero!"
-                joker.displayAge(); // Output: "Joker is 35 years old."
-                joker.usePower(); // Output: "Joker uses Chaos to execute their evil plan: create anarchy in Gotham City"
-                joker.revealEvilPlan(); // Output: "Joker's evil plan is to create anarchy in Gotham City"
+                // Accessing the navigator object.
+                console.log(navigator.userAgent); // Output: The user agent string representing the browser.
+                console.log(navigator.language); // Output: The language code of the browser.
             </code>
             </pre>
 
             <p>
-              In this step, we've created an instance of the SuperVillainProfile
-              class named joker. Despite being a subclass, it inherits the
-              introduce() and displayAge() methods from the HeroProfile class.
-              However, the usePower() method is overridden to include the evil
-              plan. Additionally, joker has access to the revealEvilPlan()
-              method, which is specific to the SuperVillainProfile class.
-            </p>
-
-            <p>
-              With these steps, we've demonstrated how to create and use
-              JavaScript classes, along with class inheritance to create
-              subclasses with specialized properties and methods.
+              In this step, we accessed the userAgent and language properties of
+              the navigator object to get information about the user's browser
+              and language, respectively. These steps provide an overview of the
+              Browser Object Model (BOM) and how to use it with JavaScript code
+              to interact with the browser window and its components.
             </p>
           </div>
         </div>

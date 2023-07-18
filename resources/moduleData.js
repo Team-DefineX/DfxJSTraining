@@ -283,4 +283,14 @@ export const modules = [
       },
     ],
   },
+  {
+    fileName: "BOM",
+    moduleName: "BOM",
+    steps: [
+      {
+        name: "Useage of Browser Object Model",
+        time: "15mins",
+      },
+    ],
+  },
 ];
