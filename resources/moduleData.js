@@ -234,28 +234,6 @@ export const modules = [
     ],
   },
   {
-    fileName: "bom",
-    moduleName: "BOM",
-    steps: [
-      {
-        name: "Usage of Global and window",
-        time: "20mins",
-      },
-      {
-        name: "Index",
-        time: "10mins",
-      },
-      {
-        name: "Location & History",
-        time: "14mins",
-      },
-      {
-        name: "Cookie",
-        time: "16mins",
-      },
-    ],
-  },
-  {
     fileName: "Arrays",
     moduleName: "Arrays",
     steps: [
