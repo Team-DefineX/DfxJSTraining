@@ -1,5 +1,5 @@
 <p align="justify">
-    Objects have two types of properties: data and accessor properties.
+    Data and accessor properties are the two kinds of properties that are used for objects.
 </p>
 <br>
 <h4>
@@ -7,24 +7,27 @@
 </h4>
 <br>
 <p align="justify"> 
-    A data property contains a single location for a data value. A data property has four attributes:
+    A data property has a single location where a data value can be found. There are four attributes 
+    to a data property:
 </p>
 <br>
 <ul>
-    <li>&nbsp;<code>Configurarable</code> – determines whether a property can be redefined or removed via <code>delete</code> operator.</li>
-    <li>&nbsp;<code>Enumerable</code> – indicates if a property can be returned in the <code>for...in</code> loop.</li>
-    <li>&nbsp;<code>Writable</code> – specifies that the value of a property can be changed.</li>
-    <li>&nbsp;<code>Value</code> – contains the actual value of a property.</li>
+    <li>&nbsp;<code>Configurarable</code> – determines if the <code>delete</code> operator can be used to remove or redefine a property.</li>
+    <li>&nbsp;<code>Enumerable</code> – it lets you know whether a property may be brought back in a <code>for...in</code> loop.</li>
+    <li>&nbsp;<code>Writable</code> – states that a property's value may be changed.</li>
+    <li>&nbsp;<code>Value</code> – includes a property's true value.</li>
 </ul>
 <p align="justify">
-    By default, the <code>Configurable</code>, <code>Enumerable</code>and <code>Writable</code> attributes set to <code>true</code> for all properties defined directly on an object. The default value of the<code>Value</code> attribute is <code>undefined</code>.
+    All properties created directly on an object have their <code>Configurable</code>, <code>Enumerable</code>, 
+    and <code>Writeable</code> attributes set to <code>true</code> by default. The <code>Value</code> 
+    attribute has an <code>undefined</code> default value. 
 </p>
 <br>
 <p align="justify">
-    The following example creates a <code>car</code> object with two properties <code>'Car Brand'</code>, 
-    <code>headquartered</code> and <code>numberOfEmployee</code> with the <code>configurable</code>, 
-    <code>enumerable</code>, and  <code>writable</code> attributes set to <code>true</code>. And their values 
-    are set to <code>'Volkswagen'</code>, <code>'Wolfsburg'</code> and <code>5400</code> respectively:
+    In the next example, a <code>car</code> object is made with three properties: <code>'Car Brand'</code>, 
+    <code>headquartered</code> and <code>numberOfEmployees</code>. The <code>configurable</code>, 
+    <code>enumerable</code>, and <code>writable</code> traits are all set to true. And their values 
+    are <code>'Volkswagen'</code>, <code>'Wolfsburg'</code> and <code>5400</code>:
 </p>
 <pre>
     <code class="javascript">
@@ -36,11 +39,11 @@
     </code>
 </pre>
 <p align="justify">
-    To change any attribute of a property, you use the <code>Object.defineProperty()</code> method.
+    Use the <code>Object.defineProperty()</code> function to modify any property's attribute.
 </p>
 <br>
 <p align="justify">
-    The <code>Object.defineProperty()</code> method accepts three arguments:
+    Three arguments are accepted by the <code>Object.defineProperty()</code> method:
 </p>
 <br>
 <ul>
@@ -56,13 +59,13 @@
     </li>
 </ul>
 <p align="justify">
-    If you use the <code>Object.defineProperty()</code> method to define a property of the object, the default 
-    values of <code>Configurable</code>, <code>Enumerable</code>, and <code>Writable</code> are set to 
-    <code>false</code> unless otherwise specified.
+    If you define an object's property using the <code>Object.defineProperty()</code> function, 
+    <code>Configurable</code>, <code>Enumerable</code>, and <code>Writable</code> are set to 
+    <code>false</code> by default unless you specify otherwise.
 </p>
 <br>
 <p align="justify"> 
-    The following example creates a <code>car</code> object with the <code>'Car Brand'</code> property:
+    The car object in the example below has the <code>'Car Brand'</code> property set:
 </p>
 <pre>
     <code class="javascript">
@@ -71,8 +74,8 @@
     </code>
 </pre>
 <p align="justify"> 
-    Since the default value of the <code>Configurable</code> attribute is set to <code>true</code>, you can 
-    remove it via the <code>delete</code> operator:
+    Because the <code>Configurable</code> attribute's default value is set to <code>true</code>, you 
+    can <code>delete</code> it as follows:
 </p>
 <pre>
     <code class="javascript">
@@ -82,8 +85,8 @@
     </code>
 </pre>
 <p align="justify">
-    The following example creates a <code>car</code> object and adds the <code>numberOfEmployee</code> property 
-    to it using the <code>Object.defineProperty()</code> method:
+    Using the <code>Object.defineProperty()</code> function, the following example builds a <code>car</code> 
+    object and adds the <code>numberOfEmployee</code> property to it:
 </p>
 <pre>
     <code class="javascript">
@@ -100,17 +103,17 @@
     </code>
 </pre>
 <p align="justify">
-    In this example, the <code>configurable</code> attribute is set to <code>false</code>. Therefore, deleting 
-    the <code>numberOfEmployee</code> property causes&nbsp; an error.
+    In this instance, the <code>Configurable</code> attribute is <code>false</code>. Errors result 
+    from deleting the <code>numberOfEmployees</code> property.
 </p>
 <br>
 <p align="justify">
-    Also, once you define a property as non-configurable, you cannot change it to configurable.
+    In addition, you cannot change a non-configurable property to a <code>Configurable</code> one.
 </p>
 <br>
 <p align="justify">
-    If you use the <code>Object.defineProperty()</code> method to change any attribute other than the writable, 
-    you’ll get an error. or example:
+    If you attempt to use the <code>Object.defineProperty()</code> method to modify any attribute 
+    other than the writable one, you will receive an error. or:
 </p>
 <pre>
     <code class="javascript">
@@ -130,9 +133,9 @@
     </code>
 </pre>
 <p align="justify">
-    By default, the <code>enumerable</code> attribute of all the properties defined on an object is 
-    <code>true</code>. It means that you can iterate over all object properties using the <code>for...in</code> 
-    loop like this:
+    All the features of an object have the <code>Enumerable</code> attribute set to <code>true</code> 
+    by default. It suggests that you can use the <code>for...in</code> loop like this to go through 
+    all of an object's properties:
 </p>
 <pre>
     <code class="javascript">
@@ -147,8 +150,8 @@
     </code>
 </pre>
 <p align="justify">
-    The following makes the <code>headquartered</code> property non-enumerable by setting the <code>enumerable</code> 
-    attribute to <code>false</code>.
+    The <code>Enumerable</code> attribute is set to <code>false</code> in the following to make the 
+    <code>headquartered</code> property non-enumerable:
 </p>
 <pre>
     <code class="javascript">
@@ -171,27 +174,26 @@
 </h4>
 <br>
 <p align="justify">
-    Similar to data properties, accessor properties also have <code>Configurable</code> and <code>Enumerable</code> 
-    attributes.
+    Accessor properties contain <code>Configurable</code> and <code>Enumerable</code> qualities, just like 
+    data properties.
 </p>
 <br>
 <p align="justify">
-    But the accessor properties have the <code>Get</code> and <code>Set</code> attributes instead of <code>Value</code> 
-    and <code>Writable</code>.
+    Instead of <code>Value</code> and <code>Writable</code>, the accessor properties have the 
+    <code>Get</code> and <code>Set</code> properties.
 </p>
 <br>
 <p align="justify">
-    When you read data from an accessor property, the <code>Get</code> function is called automatically to return 
-    a value. The default return value of the <code>Get</code> function is <code>undefined</code>.
+    <code>Get</code> is automatically called to return a value when data is read from an accessor property. 
+    The <code>Get</code> function has an <code>undefined</code> default return value.
 </p>
 <br>
 <p align="justify">
-    If you assign a value to an accessor property, the <code>Set</code> function is called automatically.
+    The <code>Set</code> function is automatically called if an accessor property is provided with a value.
 </p>
 <br>
 <p align="justify">
-    To define an accessor property, you must use the <code>Object.defineProperty()</code> method.  
-    or example:
+    Use the <code>Object.defineProperty()</code> method for defining an accessor property or as in:
 </p>
 <pre>
     <code class="javascript">
@@ -229,8 +231,8 @@
 </h5>
 <br> 
 <p align="justify">
-    In ES5, you can define multiple properties in a single statement using the <code>Object.defineProperties()</code> 
-    method or example:
+    Using the <code>Object.defineProperties()</code> method in ES5, you can define several properties 
+    in a single sentence, or you can:
 </p>
 <pre>
     <code class="javascript">
@@ -257,9 +259,9 @@
     </code>
 </pre>
 <p align="justify">
-    In this example, we defined three data properties: <code>'Car Brand'</code>, <code>headquartered</code>, 
-    and <code>numberOfEmployee</code>, and one accessor property <code>companyInfo</code> for the <code>car</code> 
-    object.
+    In this example, the car object has three data properties: <code>'Car Brand'</code>, 
+    <code>headquartered</code> and <code>numberOfEmployee</code> as well as one accessor property 
+    called <code>companyInfo</code>.
 </p>
 <br>
 <h4 class="wp-block-heading">
@@ -267,8 +269,8 @@
 </h4>
 <br>
 <p align="justify">
-    The <code>Object.getOwnPropertyDescriptor()</code> method allows you to get the descriptor object of a property. 
-    The <code>Object.getOwnPropertyDescriptor()</code> method takes two arguments:
+    You can get the descriptor object for a property using the <code>Object.getOwnPropertyDescriptor()</code> 
+    function. This method requires two arguments:
 </p>
 <br>
 <ul>
@@ -280,13 +282,13 @@
     </li>
 </ul>
 <p align="justify"> 
-    It returns a descriptor object that describes a property. The descriptor object has four properties: 
-    <code>configurable</code>, <code>enumerable</code>, <code>writable</code>, and <code>value</code>.
+    It returns an object descriptor that describes a property. <code>Configurable</code>, <code>Enumerable</code>, 
+    <code>Writable</code>, and <code>Value</code> are the four properties of the descriptor object.
 </p>
 <br>
 <p align="justify">
-    The following example gets the descriptor object of the <code>'Car Brand'</code> property of the 
-    <code>car</code> object in the prior example.
+    Next example gathers the descriptor object of the <code>car</code> object's <code>'Car Brand'</code> 
+    property from the previous example.
 </p>
 <pre>
     <code class="javascript">
@@ -338,7 +340,8 @@
     <div>
         <h5>#1</h5>
         <p align="justify">
-            Yukarıda bulunan <code>company</code> objesine propertylerini <code>for...in</code> loop kullanarak console'a yazdırınız.
+            Set the properties of the company object seen above and print them to the console using 
+            the <code>for...in</code> loop.
         </p>
     </div>
     <br>
@@ -367,7 +370,9 @@
     <div>
         <h5>#2</h5>
         <p align="justify">
-            delete operatörünü kullanarak <code>company</code> objesinin içinde bulunan <code>'Has Global Customer'</code> propertysini siliniz daha sonra <code>for...in</code> loop kullanarak objenin propertylerini console'a yazdırınız.
+            Using the <code>delete</code> operator, delete the <b>Has Global Customer</b> property in the 
+            <code>company</code> object, then print the object's properties to the console using the 
+            <code>for...in</code> loop.
         </p>
     </div>
     <br>
@@ -395,8 +400,9 @@
     <div>
         <h5>#3</h5>
         <p align="justify">
-            <code>company</code> objesine <code>defineProperty</code> methodunu kullanarak <code>coreValues</code> adında ve <code>configurable</code> özelliği <code>false</code> olan bir property ekleyiniz.
-            Bu property'i <code>delete</code> opertatörü kullanarak silmeye çalışınız ve sonucunu görünüz.
+            Add a property named <code>coreValues</code> with a <code>Configurable</code> property of 
+            <code>false</code> to the <code>company</code> object using the <code>defineProperty</code> 
+            method. Try to <code>delete</code> this property using the delete operator and see the result.
         </p>
     </div>
     <br>

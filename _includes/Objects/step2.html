@@ -1,5 +1,5 @@
 <p>
-    There are 3 ways to create objects.
+    There are 3 ways to create objects:
 </p>
 <br>
 <ol>
@@ -12,12 +12,12 @@
     1) JavaScript Object by object literal
 </h5>
 <p>
-    Objects can be assigned to variables just like any JavaScript type. We use curly braces, <code>{}</code>, to
-    designate an <em>object literal</em>:
+    Objects can be put in variables just like any other type in JavaScript. Curly braces <code>{}</code>
+    are used to mark an object literal:
 </p>
 <pre>
     <code class="javascript">
-    let car = {}; // company is an empty object
+    let company = {}; // company is an empty object
     </code>
 </pre>
 <p>
@@ -30,16 +30,18 @@
 </div>
 <br>
 <p align="justify">
-    A key’s value can be of any data type in the language including functions or other objects.
+    We insert unordered data into an object. Key-value pairs are used to organize this data. 
+    A key is similar to a variable name that points to a place in memory where a value is stored.
 </p>
 <br>
 <p align="justify">
-    We make a key-value pair by writing the key’s name, or <em>identifier</em>, followed by a colon and then the
-    value.
-    We separate each key-value pair in an object literal with a comma (<code>,</code>).
-    Keys are strings, but when we have a key that does not have any special characters in it, JavaScript allows us
-    to
-    omit the quotation marks:
+    The value of a key can be any language-supported data type, including functions and other objects.
+</p>
+<br>
+<p align="justify">
+    The name of the key, or identifier, is followed by a colon and then the value. In an object 
+    literal, each key-value pair is separated by a comma <code>(,)</code>. Keys are strings, but 
+    JavaScript permits us to omit the quotation marks when a key contains no special characters.
 </p>
 <br>
 <pre>
@@ -53,9 +55,9 @@
     </code>
 </pre>
 <p align="justify">
-    The <code>car</code> object has three properties <code>'Car Brand'</code>, <code>'numberOfEmployee'</code> and
-    <code>headquartered</code>.
-    <code>'Car Brand'</code> has quotation marks because it contains a space character.
+    There are three properties on the <code>car</code> object: <code>'numberOfEmployee'</code>, 
+    <code>'Car Brand'</code>, and <code>'headquartered'</code>. Because <code>'Car Brand'</code> 
+    contains a space character, it is enclosed in quotation marks.
 </p>
 <br>
 <br>
@@ -63,7 +65,7 @@
     2) By creating instance of Object
 </h5>
 <p>
-    The syntax of creating object directly is given below:
+    The following is the syntax for generating an object directly:
 </p>
 <pre>
     <code class="javascript">
@@ -71,11 +73,7 @@
     </code>
 </pre>
 <p>
-    Here, <b>new keyword</b> is used to create object.
-</p>
-<br>
-<p>
-    Let’s see the example of creating object directly.
+    Here, <b>new keyword</b> is used to create the object.
 </p>
 <pre>
     <code class="javascript">
@@ -92,17 +90,16 @@
     3) By using an Object constructor
 </h5>
 <p align="justify">
-    Here, you need to create function with arguments. Each argument value can be assigned in the current object by
-    using
-    this keyword.
+    In this case, you need to develop a function with arguments. Using this keyword, you can 
+    attribute each argument's value to the current object.
 </p>
 <br>
 <p>
-    The <b>this keyword</b> refers to the current object.
+    <b>This</b> keyword refers to the current object.
 </p>
 <br>
 <p>
-    The example of creating object by object constructor is given below.
+    The following is an example of creating an object using an object constructor:
 </p>
 <pre>
     <code class="javascript">
@@ -128,9 +125,9 @@
     <div>
         <h5>#1</h5>
         <p align="justify">
-            With three way make new Company objects named <code>company</code> with the same <code>'Company Name'</code> equal to
-            <code>'Team DefineX'</code>, <code>nmberOfEmployee</code> equal to <code>500</code> and
-            <code>headquartered</code> equal to <code>'İstanbul'</code>
+            In three ways, make new <code>Company</code> objects named company with the same 
+            <code>'Company Name'</code> equal to <code>'Team DefineX'</code>, <code>numberOfEmployee</code> 
+            equal to <code>500</code> and <code>headquartered</code> equal to <code>'İstanbul'</code>.
         </p>
     </div>
     <br>
@@ -147,7 +144,7 @@
     <div>
         <h5>#2</h5>
         <p align="justify">
-            Print to company objects with console.log
+            Print to company objects with console.log.
         </p>
     </div>
     <br>

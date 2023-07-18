@@ -1,10 +1,10 @@
 <p align="justify">
-    An object is a collection of key/value pairs or properties. When the value is a function, the property becomes a
-    method. Typically, you use methods to describe the object behaviors.
+    Objects are collections of key-value pairs or properties. The property becomes a method when 
+    its value is a function. Methods are typically used to define the behaviors of objects.
 </p>
 <br>
 <p align="justify">
-    For example, the following adds the <code>firstMethod</code> method to the <code>car</code> object:
+    For instance, the code below adds the <code>firstMethod</code> method to the car object:
 </p>
 <pre>
     <code class="javascript">
@@ -31,16 +31,17 @@
 <p align="justify">
 <ul>
     <li>
-        First, use a function expression to define a function and assign it to the <code>firstMethod</code> property of the
-        <code>car</code> object.
+        First, define a function using a function expression and assign it to the <code>firstMethod</code> 
+        property of the <code>car</code> object.
     </li>
     <li>
-        Then, call the method <code>firstMethod()</code> method.
+        Afterwards, call the <code>firstMethod()</code> method.
     </li>
 </ul>
 </p>
 <p align="justify">
-    Besides using a function expression, you can define a function and assign it to an object like this:
+    A function can also be defined and assigned to an object using a function expression, as in the 
+    following example:
 </p>
 <pre>
     <code class="javascript">
@@ -67,13 +68,14 @@
 <p align="justify">
 <ul>
     <li>
-        First, define the <code>firstMethod()</code> function as a regular function.
+        Firstly, define <code>firstMethod()</code> as a regular function.
     </li>
     <li>
-        Second, assign the function name to the the <code>firstMethod</code> property of the <code>car</code> object.
+        Secondly, assign the function's <code>name</code> to the <code>car</code> object's 
+        <code>firstMethod</code> property.
     </li>
     <li>
-        Third, call the <code>firstMethod()</code> method.
+        Finally, call the <code>firstMethod()</code> method.
     </li>
 </ul>
 </p>
@@ -81,8 +83,8 @@
     Object method shorthand
 </h4>
 <p align="justify">
-    JavaScript allows you to define methods of an object using the object literal syntax as shown in the following
-    example:
+    The following example demonstrates how you can define an object's methods using the object 
+    literal syntax in JavaScript:
 </p>
 <pre>
     <code class="javascript">
@@ -98,7 +100,7 @@
     </code>
 </pre>
 <p align="justify">
-    ES6 provides you with the concise method syntax that allows you to define a method for an object:
+    ES6 offers a concise method syntax for defining object methods:
 </p>
 <pre>
     <code class="javascript">
@@ -119,16 +121,17 @@
     The this value
 </h4>
 <p align="justify">
-    Typically, methods need to access other properties of the object.
+    Methods frequently need to access additional object properties.
 </p>
 <br>
 <p align="justify">
-    For example, you may want to define a method that returns the headquartered and numberOfEmployee values of the car object.
+    For instance, you might wish to create a method that gathers the <code>car</code> object's 
+    <code>headquarters</code> and <code>numberOfEmployee</code> properties.
 </p>
 <br>
 <p align="justify">
-    Inside a method, the <code>this</code> value references the object that invokes the method. Therefore, you can
-    access a property using the <code>this</code> value as follows:
+    The <code>this</code> value in a method refers to the object that called the method. As a result, 
+    the following shows how you can access a property using <code>this</code> value:
 </p>
 <pre>
     <code class="javascript">
@@ -182,8 +185,16 @@
     <div>
         <h5>#1</h5>
         <p align="justify">
-            Yukarıda bulunan <code>company</code> objesine <code>companyInfo()</code> adlı bir method ekleyiniz. Bu methodun içine aşağıdaki mesajı <code>console.log</code> komutu ile yazdırınız. 
-            Daha sonra <code>company</code> objesindeki <code>companyInfo()</code> methodunu çağırınız.
+            Add a method named <code>companyInfo()</code> to the <code>company</code> object above. 
+            Print the following message into this method with the console.log command:
+        </p>
+        <br>
+        <p align="justify">
+            <b>Team DefineX is headquarted in Istanbul.</b>
+        </p>
+        <br>
+        <p align="justify">
+            Next, call the <code>companyInfo()</code> method on the company object.
         </p>
     </div>
     <br>

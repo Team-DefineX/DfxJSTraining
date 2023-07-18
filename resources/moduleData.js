@@ -95,7 +95,7 @@ export const modules = [
         name: "Accessing Properties",
         time: "5mins",
       },
-      { 
+      {
         name: "Bracket Notation",
         time: "5mins",
       },
@@ -157,6 +157,10 @@ export const modules = [
         name: "Callback functions",
         time: "16mins",
       },
+      {
+        name: "Recursive functions",
+        time: "16mins",
+      },
     ],
   },
   {
@@ -190,8 +194,12 @@ export const modules = [
         time: "10mins",
       },
       {
+        name: "ES6",
+        time: "10mins",
+      },
+      {
         name: "ES6 Modules",
-        time: "20mins",
+        time: "10mins",
       },
       {
         name: "PolyFills",

@@ -1,15 +1,17 @@
 <p align="justify">
-    Arrow functions are a clear and concise method of writing normal/regular Javascript functions in a more accurate and shorter way. Arrow functions were introduced in the ES6 version. 
-    They make our code more structured and readable.
+    Arrow functions are a clear and concise way to write regular <b>Javascript</b> functions in a more 
+    precise and shorter manner. In version <b>ES6</b>, arrow functions were introduced. They improve 
+    the structure and readability of our code.
 </p>
 <br>
 <p align="justify">
-    Arrow functions are anonymous functions i.e. they are functions without a name and are not bound by an identifier. Arrow functions do not return any value and can be declared without 
-    the function keyword. They are also called Lambda Functions.
+    Arrow functions are anonymous functions, which lack a name and are not associated with an 
+    identifier. Arrow functions do not return a value and can be declared without the keyword 
+    function. They are also referred to as <b>Lambda</b> Functions.
 </p>
 <br>
 <p align="justify">
-    It looks like this:
+    It appears as follows:
 </p>
 <pre>
     <code class="javascript">
@@ -17,11 +19,12 @@
     </code>
 </pre>
 <p align="justify">
-    This creates a function <code>func</code> that accepts arguments <code>arg1..argN</code>, then evaluates the expression on the right side with their use and returns its result.
+    This creates a function named <code>func</code> that accepts the arguments <code>arg1..argN</code>, then 
+    evaluates the expression on the right using those arguments and returns the result.
 </p>
 <br>
 <p align="justify">
-    In other words, it’s the shorter version of:
+    In other terms, it is the shorter version of:
 </p>
 <pre>
     <code class="javascript">
@@ -31,95 +34,92 @@
     </code>
 </pre>
 <p align="justify">
-    Let’s see a concrete example:
+    Let’s see an example:
 </p>
 <pre>
     <code class="javascript">
-    let sum = (a, b) => a + b;
+    let multiply = (x, y) => x + y;
     /* This arrow function is a shorter form of:
     
-    let sum = function(a, b) {
-      return a + b;
+    let multiply = function(x, y) {
+      return x + y;
     };
     */
     
-    alert( sum(1, 2) ); // 3
+    alert(multiply(4, 5)); // 20
     </code>
 </pre>
 <p align="justify">
-    As you can see, <code>(a, b) => a + b</code> means a function that accepts two arguments named  <code>a</code> and <code>b</code>. Upon the execution, it evaluates the expression <code>a + b</code> and returns the result.
+    As you can see, a function that takes the two inputs <code>x</code> and <code>y</code> is denoted 
+    by <code>(x, y) => x * y</code>. It evaluates the expression <code>x * y</code> during execution 
+    and returns the outcome.
 </p>
 <br>
 <p align="justify">
-    <strong>#1</strong> If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+    <strong>#1</strong> If there is only one argument, the parentheses surrounding parameters can 
+    be omitted, making the code even shorter.
 </p>
 <br>
 <p align="justify">
-    For example:
+    For instance:
 </p>
 <pre>
     <code class="javascript">
-    let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
+    let divideIntoTwo = x => x / 2;
+    // roughly the same as: let divideIntoTwo = function(x) { return x / 2 }
     
-    alert( double(3) ); // 6
+    alert(divideIntoTwo(10)); // 5
     </code>
 </pre>
 <p align="justify">
-    <strong>#2</strong> If there are no arguments, parentheses are empty, but they must be present:
+    <strong>#2</strong> If there are no arguments, the parentheses must be empty but present:
 </p>
 <pre>
     <code class="javascript">
-    let sayHi = () => alert("Hello!");
+    let welcomeMessage = () => alert("Welcome to Definex Javascript Training!");
     
-    sayHi();
+    welcomeMessage(); // Welcome to Definex Javascript Training!
     </code>
 </pre>
 <p align="justify">
-    Arrow functions can be used in the same way as Function Expressions.
+    Arrow functions can be applied similarly to Function Expressions.
 </p>
 <br>
 <p align="justify">
-    For instance, to dynamically create a function:
+    For example, to create a function dynamically:
 </p>
 <pre>
     <code class="javascript">
-    let age = 18;
+    let yourAge = 18;
     
-    let welcome = (age < 18) ?
-      () => alert('Hello!') :
-      () => alert("Greetings!");
+    let accessControlPoint = (yourAge < 18) ?
+      () => alert('Children Are Not Allowed!') :
+      () => alert("Go Into!");
     
-    welcome();
-    </code>
-</pre>
-<p align="justify">
-    <strong>Output</strong>
-</p>
-<pre>
-    <code class="javascript">
-    Greetings!
+      accessControlPoint(); // Go Into!
     </code>
 </pre>
 <h4>
     Multiline arrow functions
 </h4>
 <p align="justify">
-    The arrow functions that we’ve seen so far were very simple. They took arguments from the left of =>, evaluated and returned the right-side expression with them.
+    The arrow functions we've seen until now have been basic. They evaluated the left-side arguments 
+    and returned the right-side expression with them.
 </p>
 <br>
 <p align="justify">
-    Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that 
-    curly braces require a return within them to return a value (just like a regular function does).
+    From time to time, we require a complex function with multiple expressions and statements. 
+    Then we can surround them in curly braces. Similar to regular functions, curly braces require a 
+    return statement to return a value. 
 </p>
 <pre> 
     <code class="javascript">
-    let sum = (a, b) => {  // the curly brace opens a multiline function
-        let result = a + b;
+    let pow = (x, y) => {  // the curly brace opens a multiline function
+        let result = x ** y;
         return result; // if we use curly braces, then we need an explicit "return"
     };
       
-    alert( sum(1, 2) ); // 3
+    alert(pow(8, 2)); // 64
     </code>
 </pre>
 <h4>
@@ -127,17 +127,19 @@
 </h4>
 <ul>
     <li>
-        Arrow functions reduce the size of the code
+        Arrow functions decrease the amount of code.
     </li>
     <li>
-        The return statement and functional braces are optional for single-line functions
+        Single-line functions may omit the return statement and functional braces.
     </li>
     <li>
-        It increases the readability of the code
+        It improves the code's readability.
     </li>
     <li>
-        Arrow functions provide a lexical this binding, which means that they inherit the value of “this” from the enclosing scope. This feature can be advantageous when dealing with event listeners or 
-        callback functions where the value of “this” can be uncertain
+        Arrow functions offer lexical this binding, which allows them to take the value of 
+        <code>this</code> from the scope in which they are used. When working with event listeners 
+        or callback functions, where the value of <code>this</code> can be unclear, this feature can 
+        be helpful.
     </li>
 </ul>
 <h4>
@@ -145,15 +147,39 @@
 </h4>
 <ul>
     <li>
-        Arrow functions do not have the prototype property
+        There is no prototype property for arrow functions.
     </li>
     <li>
-        Arrow functions cannot be used with the new keyword
+        Using the new keyword with arrow functions is not permitted.
     </li>
     <li>
-        Arrow functions cannot be used as constructors
+        It is not possible to utilize arrow functions as constructors.
     </li>
     <li>
-        These functions are anonymous and it is hard to debug the code
+        These methods are anonymous, which makes it difficult to debug the code.
     </li>
 </ul>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Create an Arrow function named dateDiff and assign a date with Date type to this function, calculate the number of days between today's 
+            date and the assigned date, and print the result with console.log.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/d6a0xjqy/24/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

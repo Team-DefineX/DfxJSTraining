@@ -1,323 +1,227 @@
-<h5>Module</h5>
-The importance of the module concept and its role in JavaScript projects is important.
-It set a standard for not re-coding. Let's look at the use of import and export keywords.
-<br><br>
-<h6>Destructuring</h6>
-<pre>
-        <code class="javascript">
-                // Yeniden yapılandırma ile içe aktarma
-                import Link from './example.js';    
-                let {history} = Link;
-        </code>
-</pre>
-        
-        In the above example, we are importing directly using the name and age variables. <br>
-        This way, we can access the data we imported directly, without having to retype their names.<br><br>
-
-<pre>
-        <code class="javascript">
-               // export variable
-                export const name = 'John Doe';
-                export const age = 30;
-
-                // export function
-                export function sayHello() {
-                        console.log('Merhaba!');
-                }
-
-                // default export
-                export default function sayGoodbye() {
-                        console.log('Hoşça kal!');
-                }  
-        </code>
-</pre>
-       
-
-In the above example, we export the sayHello function with the variables name and age with the export keyword. <br>
-We also export the sayGoodbye function by default with "export default". <br>
-When you import this module in another file, you can access the exported data and functions.<br><br>
-<pre>
-        <code class="javascript">
-                import { name, age, sayHello } from './module.js';
-                import sayGoodbye from './module.js';
-
-                console.log(name); // 'John Doe'
-                console.log(age); // 30
-
-                sayHello(); // 'Merhaba!'
-                sayGoodbye(); // 'Hoşça kal!'
-        </code>
-</pre>
-
-
-In the above usage, we import the variables name, age and sayHello separately with the import keyword. <br>
-We import the sayGoodbye function, which is exported by default, in a separate import line. <br>
-We can now access and use the data and functions in this module.<br><br>
-        
-
-<h6>Aliasing</h6>
-<pre>
-        <code class="javascript">
-                // export Aliasing
-                export { name as fullName, age as personAge };
-
-                // import Aliasing
-                import { fullName as name, personAge as age } from './module.js';   
-        </code>
-</pre>
-
-
-
-<h6>Reordering</h6>
-        
-<pre>
-        <code class="javascript">
-                export { age, name };
-        </code>
-</pre>
-       
-        In the example above, we export the age and name variables in a different order. <br>
-         In this case, when we import it in another file, we can access the variables by name, not by order.<br><br>
-
-<h6>Module Loop and Dependency Management</h6>
 <div>
-        <div class="accordion">
+    <p>
+        <h4>ES6 (ECMAScript 2015)</h4> It is the sixth version of JS released in 2015. ES6, a big language
+        is the development and added many new features. Notable innovations include block scope variables (let and const),
+        arrow functions, rest and spread operators, classes, modules, Promise, arrow functions and
+        There are many features such as destructuring. These new features make code cleaner, readable and
+        makes it sustainable.
+
+    </p>
+    <p>
+      <h4>What's new in ECMAScript 6</h4>
+        
+        <div>
+            <div class="accordion">
                 <div class="accordion-item">
-                <h2 class="accordion-header">
+                    <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseOne">
-                        #1 Simple Usage
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            #1 Let & Const - Arrow Function - Template Literal
                         </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
                         <div class="accordion-body">
-                        <div class="centered-img">
-                                <img src="/_includes/images/depen-image.png" alt="">
-                                </div>
+                            <iframe width="100%" height="300"
+                                src="//jsfiddle.net/TeamDFX/sy10x973/21/embedded/js,html,css,result/dark/"
+                                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
                         </div>
-                </div>
+                    </div>
                 </div>
                 <div class="accordion-item">
-                <h2 class="accordion-header">
+                    <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo">
-                        #2 Usage
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            #2 Spread & destruction Operators
                         </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                         <div class="accordion-body">
-                        <div class="centered-img">
-                                <img src="/_includes/images/depgraph.png" alt="">
-                                </div>
+                            <iframe width="100%" height="300"
+                                src="//jsfiddle.net/TeamDFX/6s1toe9n/10/embedded/js,html,css,result/dark/"
+                                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
                         </div>
+                    </div>
                 </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse3">
+                            #3 String Creator
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>String Creator</p>
+                            <pre>
+                                <code class="javascript">
+                                const age = 41;
+                                const sentence = `I'm ${age} years old`;
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
                 </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse4" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse4">
+                            #4 Yield
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse4" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Yield effect the memory usages. It wait the your needed. Using generators can be beneficial whenever you’re looping through a large group of items and you don’t need to store them all at once.
+                            Without memory issue, You have to write bad code to project. like below:
+                            <pre>
+                                <code class="javascript">
+                                    // Without memory problem
+                                    // Without yield
+                                    return {
+                                        next() {
+                                          count++;
+                                          if (count === 1) {
+                                            return { value: 'Hello', done: false};
+                                          } else if (count === 2) {
+                                            return { value: 'World', done: false};
+                                          } else if (count === 3) {
+                                            return { value: 'Its me', done: false};
+                                          }
+                                          return { value: '', done: true };
+                                        }
+                                      }
+                                </code>
+                            </pre>
+                            Our code becomes more readable and non-memory issue.
+                            <pre>
+                                <code class="javascript">
+                                    function* square(numbers){
+                                        for (const n of numbers){
+                                          yield n * n;
+                                        }
+                                      }
+                                          
+                                      const numbers = [1, 2, 3, 4, 5];
+                                      const squared_numbers = square(numbers);
+                                      
+                                      console.log(squared_numbers);
+                                      console.log(squared_numbers.next());
+                                </code>
+                            </pre>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse5" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse5">
+                            #5 Rest  Parameter
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Rest  Parameter</p>
+                            <pre>
+                                <code class="javascript">
+                                    function sum(...args) {
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse6" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse6">
+                            #6 Default Parameter 
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse6" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Default Parameter </p>
+                            <pre>
+                                <code class="javascript">
+                                    function myFunction(x, y = 10)
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse7" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse7">
+                            #7 String
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse7" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>String</p>
+                            <pre>
+                                <code class="javascript">
+                                    let text = "Hello world";
+                    
+                                    text.includes("world")
+                                    text.startsWith("Hello")
+                                    text.endsWith("rld")
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse8" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapse8">
+                            #8 Math
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapse8" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Math</p>
+                            <pre>
+                                <code class="javascript">
+                                    let text = "Hello world";
+                    
+                                    Math.trunc(4.9);   // 4
+                                    Math.trunc(-4.7);  // -4
+                    
+                                    Math.sign(-4);    //  -1
+                                    Math.sign(0);    //  0
+                                    Math.sign(4);    //  1
+                    
+                                    Math.cbrt(8);    // returns 2
+                                    Math.cbrt(64);    // returns 4
+                                    Math.cbrt(125);    // returns 5
+                    
+                                    Math.log2(2);    // 1
+                                    Math.log2(8);    // 3
+                                    Math.log2(128)  // 7
+                                    Math.log10(10)  // 1
+                    
+                                    isFinite(10/0);       // returns false
+                                    isFinite(10/1);       // returns true
+                    
+                                    isNaN("Hello");       // returns true
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
+    </p>
+<br>        
 </div>
-<p>
-    <h6>Dependency Management Common js:</h6>    
-</p>
 
 
-<div>- Creating a module file named example.js:</div>
-
-<pre>
-        <code class="javascript">
-                // importing modules
-                const module1 = require('./module1');
-                const module2 = require('./module2');
-
-                // calling modules
-                module1.foo();
-                module2.bar();    
-        </code>
-</pre>
-
-<div>- Creating a module file named module1.js:</div>
-
-<pre>
-        <code class="javascript">
-               // Başka bir modül dosyasını içe aktarma
-                const module3 = require('./module3');
-
-                // Function definition
-                function foo() {
-                console.log('foo fonksiyonu');
-                module3.baz();
-                }
-
-                // Exporting
-                module.exports = {
-                foo: foo
-                };
- 
-        </code>
-</pre>
-
-<div>- Creating a module file named module2.js:</div>
-
-<pre>
-        <code class="javascript">
-                // Function definition
-                function bar() {
-                console.log('bar fonksiyonu');
-                }
-
-                // Fonksiyonu dışa aktarma
-                module.exports = {
-                bar: bar
-                };  
-        </code>
-</pre>
-
-<div>- Creating a module file named module3.js:</div>
-
-<pre>
-        <code class="javascript">
-                // Function definition
-                function baz() {
-                console.log('baz fonksiyonu');
-                }
-
-                // Export functions
-                module.exports = {
-                baz: baz
-                };  
-        </code>
-</pre>
-<p>
-        In the above example, module example.js imports module1.js, module2.js, and other module files named module3.js. <br>
-        Functions in module1.js and module2.js are used by module example.js. module3.js is also imported and used by module1.js.<br><br>
-
-        This way, dependency management is provided between modules using the CommonJS module system. <br>
-        Each module file runs in its own context and exports functions or objects with module.exports. <br>
-        Other modules access and use these exported functions or objects with require.<br><br>     
-</p>
-<p> <h6>Dynamic module loading (Dynamic Import) and usage</h6></p>
-
-<p>
-        Dynamic Import is a feature in JavaScript that allows modules to be loaded dynamically. It is generally used in the following situations:<br>
-</p>
-<p>
-<b>In-Need Module Loading:</b> Dynamic Import ensures that a particular module is loaded only when needed. <br>
-This can be useful in situations where the module needs to be loaded when user interaction or a certain condition is met. <br>
-In this way, unnecessary installations can be avoided and application startup time can be optimized.<br>
-</p>
-
-<p>
-<b>Modular Applications:</b> Dynamic Import facilitates the loading of different modules used in modular applications. <br>
-For example, different modules may need to be loaded on different pages in a web application. <br>
-Dynamic Import ensures that these modules are loaded and used as needed.<br><br>
-</p>
-
-<p>
-    <b>Lazy Loading:</b> Dynamic Import can be used for lazy loading of a particular component or module of an application. <br>
-Thus, when the user opens the page or performs an action, only the required components are loaded and the others are not loaded unless they are needed.<br><br>    
-</p>
-
-<p>
-      <b>Remote Upload (Code Splitting):</b> Dynamic Import can be used to upload specific pieces of application code remotely. <br>
-For example, it can break up a large application into small parts so that the user only installs the parts they need. <br>
-This allows the user to access the application more quickly and reduces the initial load time.<br><br>
-
-Below is an example of using Dynamic Import:<br>  
-</p>
-
-
-<pre>
-        <code class="javascript">
-               // When you needed, load module
-                button.addEventListener('click', async () => {
-                // İlgili modülü yükleme
-                const module = await import('./path/to/module.js');
-
-                // Use module
-                module.foo();
-                }); 
-        </code>
-</pre>
-<p>
-    In the above example, listening for a button click event causes a particular module to load dynamically. <br>
-The relevant module is loaded using the import() function and waited until the loading is complete with the await keyword. <br>
-Then, the functions or objects of the loaded module become available and the desired operations can be performed.<br>    
-</p>
-
-<p>
-    In this way, modules are loaded and used when needed using Dynamic Import.<br>    
-</p>
-
-
-<p>
-   What should be done for Module System Optimization and Performance Improvements:<br>     
-</p>
-
-<p>
-   <b>Module Bundling:</b> Module bundling reduces network traffic and improves load time by combining multiple modules into a single file. This is usually done using a module packager or configuration tool, for example tools such as Webpack, Rollup or Parcel can be used.
-<br><br>
-<b>Lazy Loading:</b> Instant loading ensures that large modules or required modules are loaded only when needed. This reduces the initial load time and allows the application to start faster. With the dynamic import() statement, you can load when needed.
-<br><br>
-<b>Module Caching:</b> Module caching is keeping a module in memory after it is loaded once and preventing it from being loaded again when used in more than one place. This avoids duplicate installations and improves performance.
-<br><br>
-<b>Minify and Uglify:</b> You can reduce file size and improve upload speed by minifying (compressing) and uglifying (mixing) your module files. This removes unnecessary spaces, line breaks, and comments, shortens variable and function names, and makes code more efficient.
-<br><br>
-<b>Static Analysis:</b> By using static analysis on your module system, you can detect unused modules or unnecessary dependencies and improve performance by removing them. This prevents unnecessary pieces of code from being loaded and reduces the app size.
-<br><br>
-<b>CDN Usage:</b> By using CDNs (Content Delivery Network) that distribute popular JavaScript libraries or modules, you can deliver your modules quickly and enable users to achieve faster load times.
-<br><br>
-<b>Tree Shaking:</b> Tree shaking detects unused or inaccessible pieces of code and removes them during the build process. This allows you to get a smaller file size containing only the modules and functions used.
-     
-</p>
-
-
-<p>
-        Class structure is again one of the new topics and will be focused on.
-        <br>
-        Async uses are also new features that will also be discussed.    
-</p>
-
-<h6>Usage and browser support:</h6> 
-<p>
-        Full support:
-        <ul>
-                <li>Chrome: 61 and higher</li>
-                <li>Firefox: 60 and later versions</li>
-                <li>Safari: 10.1 and higher</li>
-                <li>Edge: Versions 16 and higher</li>
-                <li>Opera: 48 and later</li>
-            </ul>
-</p>
-       
-
-<p>
-   Partial Support:
-   <ul>
-        <li>Internet Explorer: Does not support ES6 module system.
-                However, you can generate compatible JavaScript code for Internet Explorer using ES6 modules with tools like Babel or Webpack.
-                   </li>
-    </ul>
- 
-</p>
-
-<p>
-    When you want to use the ES6 module system, it is important to consider the support levels of the browsers in your target audience.
-If your target audience has old browsers, you can convert ES6 modules to ES5 with tools like Babel or Webpack to make them compatible. We'll examine this in the next step.
-    
-</p>
-<p>
-   Also, when using the ES6 module system     
-</p>
-
-<pre>
-        <code class="javascript">
-                &lt;script&gt; type="module" &lt;/script&gt;
-        </code>
-</pre>
-<p>
-   Remember to use tag.     
-</p>
-<p>
-   This tag notifies browsers that it is an ES6 module and takes the necessary actions for correct module loading.     
-</p>
 
