@@ -2,7 +2,7 @@
     The HTML DOM (Document Object Model)
 </p>
 <p>
-    When a web page is loaded, the browser creates a Document Object Model of the page
+    When a web page is loaded, the browser creates a Document Object Model of the page. HTML DOM, XML DOM and SVG DOM are main DOM types. We will cotinue with HTML DOM. Each is used for a specific type of document and programmatically provides access to the document's content.
 </p>
 
 <h5 class="mt-3">Function Declaration</h5>
@@ -22,54 +22,173 @@
 <div class="centered-img">
     <img src="/_includes/images/dom-tree.jpg" alt="">
 </div>
-<pre>
-    <code class="language-javascript">
-    
-    </code>
-</pre>
 
-<h5 class="mt-3">DOM node types</h5>
+<h5 class="mt-3">DOM partials</h5>
 
 <p></p>
 
 <ul>
-    <li><code>Elements</code>: The name of the function.</li>
+    <li><code>Elements</code>: The name of the html element.</li>
     <li><code>Text</code>: The number of named parameters the function expects.</li>
     <li><code>Attribute</code>: Returns the source code of the function as a string.</li>
 </ul>
 
+<div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/op3x610g/3/embedded/html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+</div>
 
 <h5 class="mt-3">Elements selection</h5>
 
-<p>Functions can be invoked using the function call syntax or the function apply syntax. Here's an example:</p>
+<ul>
+    <li><code>getElementById</code>: Get element with id attribute. document.getElementById("id")</li>
+    <li><code>getElementsByClassName</code>: Get element with class name. document.getElementsByClassName("class")</li> 
+    <li><code>getElementsByTagName</code>: Get element with tag name. document.getElementsByTagName("div")</li>
+    <li><code>querySelector</code>: Returns the first selected element. document.querySelector("#myElement") , document.querySelector(".myElement"), document.querySelector("div"), document.querySelector("#myElement .class div") </li>
+    <li><code>querySelectorAll</code>: Returns the array and ıt store all selected elements. document.querySelectorAll(".myClass")</li>
+</ul>
+<p>Here's an example:</p>
 
+
+<div class="solution">
+    <div class="solution-content">
+        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/cq48bmgu/4/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    </div>
+</div>
+<h5 class="mt-3">Elements creation</h5>
+
+<p>We can create html element in code.</p>
+<pre>
+    <code class="javascript">
+        var iframe = document.createElement('iframe');
+        iframe.id = 'test';
+        iframe.name = 'test';
+        iframe.src = 'about:blank';
+    </code>
+</pre>
+<p>Comment</p>
+<pre>
+    <code class="javascript">
+        const comment = document.createComment("My comments");
+        document.body.appendChild(comment);
+    </code>
+</pre>
+<p>Attribute</p>
+<pre>
+    <code class="javascript">
+        const att = document.createAttribute("class");
+        att.value = "democlass";
+
+        const h1 = document.getElementsByTagName("H1")[0];
+        h1.setAttributeNode(att);
+    </code>
+</pre>
+<p>Text node</p>
+<pre>
+    <code class="javascript">
+        let textNode = document.createTextNode("Hello World"); 
+        document.body.appendChild(textNode);
+    </code>
+</pre>
 <p>
     
 </p>
 
 <h5 class="mt-3">Manipulation</h5>
-<p>
-   
-</p>
-<h5 class="mt-3">Actions keydown..</h5>
-<p>
-   
-</p>
-<h5 class="mt-3">CSS</h5>
-<p>
-   
-</p>
-<h5 class="mt-3">Traversing</h5>
-<p>
-   
-</p>
-<h5 class="mt-3">Animation</h5>
-<p>
-   
-</p>
-<h5 class="mt-3">Events </h5>
-<p>
-   
-</p>
-<h5 class="mt-3">Performance </h5>
+<p>We can change DOM via javascript. we have some ways to use.</p>
+<pre>
+    <code class="javascript">
+        myElement.appendChild(newElement) // add newElement to under myElement
+        myElement.removeChild(childElement) // remove childElement from  myElement
+        myElement.replaceChild(newElement, oldElement) // replace oldElement with newElement
+
+        myElement.style.color = "red"
+    </code>
+</pre>
+
+<pre>
+    <code class="javascript">
+        myElement.innerHTML = "<p>Yeni içerik</p>"
+        myElement.setAttribute("class", "myClass")
+    </code>
+</pre>
+<h5 class="mt-3">Actions </h5>
+    <h5 class="mt-3">Click</h5>
+    <p>We can change DOM via javascript. we have some ways to use.</p>
+    <pre>
+        <code class="javascript">
+        &#60;button id="myButton">Tıkla</button>
+        &#60;script>
+            const button = document.getElementById('myButton');   // select element
+            button.addEventListener('click', function() {  // // click event
+                alert('Butona tıklandı!');
+            });
+        &#60;/script>
+        &#60;script>
+            button.addEventListener('dblclick', function() {  // double click event
+                myDiv.style.backgroundColor = 'blue';
+            });
+        &#60;/script>
+        </code>
+    </pre>
+
+    <h5 class="mt-3">KeyDown&KeyUp Event</h5>
+    <pre>
+        <code class="javascript">
+        &#60;button id="myButton">Tıkla</button>
+        &#60;input type="text" id="myInput">
+        &#60;script>
+            const myInput = document.getElementById('myInput');   // select element
+            myInput.addEventListener('keydown', function(event) {  // Add Listener
+                if (event.key === 'Enter') {
+                alert('Enter tuşuna basıldı!');
+                }
+            });
+        &#60;/script>
+        &#60;script>
+            myInput.addEventListener('keyup', function(event) { // Add listener
+                console.log('Basılan Tuş:', event.key);
+            });
+        &#60;/script>
+        </code>
+    </pre>
+
+    <h5 class="mt-3">Mousemove Event</h5>
+    <pre>
+        <code class="javascript">
+        &#60;button id="myButton">Tıkla</button>
+        &#60;div id="myDiv" style="width: 100px; height: 100px; background-color: red;">&#60;/div>
+        &#60;script>
+            const myDiv = document.getElementById('myDiv');
+            myDiv.addEventListener('mousemove', function(event) {
+                const x = event.clientX;
+                const y = event.clientY;
+                console.log('X:', x, 'Y:', y);
+            });
+        &#60;/script>
+        </code>
+    </pre>
+    <h5 class="mt-3">Submit Event</h5>
+    <pre>
+        <code class="javascript">
+        &#60;form id="myForm">
+        &#60;input type="text" name="username">
+        &#60;input type="password" name="password">
+        &#60;button type="submit">Gönder &#60;/button>
+        &#60;/form>
+        &#60;script>
+            const myForm = document.getElementById('myForm');
+            myForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(myForm);
+                const username = formData.get('username');
+                const password = formData.get('password');
+                console.log('Kullanıcı Adı:', username, 'Şifre:', password);
+            });
+        &#60;/script>
+        </code>
+    </pre>
+
+
 
