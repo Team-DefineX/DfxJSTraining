@@ -83,10 +83,10 @@
 
         render() {
             return (
-            <div>
-                <p>Count: {this.state.count}</p>
-                <button onClick={this.incrementCount}>Increment</button>
-            </div>
+            &#60;div>
+                &#60;p>Count: {this.state.count}&#60;/p>
+                &#60;button onClick={this.incrementCount}>Increment&#60;/button>
+            &#60;/div>
             );
         }
         }
@@ -105,25 +105,15 @@
         };
 
         return (
-            <div>
-            <p>Count: {count}</p>
-            <button onClick={incrementCount}>Increment</button>
-            </div>
+        &#60;div>
+            &#60;p>Count: {count}&#60;/p>
+            &#60;button onClick={incrementCount}>Increment&#60;/button>
+        &#60;/div>
         );
         }
     </code>
 </pre>
 
  </p>
-<pre>
-    <code class="javascript">
-        &#60;script>
-            const myList = document.getElementById('myList');
-            const children = myList.children;
-            for (let i = 0; i < children.length; i++) {
-              console.log(children[i].innerText);
-            }
-        &#60;/script>
-    </code>
-</pre>
+
 

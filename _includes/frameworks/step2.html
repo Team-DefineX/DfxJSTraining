@@ -1,0 +1,105 @@
+
+React basic:
+<pre>
+    <code class="javascript">
+        import React from 'react';
+
+        const ExampleComponent = () => {
+            const message = 'Merhaba, React!';
+            return <div>{message}</div>;
+        };
+</code>
+</pre>
+React Class base
+<pre>
+    <code class="javascript">
+        import React, { Component } from 'react';
+
+        class ExampleClassComponent extends Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              count: 0,
+            };
+          }
+        
+          incrementCount = () => {
+            this.setState((prevState) => ({
+              count: prevState.count + 1,
+            }));
+          };
+        
+          render() {
+            return (
+            &#60;div>
+                &#60;p>Count: {this.state.count}&#60;/p>
+                &#60;button onClick={this.incrementCount}>Increment&#60;/button>
+            &#60;/div>
+            );
+          }
+        }
+    </code>
+</pre>
+React Function base
+<pre>
+    <code class="javascript">
+import React, { useState } from 'react';
+
+function ExampleFunctionalComponent() {
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  return (
+    &#60;div>
+        &#60;p>Count: {count}&#60;/p>
+        &#60;button onClick={incrementCount}>Increment&#60;/button>
+    &#60;/div>
+  );
+}
+</code>
+</pre>
+Angular Template:
+<pre>
+    <code class="javascript">
+        &#60;div>{{ message }}&#60;/div>
+    </code>
+</pre>
+<pre>
+    <code class="javascript">
+        // Component TypeScript file
+        import { Component } from '@angular/core';
+        
+        @Component({
+          selector: 'app-example',
+          templateUrl: './example.component.html',
+        })
+        export class ExampleComponent {
+          message = 'Merhaba, Angular!';
+        }
+    </code>
+</pre>
+Vue Template:
+<pre>
+    <code class="javascript">
+        <!-- Component template -->
+        &#60;div>{{ message }}&#60;/div>
+    </code>
+</pre>
+<pre>
+    <code class="javascript">
+        // Component JavaScript dosyası
+        export default {
+        data() {
+            return {
+            message: 'Merhaba, Vue.js!',
+            };
+        },
+        };
+    </code>
+</pre>
+
+As these examples show, React JSX, Angular template, and Vue.js template offer different approaches to using HTML elements as variables. While React JSX defines HTML elements in JavaScript, Angular and Vue.js prefer to use these elements within their templates.
+

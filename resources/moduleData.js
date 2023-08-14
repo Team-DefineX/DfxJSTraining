@@ -270,5 +270,26 @@ export const modules = [
         time: "15mins",
       },
     ],
+  }, {
+    fileName: "frameworks",
+    moduleName: "Differences of Major FWs",
+    steps: [
+      {
+        name: "Major frameworks",
+        time: "20mins",
+      },
+      {
+        name: "Structure of elements",
+        time: "10mins",
+      },
+      {
+        name: "Differents of To-Do app",
+        time: "14mins",
+      },
+      {
+        name: "Shadow DOM",
+        time: "16mins",
+      },
+    ],
   },
 ];
