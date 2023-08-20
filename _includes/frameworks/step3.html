@@ -1,6 +1,6 @@
 React ToDo
 <pre>
-    <code class="html">
+    <code class="javascript">
         import React, { useState } from 'react';
 
         const TodoApp = () => {
@@ -40,7 +40,7 @@ React ToDo
             );
         };
 
-export default TodoApp;
+        export default TodoApp;
     </code>
 </pre>
 Angular ToDo
@@ -89,17 +89,17 @@ Vue ToDo
     <code class="html">
         <!-- App.vue -->
         &#60;template>
-        &#60;div>
-        &#60;h1>Todo App&#60;/h1>
-        &#60;input type="text" v-model="inputValue" />
-        &#60;button @click="addTodo">Add Todo&#60;/button>
-        &#60;ul>
-        &#60;li v-for="(todo, index) in todos" :key="index">
-          {{ todo }} &#60;button @click="removeTodo(index)">Remove&#60;/button>
-          &#60;/li>
-          &#60;/ul>
-          &#60;/div>
-          &#60;/template>
+            &#60;div>
+                &#60;h1>Todo App&#60;/h1>
+                &#60;input type="text" v-model="inputValue" />
+                &#60;button @click="addTodo">Add Todo&#60;/button>
+                &#60;ul>
+                    &#60;li v-for="(todo, index) in todos" :key="index">
+                        {{ todo }} &#60;button @click="removeTodo(index)">Remove&#60;/button>
+                    &#60;/li>
+                &#60;/ul>
+            &#60;/div>
+        &#60;/template>
   
           &#60;script>
             export default {
@@ -129,14 +129,21 @@ In the examples above, we created a simple todo app for all three frameworks. Th
 
 <br><br>
 
-LifeCycles:
+<h3>LifeCycles:</h3>
 <br>
-React allows components to be class-based (class) or function-based (functional) and can use Hooks for lifecycle management.
-Angular defines components as TypeScript classes and has special lifecycle methods like ngOnChanges, ngOnInit, ngOnDestroy.
-Vue.js defines components as JavaScript objects or functions and also has custom lifecycle methods (beforeCreate, mounted, destroyed, etc.).
+<ul>
+    <li> React allows components to be class-based (class) or function-based (functional) and can use Hooks for lifecycle management.  </li>
+    <li> Angular defines components as TypeScript classes and has special lifecycle methods like ngOnChanges, ngOnInit, ngOnDestroy. </li>
+    <li> Vue.js defines components as JavaScript objects or functions and also has custom lifecycle methods (beforeCreate, mounted, destroyed, etc.). </li>
+</ul>
+
 <br><br>
-State ve Data Management:
+<h3>State ve Data Management:</h3>
 <br>
-React uses props and state for state management and encourages not modifying state directly.
-Angular generally takes a one-way data binding approach and uses the @Input and @Output decorators to facilitate data flow between components.
-Vue.js uses v-model to provide two-way data binding and also supports one-way data flow.
+<ul>
+    <li> React uses props and state for state management and encourages not modifying state directly. </li>
+    <li>  Angular generally takes a one-way data binding approach and uses the @Input and @Output decorators to facilitate data flow between components.  </li>
+    <li> Vue.js uses v-model to provide two-way data binding and also supports one-way data flow.  </li>
+</ul>
+
+

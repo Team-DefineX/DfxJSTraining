@@ -287,7 +287,7 @@ export const modules = [
         time: "14mins",
       },
       {
-        name: "Shadow DOM",
+        name: "Usages & Mobile",
         time: "16mins",
       },
     ],
