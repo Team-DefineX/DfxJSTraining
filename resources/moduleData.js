@@ -201,6 +201,14 @@ export const modules = [
         name: "Error Types",
         time: "10mins",
       },
+      {
+        name: "Error Stack Trace",
+        time: "10mins",
+      },
+      {
+        name: "Error Handling Best Practices",
+        time: "10mins",
+      },
     ],
   },
   {
@@ -270,7 +278,8 @@ export const modules = [
         time: "15mins",
       },
     ],
-  }, {
+  },
+  {
     fileName: "frameworks",
     moduleName: "Differences of Major FWs",
     steps: [

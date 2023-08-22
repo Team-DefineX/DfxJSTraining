@@ -1,0 +1,169 @@
+<p>
+    Error handling is a crucial aspect of software development that contributes to creating robust and reliable
+    applications. Implementing effective error handling practices not only helps in identifying and addressing issues
+    but also enhances the overall user experience. Here are some best practices to consider:
+</p>
+
+<h5 class="mt-3">1. Use Specific Error Types:</h5>
+
+<p>
+    When throwing errors, utilize specific error types such as TypeError, SyntaxError, or custom error classes. This
+    aids in
+    better understanding the nature of the problem and helps in targeted debugging.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+        // Code is running
+    } catch (error) {
+        if (error instanceof TypeError) {
+            console.error("TypeError: A type error occurred.");
+        } else if (error instanceof SyntaxError) {
+            console.error("SyntaxError: Syntax error.");
+        } else {
+            console.error("An unexpected error occurred: ", error);
+        }
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">2. Provide Descriptive Error Messages:</h5>
+
+<p>
+    Error messages should be informative and user-friendly. They should convey the reason for the error and provide
+    guidance
+    on how to resolve it. Avoid cryptic or technical jargon that might confuse users.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function sendForm(email) {
+        try {
+            // Check if the email address is valid
+            if (!email.includes("@")) {
+                throw new Error("Your email address is not valid. Please enter a valid email address.");
+            }
+
+            // Submit the form
+            // ...
+        } catch (error) {
+            // Display the error message
+            alert(error.message);
+        }
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">3. Catch Only What You Can Handle:</h5>
+
+<p>
+    Avoid catching errors that you cannot effectively handle. It's better to let unexpected errors propagate up the call
+    stack rather than masking them with inappropriate error handling.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+        // Code is running
+    } catch (error) {
+        if (error instanceof CustomError) {
+            console.error("A custom error was caught: ", error.message);
+        } else {
+            throw error; // Rethrow unexpected errors
+        }
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">4. Use Try-Catch Sparingly:</h5>
+
+<p>
+    While try-catch blocks are essential for handling errors, avoid overusing them. Placing try-catch blocks around
+    every
+    piece of code might lead to poor code readability and unnecessary performance overhead.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function sendForm(email) {
+        // Unnecessary try-catch block
+        try {
+            // Check if the email address is valid
+            if (!email.includes("@")) {
+                throw new Error("The email address is not valid.");
+            }
+        } catch (error) {
+            // This block is no longer necessary
+        }
+    
+        // Submit the form
+        // ...
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">5. Handle Errors As Close to the Source as Possible:</h5>
+
+<p>
+    Handle errors as early as possible and as close to their source as you can. This approach helps in maintaining a
+    clear
+    and structured error-handling flow.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    function validateInput(input) {
+        if (!input) {
+            hrow new Error("Invalid input.");
+        }
+    }
+    
+    try {
+        validateInput(userInput);
+        // ...
+    } catch (error) {
+        console.error("Input validation error: ", error);
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">6. Log Errors:</h5>
+
+<p>
+    Logging errors is crucial for troubleshooting and diagnosing issues. Utilize appropriate logging mechanisms to
+    record
+    error details, including the error message, stack trace, and contextual information.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    try {
+    // Code is running
+    } catch (error) {
+        console.error("Error: ", error);
+        logError(error);
+    }
+    </code>
+</pre>
+
+<h5 class="mt-3">7. Use Error-Handling Libraries:</h5>
+
+<p>
+    In complex applications, consider using error-handling libraries or frameworks that provide advanced error
+    reporting,
+    monitoring, and analytics capabilities.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    import { captureException } from "my-error-tracking-library";
+    
+    try {
+        // Code is running
+    } catch (error) {
+        console.error("Error: ", error);
+        captureException(error);
+    }
+    </code>
+</pre>
