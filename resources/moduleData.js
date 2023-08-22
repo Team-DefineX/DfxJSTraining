@@ -296,7 +296,7 @@ export const modules = [
         time: "14mins",
       },
       {
-        name: "Usages & Mobile",
+        name: "Usages & Mobiles",
         time: "16mins",
       },
     ],

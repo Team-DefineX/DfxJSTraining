@@ -43,22 +43,22 @@ React Class base
 React Function base
 <pre>
     <code class="javascript">
-import React, { useState } from 'react';
+        import React, { useState } from 'react';
 
-function ExampleFunctionalComponent() {
-  const [count, setCount] = useState(0);
+        function ExampleFunctionalComponent() {
+          const [count, setCount] = useState(0);
 
-  const incrementCount = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
+          const incrementCount = () => {
+            setCount((prevCount) => prevCount + 1);
+          };
 
-  return (
-    &#60;div>
-        &#60;p>Count: {count}&#60;/p>
-        &#60;button onClick={incrementCount}>Increment&#60;/button>
-    &#60;/div>
-  );
-}
+          return (
+            &#60;div>
+                &#60;p>Count: {count}&#60;/p>
+                &#60;button onClick={incrementCount}>Increment&#60;/button>
+            &#60;/div>
+          );
+        }
 </code>
 </pre>
 Angular Template:
