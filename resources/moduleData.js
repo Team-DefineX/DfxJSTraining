@@ -126,6 +126,40 @@ export const modules = [
     ],
   },
   {
+    fileName: "StringTemplates",
+    moduleName: "String Templates",
+    steps: [
+      {
+        name: "Introduction",
+        time: "5mins",
+      },
+      {
+        name: "Multiline strings",
+        time: "10mins",
+      },
+      {
+        name: "Expression Interpolation",
+        time: "10mins",
+      },
+      {
+        name: "Tagged templates",
+        time: "10mins",
+      },
+      {
+        name: "Raw Strings",
+        time: "5mins",
+      },
+      {
+        name: "Escaping Placeholders",
+        time: "5mins",
+      },
+      {
+        name: "Best Practices",
+        time: "10mins",
+      }
+    ],
+  },
+  {
     fileName: "Arrays",
     moduleName: "Arrays",
     steps: [
