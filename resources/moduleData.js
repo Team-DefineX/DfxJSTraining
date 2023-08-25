@@ -134,16 +134,20 @@ export const modules = [
         time: "5mins",
       },
       {
+        name: "Declaring Strings",
+        time: "7mins",
+      },
+      {
         name: "Multiline strings",
-        time: "10mins",
+        time: "7mins",
       },
       {
         name: "Expression Interpolation",
-        time: "10mins",
+        time: "7mins",
       },
       {
         name: "Tagged templates",
-        time: "10mins",
+        time: "7mins",
       },
       {
         name: "Raw Strings",
