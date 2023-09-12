@@ -1,0 +1,111 @@
+<p align="justify">
+    In this section, you will first run through the way strings with multiple lines were declared before ES6, then see how template literals make this easier.
+</p>
+<br>
+<p align="justify">
+    Originally, if you wanted to write a string that spans multiple lines in your text editor, you would use the 
+    concatenation operator. However, this was not always a straight-forward process. The following string concatenation seemed to run over multiple lines:
+</p>
+<pre>
+    <code class="javascript">
+    const address = 
+        'Homer J. Simpson' + 
+        '742 Evergreen Terrace' + 
+        'Springfield'
+    </code>
+</pre>
+<p align="justify">
+    This might allow you to break up the string into smaller lines and include it over multiple lines in the text editor, but it has no effect on the output 
+    of the string. In this case, the strings will all be on one line and not separated by newlines or spaces. If you logged <code>address</code> to the console, you would get the following:
+</p>
+<pre>
+    <code class="javascript">
+    Output
+    Homer J. Simpson742 Evergreen TerraceSpringfield
+    </code>
+</pre>
+<p align="justify">
+    You can use the backslash character (<code>\</code>) to continue the string onto multiple lines:
+</p>
+<pre>
+    <code class="javascript">
+    const address =
+        'Homer J. Simpson\
+        742 Evergreen Terrace\
+        Springfield'
+    </code>
+</pre>
+<p align="justify">
+    This will retain any indentation as whitespace, but the string will still be on one line in the output:
+</p>
+<pre>
+    <code class="javascript">
+    Output
+    Homer J. Simpson  742 Evergreen Terrace  Springfield
+    </code>
+</pre>
+<p align="justify">
+    Using the newline character (<code>\n</code>), you can create a true multi-line string:
+</p>
+<pre>
+    <code class="javascript">
+    const address = 
+        'Homer J. Simpson\n' + 
+        '742 Evergreen Terrace\n' + 
+        'Springfield'
+    </code>
+</pre>
+<p align="justify">
+    When logged to the console, this will display the following:
+</p>
+<pre>
+    <code class="javascript">
+    Output
+    Homer J. Simpson
+    742 Evergreen Terrace
+    Springfield
+    </code>
+</pre>
+<p align="justify">
+    Using newline characters to designate multi-line strings can be counterintuitive, however. In contrast, creating a multi-line string with template literals can be much more straight-forward. 
+    There is no need to concatenate, use newline characters, or use backslashes. Just pressing <code>enter</code> and writing the string across multiple lines works by default:
+</p>
+<pre>
+    <code class="javascript">
+    const address = `Homer J. Simpson
+    742 Evergreen Terrace
+    Springfield`
+    </code>
+</pre>
+<p align="justify">
+    The output of logging this to the console is the same as the input:
+</p>
+<pre>
+    <code class="javascript">
+    Output
+    Homer J. Simpson
+    742 Evergreen Terrace
+    Springfield
+    </code>
+</pre>
+<p align="justify">
+    Any indentation will be preserved, so it’s important not to indent any additional lines in the string if that is not desired. For example, consider the following:
+</p>
+<pre>
+    <code class="javascript">
+    const address = `Homer J. Simpson
+                    742 Evergreen Terrace
+                    Springfield`
+    </code>
+</pre>
+<p align="justify">
+    Although this style of writing the line might make the code more human readable, the output will not be:
+</p>
+<pre>
+    <code class="javascript">
+        Output
+        Homer J. Simpson
+                         742 Evergreen Terrace
+                         Springfield
+    </code>
+</pre>
