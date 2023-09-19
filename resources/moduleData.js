@@ -126,6 +126,44 @@ export const modules = [
     ],
   },
   {
+    fileName: "StringTemplates",
+    moduleName: "String Templates",
+    steps: [
+      {
+        name: "Introduction",
+        time: "5mins",
+      },
+      {
+        name: "Declaring Strings",
+        time: "7mins",
+      },
+      {
+        name: "Multiline strings",
+        time: "7mins",
+      },
+      {
+        name: "Expression Interpolation",
+        time: "7mins",
+      },
+      {
+        name: "Tagged templates",
+        time: "7mins",
+      },
+      {
+        name: "Raw Strings",
+        time: "5mins",
+      },
+      {
+        name: "Escaping Placeholders",
+        time: "5mins",
+      },
+      {
+        name: "Best Practices",
+        time: "10mins",
+      }
+    ],
+  },
+  {
     fileName: "Arrays",
     moduleName: "Arrays",
     steps: [
@@ -217,6 +255,14 @@ export const modules = [
         name: "Error Types",
         time: "10mins",
       },
+      {
+        name: "Error Stack Trace",
+        time: "10mins",
+      },
+      {
+        name: "Error Handling Best Practices",
+        time: "10mins",
+      },
     ],
   },
   {
@@ -284,6 +330,28 @@ export const modules = [
       {
         name: "Useage of Browser Object Model",
         time: "15mins",
+      },
+    ],
+  },
+  {
+    fileName: "frameworks",
+    moduleName: "Differences of Major FWs",
+    steps: [
+      {
+        name: "Major frameworks",
+        time: "20mins",
+      },
+      {
+        name: "Structure of elements",
+        time: "10mins",
+      },
+      {
+        name: "Differents of To-Do app",
+        time: "14mins",
+      },
+      {
+        name: "Usages & Mobiles",
+        time: "16mins",
       },
     ],
   },

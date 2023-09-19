@@ -1,0 +1,119 @@
+<p>
+    Virtual DOM (Virtual DOM) is a JavaScript-based concept and is used to improve the performance of modern JavaScript libraries and frameworks such as React. The virtual DOM keeps a copy of the real DOM structure in memory and performs operations on this copy, optimizing the operations to the real DOM.
+</p>
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/virtual-dom.png" alt="">
+</div>
+<h5 class="mt-3">Virtual DOM in History of Web Features :</h5>
+<p>
+    <H6 class="mt-3">AngularJS and Data Binding (2010):</H6>
+    <p> Google introduced the AngularJS framework in 2010. AngularJS was used to develop interactive web applications with HTML and JavaScript. Data binding was an important feature that facilitated two-way data linking between HTML and JavaScript.</p>
+    
+    <H6 class="mt-3">Backbone.js (2010):</H6>
+    <p>Backbone.js was a JavaScript library introduced in 2010. It was a framework built using the Model-View-Presenter (MVP) model and was used for small to medium applications.</p>
+    
+    <H6 class="mt-3">React and Virtual DOM (2013):</H6>
+    <p>In 2013, Facebook announced a new JavaScript library called React. Unlike other frameworks like AngularJS and Backbone.js, React adopted a mechanism called "Virtual DOM". Virtual DOM keeps a virtual copy of the component tree in memory and performs operations on this copy, while increasing application performance by minimizing changes to the real DOM. In this way, only the changed parts are updated.</p>
+    
+    <H6 class="mt-3">AngularJS and React Competition:</H6>
+    <p>The advent of React created a competition with AngularJS and sparked a lot of discussion in the web development community. AngularJS underwent a major overhaul as "Angular" in 2016, and Angular 2+ versions moved closer to component-based approaches like React.</p>
+
+    <H6 class="mt-3">Vue.js (2014):</H6>
+    <p>Developed by Evan You in 2014, Vue.js has gained popularity as a JavaScript framework that competes with React and Angular. Besides having a component-based structure, Vue.js also adopted the concept of virtual DOM.</p>
+
+    <H6 class="mt-3">Web Component Standards (2019):</H6>
+    <p>Web Components are reusable components created with HTML, CSS and JavaScript. Web Component standards have contributed to the more widespread use of component-based structures in modern web development.</p>
+ </p>
+
+ <p>
+    Virtual DOM and component-based structures have become one of the cornerstones of modern web applications today. Libraries and frameworks such as React, Angular, Vue.js enable the development of more effective, performance and user-friendly applications using these structures. The history of the Virtual DOM marks a significant evolution in web development, and this concept will continue to shape future web technologies.
+ </p>
+
+<h5 class="mt-3">How it works:</h5>
+<p>
+    <H6 class="mt-3">Initial Render:</H6>
+    <p> Libraries like React render component trees written in JSX (JavaScript XML) or similar when application startup or data changes.</p>
+    
+    <H6 class="mt-3">Virtual DOM Creation:</H6>
+    <p>The created component tree is stored in memory as a virtual DOM. This is a representation of the actual DOM structure, but not visible in the browser.</p>
+    
+    <H6 class="mt-3">Compare with Real DOM (Diffing):</H6>
+    <p>Changes or updates to the component tree are compared between the Virtual DOM and the previous state. This operation is called "Diffing" and determines the minimum changes to be applied to the actual DOM.</p>
+    
+    <H6 class="mt-3">Real DOM Update:</H6>
+    <p>Changes determined as a result of diffing are applied to the real DOM and the page is updated. This operation includes minimal direct operations to the real DOM, which improves performance.</p>
+ </p>
+
+ <p>The virtual DOM is a concept explicitly used by JavaScript libraries such as React.js and Vue.js.</p>
+
+<p>This technique saves a copy of the DOM within the memory and performs a diff operation that compares the differences between the DOM and changes while they occur. It allows the browser to understand the elements that changed and will only update the changes without rerendering the entire DOM to increase application performance.</p>
+
+<p>It is essential to understand with the virtual DOM technology that any change made is not made to the DOM but to the DOM stored in memory. Therefore, it allows only the browser to update the changes.</p>
+
+<p>Additionally, a virtual DOM allows you to apply multiple changes at once to avoid rerendering the same element multiple times while it changes.</p>
+
+<p>React.js implements the concept of virtual DOMs by utilizing the ReactDOM package. It allows developers to use specific methods that efficiently manage DOM elements within a webpage.</p>
+
+<p>
+    The ReactDOM package enables multiple methods, such as:
+    <p><b>render():</b> This method renders one or more components.</p>
+    <p><b>findDOMNode():</b> This method retrieves the DOM node where a specific React component is rendered.</p>
+    <p><b>unmountComponentAtNode():</b> This method removes or unmounts a specific React component.</p>
+    <p><b>hydrate():</b> This method is similar to the render() method. However, it enables server-side rendering.</p>
+    <p><b>createPortal():</b> This method renders the component into a DOM node that sits outside of the current DOM.</p>
+</p>
+<H6 class="mt-3">Class Base</H6>
+<pre>
+    <code class="javascript">
+        import React, { Component } from 'react';
+
+        class ExampleClassComponent extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+            count: 0,
+            };
+        }
+
+        incrementCount = () => {
+            this.setState((prevState) => ({
+            count: prevState.count + 1,
+            }));
+        };
+
+        render() {
+            return (
+            &#60;div>
+                &#60;p>Count: {this.state.count}&#60;/p>
+                &#60;button onClick={this.incrementCount}>Increment&#60;/button>
+            &#60;/div>
+            );
+        }
+        }
+    </code>
+</pre>
+<H6 class="mt-3">Function Base</H6>
+<pre>
+    <code class="javascript">
+        import React, { useState } from 'react';
+
+        function ExampleFunctionalComponent() {
+        const [count, setCount] = useState(0);
+
+        const incrementCount = () => {
+            setCount((prevCount) => prevCount + 1);
+        };
+
+        return (
+        &#60;div>
+            &#60;p>Count: {count}&#60;/p>
+            &#60;button onClick={incrementCount}>Increment&#60;/button>
+        &#60;/div>
+        );
+        }
+    </code>
+</pre>
+
+ </p>
+
+

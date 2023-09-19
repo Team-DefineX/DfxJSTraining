@@ -1,0 +1,149 @@
+
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/shadow-dom.png" alt="">
+</div>
+<h5 class="mt-3">Initial Ideas and Feature Requests (2009 - 2011)</h5>
+<p>
+    The idea for the Shadow DOM was introduced in 2009 by David Baron and Alex Russell. This idea was born to allow web developers to better manage the style and behavior of nested components. The demands and concept of this feature came up during the development of web standards and browsers.
+</p>
+<h5 class="mt-3">Web Component Features (2011 - 2013)</h5>
+<p>
+    Web Component technologies, which form the basis of Shadow DOM, were first announced in 2011. Web Components enable the creation of reusable, customizable and encapsulated components. It includes features such as Web Components, HTML templates, Shadow DOM, Custom Elements and HTML Imports.
+</p>
+<h5 class="mt-3">Shadow DOM Specification and Browser Support (2013 - 2014 - 2021)</h5>
+<p>
+    The Shadow DOM feature was set as a specification by the W3C (World Wide Web Consortium) and was adopted in 2013. Around the same time, the Google Chrome browser began to experimentally support the Shadow DOM. Other browsers have started to support this feature as well.
+</p>
+<p>
+    
+    <h4 class="mt-3">Google Chrome:</h4>
+    <p> Shadow DOM is experimentally supported in Chrome 25 (February 2013). In later versions, this support has been improved and updated.</p>
+    <h4 class="mt-3">Mozilla Firefox:</h4>
+    <p>  With the release of Firefox 63 (October 2018), Shadow started to support the DOM experimentally. In later versions, support has been increased.</p>
+    <h4 class="mt-3"> Microsoft Edge:</h4>
+    <p> Microsoft Edge adopted Chromium's Shadow DOM support as it moved to the Chromium base. With version 79 of Edge (December 2019), Shadow DOM started to be supported experimentally. Support has been increased in later versions.</p>
+    <h4 class="mt-3">Safari:</h4>
+    <p>  Apple Safari has adopted this technology more slowly than other browsers that support Shadow DOM. As of 2021, some Shadow DOM features are supported in current versions of Safari.</p>
+</p>
+<h5 class="mt-3">Web Standards and Wide Use (2015 - Present)</h5>
+<p>
+    In 2015, Shadow DOM and other Web Component technologies became an important building block of modern web applications. These technologies have been widely used in modern JavaScript libraries and frameworks such as React, Angular, Vue.js. Browsers continued to work on providing greater support for Shadow DOM and Web Component technologies.
+</p>
+<br>
+<p>
+    A shadow DOM is a tool mainly used to create component-based websites and applications. It does not represent the entire Document Object Model. Instead, it acts as a subtree or a separate DOM for a specific element.</p>
+<br><p>
+    Therefore, its visual representation will indicate an additional tree for each shadow host. This process allows the shadow DOM to behave differently from a traditional DOM.</p>
+    <br><p>
+    Traditional DOM nodes are placed within other elements. However, in the case of a shadow DOM, the scoped tree is connected to the element but is separated from the child elements. In this instance, the scope tree is known as the shadow tree, and the element that the shadow tree connects to is the shadow host.</p>
+    <br><p>
+    The main advantage of using shadow DOMs compared to traditional DOMs is that all the components added will be local to the specific shadow DOM. In addition, this approach resolves multiple issues that were present when using traditional DOMs:</p>
+    <br><p>
+        <ul>
+            <li>
+                Shadow DOMs isolate the DOM. Therefore, it does not show up in the global DOM.
+            </li>
+            <li>
+                A shadow DOM allows scoping of CSS, where styles are created within a shadow DOM element and stay within the scope of the shadow DOM.
+            </li>
+            <li>
+                A shadow DOM increases application performance, since DOM manipulation does not need to render the entire DOM but only the shadow DOM. This reduces the time required to render.
+            </li>
+            <li>
+                A typical implementation of the shadow DOM is within the Angular framework. It leverages the existing shadow DOM API on the web browser to provide element isolation. This enables developers to extend the current capabilities of the Angular framework rather than having to interact with the browser’s shadow DOM APIs manually.
+            </li>
+        </ul>
+    
+</p>
+
+
+<h5 class="mt-3">3 other points where they differ in general</h5>
+
+<p>
+    <div class="list-group list-group-horizontal">
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Purpose</h5>
+            </div>
+            <p class="mb-1">Virtual DOM</p>
+            <small>Used for solving performance issues.</small>
+        </a>
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Purpose</h5>
+            </div>
+            <p class="mb-1">Shadow DOM:</p>
+            <small class="text-muted">Used for encapsulating and isolating elements.</small>
+        </a> 
+    </div>
+    <br>
+    <div class="list-group list-group-horizontal">
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Implementer</h5>
+            </div>
+            <p class="mb-1">Virtual DOM</p>
+            <small>This technology uses JavaScript libraries such as React.js and Vue.js.</small>
+        </a>
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Implementer</h5>
+            </div>
+            <p class="mb-1">Shadow DOM:</p>
+            <small class="text-muted">The web browser itself implements this technology.</small>
+        </a> 
+    </div>
+    <br>
+    <div class="list-group list-group-horizontal">
+        <a href="#" class="list-group-item w-50 flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Working idea</h5>
+            </div>
+            <p class="mb-1">Virtual DOM</p>
+            <small>It creates a copy of the entire DOM in the memory.</small>
+        </a>
+        <a href="#" class="list-group-item w-50 flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Working idea</h5>
+            </div>
+            <p class="mb-1">Shadow DOM:</p>
+            <small class="text-muted">It does not create a complete representation of the entire DOM. It adds subtrees of DOM elements into the document instead of adding them to the main DOM tree.</small>
+        </a> 
+    </div>
+    <br>
+    <div class="list-group list-group-horizontal">
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Working idea</h5>
+            </div>
+            <p class="mb-1">Virtual DOM</p>
+            <small>It creates a copy of the entire DOM in the memory.</small>
+        </a>
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Working idea</h5>
+            </div>
+            <p class="mb-1">Shadow DOM:</p>
+            <small class="text-muted">It does not create a complete representation of the entire DOM. It adds subtrees of DOM elements into the document instead of adding them to the main DOM tree.</small>
+        </a> 
+    </div>
+    <br>
+    <div class="list-group list-group-horizontal">
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Capabilities </h5>
+            </div>
+            <p class="mb-1">Virtual DOM</p>
+            <small>Since this technology creates a copy of the DOM, it does not implement CSS scoping.</small>
+        </a>
+        <a href="#" class="list-group-item w-50 list-group-item-action flex-column align-items-start">
+            <div class="d-flex  justify-content-between">
+                <h5 class="mb-1">Capabilities</h5>
+            </div>
+            <p class="mb-1">Shadow DOM:</p>
+            <small class="text-muted">This technology creates separate subtrees of the DOM elements and therefore facilitates their isolation and enables CSS scoping.</small>
+        </a> 
+    </div>
+</p>
+
+

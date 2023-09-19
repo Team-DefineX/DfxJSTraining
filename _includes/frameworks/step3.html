@@ -1,0 +1,149 @@
+React ToDo
+<pre>
+    <code class="javascript">
+        import React, { useState } from 'react';
+
+        const TodoApp = () => {
+            const [todos, setTodos] = useState([]);
+            const [inputValue, setInputValue] = useState('');
+
+            const handleInputChange = (e) => {
+                setInputValue(e.target.value);
+            };
+
+            const addTodo = () => {
+                if (inputValue.trim() !== '') {
+                setTodos([...todos, inputValue]);
+                setInputValue('');
+                }
+            };
+
+            const removeTodo = (index) => {
+                const newTodos = [...todos];
+                newTodos.splice(index, 1);
+                setTodos(newTodos);
+            };
+
+            return (
+                &#60;div>
+                &#60;h1>Todo App&#60;/h1>
+                &#60;input type="text" value={inputValue} onChange={handleInputChange} />
+                &#60;button onClick={addTodo}>Add Todo&#60;/button>
+                &#60;ul>
+                    {todos.map((todo, index) => (
+                        &#60;li key={index}>
+                            {todo} &#60;button onClick={() => removeTodo(index)}>Remove&#60;/button>
+                        &#60;/li>
+                    ))}
+                &#60;/ul>
+                &#60;/div>
+            );
+        };
+
+        export default TodoApp;
+    </code>
+</pre>
+Angular ToDo
+<pre>
+    <code class="html">
+        <!-- app.component.html -->
+        &#60;h1>Todo App&#60;/h1>
+        &#60;input type="text" [(ngModel)]="inputValue" />
+        &#60;button (click)="addTodo()">Add Todo&#60;/button>
+        &#60;ul>
+            &#60;li *ngFor="let todo of todos; let i = index">
+                {{ todo }} &#60;button (click)="removeTodo(i)">Remove&#60;/button>
+            &#60;/li>
+        &#60;/ul>
+    </code>
+</pre>
+
+<pre>
+    <code class="javascript">
+        // app.component.ts
+        import { Component } from '@angular/core';
+
+        @Component({
+            selector: 'app-root',
+            templateUrl: './app.component.html',
+        })
+        export class AppComponent {
+            todos: string[] = [];
+            inputValue = '';
+
+            addTodo() {
+                if (this.inputValue.trim() !== '') {
+                this.todos.push(this.inputValue);
+                this.inputValue = '';
+                }
+            }
+
+            removeTodo(index: number) {
+                this.todos.splice(index, 1);
+            }
+        }
+    </code>
+</pre>
+Vue ToDo
+<pre>
+    <code class="html">
+        <!-- App.vue -->
+        &#60;template>
+            &#60;div>
+                &#60;h1>Todo App&#60;/h1>
+                &#60;input type="text" v-model="inputValue" />
+                &#60;button @click="addTodo">Add Todo&#60;/button>
+                &#60;ul>
+                    &#60;li v-for="(todo, index) in todos" :key="index">
+                        {{ todo }} &#60;button @click="removeTodo(index)">Remove&#60;/button>
+                    &#60;/li>
+                &#60;/ul>
+            &#60;/div>
+        &#60;/template>
+  
+          &#60;script>
+            export default {
+                data() {
+                return {
+                    todos: [],
+                    inputValue: '',
+                };
+                },
+                methods: {
+                addTodo() {
+                    if (this.inputValue.trim() !== '') {
+                    this.todos.push(this.inputValue);
+                    this.inputValue = '';
+                    }
+                },
+                removeTodo(index) {
+                    this.todos.splice(index, 1);
+                },
+                },
+            };
+        &#60;/script>
+    </code>
+</pre>
+
+In the examples above, we created a simple todo app for all three frameworks. These examples show the different syntax and structure of React, Angular, and Vue.js, but they basically have the same functionality. You can further develop these applications in your own project and add different features.
+
+<br><br>
+
+<h3>LifeCycles:</h3>
+<br>
+<ul>
+    <li> React allows components to be class-based (class) or function-based (functional) and can use Hooks for lifecycle management.  </li>
+    <li> Angular defines components as TypeScript classes and has special lifecycle methods like ngOnChanges, ngOnInit, ngOnDestroy. </li>
+    <li> Vue.js defines components as JavaScript objects or functions and also has custom lifecycle methods (beforeCreate, mounted, destroyed, etc.). </li>
+</ul>
+
+<br>
+<h3>State ve Data Management:</h3>
+<br>
+<ul>
+    <li> React uses props and state for state management and encourages not modifying state directly. </li>
+    <li>  Angular generally takes a one-way data binding approach and uses the @Input and @Output decorators to facilitate data flow between components.  </li>
+    <li> Vue.js uses v-model to provide two-way data binding and also supports one-way data flow.  </li>
+</ul>
+
+

@@ -1,0 +1,75 @@
+<p align="justify">
+    This section will review how to declare strings with single quotes and double quotes, and will then show you how to do the same with template literals.
+</p>
+<br>
+<p align="justify">
+    In JavaScript, a string can be written with single quotes (<code>' '</code>)
+</p>
+<pre>
+    <code class="javascript">
+    const single = 'Every day is a good day when you paint.'  
+    </code>
+</pre>
+<p align="justify">
+    A string can also be written with double quotes (<code>" "</code>)
+</p>
+<pre>
+    <code class="javascript">
+    const double = "Be so very light. Be a gentle whisper."
+    </code>
+</pre>
+<p align="justify">
+    There is no major difference in JavaScript between single- or double-quoted strings, unlike other languages that might allow <em>interpolation</em> in one type of string but not the other. 
+    In this context, interpolation refers to the evaluation of a placeholder as a dynamic part of a string.
+</p>
+<br>
+<p align="justify">
+    The use of single- or double-quoted strings mostly comes down to personal preference and convention, but used in conjunction, each type of string only needs to escape its own type of quote:
+</p>
+<pre>
+    <code class="javascript">
+    // Escaping a single quote in a single-quoted string
+    const single = '"We don\'t make mistakes. We just have happy accidents." - Bob Ross'
+    
+    // Escaping a double quote in a double-quoted string
+    const double = "\"We don't make mistakes. We just have happy accidents.\" - Bob Ross"
+    
+    console.log(single);
+    console.log(double);
+    </code>
+</pre>
+<p align="justify">
+    <strong>
+        Output:
+    </strong>
+</p>
+<pre>
+    <code class="javascript">
+    "We don't make mistakes. We just have happy accidents." - Bob Ross
+    "We don't make mistakes. We just have happy accidents." - Bob Ross
+    </code>
+</pre>
+<p align="justify">
+    Template literals, on the other hand, are written by surrounding the string with the backtick character, or grave accent (<code>`</code>)
+</p>
+<pre>
+    <code class="javascript">
+    const template = `Find freedom on this canvas.`
+    </code>
+</pre>
+<p align="justify">
+    They do not need to escape single or double quotes
+</p>
+<pre>
+    <code class="javascript">
+    const template = `"We don't make mistakes. We just have happy accidents." - Bob Ross`
+    </code>
+</pre>
+<p align="justify">
+    However, they do still need to escape backticks
+</p>
+<pre>
+    <code class="javascript">
+    const template = `Template literals use the \` character.`
+    </code>
+</pre>
