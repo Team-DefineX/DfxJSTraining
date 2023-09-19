@@ -134,6 +134,22 @@ export const modules = [
         time: "20mins",
       },
       {
+        name: "Arrays Methods",
+        time: "10mins",
+      },
+      {
+        name: "Adding Element to Array",
+        time: "10mins",
+      },
+      {
+        name: "Removing Element from Array",
+        time: "10mins",
+      },
+      {
+        name: "Iterating over an Array",
+        time: "10mins",
+      },
+      {
         name: "Arrays Filtering",
         time: "10mins",
       },

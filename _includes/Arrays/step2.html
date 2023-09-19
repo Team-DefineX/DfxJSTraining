@@ -1,155 +1,274 @@
-<h5>Filtering Arrays</h5>
-These examples demonstrate how array filtering can be used with the heroProfiles
-array to extract specific elements based on certain conditions.
-<br /><br />
-<h6>Example Array of Heroes</h6>
+<div>
+  <h5 class="my-3">Array Methods</h5>
+  <p class="my-3">JavaScript Array Methods and Properties</p>
+
+  <div>
+    <h5 class="my-3">
+      Here are some common use cases and operations involving arrays in
+      JavaScript
+    </h5>
+    <p> 
+<strong>push():</strong> Adds one or more elements to the end of an array and returns the new length.</br>
+<strong>pop():</strong> Removes the last element from an array and returns that element. </br>
+<strong>shift():</strong> Removes the first element from an array and returns that element. </br>
+<strong>unshift():</strong> Adds one or more elements to the beginning of an array and returns the new length. </br>
+<strong>concat():</strong> Combines two or more arrays and returns a new array. </br>
+<strong>slice():</strong> Returns a shallow copy of a portion of an array into a new array. </br>
+<strong>splice():</strong> Changes the content of an array by adding, removing, or replacing elements. </br>
+<strong>indexOf():</strong> Returns the first index at which a specified element is found in an array, or -1 if not found. </br>
+<strong>lastIndexOf():</strong> Returns the last index at which a specified element is found in an array, or -1 if not found. </br>
+<strong>forEach():</strong> Executes a provided function once for each element in an array. </br>
+<strong>map():</strong> Creates a new array with the results of calling a provided function on every element in an array. </br>
+<strong>filter():</strong> Creates a new array with all elements that pass a test implemented by a provided function. </br>
+<strong>reduce():</strong> Applies a function to an accumulator and each element in an array, resulting in a single value. </br>
+<strong>reduceRight():</strong> Applies a function to an accumulator and each element in an array (from right to left). </br>
+<strong>find():</strong> Returns the first element in an array that satisfies a provided testing function. </br>
+<strong>findIndex():</strong> Returns the index of the first element in an array that satisfies a provided testing function. </br>
+<strong>some():</strong>Tests whether at least one element in an array passes a provided testing function.</br>
+<strong>every():</strong> Tests whether all elements in an array pass a provided testing function. </br>
+<strong>sort():</strong> Sorts the elements of an array in place and returns the sorted array.</br>
+<strong>reverse():</strong> Reverses the order of the elements in an array.</br>
+<strong>join():</strong> Joins all elements of an array into a string.</br>
+<strong>toString():</strong> Returns a string representing the specified array and its elements.</br>
+<strong>isArray():</strong> Determines whether the passed value is an array. 
+</p>
+
+<h5 class="mt-5">Consider the following array as our starting point:</h5>
+  <pre>
+    <code class="javascript">
+    let heroProfiles = [
+        {
+          name: "Superman",
+          secretIdentity: "Clark Kent",
+          powers: ["Flight", "Super Strength"],
+          age: 35,
+          isHero: true
+        },
+        {
+          name: "Batman",
+          secretIdentity: "Bruce Wayne",
+          powers: ["Intelligence", "Combat Skills"],
+          age: 40,
+          isHero: true
+        },
+        {
+          name: "Wonder Woman",
+          secretIdentity: "Diana Prince",
+          powers: ["Superhuman Strength", "Lasso of Truth"],
+          age: 500,
+          isHero: true
+        }
+    ];
+    </code>
+</pre>
+
+<h6>Lets loop throw each item in the array and write to console with basic for loop.</h6>
 <pre>
-        <code class="javascript">
-        let heroProfiles = [
-                {
-                  name: "Superman",
-                  secretIdentity: "Clark Kent",
-                  powers: ["Flight", "Super Strength"],
-                  age: 35,
-                  isHero: true
-                },
-                {
-                  name: "Batman",
-                  secretIdentity: "Bruce Wayne",
-                  powers: ["Intelligence", "Combat Skills"],
-                  age: 40,
-                  isHero: true
-                },
-                {
-                  name: "Wonder Woman",
-                  secretIdentity: "Diana Prince",
-                  powers: ["Superhuman Strength", "Lasso of Truth"],
-                  age: 500,
-                  isHero: true
-                }
+    <code class="javascript">
+    // forEach()
+    heroProfiles.forEach(hero => {
+      console.log("forEach", hero.name);
+    });
+    </code>
+</pre>
+
+
+<h6>Lets map each heroProfile names to new variable called heroNames</h6>
+<pre>
+    <code class="javascript">
+    // map()
+    let heroNames = heroProfiles.map(hero => hero.name);
+    console.log("map", heroNames);
+    </code>
+</pre>
+
+<h6>Lets map each heroProfile names to new variable called heroNames</h6>
+<pre>
+    <code class="javascript">
+    // map()
+    let heroNames = heroProfiles.map(hero => hero.name);
+    console.log("map", heroNames);
+    </code>
+</pre>
+
+<h6>Lets filter each heroProfile array to new variable called heroesWithFlight where hero has a special power as Flight</h6>
+<pre>
+    <code class="javascript">
+    // filter()
+    let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
+    console.log("filter", heroesWithFlight);
+    </code>
+</pre>
+
+<h6>Lets reduce total age of each heroProfile and display the sum.</h6>
+<pre>
+    <code class="javascript">
+    // reduce()
+    let totalAge = heroProfiles.reduce((acc, hero) => acc + hero.age, 0);
+    console.log("reduce", totalAge);
+    </code>
+</pre>
+
+<h6>Lets find hero with name "Batman"</h6>
+<pre>
+    <code class="javascript">
+    // find()
+    let batman = heroProfiles.find(hero => hero.name === "Batman");
+    console.log("find",batman);
+    </code>
+</pre>
+
+<h6>Lets find hero with power "Super Strength" with some() method</h6>
+<pre>
+    <code class="javascript">
+    // some()
+    let hasSuperStrength = heroProfiles.some(hero => hero.powers.includes("Super Strength"));
+    console.log("some",hasSuperStrength);
+    </code>
+</pre>
+
+<h6>Lets find only heroes returning true with every() method</h6>
+<pre>
+    <code class="javascript">
+    // every()
+    let allHeroesAreSuper = heroProfiles.every(hero => hero.isHero);
+    console.log("every",allHeroesAreSuper);
+    </code>
+</pre>
+
+<h6>Lets sort all heroes with age</h6>
+<pre>
+    <code class="javascript">
+    // sort()
+    let sortedHeroes = heroProfiles.sort((a, b) => a.age - b.age);
+    console.log("sort", sortedHeroes);
+    </code>
+</pre>
+
+<h6>Lets reverse the heroes</h6>
+<pre>
+    <code class="javascript">
+    // reverse()
+    let reversedHeroes = heroProfiles.reverse();
+    console.log("reverse", reversedHeroes);
+    </code>
+</pre>
+
+<h6>Lets join all hero names with ',' sperated string</h6>
+<pre>
+    <code class="javascript">
+    // join()
+    let heroNamesString = heroProfiles.map(hero => hero.name).join(", ");
+    console.log("join", heroNamesString);
+    </code>
+</pre>
+
+<h6>Lets convert all array to string</h6>
+<pre>
+    <code class="javascript">
+    // toString()
+    let heroProfilesString = heroProfiles.toString();
+    console.log("toString", heroProfilesString);
+    </code>
+</pre>
+
+<h6>Lets check if the variable is array</h6>
+<pre>
+    <code class="javascript">
+    // isArray()
+    let isArray = Array.isArray(heroProfiles);
+    console.log("isArray", isArray);
+    </code>
+</pre>
+
+<h6>Lets find spesific index at the array</h6>
+<pre>
+    <code class="javascript">
+    // indexOf()
+    let index = heroProfiles.indexOf("Batman");
+    console.log("indexOf", index);
+    </code>
+</pre>
+
+<h6>Lets find last index at the array</h6>
+<pre>
+    <code class="javascript">
+    // lastIndexOf()
+    let lastIndex = heroProfiles.lastIndexOf("Superman");
+    console.log("lastIndexOf", lastIndex);
+    </code>
+</pre>
+
+<h6>Lets reduce to right side of elements of array</h6>
+<pre>
+    <code class="javascript">
+    // reduceRight()
+    let reversedNames = heroProfiles.reduceRight((acc, hero) => acc + hero.name + " ", "");
+    console.log("reduceRight",reversedNames);
+    </code>
+</pre>
+
+<h6>Lets find array elements that includes "Superman"</h6>
+<pre>
+    <code class="javascript">
+    // includes()
+    let hasSuperman = heroProfiles.includes("Superman");
+    console.log("includes", hasSuperman);
+    </code>
+</pre>
+
+<h6>Lets shift elements</h6>
+<pre>
+    <code class="javascript">
+    // shift()
+    let shiftedHero = heroProfiles.shift();
+    console.log("shift", shiftedHero);
+    </code>
+</pre>
+
+<h6>Lets unshift elements</h6>
+<pre>
+    <code class="javascript">
+    // unshift()
+    let newLength = heroProfiles.unshift(shiftedHero);
+    console.log("unshift", newLength);
+    </code>
+</pre>
+
+<h6>Lets add more elements with concat method to new variable</h6>
+<pre>
+    <code class="javascript">
+        // concat()
+        let moreHeroes = [
+          {
+            name: "Spider-Man",
+            secretIdentity: "Peter Parker",
+            powers: ["Web-Slinging", "Spider-Sense"],
+            age: 25,
+            isHero: true
+          },
+          {
+            name: "Captain America",
+            secretIdentity: "Steve Rogers",
+            powers: ["Enhanced Strength", "Shield"],
+            age: 100,
+            isHero: true
+          }
         ];
-        </code>
+        
+        let mergedHeroes = heroProfiles.concat(moreHeroes);
+        console.log("concat",mergedHeroes);
+    </code>
 </pre>
 
-<h6>Example 1: Filtering heroes with powers</h6>
-<p>
-  Let's say we want to filter out the heroes from the heroProfiles array who
-  possess the power of flight.<br />
-  We can use the filter() method to accomplish this:
-</p>
+<h6>Lets slice spesific indexed elements to array</h6>
 <pre>
-        <code class="javascript">
-        let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
-        console.log(heroesWithFlight);
-        // Output:
-        // [
-        //   {
-        //     name: "Superman",
-        //     secretIdentity: "Clark Kent",
-        //     powers: ["Flight", "Super Strength"],
-        //     age: 35,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+    <code class="javascript">
+    // slice()
+    let slicedHeroes = heroProfiles.slice(1, 3);
+    console.log("slice", slicedHeroes);
+    </code>
 </pre>
 
-<h6>Example 2: Filtering heroes based on age</h6>
-<p>
-  Let's consider filtering out heroes from the heroProfiles array who are older
-  than 40 years. We can modify the filtering condition in the filter() method
-  for this purpose:
-</p>
-<pre>
-        <code class="javascript">
-        let heroesOlderThan40 = heroProfiles.filter(hero => hero.age > 40);
-        console.log(heroesOlderThan40);
-        // Output:
-        // [
-        //   {
-        //     name: "Wonder Woman",
-        //     secretIdentity: "Diana Prince",
-        //     powers: ["Superhuman Strength", "Lasso of Truth"],
-        //     age: 500,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
-</pre>
-
-<h6>Example 3: Filtering heroes with a specific secret identity</h6>
-<p>
-  Let's filter out the heroes from the heroProfiles array who have the secret
-  identity "Bruce Wayne". We can achieve this by using the filter() method:
-</p>
-<pre>
-        <code class="javascript">
-        let heroesWithSecretIdentity = heroProfiles.filter(hero => hero.secretIdentity === "Bruce Wayne");
-        console.log(heroesWithSecretIdentity);
-        // Output:
-        // [
-        //   {
-        //     name: "Batman",
-        //     secretIdentity: "Bruce Wayne",
-        //     powers: ["Intelligence", "Combat Skills"],
-        //     age: 40,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
-</pre>
-
-<h6>Example 4: Filtering heroes with multiple powers</h6>
-<p>
-  Let's filter out the heroes from the heroProfiles array who possess both
-  "Flight" and "Super Strength" powers. We can use the filter() method with a
-  combination of the every() method:
-</p>
-<pre>
-        <code class="javascript">
-        let heroesWithPowers = heroProfiles.filter(hero => hero.powers.every(power => ["Flight", "Super Strength"].includes(power)));
-        console.log(heroesWithPowers);
-        // Output:
-        // [
-        //   {
-        //     name: "Superman",
-        //     secretIdentity: "Clark Kent",
-        //     powers: ["Flight", "Super Strength"],
-        //     age: 35,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
-</pre>
-
-<h6>Example 5: Filtering heroes based on a custom condition</h6>
-<p>
-  Let's filter out the heroes from the heroProfiles array who are older than 30
-  and have the power "Superhuman Strength". We can use the filter() method with
-  a custom condition:
-</p>
-<pre>
-        <code class="javascript">
-        let filteredHeroes = heroProfiles.filter(hero => hero.age > 30 && hero.powers.includes("Superhuman Strength"));
-        console.log(filteredHeroes);
-        // Output:
-        // [
-        //   {
-        //     name: "Wonder Woman",
-        //     secretIdentity: "Diana Prince",
-        //     powers: ["Superhuman Strength", "Lasso of Truth"],
-        //     age: 500,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
-</pre>
-
-<p>
-  In this example, the filter() method is used to create a new array
-  filteredHeroes containing the heroes who are older than 30 and possess the
-  power "Superhuman Strength". These examples illustrate the flexibility of
-  array filtering in JavaScript. By utilizing the filter() method and applying
-  custom conditions, you can extract specific elements from an array based on
-  various criteria, allowing for more targeted data manipulation and analysis.
-</p>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div>
+    <h5 class="my-3">Iterating throw an Array
+    </h5>
+    <p class="my-3">
+        In this chapter we will examine few examples of itteration over an array and how to do it.
+    </p>
+    <p>
+
+    <div>
+        <h6 class="mt-3">When iterating over arrays in JavaScript, you have several options available. <br>
+            Here are some common approaches to iterate over an array:
+        </h6>
+        <p> 
+            1.<strong>**For Loop**:</strong> You can use a `for` loop to iterate over an array by accessing elements
+            using their indices.
+        </p>
+        <pre>
+            <code class="language-javascript">
+            let array = [1, 2, 3, 4, 5
+            for (let i = 0; i < array.length; i++) {
+                console.log(array[i]);
+            }
+            </code>
+        </pre>
+        <p>
+            2. <strong>**forEach() Method**:</strong> The `forEach()` method executes a provided function once for each
+            element in an array. It simplifies the process of iterating over an array and provides a
+            concise syntax.
+        </p>
+        <pre>
+            <code class="language-javascript">
+            let array = [1, 2, 3, 4, 5];
+            
+            array.forEach(element => {
+              console.log(element);
+            });
+            </code>
+        </pre>
+        <p>
+            3. <strong>**for...of Loop**:</strong> The `for...of` loop allows you to iterate over iterable objects,
+            including arrays. It provides a simpler syntax compared to the traditional `for` loop.
+        </p>
+        <pre>
+            <code class="language-javascript">
+            let array = [1, 2, 3, 4, 5];
+        
+            for (let element of array) {
+                console.log(element);
+            }
+            </code>
+        </pre>
+        <p>
+            4. <strong>**for...in Loop**:</strong> While primarily used for iterating over object properties, you can also
+            use the `for...in` loop to iterate over the indices of an array. However, it's important to
+            note that `for...in` is not recommended for iterating over arrays due to potential issues
+            with unexpected behavior and performance.
+        </p>
+        <pre>
+            <code class="language-javascript">
+            let array = [1, 2, 3, 4, 5];
+            
+            for (let index in array) {
+              console.log(array[index]);
+            }
+            </code>
+        </pre>
+        <p>
+            These are some of the common methods for iterating over arrays in JavaScript. Choose the
+            approach that best suits your requirements and coding style. The `forEach()` method is
+            particularly convenient for its simplicity, while the `for` loop and `for...of` loop offer
+            more control and flexibility.
+        </p>
+    </div>
+    </p>
+</div>
