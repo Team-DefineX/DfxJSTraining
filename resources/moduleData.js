@@ -339,19 +339,15 @@ export const modules = [
     steps: [
       {
         name: "Major frameworks",
-        time: "20mins",
+        time: "25mins",
       },
       {
-        name: "Structure of elements",
-        time: "10mins",
-      },
-      {
-        name: "Differents of To-Do app",
-        time: "14mins",
+        name: "Structure of Frameworks",
+        time: "25mins",
       },
       {
         name: "Usages & Mobiles",
-        time: "16mins",
+        time: "20mins",
       },
     ],
   },
