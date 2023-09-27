@@ -156,10 +156,6 @@ export const modules = [
       {
         name: "Escaping Placeholders",
         time: "5mins",
-      },
-      {
-        name: "Best Practices",
-        time: "10mins",
       }
     ],
   },
