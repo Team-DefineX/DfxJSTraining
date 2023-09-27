@@ -1,0 +1,46 @@
+<p align="justify">
+    You cannot use the sequence of characters <code>"${someCharacters}"</code> without escaping it 
+    because the placeholder format <code>${expression}</code> has a special meaning in the template 
+    literals.
+</p>
+<br>
+<p align="justify">
+    Let's create a string literal containing the sequence of characters <code>${abc}</code>:
+</p>
+<pre>
+    <code class="javascript">
+    const message = `Some weird characters: ${abc}`;
+    // Throws "ReferenceError: abc is not defined"
+    </code>
+</pre>
+<p align="justify">
+    Inserting <code>${abc}</code> directly throws an error because JavaScript interprets 
+    <code>${abc}</code> as a placeholder (and there's no <code>abc</code> variable defined).
+</p>
+<br>
+<p align="justify">
+    A backslash <code>\</code> before the placeholder-like sequence of characters <code>\${abc}</code> 
+    solves the problem:
+</p>
+<pre>
+    <code class="javascript">
+    const message = `Some weird characters: \${abc}`;
+    console.log(message); // => 'Some weird characters follow: ${abc}'
+    </code>
+</pre>
+<p align="justify">
+    In the template string <code>`Some weird characters: \${abc}`</code> JavaScript interprets 
+    <code>\${abc}</code> as a sequence of characters, rather than a placeholder.
+</p>
+<br>
+<p align="justify">
+    Alongside with <code>${abc}</code>, the sequence of characters like <code>${abc</code> and 
+    <code>${</code> also have to be escaped with a backslash <code>\</code>:
+</p>
+<pre>
+    <code class="javascript">
+    const message = `Some weird characters: \${abc} \${abc \${`;
+
+    console.log(message); // => 'Some weird characters: ${abc} ${abc ${'
+    </code>
+</pre>
