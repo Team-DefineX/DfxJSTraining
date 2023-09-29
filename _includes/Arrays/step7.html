@@ -11,34 +11,34 @@
 </div>
 
 <div class="container mt-3">
-  <h5>Consider the following array as our starting point:</h5>
-  <pre>
-        <code class="javascript">
-            let heroProfiles = [
-            {
-              name: "Superman",
-              secretIdentity: "Clark Kent",
-              powers: ["Flight", "Super Strength"],
-              age: 35,
-              isHero: true
-            },
-            {
-              name: "Batman",
-              secretIdentity: "Bruce Wayne",
-              powers: ["Intelligence", "Combat Skills"],
-              age: 40,
-              isHero: true
-            },
-            {
-              name: "Wonder Woman",
-              secretIdentity: "Diana Prince",
-              powers: ["Superhuman Strength", "Lasso of Truth"],
-              age: 500,
-              isHero: true
-            }
-          ];
-        </code>
-    </pre>
+<h5>Consider the following array as our starting point:</h5>
+<pre>
+<code class="javascript">
+  let heroProfiles = [
+  {
+    name: "Superman",
+    secretIdentity: "Clark Kent",
+    powers: ["Flight", "Super Strength"],
+    age: 35,
+    isHero: true
+  },
+  {
+    name: "Batman",
+    secretIdentity: "Bruce Wayne",
+    powers: ["Intelligence", "Combat Skills"],
+    age: 40,
+    isHero: true
+  },
+  {
+    name: "Wonder Woman",
+    secretIdentity: "Diana Prince",
+    powers: ["Superhuman Strength", "Lasso of Truth"],
+    age: 500,
+    isHero: true
+  }
+];
+</code>
+</pre>
     
   <h5>Example 1: Mapping to extract hero names</h5>
   <p>
@@ -47,13 +47,13 @@
     a new array with the results of calling a provided function on every element
     in the array.
   </p>
-    <pre>
-            <code class="javascript">
-                let heroNames = heroProfiles.map(hero => hero.name);
-                console.log(heroNames);
-                // Output: ["Superman", "Batman", "Wonder Woman"]
-            </code>
-    </pre>
+<pre>
+<code class="javascript">
+  let heroNames = heroProfiles.map(hero => hero.name);
+  console.log(heroNames);
+  // Output: ["Superman", "Batman", "Wonder Woman"]
+</code>
+</pre>
   <p>
     In the above example, the map() method is used to create a new array
     (heroNames) by iterating over each element of the heroProfiles array. The
@@ -68,13 +68,13 @@
     Let's map the hero profiles to extract their powers as separate arrays. We
     can achieve this by using the map() method.
   </p>
-  <pre>
-              <code class="javascript">
-                let heroPowers = heroProfiles.map(hero => hero.powers);
-                console.log(heroPowers);
-                // Output: [["Flight", "Super Strength"], ["Intelligence", "Combat Skills"], ["Superhuman Strength", "Lasso of Truth"]]
-              </code>
-      </pre>
+<pre>
+<code class="javascript">
+  let heroPowers = heroProfiles.map(hero => hero.powers);
+  console.log(heroPowers);
+  // Output: [["Flight", "Super Strength"], ["Intelligence", "Combat Skills"], ["Superhuman Strength", "Lasso of Truth"]]
+</code>
+</pre>
   <p>
     In the above example, the arrow function hero => hero.powers extracts the
     powers property from each hero profile, and the resulting power arrays are
@@ -93,13 +93,13 @@
     years. We can achieve this by modifying the mapping operation in the map()
     method.
   </p>
-  <pre>
-            <code class="javascript">
-                let dogYearsAges = heroProfiles.map(hero => hero.age * 7);
-                console.log(dogYearsAges);
-                // Output: [245, 280, 3500]
-            </code>
-    </pre>
+<pre>
+<code class="javascript">
+    let dogYearsAges = heroProfiles.map(hero => hero.age * 7);
+    console.log(dogYearsAges);
+    // Output: [245, 280, 3500]
+</code>
+</pre>
   <p>
     In the above example, the arrow function hero => hero.age * 7 multiplies
     each hero's age by 7 to calculate their age in dog years, and the resulting
@@ -114,25 +114,25 @@
     number of powers they possess. We can achieve this by using a combination of
     array mapping and reducing the powers array.
   </p>
-  <pre>
-              <code class="javascript">
-                let heroPowerLevels = heroProfiles.map(hero => {
-                    let powerLevel = hero.powers.length * 10;
-                    return {
-                      name: hero.name,
-                      powerLevel: powerLevel
-                    };
-                  });
-                  console.log(heroPowerLevels);
-                  /* Output:
-                  [
-                    { name: "Superman", powerLevel: 20 },
-                    { name: "Batman", powerLevel: 20 },
-                    { name: "Wonder Woman", powerLevel: 20 }
-                  ]
-                  */
-              </code>
-      </pre>
+<pre>
+<code class="javascript">
+  let heroPowerLevels = heroProfiles.map(hero => {
+      let powerLevel = hero.powers.length * 10;
+      return {
+        name: hero.name,
+        powerLevel: powerLevel
+      };
+    });
+    console.log(heroPowerLevels);
+    /* Output:
+    [
+      { name: "Superman", powerLevel: 20 },
+      { name: "Batman", powerLevel: 20 },
+      { name: "Wonder Woman", powerLevel: 20 }
+    ]
+  */
+</code>
+</pre>
   <p>
     In this example, we use the map() method to iterate over each hero profile.
     For each hero, we calculate their power level by multiplying the length of
@@ -148,25 +148,25 @@
     achieve this by using the map() method along with string manipulation
     methods.
   </p>
-  <pre>
-                <code class="javascript">
-                    let capitalizedNames = heroProfiles.map(hero => {
-                        let capitalized = hero.name.toUpperCase();
-                        return {
-                          ...hero,
-                          name: capitalized
-                        };
-                      });
-                      console.log(capitalizedNames);
-                      /* Output:
-                      [
-                        { name: "SUPERMAN", secretIdentity: "Clark Kent", powers: ["Flight", "Super Strength"], age: 35, isHero: true },
-                        { name: "BATMAN", secretIdentity: "Bruce Wayne", powers: ["Intelligence", "Combat Skills"], age: 40, isHero: true },
-                        { name: "WONDER WOMAN", secretIdentity: "Diana Prince", powers: ["Superhuman Strength", "Lasso of Truth"], age: 500, isHero: true }
-                      ]
-                      */
-                </code>
-        </pre>
+<pre>
+<code class="javascript">
+  let capitalizedNames = heroProfiles.map(hero => {
+      let capitalized = hero.name.toUpperCase();
+      return {
+        ...hero,
+        name: capitalized
+      };
+    });
+    console.log(capitalizedNames);
+    /* Output:
+    [
+      { name: "SUPERMAN", secretIdentity: "Clark Kent", powers: ["Flight", "Super Strength"], age: 35, isHero: true },
+      { name: "BATMAN", secretIdentity: "Bruce Wayne", powers: ["Intelligence", "Combat Skills"], age: 40, isHero: true },
+      { name: "WONDER WOMAN", secretIdentity: "Diana Prince", powers: ["Superhuman Strength", "Lasso of Truth"], age: 500, isHero: true }
+    ]
+    */
+</code>
+</pre>
   <p>
     In this example, we use the map() method to iterate over each hero profile.
     For each hero, we capitalize their name by using the toUpperCase() method.
@@ -183,26 +183,26 @@
     this by using the map() method in combination with the filter() and map()
     methods.
   </p>
-  <pre>
-                  <code class="javascript">
-                    let transformedPowers = heroProfiles.map(hero => {
-                        let filteredPowers = hero.powers.filter(power => power.includes("Strength"));
-                        let transformed = filteredPowers.map(power => power.toLowerCase());
-                        return {
-                          ...hero,
-                          powers: transformed
-                        };
-                      });
-                      console.log(transformedPowers);
-                      /* Output:
-                      [
-                        { name: "Superman", secretIdentity: "Clark Kent", powers: ["super strength"], age: 35, isHero: true },
-                        { name: "Batman", secretIdentity: "Bruce Wayne", powers: [], age: 40, isHero: true },
-                        { name: "Wonder Woman", secretIdentity: "Diana Prince", powers: ["superhuman strength"], age: 500, isHero: true }
-                      ]
-                      */
-                  </code>
-          </pre>
+<pre>
+<code class="javascript">
+  let transformedPowers = heroProfiles.map(hero => {
+      let filteredPowers = hero.powers.filter(power => power.includes("Strength"));
+      let transformed = filteredPowers.map(power => power.toLowerCase());
+      return {
+        ...hero,
+        powers: transformed
+      };
+    });
+    console.log(transformedPowers);
+    /* Output:
+    [
+      { name: "Superman", secretIdentity: "Clark Kent", powers: ["super strength"], age: 35, isHero: true },
+      { name: "Batman", secretIdentity: "Bruce Wayne", powers: [], age: 40, isHero: true },
+      { name: "Wonder Woman", secretIdentity: "Diana Prince", powers: ["superhuman strength"], age: 500, isHero: true }
+    ]
+    */
+</code>
+</pre>
   <p>
     In this example, we use the map() method to iterate over each hero profile.
     For each hero, we filter the powers array using the filter() method to only

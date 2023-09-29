@@ -1,0 +1,39 @@
+<div>
+  <h5 class="my-3">Extending Classes</h5>
+
+  #4 Class Inheritance (Extending Classes) Now, let's demonstrate class
+  <p>
+    inheritance by creating a subclass called SuperVillainProfile that inherits
+    from the HeroProfile class. The SuperVillainProfile class will have
+    additional properties and methods specific to villains.
+  </p>
+  <pre>
+  <code class="javascript">
+    class SuperVillainProfile extends HeroProfile {
+      constructor(name, age, power, evilPlan) {
+        // Call the constructor of the parent class using super().
+        super(name, age, power);
+        this.evilPlan = evilPlan;
+      }
+    
+      // Override the usePower() method from the parent class.
+      usePower() {
+        console.log(`${this.name} uses ${this.power} to execute their evil plan: ${this.evilPlan}`);
+      }
+    
+      // New method specific to SuperVillainProfile class.
+      revealEvilPlan() {
+        console.log(`${this.name}'s evil plan is to ${this.evilPlan}`);
+      }
+    }
+  </code>
+  </pre>
+
+  <p>
+    In this step, we've defined the SuperVillainProfile class that extends the
+    HeroProfile class using the extends keyword. It has an additional property
+    evilPlan, and the usePower() method is overridden to include the evil plan.
+    We've also added a new method revealEvilPlan() specific to villains.
+  </p>
+
+</div>
