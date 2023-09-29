@@ -1,45 +1,4 @@
 
-React basic:
-<pre>
-    <code class="javascript">
-        import React from 'react';
-
-        const ExampleComponent = () => {
-            const message = 'Merhaba, React!';
-            return <div>{message}</div>;
-        };
-</code>
-</pre>
-React Class base
-<pre>
-    <code class="javascript">
-        import React, { Component } from 'react';
-
-        class ExampleClassComponent extends Component {
-          constructor(props) {
-            super(props);
-            this.state = {
-              count: 0,
-            };
-          }
-        
-          incrementCount = () => {
-            this.setState((prevState) => ({
-              count: prevState.count + 1,
-            }));
-          };
-        
-          render() {
-            return (
-            &#60;div>
-                &#60;p>Count: {this.state.count}&#60;/p>
-                &#60;button onClick={this.incrementCount}>Increment&#60;/button>
-            &#60;/div>
-            );
-          }
-        }
-    </code>
-</pre>
 React Function base
 <pre>
     <code class="javascript">
@@ -61,45 +20,223 @@ React Function base
         }
 </code>
 </pre>
-Angular Template:
+React ToDo
 <pre>
     <code class="javascript">
-        &#60;div>{{ message }}&#60;/div>
+        import React, { useState } from 'react';
+
+        const TodoApp = () => {
+            const [todos, setTodos] = useState([]);
+            const [inputValue, setInputValue] = useState('');
+
+            const handleInputChange = (e) => {
+                setInputValue(e.target.value);
+            };
+
+            const addTodo = () => {
+                if (inputValue.trim() !== '') {
+                setTodos([...todos, inputValue]);
+                setInputValue('');
+                }
+            };
+
+            const removeTodo = (index) => {
+                const newTodos = [...todos];
+                newTodos.splice(index, 1);
+                setTodos(newTodos);
+            };
+
+            return (
+                &#60;div>
+                &#60;h1>Todo App&#60;/h1>
+                &#60;input type="text" value={inputValue} onChange={handleInputChange} />
+                &#60;button onClick={addTodo}>Add Todo&#60;/button>
+                &#60;ul>
+                    {todos.map((todo, index) => (
+                        &#60;li key={index}>
+                            {todo} &#60;button onClick={() => removeTodo(index)}>Remove&#60;/button>
+                        &#60;/li>
+                    ))}
+                &#60;/ul>
+                &#60;/div>
+            );
+        };
+
+        export default TodoApp;
     </code>
 </pre>
+Angular ToDo
+<pre>
+    <code class="html">
+        <!-- app.component.html -->
+        &#60;h1>Todo App&#60;/h1>
+        &#60;input type="text" [(ngModel)]="inputValue" />
+        &#60;button (click)="addTodo()">Add Todo&#60;/button>
+        &#60;ul>
+            &#60;li *ngFor="let todo of todos; let i = index">
+                {{ todo }} &#60;button (click)="removeTodo(i)">Remove&#60;/button>
+            &#60;/li>
+        &#60;/ul>
+    </code>
+</pre>
+
 <pre>
     <code class="javascript">
-        // Component TypeScript file
+        // app.component.ts
         import { Component } from '@angular/core';
-        
+
         @Component({
-          selector: 'app-example',
-          templateUrl: './example.component.html',
+            selector: 'app-root',
+            templateUrl: './app.component.html',
         })
-        export class ExampleComponent {
-          message = 'Merhaba, Angular!';
+        export class AppComponent {
+            todos: string[] = [];
+            inputValue = '';
+
+            addTodo() {
+                if (this.inputValue.trim() !== '') {
+                this.todos.push(this.inputValue);
+                this.inputValue = '';
+                }
+            }
+
+            removeTodo(index: number) {
+                this.todos.splice(index, 1);
+            }
         }
     </code>
 </pre>
-Vue Template:
+Vue ToDo
 <pre>
-    <code class="javascript">
-        <!-- Component template -->
-        &#60;div>{{ message }}&#60;/div>
-    </code>
-</pre>
-<pre>
-    <code class="javascript">
-        // Component JavaScript dosyası
-        export default {
-        data() {
-            return {
-            message: 'Merhaba, Vue.js!',
+    <code class="html">
+        <!-- App.vue -->
+        &#60;template>
+            &#60;div>
+                &#60;h1>Todo App&#60;/h1>
+                &#60;input type="text" v-model="inputValue" />
+                &#60;button @click="addTodo">Add Todo&#60;/button>
+                &#60;ul>
+                    &#60;li v-for="(todo, index) in todos" :key="index">
+                        {{ todo }} &#60;button @click="removeTodo(index)">Remove&#60;/button>
+                    &#60;/li>
+                &#60;/ul>
+            &#60;/div>
+        &#60;/template>
+  
+          &#60;script>
+            export default {
+                data() {
+                return {
+                    todos: [],
+                    inputValue: '',
+                };
+                },
+                methods: {
+                addTodo() {
+                    if (this.inputValue.trim() !== '') {
+                    this.todos.push(this.inputValue);
+                    this.inputValue = '';
+                    }
+                },
+                removeTodo(index) {
+                    this.todos.splice(index, 1);
+                },
+                },
             };
-        },
-        };
+        &#60;/script>
     </code>
 </pre>
 
-As these examples show, React JSX, Angular template, and Vue.js template offer different approaches to using HTML elements as variables. While React JSX defines HTML elements in JavaScript, Angular and Vue.js prefer to use these elements within their templates.
+In the examples above, we created a simple todo app for all three frameworks. These examples show the different syntax and structure of React, Angular, and Vue.js, but they basically have the same functionality. You can further develop these applications in your own project and add different features.
 
+<br><br>
+
+<h3>LifeCycles:</h3>
+<br>
+<ul>
+    <li> React allows components to be class-based (class) or function-based (functional) and can use Hooks for lifecycle management.  </li>
+    <li> Angular defines components as TypeScript classes and has special lifecycle methods like ngOnChanges, ngOnInit, ngOnDestroy. </li>
+    <li> Vue.js defines components as JavaScript objects or functions and also has custom lifecycle methods (beforeCreate, mounted, destroyed, etc.). </li>
+</ul>
+
+<br>
+
+<h3>Routing usages:</h3>
+<br>
+<ul>
+    <li> React   </li>
+    <ul>
+        <li> <code>import { BrowserRouter, Routes, Route } from "react-router-dom";</code>  </li>
+        <li> <code>&#60;BrowserRouter> </code>  </li>
+        <li> <code>&#60;Routes> </code></li>
+        <li>  <code>&#60;Route path="blogs" element={&#60;Blogs />} /></code> </li>
+    </ul>
+    <li> Angular  </li>
+    <ul>
+        <li>
+          
+          <pre>
+            <code class="javascript">
+              import { NgModule } from '@angular/core';
+              import { BrowserModule } from '@angular/platform-browser';
+              import { RouterModule } from '@angular/router';
+            </code>
+          </pre>
+        </li>
+
+        <li> 
+          <pre>
+            <code class="javascript">
+              const ROUTES: Route[] = [
+                { path: 'path-a', component: ComponentA },
+                { path: 'path-b', component: ComponentB },
+              ];
+            </code>
+          </pre>
+        </li>
+        <li> 
+          <pre>
+            <code class="javascript">
+              @NgModule({
+                imports:      [ BrowserModule, RouterModule.forRoot(ROUTES, optionsConfig) ],
+            </code>
+          </pre>
+        </li>
+    </ul>
+    <li> Vue.js  </li>
+    <ul>
+      <li> 
+        <pre>
+          <code class="javascript">
+              import { createRouter, createWebHistory } from 'vue-router'
+              import Home from '../views/Home.vue'
+          </code>
+        </pre>
+      </li>
+      <li> 
+        <pre>
+          <code class="javascript">
+            const routes = [
+              {
+                path: '/',
+                name: 'Home',
+                component: Home
+              }
+              .
+              .
+          </code>
+        </pre>
+      </li>
+      <li> 
+        <pre>
+          <code class="javascript">
+            const router = createRouter({
+              history: createWebHistory(process.env.BASE_URL),
+              routes
+            })
+            export default router
+          </code>
+        </pre>
+      </li>
+  </ul>
+</ul>

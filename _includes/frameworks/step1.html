@@ -10,25 +10,150 @@ JavaScript frameworks are tools created to help developers build web application
 <br>
 <b>Community and Support:</b> Popular frameworks often have a large and active developer community. These communities provide a platform to solve problems, help and share the best practices.
 <br>
+<h4>History Of:</h4>
+<h5>Angular</h5>
+Miško Hevery started a private project for developing fastly and easily. When he start to used this project with other team members. New features have been added. This project later became known as AngularJS
+<br><br>
+Misko and a few others started to create a few more internal applications with AngularJS, eventually releasing it as an open source project in 2010.
+<br><br>
+Version 1.8.2 was released and it became a closed project.Angular2 was created after a radical change. Completely rewritten. This radical change was costly. In addition, it included a transition from js to ts and performance improvements for almost every example.
+<br><br>
+
+<h5>React</h5>
+Jordan Walke was impressed by the component structure in php. This influence helped the first steps of a new library.
+<br><br>
+After about 6 months, Faxjs, which contains the basics of React, would be published.
+<br><br>
+Thanks to Facebook, it did not have problems in development. It has never undergone radical changes. And there was no package that contained anything other than html dom rendering. Before form validations, rendering time and cost were important.
+<br><br>
+The question of library or framework, which has been the subject of much debate, has never been the first issue on this team's mind. In addition to solving performance needs, they also considered code quality, readability and reusability.
+<br><br>
+<h5>Vue</h5>
+Evan You is the project he started developing after working with Angular JS in different projects.
+<br>
+<br>
+He said in a interviwe that if I changed the parts I wanted in AngularJS, it might make it more useful.
+<br><br>
+The equivalent of the structure he wants is not a single library. He started working to gather the structures he learned and liked in many places in one place. I wonder if he would have guessed when he published the first version that he had developed a product that would be as well known and used as it is today and would be featured in major frameworks?
+<br><br>
+Continues its development with the core team. It created a structure that focused on a single point like React, but also incorporated features(etc:data-binding) from Angular.
+<br><br>
 <div class="centered-img">
     <img class="img-full" src="/_includes/images/fws.png" alt="">
 </div>
 As we see the popularity of Frameworks. Each rise means the beginning of new practices. Every application that starts, needs to be maintained, new feature additions occur. We can see that the most used package in the applications made so far is React.
 <br>
 <br>
-Angular, Vue and React Web vitals reports:
+<h4>Performance</h4> 
+Angular Web vitals reports:
 <div class="centered-img">
-    <img class="img-full" src="/_includes/images/angular.png" alt="">
-</div>
-
-<div class="centered-img">
-    <img class="img-full" src="/_includes/images/vue.png" alt="">
-</div>
-
-<div class="centered-img">
-    <img class="img-full" src="/_includes/images/react.png" alt="">
+    <img class="img-full br-4" src="/_includes/images/angular.png" alt="">
 </div>
 <br>
+Vue  Web vitals reports:
+<div class="centered-img">
+    <img class="img-full br-4" src="/_includes/images/vue.png" alt="">
+</div>
+<br>
+React Web vitals reports:
+<div class="centered-img">
+    <img class="img-full br-4" src="/_includes/images/react.png" alt="">
+</div>
+<br>
+<b>First Contentfull Paint:</b> This metric measures how long it takes from the user initiating the load until the any html element is rendered within the viewport. React wins this metric with a score of 60%.
+<br>
+<b>Largest Contentfull Paint:</b> This metric measures how long it takes from the user initiating the load until the largest text image, block, or video is rendered within the viewport. React wins this metric with a score of 60%.
+<br>
+<b>Cumulative Layout Shift:</b> This metric measures the movements of the page as content renders or new content is shown on the page. React wins this metric with a score of 72%.
+<br>
+<b>First Input Delay:</b> This metric measures the time from the moment the user first interacts with a page until the moment the browser can actually start processing event handlers in response to that interaction. Vue & Angular win this metric with a score of 87%.
+<br>
+<b>Time To First Byte:</b> This metric measures allmost nothing for React-Angular-Vue Because we can improve this metric in server or other backend layer.
+<br>
+
+<br>
+<b>If we need to talk about other metric & topic:</b>
+<p align="justify">
+    Package Size:
+    <ul>
+        <li>Vue is winner for this metric. Package size is 58.8k</li>
+        <li>React package size is 97.5k</li>
+        <li>Angular package size is 143k</li>
+    </ul>
+</p>
+<p align="justify">
+    Learning Curve:
+    <ul>
+        <li>Vue is winner for this metric. So simple to understand and developing application with Vue then Angular & React</li>
+    </ul>
+</p>
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/learning-curve.png" alt="">
+</div>
+<p align="justify">
+    Startup Time:
+    <ul>
+        <li>Vue and React are winner for this metric. Mini codebase are effect this metric</li>
+        <li>Angular startup time is longer due to its large codebase</li>
+    </ul>
+</p>
+<p align="justify">
+    Built-in Features:
+    <div class="centered-img">
+        <img class="img-full" src="/_includes/images/build-in.png" alt="">
+    </div>
+    As we can see in table, angular has more feature than React & Vue. React State management is not done as Vue & Angular. Because it has not a structure that fully meets the needs. 
+    <br>
+
+    <br>
+    <div class="centered-img">
+        <img class="img-full" src="/_includes/images/ivy-effect.png" alt="">
+    </div>
+    <br>
+    Just like Angular, React also has deep-rooted and efficient developments. There is something we will touch upon here. Fiber. As we talked about, React has a structure focused on frontend performance. time has pioneered the innovations here. Thanks to Fiber, React has made another update on rendering. It made the places affected by the changes more efficient and controlled. The place where the changes are made is a point that we can call the heart of React. Fiber is now the new heart of React.  There is one more point we need to distinguish here. It does not work where there is a direct connection to the virtual dom. These improvements are at a point that will work in React Native. It is not the change that finds the difference between the doms, but the change that makes the difference at the rendering point. fiber.
+</p>
+<br>
+<p align="justify">
+    Data Binding & Managements:
+<br>
+
+    <ul>
+        <li>Vue supports both one-way(props) and two-way(v-model) data binding. That package uses v-model to provide two-way data binding and also supports one-way data flow.</li>
+        
+            <ul>
+                <li>EventBus Flow:
+                    <div class="centered-img">
+                        <img  src="/_includes/images/vue-eventbus.png" alt="">
+                    </div>
+                </li>
+                <li>Vuex State Management Flow:
+                    <div class="centered-img">
+                        <img  src="/_includes/images/vuex-statemanager.png" alt="">
+                    </div>
+                </li>
+            </ul>
+       
+        <li>React has support one-way data binding. React uses props and state for state management and encourages not modifying state directly.</li>
+        
+            <ul>
+                <li>State Management Flow:
+                    <div class="centered-img">
+                        <img  src="/_includes/images/react-flow.png" alt="">
+                    </div>
+                </li>
+            </ul>
+        <li>Angular has support two-way data binding. Angular generally takes a one-way data binding approach and uses the @Input and @Output decorators to facilitate data flow between components.</li>
+        
+            <ul>
+                <li>Two way binding flow:
+                    <div class="centered-img">
+                        <img  src="/_includes/images/angular-mvc.png" alt="">
+                    </div>
+                </li>
+            </ul>
+        
+    </ul>
+</p>
 <br>
 <h4>DOM Structures</h4> 
 <b>Shadow DOM (Shadow Document Object Model)</b> is a technology for isolating the content and style of web components. This makes web components more manageable and reusable, while helping to avoid conflicting browser content and style conflicts. Shadow DOM is a concept that underlies many modern web frameworks.

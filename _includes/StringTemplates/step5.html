@@ -1,0 +1,88 @@
+<p align="justify">
+    Tagged templates are one of the more advanced form of <strong>template literals.</strong> Tagged template literals allow us to parse template literals with a function.
+</p>
+<br>
+<p align="justify">
+    The first argument of the tag function contains an array having string values, and the remaining arguments are related to the expression. The writing of tagged 
+    literal is similar to the function definition, but the difference occurs when the tagged literals get called. There are no parentheses <strong>()</strong> required to call a literal.
+</p>
+<br>
+<p align="justify">
+    Let us see the illustration for the tagged templates.
+</p>
+<pre>
+    <code class="javascript">
+    function TaggedLiteral(str) {   
+        console.log(str);   
+    }   
+    
+    TaggedLiteral `Hello World`; 
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    [ 'Hello World' ]
+    </code>
+</pre>
+<p align="justify">
+    We can also pass the values in a tagged literal. The value can be the result of some expression or the value fetched from the variable. We can see the illustration for 
+    the same in the following code:
+</p>
+<pre>
+    <code class="javascript">
+    function TaggedLiteral(str, val1, val2) {   
+        console.log(str);   
+        console.log(val1+"    "+val2);   
+    }   
+    
+    let text = 'Hello World';   
+    TaggedLiteral`Colors ${text} ${10+30}`;  
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    [ 'Colors ', ' ', '' ]
+    Hello World    40
+    </code>
+</pre>
+<p align="justify">
+    An array of string values are passed as the first argument of a tag function. You could also pass the values and expressions as the remaining arguments. For example,
+</p>
+<pre>
+    <code class="javascript">
+    const name = 'Jack';
+    const greet = true;
+
+    function tagExample(strings, nameValue) {
+        let str0 = strings[0]; // Hello
+        let str1 = strings[1]; // , How are you?
+
+        if(greet) {
+            return `${str0}${nameValue}${str1}`;
+        }
+    }
+
+    // creating tagged literal
+    // passing argument name
+    const result = tagExample`Hello ${name}, How are you?`;
+
+    console.log(result);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Hello Jack, How are you?
+    </code>
+</pre>
+<p align="justify">
+    In this way, you can also pass multiple arguments in the tagged temaplate.
+</p>

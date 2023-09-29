@@ -1,149 +1,100 @@
-React ToDo
-<pre>
-    <code class="javascript">
-        import React, { useState } from 'react';
+<br><b>React</b><br>
+React, Facebook tarafından geliştirilmekte ve büyük bir topluluğa sahiptir. Ekosistemi, Redux gibi üçüncü taraf state yönetim kütüphaneleri, react-router gibi yönlendirme kütüphaneleri ve daha fazlasını içerir.
+<br><br>
+<br><b>Angular</b><br>
+It is developed by Google and has a large community. Its ecosystem includes Reactive Extensions libraries like RxJS, ready-made component libraries like Angular Material, and more.
+<br><br>
+<br><b>Vue</b><br>
 
-        const TodoApp = () => {
-            const [todos, setTodos] = useState([]);
-            const [inputValue, setInputValue] = useState('');
+Vue.js is developed by an independent developer and has a rapidly growing community. Its ecosystem includes routing libraries like the Vue Router, state management libraries like Vuex, and more.
+<br><br>
+<br>
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/usages.png" alt="">
+</div>
 
-            const handleInputChange = (e) => {
-                setInputValue(e.target.value);
-            };
+<br>
+<br>
+<h3>Mobile Side:</h3>
 
-            const addTodo = () => {
-                if (inputValue.trim() !== '') {
-                setTodos([...todos, inputValue]);
-                setInputValue('');
-                }
-            };
+<h4>React Native:</h4>
+React Native is a React-based mobile app framework and enables app development for both iOS and Android with the same codebase. Here are the mobile app development steps with React Native:
 
-            const removeTodo = (index) => {
-                const newTodos = [...todos];
-                newTodos.splice(index, 1);
-                setTodos(newTodos);
-            };
+<ul>
+    <li>Make sure you have Node.js and npm installed.
+    </li>
+    <li>Install React Native CLI: 
+        <pre><code class="javascript">
+            npm install -g react-native-cli
+        </code></pre>
+    </li>
+    <li>Create a new React Native project: 
+        <pre><code class="javascript">
+            react-native init MyMobileApp
+        </code></pre>
+    </li>
+    <li>Go to your project's directory with <code>cd MyMobileApp</code></li>
+    <li>Start the app: <code>react-native run-android</code> (for Android) or <code>react-native run-ios</code> (for iOS).</li>
+    <li>React Native allows you to build UI using React components and manage application logic using JavaScript.</li>
+</ul>
 
-            return (
-                &#60;div>
-                &#60;h1>Todo App&#60;/h1>
-                &#60;input type="text" value={inputValue} onChange={handleInputChange} />
-                &#60;button onClick={addTodo}>Add Todo&#60;/button>
-                &#60;ul>
-                    {todos.map((todo, index) => (
-                        &#60;li key={index}>
-                            {todo} &#60;button onClick={() => removeTodo(index)}>Remove&#60;/button>
-                        &#60;/li>
-                    ))}
-                &#60;/ul>
-                &#60;/div>
-            );
-        };
+<h4>Ionic</h4>
+Ionic is an Angular-based mobile application development framework. It enables application development using HTML, CSS and TypeScript. Here are the mobile application development steps with Ionic:
+<ul>
+<li>Make sure you have Node.js and npm installed.</li>
+<li>Install Ionic CLI: 
+    <pre><code class="javascript">
+        npm install -g @ionic/cli
+    </code></pre></li>
+<li>Create a new project: 
+    <pre><code class="javascript">
+        ionic start MyMobileApp
+    </code></pre></li>
+<li>Go to your project's directory with <code>cd MyMobileApp</code></li>
+<li>Start the app: <code>react-native run-android</code> (for Android) or <code>react-native run-ios</code> (for iOS).</li></li>
 
-        export default TodoApp;
-    </code>
-</pre>
-Angular ToDo
-<pre>
-    <code class="html">
-        <!-- app.component.html -->
-        &#60;h1>Todo App&#60;/h1>
-        &#60;input type="text" [(ngModel)]="inputValue" />
-        &#60;button (click)="addTodo()">Add Todo&#60;/button>
-        &#60;ul>
-            &#60;li *ngFor="let todo of todos; let i = index">
-                {{ todo }} &#60;button (click)="removeTodo(i)">Remove&#60;/button>
-            &#60;/li>
-        &#60;/ul>
-    </code>
-</pre>
-
-<pre>
-    <code class="javascript">
-        // app.component.ts
-        import { Component } from '@angular/core';
-
-        @Component({
-            selector: 'app-root',
-            templateUrl: './app.component.html',
-        })
-        export class AppComponent {
-            todos: string[] = [];
-            inputValue = '';
-
-            addTodo() {
-                if (this.inputValue.trim() !== '') {
-                this.todos.push(this.inputValue);
-                this.inputValue = '';
-                }
-            }
-
-            removeTodo(index: number) {
-                this.todos.splice(index, 1);
-            }
-        }
-    </code>
-</pre>
-Vue ToDo
-<pre>
-    <code class="html">
-        <!-- App.vue -->
-        &#60;template>
-            &#60;div>
-                &#60;h1>Todo App&#60;/h1>
-                &#60;input type="text" v-model="inputValue" />
-                &#60;button @click="addTodo">Add Todo&#60;/button>
-                &#60;ul>
-                    &#60;li v-for="(todo, index) in todos" :key="index">
-                        {{ todo }} &#60;button @click="removeTodo(index)">Remove&#60;/button>
-                    &#60;/li>
-                &#60;/ul>
-            &#60;/div>
-        &#60;/template>
-  
-          &#60;script>
-            export default {
-                data() {
-                return {
-                    todos: [],
-                    inputValue: '',
-                };
-                },
-                methods: {
-                addTodo() {
-                    if (this.inputValue.trim() !== '') {
-                    this.todos.push(this.inputValue);
-                    this.inputValue = '';
-                    }
-                },
-                removeTodo(index) {
-                    this.todos.splice(index, 1);
-                },
-                },
-            };
-        &#60;/script>
-    </code>
-</pre>
-
-In the examples above, we created a simple todo app for all three frameworks. These examples show the different syntax and structure of React, Angular, and Vue.js, but they basically have the same functionality. You can further develop these applications in your own project and add different features.
+</ul>
+<br>
+<h5>Cordova VS Capacitor:</h5>
+Cordova and Capacitor are two popular frameworks used for mobile app development. Both allow you to create cross-platform mobile apps using web technologies. Here are the key differences between Cordova and Capacitor:
+Cordova:
+<ul>
+    <li>Apache Cordova essentially wraps web apps that run in a WebView, converting them into mobile apps.</li>
+    <li>Your app's code runs inside a WebView, which provides access to native device features</li>
+    <li>Cordova enables app development using JavaScript, HTML, and CSS.</li>
+    <li>To access mobile device features, you need to use Cordova plugins. These plugins add functionalities like camera, location, storage, etc., to your app.
+    </li>
+    <li>Cordova can have limitations in terms of performance and user experience due to its WebView-based nature.</li>
+</ul>
+<br>
+Capacitor:
+<ul>
+    <li>Capacitor is an evolved version of Cordova and offers a more modern approach.</li>
+    <li>Instead of being WebView-based, Capacitor acts as a bridge between the app and native APIs. This means most of your app runs as native code outside the WebView.</li>
+    <li>Capacitor can be thought of as a "bridge" that contains both web code running in a WebView and native code.</li>
+    <li>Capacitor uses Capacitor plugins instead of Cordova plugins. These plugins are written in JavaScript, Swift, Kotlin, or other languages and provide better control over native API access.</li>
+    <li>Capacitor can offer better performance and is better suited for future developments due to its more modern architecture.</li>
+</ul>
+In summary, Cordova and Capacitor are two different approaches for mobile app development. Cordova is WebView-based and provides access to native features through plugins. Capacitor takes a more modern approach, acting as a bridge between the app and native APIs, offering performance and flexibility advantages.
 
 <br><br>
 
-<h3>LifeCycles:</h3>
-<br>
+<h4>Vue Native</h4>
+Vue Native is a Vue.js based mobile application development framework. It offers a React Native-like approach and lets you build mobile apps using Vue components. However, it does not have as large a community or ecosystem as React Native.
+
 <ul>
-    <li> React allows components to be class-based (class) or function-based (functional) and can use Hooks for lifecycle management.  </li>
-    <li> Angular defines components as TypeScript classes and has special lifecycle methods like ngOnChanges, ngOnInit, ngOnDestroy. </li>
-    <li> Vue.js defines components as JavaScript objects or functions and also has custom lifecycle methods (beforeCreate, mounted, destroyed, etc.). </li>
+    <li>Globally installed node >= 6.0
+        </li>
+    <li>Globally installed npm >= 4.0</li>
+    <li>npm install --global vue-native-cli</li>
+    <li>npm install --global expo-cli</li>
+    <li>vue-native init <--projectName--></li>
+    <li>cd <--projectName--></li>
+    <li>npm start</li>
+    <li>npm run android  or
+        npm run ios</li>
 </ul>
 
-<br>
-<h3>State ve Data Management:</h3>
-<br>
-<ul>
-    <li> React uses props and state for state management and encourages not modifying state directly. </li>
-    <li>  Angular generally takes a one-way data binding approach and uses the @Input and @Output decorators to facilitate data flow between components.  </li>
-    <li> Vue.js uses v-model to provide two-way data binding and also supports one-way data flow.  </li>
-</ul>
-
-
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/mobileusages.png" alt="">
+</div>
