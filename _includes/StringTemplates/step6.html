@@ -10,7 +10,14 @@
 <pre>
     <code class="javascript">
     const message = `Some weird characters: ${abc}`;
-    // Throws "ReferenceError: abc is not defined"
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Uncaught ReferenceError: abc is not defined
     </code>
 </pre>
 <p align="justify">
@@ -25,7 +32,15 @@
 <pre>
     <code class="javascript">
     const message = `Some weird characters: \${abc}`;
-    console.log(message); // => 'Some weird characters follow: ${abc}'
+    console.log(message);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Some weird characters: ${abc}
     </code>
 </pre>
 <p align="justify">
@@ -42,5 +57,13 @@
     const message = `Some weird characters: \${abc} \${abc \${`;
 
     console.log(message); // => 'Some weird characters: ${abc} ${abc ${'
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Some weird characters: ${abc} ${abc ${
     </code>
 </pre>

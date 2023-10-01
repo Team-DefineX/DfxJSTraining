@@ -3,8 +3,19 @@
 </p>
 <pre>
     <code class="javascript">
-    const name = 'Jack';
-    console.log('Hello ' + name); // Hello Jack
+    const company = 'Team DefineX';
+    const training = 'Javascript Training'
+    console.log('Welcome to ' + company + ' ' + training);
+    </code>
+</pre>
+<p align="justify">
+    <strong>
+        Output:
+    </strong>
+</p>
+<pre>
+    <code class="javascript">
+    Welcome to Team DefineX Javascript Training.
     </code>
 </pre>
 <p align="justify">
@@ -13,17 +24,17 @@
 </p>
 <pre>
     <code class="javascript">
-    const method = 'interpolation'
-    const dynamicString = `This string is using ${method}.
+    const company = 'Team DefineX';
+    const training = 'Javascript Training'
+    const literalString = `Welcome to ${company} ${training}.`
     </code>
 </pre>
 <p align="justify">
-    When <code>dynamicString</code> is logged to the console, the console will show the following:
+    When <code>literalString</code> is logged to the console, the console will show the following:
 </p>
 <pre>
     <code class="javascript">
-    Output
-    This string is using interpolation.
+    Welcome to Team DefineX Javascript Training.
     </code>
 </pre>
 <p align="justify">
@@ -44,7 +55,6 @@
 </p>
 <pre>
     <code class="javascript">
-    Output
     https://github.com/login/oauth/authorize?client_id=abc123&scope=repo,user
     </code>
 </pre>
@@ -65,7 +75,6 @@
 </p>
 <pre>
     <code class="javascript">
-    Output
     https://github.com/login/oauth/authorize?client_id=abc123&scope=repo,user
     </code>
 </pre>
@@ -74,21 +83,20 @@
 </p>
 <pre>
     <code class="javascript">
-    const sum = (x, y) => x + y
-    const x = 5
-    const y = 100
-    const string = `The sum of ${x} and ${y} is ${sum(x, y)}.`
+    const multiply = (x, y) => x * y
+    const x = 10
+    const y = 77
+    const literalString = `The multiply of ${x} and ${y} is ${multiply(x, y)}.`
 
-    console.log(string)
+    console.log(literalString)
     </code>
 </pre>
 <p align="justify">
-    This code defines the <code>sum</code> function and the variables <code>x</code> and <code>y</code>, then uses both the function and the variables in a string. The logged result will show the following:
+    This code defines the <code>multiply</code> function and the variables <code>x</code> and <code>y</code>, then uses both the function and the variables in a string. The logged result will show the following:
 </p>
 <pre>
     <code class="javascript">
-    Output
-    The sum of 5 and 100 is 105.
+    The multiply of 10 and 77 is 770.
     </code>
 </pre>
 <p align="justify">
@@ -97,7 +105,7 @@
 <pre>
     <code class="javascript">
     const age = 19
-    const message = `You can ${age < 21 ? 'not' : ''} view this page`
+    const message = `You are ${age < 21 ? 'not' : ''} authorized to view this page`
     console.log(message)
     </code>
 </pre>
@@ -106,7 +114,6 @@
 </p>
 <pre>
     <code class="javascript">
-    Output
-    You can not view this page
+    You are not authorized to view this page
     </code>
 </pre>

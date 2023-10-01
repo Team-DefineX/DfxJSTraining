@@ -16,7 +16,7 @@
         console.log(str);   
     }   
     
-    TaggedLiteral `Hello World`; 
+    TaggedLiteral `Hello Team DefineX`; 
     </code>
 </pre>
 <p>
@@ -24,7 +24,7 @@
 </p>
 <pre>
     <code class="javascript">
-    [ 'Hello World' ]
+    [ 'Hello Team DefineX' ]
     </code>
 </pre>
 <p align="justify">
@@ -33,13 +33,13 @@
 </p>
 <pre>
     <code class="javascript">
-    function TaggedLiteral(str, val1, val2) {   
-        console.log(str);   
-        console.log(val1+"    "+val2);   
-    }   
+    function TaggedLiteral(str, val1, val2, val3, val4, val5) {
+        console.log(str);
+        console.log(val1 + " " + val2 + ", " + val3 + ", " + val4 + ", " + val5);
+    }
     
-    let text = 'Hello World';   
-    TaggedLiteral`Colors ${text} ${10+30}`;  
+    let text = 'Team DefineX core values are';   
+    TaggedLiteral`dfxCoreValues ${text} ${"Driven By Impact"} ${"Best Enviroment for Best People"} ${"Future in Mind"} ${"Define Next"}`;  
     </code>
 </pre>
 <p>
@@ -47,8 +47,8 @@
 </p>
 <pre>
     <code class="javascript">
-    [ 'Colors ', ' ', '' ]
-    Hello World    40
+    ['dfxCoreValues ', ' ', ' ', ' ', ' ', ' ']
+    Team DefineX core values are Driven By Impact, Best Enviroment for Best People, Future in Mind, Define Next
     </code>
 </pre>
 <p align="justify">
@@ -56,21 +56,24 @@
 </p>
 <pre>
     <code class="javascript">
-    const name = 'Jack';
-    const greet = true;
+    const name = 'Team DefineX';
+    const age = 21;
 
     function tagExample(strings, nameValue) {
         let str0 = strings[0]; // Hello
-        let str1 = strings[1]; // , How are you?
+        let str1 = strings[1]; // , You are not authorized to view this page
+        let str2 = strings[2]; // , You are authorized to view this page
 
-        if(greet) {
+        if(age < 21) {
             return `${str0}${nameValue}${str1}`;
+        } else {
+            return `${str0}${nameValue}${str2}`;
         }
     }
 
     // creating tagged literal
     // passing argument name
-    const result = tagExample`Hello ${name}, How are you?`;
+    const result = tagExample`Hello ${name}, You are not authorized to view this page ${""}, You are authorized to view this page`;
 
     console.log(result);
     </code>
@@ -80,7 +83,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Hello Jack, How are you?
+    Hello Team DefineX, You are authorized to view this page
     </code>
 </pre>
 <p align="justify">

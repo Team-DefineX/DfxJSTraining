@@ -7,7 +7,7 @@
 </p>
 <pre>
     <code class="javascript">
-    const single = 'Every day is a good day when you paint.'  
+    const singleQuoted  = 'Houston, we have a problem. - Jim Lovell'  
     </code>
 </pre>
 <p align="justify">
@@ -15,7 +15,7 @@
 </p>
 <pre>
     <code class="javascript">
-    const double = "Be so very light. Be a gentle whisper."
+    const doubleQuoted = "If you want something done right, do it yourself. - Charles-Guillaume Étienne"
     </code>
 </pre>
 <p align="justify">
@@ -29,13 +29,13 @@
 <pre>
     <code class="javascript">
     // Escaping a single quote in a single-quoted string
-    const single = '"We don\'t make mistakes. We just have happy accidents." - Bob Ross'
+    const singleQuoted = '"We don\'t need anything, we only need a thing; we must be more diligent." - Mustafa Kemal Atatürk'
     
     // Escaping a double quote in a double-quoted string
-    const double = "\"We don't make mistakes. We just have happy accidents.\" - Bob Ross"
+    const doubleQuoted = "\"We don't need anything, we only need a thing; we must be more diligent.\" - Mustafa Kemal Atatürk"
     
-    console.log(single);
-    console.log(double);
+    console.log(singleQuoted);
+    console.log(doubleQuoted);
     </code>
 </pre>
 <p align="justify">
@@ -45,8 +45,8 @@
 </p>
 <pre>
     <code class="javascript">
-    "We don't make mistakes. We just have happy accidents." - Bob Ross
-    "We don't make mistakes. We just have happy accidents." - Bob Ross
+    "We don't need anything, we only need a thing; we must be more diligent." - Mustafa Kemal Atatürk
+    "We don't need anything, we only need a thing; we must be more diligent." - Mustafa Kemal Atatürk
     </code>
 </pre>
 <p align="justify">
@@ -54,7 +54,17 @@
 </p>
 <pre>
     <code class="javascript">
-    const template = `Find freedom on this canvas.`
+    const stringTemplates = `I think therefore I am. - Rene Descartes`
+    </code>
+</pre>
+<p align="justify">
+    <strong>
+        Output:
+    </strong>
+</p>
+<pre>
+    <code class="javascript">
+    I think therefore I am. - Rene Descartes
     </code>
 </pre>
 <p align="justify">
@@ -62,7 +72,17 @@
 </p>
 <pre>
     <code class="javascript">
-    const template = `"We don't make mistakes. We just have happy accidents." - Bob Ross`
+    const stringTemplates = `"We don't need anything, we only need a thing; we must be more diligent." - Mustafa Kemal Atatürk`
+    </code>
+</pre>
+<p align="justify">
+    <strong>
+        Output:
+    </strong>
+</p>
+<pre>
+    <code class="javascript">
+    "We don't need anything, we only need a thing; we must be more diligent." - Mustafa Kemal Atatürk
     </code>
 </pre>
 <p align="justify">
@@ -70,6 +90,16 @@
 </p>
 <pre>
     <code class="javascript">
-    const template = `Template literals use the \` character.`
+    const stringTemplates = `Template literals use the \` character.`
+    </code>
+</pre>
+<p align="justify">
+    <strong>
+        Output:
+    </strong>
+</p>
+<pre>
+    <code class="javascript">
+    Template literals use the ` character.
     </code>
 </pre>
