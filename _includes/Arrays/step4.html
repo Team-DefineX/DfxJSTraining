@@ -7,42 +7,41 @@
         After we can use <strong>splice()</strong> method to remove found index from the array while looping it.
     </p>
     <p>
-        <pre>
-            <code class="javascript">
-            let heroProfiles = [
-                {
-                  name: "Superman",
-                  secretIdentity: "Clark Kent",
-                  powers: ["Flight", "Super Strength"],
-                  age: 35,
-                  isHero: true
-                },
-                {
-                  name: "Batman",
-                  secretIdentity: "Bruce Wayne",
-                  powers: ["Intelligence", "Combat Skills"],
-                  age: 40,
-                  isHero: true
-                },
-                {
-                  name: "Wonder Woman",
-                  secretIdentity: "Diana Prince",
-                  powers: ["Superhuman Strength", "Lasso of Truth"],
-                  age: 500,
-                  isHero: true
-                }
-            ];
-
-            // Find the index of Wonder Woman in the array
-            let index = heroProfiles.findIndex(hero => hero.name === "Wonder Woman");
-                        
-            // Remove the element at the found index
-            if (index !== -1) {
-              heroProfiles.splice(index, 1);
-            }
-            
-            console.log(heroProfiles);
-            </code>
-        </pre>
+<pre>
+<code class="javascript">
+  let heroProfiles = [
+      {
+        name: "Superman",
+        secretIdentity: "Clark Kent",
+        powers: ["Flight", "Super Strength"],
+        age: 35,
+        isHero: true
+      },
+      {
+        name: "Batman",
+        secretIdentity: "Bruce Wayne",
+        powers: ["Intelligence", "Combat Skills"],
+        age: 40,
+        isHero: true
+      },
+      {
+        name: "Wonder Woman",
+        secretIdentity: "Diana Prince",
+        powers: ["Superhuman Strength", "Lasso of Truth"],
+        age: 500,
+        isHero: true
+      }
+  
+  // Find the index of Wonder Woman in the array
+  let index = heroProfiles.findIndex(hero => hero.name === "Wonder Woman");
+              
+  // Remove the element at the found index
+  if (index !== -1) {
+    heroProfiles.splice(index, 1);
+  }
+  
+  console.log(heroProfiles);
+</code>
+</pre>
     </p>
 </div>

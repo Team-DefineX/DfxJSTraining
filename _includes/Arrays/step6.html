@@ -4,31 +4,31 @@ array to extract specific elements based on certain conditions.
 <br /><br />
 <h6>Example Array of Heroes</h6>
 <pre>
-        <code class="javascript">
-        let heroProfiles = [
-                {
-                  name: "Superman",
-                  secretIdentity: "Clark Kent",
-                  powers: ["Flight", "Super Strength"],
-                  age: 35,
-                  isHero: true
-                },
-                {
-                  name: "Batman",
-                  secretIdentity: "Bruce Wayne",
-                  powers: ["Intelligence", "Combat Skills"],
-                  age: 40,
-                  isHero: true
-                },
-                {
-                  name: "Wonder Woman",
-                  secretIdentity: "Diana Prince",
-                  powers: ["Superhuman Strength", "Lasso of Truth"],
-                  age: 500,
-                  isHero: true
-                }
-        ];
-        </code>
+<code class="javascript">
+  let heroProfiles = [
+          {
+            name: "Superman",
+            secretIdentity: "Clark Kent",
+            powers: ["Flight", "Super Strength"],
+            age: 35,
+            isHero: true
+          },
+          {
+            name: "Batman",
+            secretIdentity: "Bruce Wayne",
+            powers: ["Intelligence", "Combat Skills"],
+            age: 40,
+            isHero: true
+          },
+          {
+            name: "Wonder Woman",
+            secretIdentity: "Diana Prince",
+            powers: ["Superhuman Strength", "Lasso of Truth"],
+            age: 500,
+            isHero: true
+          }
+  ];
+</code>
 </pre>
 
 <h6>Example 1: Filtering heroes with powers</h6>
@@ -38,20 +38,20 @@ array to extract specific elements based on certain conditions.
   We can use the filter() method to accomplish this:
 </p>
 <pre>
-        <code class="javascript">
-        let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
-        console.log(heroesWithFlight);
-        // Output:
-        // [
-        //   {
-        //     name: "Superman",
-        //     secretIdentity: "Clark Kent",
-        //     powers: ["Flight", "Super Strength"],
-        //     age: 35,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+<code class="javascript">
+  let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
+  console.log(heroesWithFlight);
+  // Output:
+  // [
+  //   {
+  //     name: "Superman",
+  //     secretIdentity: "Clark Kent",
+  //     powers: ["Flight", "Super Strength"],
+  //     age: 35,
+  //     isHero: true
+  //   }
+  // ]
+</code>
 </pre>
 
 <h6>Example 2: Filtering heroes based on age</h6>
@@ -61,20 +61,20 @@ array to extract specific elements based on certain conditions.
   for this purpose:
 </p>
 <pre>
-        <code class="javascript">
-        let heroesOlderThan40 = heroProfiles.filter(hero => hero.age > 40);
-        console.log(heroesOlderThan40);
-        // Output:
-        // [
-        //   {
-        //     name: "Wonder Woman",
-        //     secretIdentity: "Diana Prince",
-        //     powers: ["Superhuman Strength", "Lasso of Truth"],
-        //     age: 500,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+<code class="javascript">
+  let heroesOlderThan40 = heroProfiles.filter(hero => hero.age > 40);
+  console.log(heroesOlderThan40);
+  // Output:
+  // [
+  //   {
+  //     name: "Wonder Woman",
+  //     secretIdentity: "Diana Prince",
+  //     powers: ["Superhuman Strength", "Lasso of Truth"],
+  //     age: 500,
+  //     isHero: true
+  //   }
+  // ]
+</code>
 </pre>
 
 <h6>Example 3: Filtering heroes with a specific secret identity</h6>
@@ -83,20 +83,20 @@ array to extract specific elements based on certain conditions.
   identity "Bruce Wayne". We can achieve this by using the filter() method:
 </p>
 <pre>
-        <code class="javascript">
-        let heroesWithSecretIdentity = heroProfiles.filter(hero => hero.secretIdentity === "Bruce Wayne");
-        console.log(heroesWithSecretIdentity);
-        // Output:
-        // [
-        //   {
-        //     name: "Batman",
-        //     secretIdentity: "Bruce Wayne",
-        //     powers: ["Intelligence", "Combat Skills"],
-        //     age: 40,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+<code class="javascript">
+  let heroesWithSecretIdentity = heroProfiles.filter(hero => hero.secretIdentity === "Bruce Wayne");
+  console.log(heroesWithSecretIdentity);
+  // Output:
+  // [
+  //   {
+  //     name: "Batman",
+  //     secretIdentity: "Bruce Wayne",
+  //     powers: ["Intelligence", "Combat Skills"],
+  //     age: 40,
+  //     isHero: true
+  //   }
+  // ]
+</code>
 </pre>
 
 <h6>Example 4: Filtering heroes with multiple powers</h6>
@@ -106,20 +106,20 @@ array to extract specific elements based on certain conditions.
   combination of the every() method:
 </p>
 <pre>
-        <code class="javascript">
-        let heroesWithPowers = heroProfiles.filter(hero => hero.powers.every(power => ["Flight", "Super Strength"].includes(power)));
-        console.log(heroesWithPowers);
-        // Output:
-        // [
-        //   {
-        //     name: "Superman",
-        //     secretIdentity: "Clark Kent",
-        //     powers: ["Flight", "Super Strength"],
-        //     age: 35,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+<code class="javascript">
+  let heroesWithPowers = heroProfiles.filter(hero => hero.powers.every(power => ["Flight", "Super Strength"].includes(power)));
+  console.log(heroesWithPowers);
+  // Output:
+  // [
+  //   {
+  //     name: "Superman",
+  //     secretIdentity: "Clark Kent",
+  //     powers: ["Flight", "Super Strength"],
+  //     age: 35,
+  //     isHero: true
+  //   }
+  // ]
+</code>
 </pre>
 
 <h6>Example 5: Filtering heroes based on a custom condition</h6>
@@ -129,20 +129,20 @@ array to extract specific elements based on certain conditions.
   a custom condition:
 </p>
 <pre>
-        <code class="javascript">
-        let filteredHeroes = heroProfiles.filter(hero => hero.age > 30 && hero.powers.includes("Superhuman Strength"));
-        console.log(filteredHeroes);
-        // Output:
-        // [
-        //   {
-        //     name: "Wonder Woman",
-        //     secretIdentity: "Diana Prince",
-        //     powers: ["Superhuman Strength", "Lasso of Truth"],
-        //     age: 500,
-        //     isHero: true
-        //   }
-        // ]
-        </code>
+<code class="javascript">
+  let filteredHeroes = heroProfiles.filter(hero => hero.age > 30 && hero.powers.includes("Superhuman Strength"));
+  console.log(filteredHeroes);
+  // Output:
+  // [
+  //   {
+  //     name: "Wonder Woman",
+  //     secretIdentity: "Diana Prince",
+  //     powers: ["Superhuman Strength", "Lasso of Truth"],
+  //     age: 500,
+  //     isHero: true
+  //   }
+  // ]
+</code>
 </pre>
 
 <p>

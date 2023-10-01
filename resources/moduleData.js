@@ -169,7 +169,7 @@ export const modules = [
       },
       {
         name: "Arrays Methods",
-        time: "10mins",
+        time: "20mins",
       },
       {
         name: "Adding Element to Array",
@@ -269,6 +269,22 @@ export const modules = [
         name: "Useage of Classes",
         time: "20mins",
       },
+      {
+        name: "Class Methods",
+        time: "20mins",
+      },
+      {
+        name: "Class Inheritance",
+        time: "20mins",
+      },
+      {
+        name: "Extending Classes",
+        time: "20mins",
+      },
+      {
+        name: "Subclasses",
+        time: "20mins",
+      },                   
     ],
   },
   {

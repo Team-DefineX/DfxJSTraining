@@ -8,29 +8,6 @@
       JavaScript
     </h5>
     <p> 
-<strong>push():</strong> Adds one or more elements to the end of an array and returns the new length.</br>
-<strong>pop():</strong> Removes the last element from an array and returns that element. </br>
-<strong>shift():</strong> Removes the first element from an array and returns that element. </br>
-<strong>unshift():</strong> Adds one or more elements to the beginning of an array and returns the new length. </br>
-<strong>concat():</strong> Combines two or more arrays and returns a new array. </br>
-<strong>slice():</strong> Returns a shallow copy of a portion of an array into a new array. </br>
-<strong>splice():</strong> Changes the content of an array by adding, removing, or replacing elements. </br>
-<strong>indexOf():</strong> Returns the first index at which a specified element is found in an array, or -1 if not found. </br>
-<strong>lastIndexOf():</strong> Returns the last index at which a specified element is found in an array, or -1 if not found. </br>
-<strong>forEach():</strong> Executes a provided function once for each element in an array. </br>
-<strong>map():</strong> Creates a new array with the results of calling a provided function on every element in an array. </br>
-<strong>filter():</strong> Creates a new array with all elements that pass a test implemented by a provided function. </br>
-<strong>reduce():</strong> Applies a function to an accumulator and each element in an array, resulting in a single value. </br>
-<strong>reduceRight():</strong> Applies a function to an accumulator and each element in an array (from right to left). </br>
-<strong>find():</strong> Returns the first element in an array that satisfies a provided testing function. </br>
-<strong>findIndex():</strong> Returns the index of the first element in an array that satisfies a provided testing function. </br>
-<strong>some():</strong>Tests whether at least one element in an array passes a provided testing function.</br>
-<strong>every():</strong> Tests whether all elements in an array pass a provided testing function. </br>
-<strong>sort():</strong> Sorts the elements of an array in place and returns the sorted array.</br>
-<strong>reverse():</strong> Reverses the order of the elements in an array.</br>
-<strong>join():</strong> Joins all elements of an array into a string.</br>
-<strong>toString():</strong> Returns a string representing the specified array and its elements.</br>
-<strong>isArray():</strong> Determines whether the passed value is an array. 
 </p>
 
 <h5 class="mt-5">Consider the following array as our starting point:</h5>
@@ -62,7 +39,98 @@
     </code>
 </pre>
 
-<h6>Lets loop throw each item in the array and write to console with basic for loop.</h6>
+<h6><strong>push():</strong> Adds one or more elements to the end of an array and returns the new length.</br> Lets add new hero to heroProfile.</h6>
+<pre>
+    <code class="javascript">
+    // Using push() to add a new hero to the end of the array
+    let newHero = {
+      name: "The Flash",
+      secretIdentity: "Barry Allen",
+      powers: ["Super Speed"],
+      age: 30,
+      isHero: true
+    };
+    
+    heroProfiles.push(newHero);
+    console.log(heroProfiles);
+    /* Output:
+    [
+      {
+        name: "Superman",
+        secretIdentity: "Clark Kent",
+        powers: ["Flight", "Super Strength"],
+        age: 35,
+        isHero: true
+      },
+      {
+        name: "Batman",
+        secretIdentity: "Bruce Wayne",
+        powers: ["Intelligence", "Combat Skills"],
+        age: 40,
+        isHero: true
+      },
+      {
+        name: "Wonder Woman",
+        secretIdentity: "Diana Prince",
+        powers: ["Superhuman Strength", "Lasso of Truth"],
+        age: 500,
+        isHero: true
+      },
+      {
+        name: "The Flash",
+        secretIdentity: "Barry Allen",
+        powers: ["Super Speed"],
+        age: 30,
+        isHero: true
+      }
+    ]
+    */        
+    </code>
+</pre>
+
+<h6><strong>pop():</strong> Removes the last element from an array and returns that element. </br> Lets remove the last hero from the array</h6>
+<pre>
+    <code class="javascript">
+    // Using pop() to remove the last hero from the array
+    let removedHero = heroProfiles.pop();
+    console.log("Removed Hero:", removedHero);
+    console.log(heroProfiles);
+    /* Output:
+    Removed Hero: {
+      name: "The Flash",
+      secretIdentity: "Barry Allen",
+      powers: ["Super Speed"],
+      age: 30,
+      isHero: true
+    }
+    [
+      {
+        name: "Superman",
+        secretIdentity: "Clark Kent",
+        powers: ["Flight", "Super Strength"],
+        age: 35,
+        isHero: true
+      },
+      {
+        name: "Batman",
+        secretIdentity: "Bruce Wayne",
+        powers: ["Intelligence", "Combat Skills"],
+        age: 40,
+        isHero: true
+      },
+      {
+        name: "Wonder Woman",
+        secretIdentity: "Diana Prince",
+        powers: ["Superhuman Strength", "Lasso of Truth"],
+        age: 500,
+        isHero: true
+      }
+    ]
+    */
+    </code>
+</pre>
+
+<h6><strong>splice():</strong> Changes the content of an array by adding, removing, or replacing elements. </br> Lets loop throw each item in the array and write to console with basic for loop.</h6>
 <pre>
     <code class="javascript">
     // forEach()
@@ -73,7 +141,17 @@
 </pre>
 
 
-<h6>Lets map each heroProfile names to new variable called heroNames</h6>
+<h6><strong>forEach():</strong> Executes a provided function once for each element in an array. </br> Lets loop throw each item in the array and write to console with basic for loop.</h6>
+<pre>
+    <code class="javascript">
+    // forEach()
+    heroProfiles.forEach(hero => {
+      console.log("forEach", hero.name);
+    });
+    </code>
+</pre>
+
+<h6><strong>map():</strong> Creates a new array with the results of calling a provided function on every element in an array. </br>Lets map each heroProfile names to new variable called heroNames</h6>
 <pre>
     <code class="javascript">
     // map()
@@ -82,16 +160,21 @@
     </code>
 </pre>
 
-<h6>Lets map each heroProfile names to new variable called heroNames</h6>
+<h6><strong>findIndex():</strong> Returns the index of the first element in an array that satisfies a provided testing function. </br>Lets find hero not older than 40.</h6>
 <pre>
     <code class="javascript">
-    // map()
-    let heroNames = heroProfiles.map(hero => hero.name);
-    console.log("map", heroNames);
+    // Use the findIndex method to find the index of the first hero not older than 40
+    let index = heroProfiles.findIndex(hero => hero.age <= 40);
+    
+    if (index !== -1) {
+      console.log(`The first hero not older than 40 is ${heroProfiles[index].name}, at index ${index}`);
+    } else {
+      console.log("No hero found in the array who is not older than 40.");
+    }
     </code>
 </pre>
 
-<h6>Lets filter each heroProfile array to new variable called heroesWithFlight where hero has a special power as Flight</h6>
+<h6><strong>filter():</strong> Creates a new array with all elements that pass a test implemented by a provided function. </br>Lets filter each heroProfile array to new variable called heroesWithFlight where hero has a special power as Flight</h6>
 <pre>
     <code class="javascript">
     // filter()
@@ -100,7 +183,7 @@
     </code>
 </pre>
 
-<h6>Lets reduce total age of each heroProfile and display the sum.</h6>
+<h6><strong>reduce():</strong> Applies a function to an accumulator and each element in an array, resulting in a single value. </br>Lets reduce total age of each heroProfile and display the sum.</h6>
 <pre>
     <code class="javascript">
     // reduce()
@@ -109,7 +192,7 @@
     </code>
 </pre>
 
-<h6>Lets find hero with name "Batman"</h6>
+<h6><strong>find():</strong> Returns the first element in an array that satisfies a provided testing function. </br>Lets find hero with name "Batman"</h6>
 <pre>
     <code class="javascript">
     // find()
@@ -118,7 +201,7 @@
     </code>
 </pre>
 
-<h6>Lets find hero with power "Super Strength" with some() method</h6>
+<h6><strong>some():</strong>Tests whether at least one element in an array passes a provided testing function.</br>Lets find hero with power "Super Strength" with some() method</h6>
 <pre>
     <code class="javascript">
     // some()
@@ -127,7 +210,7 @@
     </code>
 </pre>
 
-<h6>Lets find only heroes returning true with every() method</h6>
+<h6><strong>every():</strong> Tests whether all elements in an array pass a provided testing function. </br>Lets find only heroes returning true with every() method</h6>
 <pre>
     <code class="javascript">
     // every()
@@ -136,7 +219,7 @@
     </code>
 </pre>
 
-<h6>Lets sort all heroes with age</h6>
+<h6><strong>sort():</strong> Sorts the elements of an array in place and returns the sorted array.</br>Lets sort all heroes with age</h6>
 <pre>
     <code class="javascript">
     // sort()
@@ -145,7 +228,7 @@
     </code>
 </pre>
 
-<h6>Lets reverse the heroes</h6>
+<h6><strong>reverse():</strong> Reverses the order of the elements in an array.</br>Lets reverse the heroes</h6>
 <pre>
     <code class="javascript">
     // reverse()
@@ -154,7 +237,7 @@
     </code>
 </pre>
 
-<h6>Lets join all hero names with ',' sperated string</h6>
+<h6><strong>join():</strong> Joins all elements of an array into a string.</br>Lets join all hero names with ',' sperated string</h6>
 <pre>
     <code class="javascript">
     // join()
@@ -163,7 +246,7 @@
     </code>
 </pre>
 
-<h6>Lets convert all array to string</h6>
+<h6><strong>toString():</strong> Returns a string representing the specified array and its elements.</br>Lets convert all array to string</h6>
 <pre>
     <code class="javascript">
     // toString()
@@ -172,7 +255,7 @@
     </code>
 </pre>
 
-<h6>Lets check if the variable is array</h6>
+<h6><strong>isArray():</strong> Determines whether the passed value is an array. Lets check if the variable is array</h6>
 <pre>
     <code class="javascript">
     // isArray()
@@ -181,7 +264,7 @@
     </code>
 </pre>
 
-<h6>Lets find spesific index at the array</h6>
+<h6><strong>indexOf():</strong> Returns the first index at which a specified element is found in an array, or -1 if not found. </br>Lets find spesific index at the array</h6>
 <pre>
     <code class="javascript">
     // indexOf()
@@ -190,7 +273,7 @@
     </code>
 </pre>
 
-<h6>Lets find last index at the array</h6>
+<h6><strong>lastIndexOf():</strong> Returns the last index at which a specified element is found in an array, or -1 if not found. </br>Lets find last index at the array</h6>
 <pre>
     <code class="javascript">
     // lastIndexOf()
@@ -199,7 +282,7 @@
     </code>
 </pre>
 
-<h6>Lets reduce to right side of elements of array</h6>
+<h6><strong>reduceRight():</strong> Applies a function to an accumulator and each element in an array (from right to left). </br>Lets reduce to right side of elements of array</h6>
 <pre>
     <code class="javascript">
     // reduceRight()
@@ -217,7 +300,7 @@
     </code>
 </pre>
 
-<h6>Lets shift elements</h6>
+<h6><strong>shift():</strong> Removes the first element from an array and returns that element. </br>Lets shift elements</h6>
 <pre>
     <code class="javascript">
     // shift()
@@ -226,7 +309,7 @@
     </code>
 </pre>
 
-<h6>Lets unshift elements</h6>
+<h6><strong>unshift():</strong> Adds one or more elements to the beginning of an array and returns the new length. </br>Lets unshift elements</h6>
 <pre>
     <code class="javascript">
     // unshift()
@@ -235,33 +318,33 @@
     </code>
 </pre>
 
-<h6>Lets add more elements with concat method to new variable</h6>
+<h6><strong>concat():</strong> Combines two or more arrays and returns a new array. </br>Lets add more elements with concat method to new variable</h6>
 <pre>
-    <code class="javascript">
-        // concat()
-        let moreHeroes = [
-          {
-            name: "Spider-Man",
-            secretIdentity: "Peter Parker",
-            powers: ["Web-Slinging", "Spider-Sense"],
-            age: 25,
-            isHero: true
-          },
-          {
-            name: "Captain America",
-            secretIdentity: "Steve Rogers",
-            powers: ["Enhanced Strength", "Shield"],
-            age: 100,
-            isHero: true
-          }
-        ];
-        
-        let mergedHeroes = heroProfiles.concat(moreHeroes);
-        console.log("concat",mergedHeroes);
-    </code>
+<code class="javascript">
+    // concat()
+    let moreHeroes = [
+      {
+        name: "Spider-Man",
+        secretIdentity: "Peter Parker",
+        powers: ["Web-Slinging", "Spider-Sense"],
+        age: 25,
+        isHero: true
+      },
+      {
+        name: "Captain America",
+        secretIdentity: "Steve Rogers",
+        powers: ["Enhanced Strength", "Shield"],
+        age: 100,
+        isHero: true
+      }
+    ];
+
+    let mergedHeroes = heroProfiles.concat(moreHeroes);
+    console.log("concat",mergedHeroes);
+</code>
 </pre>
 
-<h6>Lets slice spesific indexed elements to array</h6>
+<h6><strong>slice():</strong> Returns a shallow copy of a portion of an array into a new array. </br>Lets slice spesific indexed elements to array</h6>
 <pre>
     <code class="javascript">
     // slice()

@@ -11,53 +11,61 @@
 
     <div>
         <h5 class="my-3">Here are some common use cases and operations involving arrays in JavaScript</h5>
-        <div class="accordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseOne">
-                        #1 Storing a collection of values:
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        <iframe width="100%" height="600" src="//jsfiddle.net/TeamDFX/0ruj3wcm/21/embedded/js/dark/"
-                            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo">
-                        #2 Accessing array elements:
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/roz1xvdp/16/embedded/js/dark/"
-                            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree">
-                        #3 Modifying array elements:
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/ajvcr4uk/2/embedded/js/dark/"
-                            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-                    </div>
-                </div>
-            </div>
-            
+
+<h6>#1 Storing a collection of values:</h6>
+<pre>
+<code class="javascript">
+    let numbers = [1, 2, 3, 4, 5];
+    let teams = ["Team A", "Team B", "Team C"];
+    let mixedArray = [1, "two", { name: "John", age: 32 }];
+    let heroProfiles = [
+      {
+        name: "Superman",
+        secretIdentity: "Clark Kent",
+        powers: ["Flight", "Super Strength"],
+        age: 35,
+        isHero: true
+      },
+      {
+        name: "Batman",
+        secretIdentity: "Bruce Wayne",
+        powers: ["Intelligence", "Combat Skills"],
+        age: 40,
+        isHero: true
+      },
+      {
+        name: "Wonder Woman",
+        secretIdentity: "Diana Prince",
+        powers: ["Superhuman Strength", "Lasso of Truth"],
+        age: 500,
+        isHero: true
+      }
+    ];
+</code>
+</pre>
+
+<h6>#2 Accessing array elements:</h6>
+<pre>
+<code class="javascript">
+    let numbers = [1, 2, 3, 4, 5];
+    console.log(numbers[0]);  // Output: 1
+    console.log(numbers[2]);  // Output: 
+    console.log(heroProfiles[0].name);           // Output: "Superman"
+    console.log(heroProfiles[1].secretIdentity); // Output: "Bruce Wayne"
+    console.log(heroProfiles[1]["secretIdentity"]); //  Output: "Bruce Wayne"  Square bracket notation
+    console.log(heroProfiles[2].powers);         // Output: ["Superhuman Strength", "Lasso of Truth"]
+</code>
+</pre>
+        
+<h6>#3 Modifying array elements:</h6>
+<pre>
+<code class="javascript">
+    heroProfiles[0].powers.push("Heat Vision");      // Add a power to Superman
+    heroProfiles[1].isRich = true;                   // Add a new property to Batm
+    console.log(heroProfiles[0].powers);         // Output: ["Flight", "Super Strength", "Heat Vision"]
+    console.log(heroProfiles[1].isRich);         // Output: true
+</code>
+</pre>            
         </div>
     </div>
     </p>
