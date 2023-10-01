@@ -152,10 +152,6 @@ export const modules = [
       {
         name: "Raw Strings",
         time: "5mins",
-      },
-      {
-        name: "Escaping Placeholders",
-        time: "5mins",
       }
     ],
   },
