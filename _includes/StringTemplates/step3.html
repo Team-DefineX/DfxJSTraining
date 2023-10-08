@@ -1,10 +1,10 @@
 <p align="justify">
-    In this section, you will first run through the way strings with multiple lines were declared before ES6, then see how template literals make this easier.
+    In this part, you'll go over how to declare strings with multiple lines before ES6, and then understand how template literals can make it easier.
 </p>
 <br>
 <p align="justify">
-    Originally, if you wanted to write a string that spans multiple lines in your text editor, you would use the 
-    concatenation operator. However, this was not always a straight-forward process. The following string concatenation seemed to run over multiple lines:
+    In the past, the concatenation operator was used in text editors to create strings that span multiple lines. But it wasn't always an easy procedure. The 
+    following string concatenation appeared to span several lines:
 </p>
 <pre>
     <code class="javascript">
@@ -16,8 +16,8 @@
     </code>
 </pre>
 <p align="justify">
-    This might allow you to break up the string into smaller lines and include it over multiple lines in the text editor, but it has no effect on the output 
-    of the string. In this case, the strings will all be on one line and not separated by newlines or spaces. If you logged <code>dfxCoreValues</code> to the console, you would get the following:
+    This might let you split the string into smaller lines and put it on multiple lines in the text editor, but it has minimal impact on how the string will be displayed. 
+    In this case, newlines or spaces won't be used to divide the strings, which will all be on the same line. The following would appear in the console if you logged <strong>dfxCoreValues</strong>:
 </p>
 <pre>
     <code class="javascript">
@@ -25,7 +25,7 @@
     </code>
 </pre>
 <p align="justify">
-    You can use the backslash character (<code>\</code>) to continue the string onto multiple lines:
+    To continue the string over multiple lines, use the backslash character (<code>\</code>):
 </p>
 <pre>
     <code class="javascript">
@@ -37,7 +37,7 @@
     </code>
 </pre>
 <p align="justify">
-    This will retain any indentation as whitespace, but the string will still be on one line in the output:
+    In the output, the string will still be on one line, but any indentation will be retained as whitespace:
 </p>
 <pre>
     <code class="javascript">
@@ -45,7 +45,7 @@
     </code>
 </pre>
 <p align="justify">
-    Using the newline character (<code>\n</code>), you can create a true multi-line string:
+    A true multi-line string can be made by using the newline character (<code>\n</code>):
 </p>
 <pre>
     <code class="javascript">
@@ -57,7 +57,7 @@
     </code>
 </pre>
 <p align="justify">
-    When logged to the console, this will display the following:
+    The following will show up when logged to the console:
 </p>
 <pre>
     <code class="javascript">
@@ -68,8 +68,8 @@
     </code>
 </pre>
 <p align="justify">
-    Using newline characters to designate multi-line strings can be counterintuitive, however. In contrast, creating a multi-line string with template literals can be much more straight-forward. 
-    There is no need to concatenate, use newline characters, or use backslashes. Just pressing <code>enter</code> and writing the string across multiple lines works by default:
+    However, it can be irrational to use newline characters to designate multi-line strings. Using template literals, however, can often result in a multi-line string that is much simpler 
+    to create. No concatenation, newline, or backslash characters are required. By default, just typing the string on multiple lines and pressing <code>enter</code> works:
 </p>
 <pre>
     <code class="javascript">
@@ -80,7 +80,7 @@ Define Next`
     </code>
 </pre>
 <p align="justify">
-    The output of logging this to the console is the same as the input:
+    Input and output are identical when logging this to the console:
 </p>
 <pre>
     <code class="javascript">
@@ -91,7 +91,7 @@ Define Next`
     </code>
 </pre>
 <p align="justify">
-    Any indentation will be preserved, so it’s important not to indent any additional lines in the string if that is not desired. For example, consider the following:
+    It's crucial to avoid indenting any additional lines in the string if that is not what is required because any indentation will be kept. Consider the following, for instance:
 </p>
 <pre>
     <code class="javascript">
@@ -102,7 +102,7 @@ Define Next`
     </code>
 </pre>
 <p align="justify">
-    Although this style of writing the line might make the code more human readable, the output will not be:
+    Though this method of writing the line may make the code easier to comprehend by humans, the output won't be:
 </p>
 <pre>
     <code class="javascript">

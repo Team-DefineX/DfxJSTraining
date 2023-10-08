@@ -1,7 +1,6 @@
 <p align="justify">
-    You cannot use the sequence of characters <code>"${someCharacters}"</code> without escaping it 
-    because the placeholder format <code>${expression}</code> has a special meaning in the template 
-    literals.
+    Because the placeholder format <code>$expression</code> has a specific meaning in the template literals, you cannot use the character sequence <code>"$someCharacters"</code> 
+    without escaping it.
 </p>
 <br>
 <p align="justify">
@@ -21,13 +20,11 @@
     </code>
 </pre>
 <p align="justify">
-    Inserting <code>${abc}</code> directly throws an error because JavaScript interprets 
-    <code>${abc}</code> as a placeholder (and there's no <code>abc</code> variable defined).
+    Because there is no defined variable named <code>abc</code>, JavaScript considers the value <code>$abc</code> as a placeholder and throws an error when it is immediately placed.
 </p>
 <br>
 <p align="justify">
-    A backslash <code>\</code> before the placeholder-like sequence of characters <code>\${abc}</code> 
-    solves the problem:
+    The issue can be resolved by adding a backslash <code>\</code> before the placeholder-like string <code>\${abc}</code>:
 </p>
 <pre>
     <code class="javascript">
@@ -44,13 +41,11 @@
     </code>
 </pre>
 <p align="justify">
-    In the template string <code>`Some weird characters: \${abc}`</code> JavaScript interprets 
-    <code>\${abc}</code> as a sequence of characters, rather than a placeholder.
+    JavaScript sees <code>\${abc}</code> in the template string <code>`Some weird characters: \${abc}`</code> as a sequence of characters rather than a placeholder.
 </p>
 <br>
 <p align="justify">
-    Alongside with <code>${abc}</code>, the sequence of characters like <code>${abc</code> and 
-    <code>${</code> also have to be escaped with a backslash <code>\</code>:
+    The sequence of characters <code>${abc</code> and <code>${</code> must also be escaped with a backslash <code>\</code> in addition to <code>${abc}</code>:
 </p>
 <pre>
     <code class="javascript">

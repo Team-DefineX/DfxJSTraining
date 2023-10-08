@@ -1,5 +1,5 @@
 <p align="justify">
-    Before JavaScript ES6, you would use the <code>+</code> operator to concatenate variables and expressions in a string. For example,
+    The <code>+</code> operator was used prior to JavaScript ES6 to concatenate variables and expressions into a string. For instance,
 </p>
 <pre>
     <code class="javascript">
@@ -19,8 +19,8 @@
     </code>
 </pre>
 <p align="justify">
-    With template literals, an expression can be embedded in a <em>placeholder</em>. A placeholder is represented by <code>${}</code>, with anything 
-    within the curly brackets treated as JavaScript and anything outside the brackets treated as a string:
+    An expression can be embedded into a <strong>placeholder</strong> using template literals. A placeholder is denoted by the symbol <code>${}</code>, with anything inside the curly 
+    brackets being interpreted as JavaScript and everything outside of them as a string:
 </p>
 <pre>
     <code class="javascript">
@@ -30,7 +30,7 @@
     </code>
 </pre>
 <p align="justify">
-    When <code>literalString</code> is logged to the console, the console will show the following:
+    The following is displayed on the console when <code>literalString</code> is logged there:
 </p>
 <pre>
     <code class="javascript">
@@ -38,8 +38,8 @@
     </code>
 </pre>
 <p align="justify">
-    One common example of embedding values in a string might be for creating dynamic URLs. With concatenation, this can be cumbersome. For example, 
-    the following declares a function to generate an <a href="https://tools.ietf.org/html/rfc6749">OAuth</a> access string:
+    The creation of dynamic URLs is a usual means of embedding values in a string. This can be difficult with concatenation. For instance, the function to generate an 
+    <a href="https://tools.ietf.org/html/rfc6749">OAuth</a> access string is declared as follows:
 </p>
 <pre>
     <code class="javascript">
@@ -51,7 +51,7 @@
     </code>
 </pre>
 <p align="justify">
-    Logging this function will yield the following URL to the console:
+    The following URL will appear in the console after this function is logged:
 </p>
 <pre>
     <code class="javascript">
@@ -59,7 +59,8 @@
     </code>
 </pre>
 <p align="justify">
-    Using string interpolation, you no longer have to keep track of opening and closing strings and concatenation operator placement. Here is the same example with template literals:
+    String interpolation eliminates the need to remember where to place the concatenation operator and the opening and closing strings. The similar example with template literals 
+    is shown here:
 </p>
 <pre>
     <code class="javascript">
@@ -71,7 +72,7 @@
     </code>
 </pre>
 <p align="justify">
-    This will have the same output as the concatenation example:
+    This will produce the same results as the concatenation example:
 </p>
 <pre>
     <code class="javascript">
@@ -79,7 +80,7 @@
     </code>
 </pre>
 <p align="justify">
-    Entire expressions can be interpolated, not just variables, such as in this example of the sum of two numbers:
+    Not simply variables but also entire expressions, like the sum of these two values, can be interpolated:
 </p>
 <pre>
     <code class="javascript">
@@ -92,7 +93,8 @@
     </code>
 </pre>
 <p align="justify">
-    This code defines the <code>multiply</code> function and the variables <code>x</code> and <code>y</code>, then uses both the function and the variables in a string. The logged result will show the following:
+    The function <code>multiply</code> as well as the variables <code>x</code> and <code>y</code> are defined in this code, which then applies both to a string. The following 
+    will be displayed in the log result:
 </p>
 <pre>
     <code class="javascript">
@@ -100,7 +102,7 @@
     </code>
 </pre>
 <p align="justify">
-    This can be particularly useful with <strong>ternary operators</strong>, which allow conditionals within a string:
+    This is especially helpful when using <strong>ternary operators</strong>, which permit conditionals inside of strings:
 </p>
 <pre>
     <code class="javascript">
@@ -110,7 +112,8 @@
     </code>
 </pre>
 <p align="justify">
-    The logged message here will change depnding on whether the value of <code>age</code> is over or under <code>21</code>. Since it is <code>19</code> in this example, the following output will be logged:
+    Depending on whether the value of <code>age</code> is over or under <code>21</code>, the logged message will change. In this case, it is <code>19</code>, so the output will be 
+    logged as follows:
 </p>
 <pre>
     <code class="javascript">
