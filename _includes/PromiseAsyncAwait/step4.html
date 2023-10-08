@@ -1,0 +1,46 @@
+<p>
+    In JavaScript, to handle errors that occur in a Promise chain, we use a method called .catch(). The .catch() method
+    is
+    used to handle any errors thrown by any previous Promise in the chain.
+</p>
+
+<h5 class="mt-3">
+    Example of Error Handling Using .catch():
+</h5>
+
+<pre>
+    <code>
+     function divideNumbersAsync(a, b) {
+         return new Promise((resolve, reject) => {
+             if (typeof a !== 'number' || typeof b !== 'number') {
+                 reject(new Error('Both arguments must be numbers.'));
+             } else if (b === 0) {
+                 reject(new Error('Division by zero is not allowed.'));
+             } else {
+                 resolve(a / b);
+             }
+         });
+     }
+     
+     // Example: Division and error handling
+     function performDivisionAsync(a, b) {
+         divideNumbersAsync(a, b)
+             .then((result) => {
+                 console.log(`${a} / ${b} = ${result}`);
+             })
+             .catch((error) => {
+                 console.error('Error:', error.message);
+             });
+     }
+     
+     // Example calls
+     performDivisionAsync(10, 2); // Valid division
+     performDivisionAsync(8, 0); // Division by zero error
+     performDivisionAsync('abc', 5); // Invalid arguments error
+    </code>
+</pre>
+
+<p class="mt-3">
+    In this example, the function divideNumbersAsync returns a Promise to perform division. We handle error cases using
+    Promise rejections. If an error occurs, we catch it in the .catch() block and log the error message.
+</p>

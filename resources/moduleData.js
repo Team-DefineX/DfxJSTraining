@@ -152,7 +152,7 @@ export const modules = [
       {
         name: "Raw Strings",
         time: "5mins",
-      }
+      },
     ],
   },
   {
@@ -258,6 +258,32 @@ export const modules = [
     ],
   },
   {
+    fileName: "PromiseAsyncAwait",
+    moduleName: "Promises & Async/Await",
+    steps: [
+      {
+        name: "Promises",
+        time: "30mins",
+      },
+      {
+        name: "Promise Chaining",
+        time: "20mins",
+      },
+      {
+        name: "Promise Composition",
+        time: "20mins",
+      },
+      {
+        name: "Promise Error Handling",
+        time: "20mins",
+      },
+      {
+        name: "Async/Await",
+        time: "30mins",
+      },
+    ],
+  },
+  {
     fileName: "Classes",
     moduleName: "Classes",
     steps: [
@@ -280,7 +306,7 @@ export const modules = [
       {
         name: "Subclasses",
         time: "20mins",
-      },                   
+      },
     ],
   },
   {

@@ -1,0 +1,47 @@
+<p>
+    Promise chaining is used to manage and process multiple asynchronous operations sequentially.
+</p>
+
+<p class="mt-3">
+    Each .then() block initiates the next operation based on the result of the previous one
+</p>
+
+<h5 class="mt-3">
+    Chaining Example:
+</h5>
+
+<p class="mt-3">
+    Sometimes, you may want the next operation to start with the result of the previous step when dealing with two or
+    more
+    related asynchronous operations. Here's an example that demonstrates this scenario:
+</p>
+
+<p class="mt-3">
+    Let's say we want to create a user record and then send a welcome email to that user. These two operations are not
+    directly related, but the result of one is important for the other.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    let userId;
+    
+    // Creating a user record
+    createUser(userData)
+        .then((user) => {
+        userId = user.id;
+            console.log('User record created:', user);
+            return sendWelcomeEmail(user.email);
+        })
+        .then(() => {
+            console.log('Welcome email sent.');
+        })
+        .catch((error) => {
+            console.error('An error occurred:', error);
+        });
+    </code>
+</pre>
+
+<p class="mt-3">
+    In this example, we first create a user record, and then we send a welcome email to the user. Both operations are
+    independent, but it's important to send the welcome email when the user is successfully registered.
+</p>

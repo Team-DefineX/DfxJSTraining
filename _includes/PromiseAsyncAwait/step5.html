@@ -1,0 +1,140 @@
+<h5>
+    Introduction to JavaScript async / await keywords
+</h5>
+
+<p class="mt-3">
+    In the past, when dealing with asynchronous operations, developers often used callback functions. Callbacks provided
+    a
+    way to manage asynchronous flow, but they could lead to complex and hard-to-read code, especially when handling
+    multiple
+    asynchronous operations or dealing with error handling.
+</p>
+
+<p class="mt-3">
+    To address these challenges, JavaScript introduced the async and await keywords, making asynchronous code look and
+    behave more like synchronous code.
+</p>
+
+<h5 class="mt-3">
+    async Keyword:
+</h5>
+
+<p class="mt-3">
+    The async keyword is used to declare an asynchronous function. An async function returns a Promise and allows the
+    use of
+    the await keyword within its body.
+</p>
+
+<pre>
+    <code>
+    async function fetchData() {
+        // Asynchronous operations
+        const result = await someAsyncOperation();
+        return result;
+    }
+    </code>
+</pre>
+
+<h5>
+    await Keyword:
+</h5>
+
+<p class="mt-3">
+    The await keyword is used within an async function to pause the execution and wait for a Promise to settle (either
+    resolve or reject). It can only be used inside an async function.
+</p>
+
+<pre>
+    <code>
+    async function fetchAndProcessData() {
+        try {
+            const data = await fetchData(); // Wait for fetchData Promise to settle
+            // Process the data
+            return processedData;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    </code>
+</pre>
+
+<p>
+    Using async and await allows for cleaner, more synchronous-looking code while still leveraging the benefits of
+    asynchronous programming.
+</p>
+
+<h5 class="mt-3">
+    Error Handling with async / await
+</h5>
+
+<p class="mt-3">
+    When working with async/await, error handling is typically done using try...catch blocks, providing a more
+    synchronous-style approach to handling errors in asynchronous code.
+</p>
+
+<h5 class="mt-3">
+    Here's how you handle errors using try...catch with async/await:
+</h5>
+
+<pre>
+    <code>
+    async function fetchData() {
+        try {
+            const response = await fetch('https://api.example.com/data');
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            throw new Error('Failed to fetch data:', error);
+        }
+    }
+    
+    // Using the async function
+    async function handleDataFetching() {
+        try {
+            const data = await fetchData();
+            console.log('Fetched Data:', data);
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+    
+    // Calling the async function
+    handleDataFetching();
+    </code>
+</pre>
+
+<h5>
+    Error Handling in async/await: Understanding await Behavior with Resolved and Rejected Promises
+</h5>
+
+<p class="mt-3">
+    In async/await, when you await a Promise, the behavior depends on whether the Promise is resolved or rejected.
+</p>
+
+<ul>
+    <li><b>If the Promise Resolves:</b> The await expression will evaluate to the resolved value of the Promise.</li>
+    <li><b>If the Promise Rejects:</b> The await expression will throw an error, just like a throw statement was used.</li>
+</ul>
+
+<pre>
+    <code>
+    async function asyncFunction() {
+        try {
+            const resolvedValue = await Promise.resolve('Resolved Value');
+            console.log('Resolved Value:', resolvedValue);
+            
+            const rejectedPromise = await Promise.reject(new Error('Rejected Promise'));
+            console.log('This line will not be executed.');
+        } catch (error) {
+            console.error('Caught Error:', error.message);
+        }
+    }
+    
+    asyncFunction();
+    </code>
+</pre>

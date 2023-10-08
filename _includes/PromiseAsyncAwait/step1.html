@@ -1,0 +1,135 @@
+<h5>Why Promises?</h5>
+
+<p>
+    Promises are used in JavaScript to effectively manage and control asynchronous operations.
+</p>
+
+<p class="mt-3">
+    Promises are essential to prevent callback hell and write more organized code.
+</p>
+
+<h5 class="mt-3">Basic Functionality of a Promise</h5>
+
+<p>
+    A Promise is an object that will return in case of the successful completion or failure of an operation
+</p>
+
+<p class="mt-3">
+    It has three fundamental states:
+</p>
+
+<ul>
+    <li>Pending: The Promise is in an unfinished state.</li>
+    <li>Fulfilled: The Promise has been successfully completed.</li>
+    <li>Rejected: The Promise has been resulted in an error.</li>
+</ul>
+
+<p>The fulfilled state indicates that the asynchronous operation was completed successfully:</p>
+
+<div>
+    <img class="img-full" src="\_includes\images\JavaScript-Promise-Fulfilled.svg" alt="">
+</div>
+
+<p>
+    The rejected state indicates that the asynchronous operation failed.
+</p>
+
+<div>
+    <img class="img-full" src="\_includes\images\JavaScript-Promise-Rejected.svg" alt="">
+</div>
+
+<h5>Creating a Promise</h5>
+
+<p>
+    A Promise is created using the Promise class, which includes resolve and reject functions to initiate an operation and
+    manage its result.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    const myPromise = new Promise((resolve, reject) => {
+        const success = true;
+        
+        if (success) {
+            resolve('Successfully completed');
+        } else {
+            reject('An error occurred');
+        }
+    });
+    </code>
+</pre>
+
+<p class="mt-3">
+    Once a new Promise object is created, its state is pending. If a promise reaches fulfilled or rejected state, it is
+    resolved.
+</p>
+
+<div class="centered-img">
+    <img class="img-full" src="\_includes\images\JavaScript-Promises.svg" alt="">
+</div>
+
+<h5 class="mt-3">Consuming a Promise: then, catch, finally</h5>
+
+<p><b>The then() Method</b></p>
+
+<p class="mt-3">
+    .then(): Used to specify a function to execute when the Promise is successfully completed.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    const myPromise = new Promise((resolve, reject) => {
+        resolve('Successfully completed');
+    });
+
+    myPromise.then((message) => console.log('Result:', message));
+    </code>
+</pre>
+
+<p><b>The catch() Method</b></p>
+
+<p class="mt-3">
+    .catch(): Used to specify a function to execute when the Promise is rejected with an error.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    const myPromise = new Promise((resolve, reject) => {
+        const success = true;
+        
+        if (success) {
+            resolve('Successfully completed');
+        } else {
+            reject('An error occurred');
+        }
+    });
+
+    myPromise.catch((error) => console.error('Error:', error));
+    </code>
+</pre>
+
+<p><b>The finally() Method</b></p>
+
+<p class="mt-3">
+    .finally(): Used to specify a function to execute when the Promise is settled (either fulfilled or rejected), regardless
+    of the outcome.
+</p>
+
+<pre>
+    <code class="language-javascript">
+    const myPromise = new Promise((resolve, reject) => {
+        const success = true;
+        
+        if (success) {
+            resolve('Successfully completed');
+        } else {
+            reject('An error occurred');
+        }
+    });
+
+    myPromise
+        .then((message) => console.log('Result:', message))
+        .catch((error) => console.error('Error:', error))
+        .finally(() => console.log('Operation completed.'));
+    </code>
+</pre>
