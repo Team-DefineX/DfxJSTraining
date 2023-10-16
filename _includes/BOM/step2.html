@@ -269,6 +269,99 @@ trackScrollPosition();
         </div>
       </div>
     </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse11"
+          aria-expanded="false"
+          aria-controls="collapse11"
+        >
+          resizeTo()
+        </button>
+      </h2>
+      <div
+        id="collapse11"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>window.resizeTo()</code> JavaScript method is used to resize a window to the specified width and height. This method is useful for resizing a window that doesn't belong to the user. Here's the usage of <code>window.resizeTo()</code> and an example:
+          </p>
+          <pre>
+            <code class="javascript">
+window.resizeTo(width, height);
+            </code>
+          </pre>
+          <ul>
+            <li><strong>width</strong>: Specifies the new width of the window in pixels.</li>
+            <li><strong>height</strong>: Specifies the new height of the window in pixels.</li>
+          </ul>
+          <pre>
+            <code class="javascript">
+const newWindow = window.open("https://www.example.com", "NewWindow", "width=400, height=300");
+
+// Resize the window after 2 seconds
+setTimeout(function() {
+  newWindow.resizeTo(800, 600);
+}, 2000);
+            </code>
+          </pre>
+          <p>
+            This code opens a new window with the URL "https://www.example.com". Initially, the window's width is set to 400 pixels, and its height is set to 300 pixels. Then, the resizeTo() method is used to resize the window to 800 pixels in width and 600 pixels in height after a 2-second delay.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse12"
+          aria-expanded="false"
+          aria-controls="collapse12"
+        >
+          moveTo()
+        </button>
+      </h2>
+      <div
+        id="collapse12"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>window.moveTo()</code> JavaScript method is used to move a window to a specific position. This method is particularly useful for positioning pop-up windows or displaying iframe contents at specific locations. Here's the usage of <code>window.moveTo()</code> and an example:
+          </p>
+          <pre>
+            <code class="javascript">
+window.moveTo(x, y);
+            </code>
+          </pre>
+          <ul>
+            <li><strong>x</strong>: Specifies the new horizontal position, in pixels, of the top-left corner of the window.</li>
+            <li><strong>y</strong>: Specifies the new vertical position, in pixels, of the top-left corner of the window.</li>
+          </ul>
+          <pre>
+            <code class="javascript">
+const newWindow = window.open("https://www.example.com", "NewWindow", "width=400, height=300");
+
+// Move the window to a new position after 2 seconds
+setTimeout(function() {
+  newWindow.moveTo(100, 100);
+}, 2000);
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
     
     <div class="accordion-item">
       <h2 class="accordion-header">
@@ -393,6 +486,57 @@ console.log("New Window Name: " + newWindow.name);
           </pre>
           <p>
             This code uses the <code>window.name</code> property to assign names to two windows and prints these names to the console. Window names are useful for communicating between windows, especially when you want to send data or control one window from another.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse10"
+          aria-expanded="false"
+          aria-controls="collapse10"
+        >
+          open() - close()
+        </button>
+      </h2>
+      <div
+        id="collapse10"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>window.open()</code> JavaScript method is used to open a new browser window or tab. This method allows you to specify the URL of the new window, its name, and the window features. Here's the usage of <code>window.open()</code> and an example:
+          </p>
+          <pre>
+            <code class="javascript">
+window.open(URL, windowName, windowFeatures);
+            </code>
+          </pre>
+          <ul>
+            <li><strong>URL</strong>: Represents the URL of the page to be opened. This parameter specifies where the content for the new window will be retrieved from.</li>
+            <li><strong>windowName</strong>: Specifies the name of the new window (or target frame). This parameter identifies the new window or tab. Using the same name will reuse the same window.</li>
+            <li><strong>windowFeatures</strong>: Sets the characteristics of the new window. This parameter defines the size, position, and other properties of the opened window.</li>
+          </ul>
+          <pre>
+            <code class="javascript">
+const newWindow = window.open("https://www.example.com", "NewWindow", "width=600, height=400");
+
+setTimeout(() => {
+    newWindow.close();
+}, 3000);
+            </code>
+          </pre>
+          <p>
+            This code opens a new window with the URL "https://www.example.com" and closes it after 3 seconds. The window is given the name "NewWindow," and its features are set to "width=600, height=400," defining the initial dimensions of the new window.
+          </p>
+          <p>
+            Subsequently, the newWindow object returned by the <code>window.open()</code> method can be used to interact with the opened window, such as closing it or modifying its content.
           </p>
         </div>
       </div>
