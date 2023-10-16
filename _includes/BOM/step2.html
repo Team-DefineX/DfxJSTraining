@@ -695,5 +695,145 @@ document.getElementById("demo").innerHTML = text;
         </div>
       </div>
     </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse13"
+          aria-expanded="false"
+          aria-controls="collapse13"
+        >
+          alert()
+        </button>
+      </h2>
+      <div
+        id="collapse13"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>alert()</code> is a method of the window object.
+            To invoke an alert system dialog, you invoke the <code>alert()</code> method of the <code>window</code> object.
+          </p>
+          <pre>
+            <code class="javascript">
+window.alert(message);
+            </code>
+          </pre>
+          <p>
+            Or like this:
+          </p>
+          <pre>
+            <code class="javascript">
+alert(message);
+            </code>
+          </pre>
+          <p>
+            When the <code>alert()</code> method is invoked, a system dialog shows the specified message to the user followed by a single OK button.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse14"
+          aria-expanded="false"
+          aria-controls="collapse14"
+        >
+          confirm()
+        </button>
+      </h2>
+      <div
+        id="collapse14"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>confirm()</code> is a method of the window object.
+            To invoke a dialog with a question and two buttons <code>OK</code> and <code>Cancel</code>, you use the <code>confirm()</code> method of the <code>window</code> object:
+          </p>
+          <pre>
+            <code class="javascript">
+let result = window.confirm(question);
+
+// or like this:
+let res = confirm(question);
+            </code>
+          </pre>
+          <p>
+            The result is a Boolean value indicating whether the <code>OK</code> or <code>Cancel</code> button was clicked. If the <code>OK</code> button is clicked, the result is <code>true</code>; otherwise, the result is <code>false</code>.
+          </p>
+          <pre>
+            <code class="javascript">
+let result = confirm('Do you approve this transaction?');
+console.log('result', result);
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse15"
+          aria-expanded="false"
+          aria-controls="collapse15"
+        >
+          prompt()
+        </button>
+      </h2>
+      <div
+        id="collapse15"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            The <code>prompt()</code> is a method of the <code>window</code> object. The <code>prompt()</code> method instructs the web browser to display a dialog with a text, text input field, and two buttons <code>OK</code> and <code>Cancel</code>.
+          </p>
+          <pre>
+            <code class="javascript">
+let result = window.prompt(message, default);
+            </code>
+          </pre>
+          <ul>
+            <li>The <strong>message</strong> is a string to display. If you omit it, nothing will display on the dialog.</li>
+            <li>The <strong>default</strong> is a string containing the default value of the text input field.</li>
+          </ul>
+          <p>
+            The result is a string that contains the text entered by the user or <code>null</code>.
+          </p>
+          <p>
+            Like <code>alert()</code> and <code>confirm()</code>, the <code>prompt()</code> is modal and synchronous.
+          </p>
+          <p>
+            Example usage:
+          </p>
+          <pre>
+            <code class="javascript">
+let ageText = prompt('How old are you?');
+let age = Number(ageText);
+
+console.log('Your age is ' + age);
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
