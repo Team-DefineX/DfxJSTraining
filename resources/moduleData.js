@@ -365,6 +365,10 @@ export const modules = [
         name: "Browser Object Model",
         time: "10mins",
       },
+      {
+        name: "'window' Object",
+        time: "20mins",
+      },
     ],
   },
   {
