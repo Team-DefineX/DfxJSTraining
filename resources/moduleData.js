@@ -358,12 +358,12 @@ export const modules = [
     ],
   },
   {
-    fileName: "bom",
+    fileName: "BOM",
     moduleName: "BOM",
     steps: [
       {
-        name: "Useage of Browser Object Model",
-        time: "15mins",
+        name: "Browser Object Model",
+        time: "10mins",
       },
     ],
   },
