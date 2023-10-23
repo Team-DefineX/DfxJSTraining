@@ -1,0 +1,149 @@
+<div>
+  <h5 class="my-3">'Location' Object</h5>
+  <p>
+    As part of the BOM, the <code>location</code> object represents the URL of the browser and is used to change the URL of the browser window or navigate in the browser.
+    You can access the <code>location</code> object by referencing the <code>location</code> property of the <code>window</code> or <code>document</code> object.
+  </p>
+  <h6 class="my-3">JavaScript Location properties:</h6>
+  <h6 class="my-3">Location.href</h6>
+  <p>
+    The <code>location</code> object's <code>href</code> property is an attribute that represents the URL of the current page in the browser. This property contains the full URL displayed in the browser's address bar, allowing you to manipulate the page's URL and navigate the page.
+  </p>
+  <p>
+    Example of the <code>location.href</code> property:
+  </p>
+  <pre>
+    <code class="javascript">
+location.href = "http://localhost:3000/api/products?type=phones&page=2";
+console.log(location.href);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.protocol</h6>
+  <p>
+    This property allows you to determine and access the protocol used by the page. It is particularly important for security and browser settings.
+  </p>
+  <p>
+    You can use the <code>location.protocol</code> property to check which protocol the page is using:
+  </p>
+  <pre>
+    <code class="javascript">
+let pageProtocol = location.protocol;
+console.log("Page Protocol: " + pageProtocol);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.host</h6>
+  <p>
+    This property allows you to determine which server hosts the page and the port that is being used.
+  </p>
+  <p>
+    <code>location.host</code> property to obtain the hostname and port of the page:
+  </p>
+  <pre>
+    <code class="javascript">
+let pageHost = location.host;
+console.log("Page Hostname and Port: " + pageHost);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.port</h6>
+  <p>
+    The <code>location.port</code> represents the port number of the URL.
+  </p>
+  <pre>
+    <code class="javascript">
+let port = location.port;
+console.log("Port: " + port);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.pathname</h6>
+  <p>
+    This property contains the file path and file name in the page's URL. For example, if the current page URL is <b>"https://www.example.com/products/shoes.html"</b> <code>location.pathname</code> will contain the string <b>"/products/shoes.html"</b>
+  </p>
+  <p>
+    Example of <code>location.pathname</code>:
+  </p>
+  <pre>
+    <code class="javascript">
+let pagePathname = location.pathname;
+console.log("Page Pathname: " + pagePathname);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.search</h6>
+  <p>
+    The query string contains a list of parameters after the "?" character in the URL and is typically used to transmit data or specify queries.
+  </p>
+  <p>
+    If the current page URL is like this: <b>"https://www.example.com/products?category=shoes&color=blue"</b> <code>location.search</code> will contain the string <b>"?category=shoes&color=blue"</b>
+  </p>
+  <p>
+    Example of <code>location.search</code>:
+  </p>
+  <pre>
+    <code class="javascript">
+let queryString = location.search;
+console.log("Query String: " + queryString);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.hash</h6>
+  <p>
+    An anchor, or hash, is the portion of the URL that comes after the "#" character and is typically used to reference a particular section or location within a page. Anchors are commonly used to provide direct links to specific sections or positions within web pages.
+  </p>
+  <p>
+    If the current page URL is like this: <b>"https://www.example.com/page#section1"</b> <code>location.hash</code> will contain the string <b>"#section1"</b>
+    For example, it can be used to scroll to a specific section within a page when a particular anchor is clicked or to implement custom actions related to the anchor.
+  </p>
+  <p>
+    Example usage:
+  </p>
+  <pre>
+    <code class="javascript">
+let anchor = location.hash;
+console.log("Anchor: " + anchor);
+    </code>
+  </pre>
+  <h6 class="my-3">Location.origin</h6>
+  <p>
+    The page origin includes the protocol, hostname, and port number of a URL. This identifies where the page is hosted and through which port it can be accessed.
+  </p>
+  <pre>
+    <code class="javascript">
+let pageOrigin = location.origin;
+console.log("Page Origin: " + pageOrigin);
+    </code>
+  </pre>
+  <h6 class="my-3">Manipulating the location:</h6>
+  <h6 class="my-3">assign()</h6>
+  <p>
+    <code>location.assign()</code> is a method used in JavaScript to redirect the current page's URL in the browser to another URL. This method not only redirects the browser window to a specific URL but also adds a new entry to the browser's navigation history. This allows users to go back to the previous page using the browser's "Back" button.
+  </p>
+  <pre>
+    <code class="javascript">
+location.assign("https://www.example.com/new-page");
+    </code>
+  </pre>
+  <p>
+    Additionally, the following code accomplishes the same task:
+  </p>
+  <pre>
+    <code class="javascript">
+window.location.href = "https://www.example.com/new-page";
+    </code>
+  </pre>
+  <h6 class="my-3">replace()</h6>
+  <p>
+    <code>location.replace()</code> is a method used in JavaScript to change the URL of the current page in the browser to a different URL. Similar to the <code>location.assign()</code> method, it redirects the page to a specific URL; however, when <code>location.replace()</code> is used, it <b>does not add a new entry</b> to the browser's navigation history. This means that users <b>cannot go back</b> to the previous page using the browser's "Back" button.
+  </p>
+  <pre>
+    <code class="javascript">
+location.replace("https://www.example.com/new-page");
+    </code>
+  </pre>
+  <h6 class="my-3">reload()</h6>
+  <p>
+    <code>location.reload()</code> is a method used in JavaScript to reload the current page in the browser. This method is used to refresh the content and resources of the current page. After the page is reloaded, all content and scripts are reinitialized.
+  </p>
+  <pre>
+    <code class="javascript">
+location.reload();
+    </code>
+  </pre>
+</div>

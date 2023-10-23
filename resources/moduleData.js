@@ -369,6 +369,10 @@ export const modules = [
         name: "'window' Object",
         time: "30mins",
       },
+      {
+        name: "'location' Object",
+        time: "30mins",
+      }
     ],
   },
   {
