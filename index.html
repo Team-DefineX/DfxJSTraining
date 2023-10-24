@@ -214,7 +214,10 @@
     }
 
     const sidebar = document.getElementById('sidebar');
-    const prepateSlider = createSidebar(modules);
+
+    const visibleModules = modules.filter(module => module.visible);
+
+    const prepateSlider = createSidebar(visibleModules);
     sidebar.appendChild(prepateSlider);
 
     const resultPage = {

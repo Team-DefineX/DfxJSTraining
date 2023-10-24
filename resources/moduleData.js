@@ -2,6 +2,7 @@ export const modules = [
   {
     fileName: "Example",
     moduleName: "Sample Module",
+    visible: false,
     steps: [
       {
         name: "Table",
@@ -36,6 +37,7 @@ export const modules = [
   {
     fileName: "IntroductionToJS",
     moduleName: "Introduction To JS",
+    visible: true,
     steps: [
       {
         name: "Introduction to JS",
@@ -82,6 +84,7 @@ export const modules = [
   {
     fileName: "Objects",
     moduleName: "Objects",
+    visible: true,
     steps: [
       {
         name: "Introduction to Objects",
@@ -128,6 +131,7 @@ export const modules = [
   {
     fileName: "StringTemplates",
     moduleName: "String Templates",
+    visible: true,
     steps: [
       {
         name: "Introduction",
@@ -158,6 +162,7 @@ export const modules = [
   {
     fileName: "Arrays",
     moduleName: "Arrays",
+    visible: true,
     steps: [
       {
         name: "Useage of Arrays",
@@ -192,6 +197,7 @@ export const modules = [
   {
     fileName: "AdvancedFunctions",
     moduleName: "Advanced Functions",
+    visible: true,
     steps: [
       {
         name: "Function type",
@@ -230,6 +236,7 @@ export const modules = [
   {
     fileName: "ErrorHandling",
     moduleName: "Error Handling",
+    visible: true,
     steps: [
       {
         name: "Exception Concepts",
@@ -260,6 +267,7 @@ export const modules = [
   {
     fileName: "PromiseAsyncAwait",
     moduleName: "Promises & Async/Await",
+    visible: true,
     steps: [
       {
         name: "Promises",
@@ -286,6 +294,7 @@ export const modules = [
   {
     fileName: "Classes",
     moduleName: "Classes",
+    visible: true,
     steps: [
       {
         name: "Useage of Classes",
@@ -312,6 +321,7 @@ export const modules = [
   {
     fileName: "ecmaScript",
     moduleName: "JS & EcmaScript 5-6",
+    visible: true,
     steps: [
       {
         name: "What is the EcmaScript?",
@@ -338,6 +348,7 @@ export const modules = [
   {
     fileName: "dom",
     moduleName: "DOM",
+    visible: true,
     steps: [
       {
         name: "What is the DOM?",
@@ -360,6 +371,7 @@ export const modules = [
   {
     fileName: "BOM",
     moduleName: "BOM",
+    visible: true,
     steps: [
       {
         name: "Browser Object Model",
@@ -372,12 +384,13 @@ export const modules = [
       {
         name: "'location' Object",
         time: "30mins",
-      }
+      },
     ],
   },
   {
     fileName: "frameworks",
     moduleName: "Differences of Major FWs",
+    visible: true,
     steps: [
       {
         name: "Major frameworks",
