@@ -1,53 +1,58 @@
-<div class="container">
-    <p>
-      Array chaining, often referred to as method chaining, is a powerful programming technique in JavaScript and other
-      programming languages. </br>
-      It involves chaining together multiple array methods to process and transform arrays in a sequential and concise
-      manner. </br>
-      Each method in the chain operates on the result of the previous method, allowing you to perform complex data
-      manipulations with ease.
-    </p>
-  </br>
-    <h6>Here's how array chaining works:</h6>
-    <ol>
-      <li>You start with an array.</li>
-      <li>You apply one array method to the array, and it returns a new array or modifies the existing one.</li>
-      <li>You can then immediately apply another array method to the result, and this process can continue with as many
+<p>
+    Array chaining, often referred to as method chaining, is a powerful programming technique in JavaScript and other
+    programming languages. </br>
+    It involves chaining together multiple array methods to process and transform arrays in a sequential and concise
+    manner. </br>
+    Each method in the chain operates on the result of the previous method, allowing you to perform complex data
+    manipulations with ease.
+</p>
+</br>
+<h6>Here's how array chaining works:</h6>
+<ol>
+    <li>You start with an array.</li>
+    <li>You apply one array method to the array, and it returns a new array or modifies the existing one.</li>
+    <li>You can then immediately apply another array method to the result, and this process can continue with as many
         methods as needed.</li>
-    </ol>
-  
-    <p>The key array methods used for chaining include `map`, `filter`, `reduce`, `forEach`, and others.</p>
-    </br>
-    <h6>Why use array chaining?</h6>
-    <ol>
-      <li><strong>Readability and Conciseness:</strong> Chaining array methods results in more concise and readable code. Instead of
+</ol>
+
+<p>The key array methods used for chaining include `map`, `filter`, `reduce`, `forEach`, and others.</p>
+</br>
+<h6>Why use array chaining?</h6>
+<ol>
+    <li><strong>Readability and Conciseness:</strong> Chaining array methods results in more concise and readable code.
+        Instead of
         writing multiple loops and intermediate variables, you can express complex data transformations in a clear and
         linear manner.</li>
-      <li><strong>Method Reusability:</strong> Chained methods can be reused on different arrays, which promotes code reuse and reduces
+    <li><strong>Method Reusability:</strong> Chained methods can be reused on different arrays, which promotes code
+        reuse and reduces
         duplication.</li>
-      <li><strong>Performance:</strong> Chaining can be more efficient than nested loops in some cases. Many array methods are
+    <li><strong>Performance:</strong> Chaining can be more efficient than nested loops in some cases. Many array methods
+        are
         optimized for performance, and chaining allows you to leverage this optimization.</li>
-      <li><strong>Declarative Programming:</strong> Chaining follows a declarative programming style, where you specify what you want
+    <li><strong>Declarative Programming:</strong> Chaining follows a declarative programming style, where you specify
+        what you want
         to do with the data rather than how to do it. This can make your code more self-explanatory.</li>
-      <li><strong>Error Reduction:</strong> With method chaining, there is less room for off-by-one errors or incorrect loop
+    <li><strong>Error Reduction:</strong> With method chaining, there is less room for off-by-one errors or incorrect
+        loop
         conditions. The sequence of operations is explicit.</li>
-    </ol>
-  
-    <p>
-      Here's an example to illustrate the benefits of array chaining. Suppose you have an array of numbers and you want to:
-      <ul>
-        <li>Filter out the even numbers.</li>
-        <li>Square the remaining numbers.</li>
-        <li>Find the sum of the squared numbers.</li>
-      </ul>
-      Using method chaining:
-    </p>
-  
-    <pre>
+</ol>
+
+<p>
+    Here's an example to illustrate the benefits of array chaining. Suppose you have an array of numbers and you want
+    to:
+<ul>
+    <li>Filter out the even numbers.</li>
+    <li>Square the remaining numbers.</li>
+    <li>Find the sum of the squared numbers.</li>
+</ul>
+Using method chaining:
+</p>
+
+<pre>
   <code class="javascript">
-  const numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 3, 4, 5];
   
-  const result = numbers
+const result = numbers
     .filter(number => number % 2 !== 0) // Filter out even numbers
     .map(number => number ** 2)         // Square the remaining numbers
     .reduce((sum, number) => sum + number, 0); // Find the sum
@@ -55,28 +60,26 @@
   console.log(result); // Output: 35
   </code>
   </pre>
-  
-    <p>
-      The code is more compact and easier to understand compared to writing separate loops or using nested loops for these
-      operations.</br>
-  
-      In summary, array chaining is a valuable technique in JavaScript because it makes code more readable, maintainable,
-      and efficient when working with arrays, promoting good programming practices and reducing the risk of errors.
-    </p>
-  </div>
-  
-  <div class="container mt-3">
-    <h5>Here is more examples of how to chain array methods and useage senarios</h5></br>
-    <h6>Example 1: Filtering and Mapping</h6>
-    <p>We learned Mapping and Filtering at previous lesson. Lets have the example again with chanining array methods.
-      </br>
-      Suppose you have an array of numbers, and you want to filter out the even numbers and then square the remaining
-      numbers.</br>
-      In this example, we first filter out even numbers and then square the remaining numbers using the filter and map
-      methods.</p>
-    <pre>
+
+<p>
+    The code is more compact and easier to understand compared to writing separate loops or using nested loops for these
+    operations.</br>
+
+    In summary, array chaining is a valuable technique in JavaScript because it makes code more readable, maintainable,
+    and efficient when working with arrays, promoting good programming practices and reducing the risk of errors.
+</p></br>
+
+<h5>Here is more examples of how to chain array methods and useage senarios</h5></br>
+<h6>Example 1: Filtering and Mapping</h6>
+<p>We learned Mapping and Filtering at previous lesson. Lets have the example again with chanining array methods.
+    </br>
+    Suppose you have an array of numbers, and you want to filter out the even numbers and then square the remaining
+    numbers.</br>
+    In this example, we first filter out even numbers and then square the remaining numbers using the filter and map
+    methods.</p>
+<pre>
   <code class="javascript">
-    let heroProfiles = [
+let heroProfiles = [
     {
       name: "Superman",
       secretIdentity: "Clark Kent",
@@ -117,95 +120,92 @@
   */
   </code>
   </pre>
-  </div>
-  
-  <div class="container mt-3">
-    <h5>Example 2: Chaining Filtering and Reducing</h5>
-    <p>
-      Suppose you want to find the sum of the ages of heroes with specific powers:
-    </p>
-    <pre>
+
+<h5>Example 2: Chaining Filtering and Reducing</h5>
+<p>
+    Suppose you want to find the sum of the ages of heroes with specific powers:
+</p>
+<pre>
   <code class="javascript">
-  let powersToFilter = ["Flight", "Super Strength"];
+let powersToFilter = ["Flight", "Super Strength"];
   
-  let result = heroProfiles
+let result = heroProfiles
     .filter(hero => hero.powers.some(power => powersToFilter.includes(power)))  // Filter by powers
     .reduce((totalAge, hero) => totalAge + hero.age, 0);  // Reduce to calculate total age
   
-  console.log(result);
-  /* Output: 70 */
+console.log(result);
+/* Output: 70 */
   </code>
-  </div>
-  
-  <div class="container mt-3">
-    <h5>Example 3: Chaining Filtering, Mapping, and Joining</h5>
-    <p>
-      Suppose you want to filter heroes with names containing the letter 'a', extract their secret identities, and join them into a comma-separated string:
-    </p>
-  <pre>
+</pre>
+
+<h5>Example 3: Chaining Filtering, Mapping, and Joining</h5>
+<p>
+    Suppose you want to filter heroes with names containing the letter 'a', extract their secret identities, and join
+    them into a comma-separated string:
+</p>
+
+<pre>
   <code class="javascript">
-  let result = heroProfiles
+let result = heroProfiles
     .filter(hero => hero.name.toLowerCase().includes('a'))  // Filter by names
     .map(hero => hero.secretIdentity)  // Map to secret identities
     .join(', ');  // Join into a comma-separated string
   
-  console.log(result);
-  /* Output: "Clark Kent, Diana Prince" */
+console.log(result);
+/* Output: "Clark Kent, Diana Prince" */
   </code>
-  </pre>
-    <p>
-      In this example, we filter heroes by name, map to their secret identities, and then join them into a comma-separated
-      string.
-    </p>
-  </div>
-  
-  <div class="container mt-3">
-    <h5>Example 4: Chaining Filtering and Mapping Object Properties</h5>
-    <p>
-      Suppose you want to filter heroes based on age, double the ages of the remaining heroes, and create new objects:
-    </p>
-    <pre>
+</pre>
+
+<p>
+    In this example, we filter heroes by name, map to their secret identities, and then join them into a
+    comma-separated
+    string.
+</p>
+</br>
+
+<h5>Example 4: Chaining Filtering and Mapping Object Properties</h5>
+<p>
+    Suppose you want to filter heroes based on age, double the ages of the remaining heroes, and create new objects:
+</p>
+<pre>
   <code class="javascript">
-  let result = heroProfiles
+let result = heroProfiles
     .filter(hero => hero.age >= 40)  // Filter by age
     .map(hero => ({ name: hero.name, doubledAge: hero.age * 2 }));  // Map to new objects
   
-  console.log(result);
-  /* Output:
+console.log(result);
+/* Output:
   [
     { name: 'Batman', doubledAge: 80 },
     { name: 'Wonder Woman', doubledAge: 1000 }
   ]
-  */
+*/
   </code>
   </pre>
-    <p>
-      In this example, we filter heroes based on age and map to new objects with specific properties.
-    </p>
-  </div>
-  
-  <div class="container mt-3">
-    <h5>Example 5: Chaining Filtering and Reducing Complex Criteria</h5>
-    <p>
-      Suppose you want to filter heroes based on powers and age, and then calculate the sum of their ages:
-    </p>
-    <pre>
+<p>
+    In this example, we filter heroes based on age and map to new objects with specific properties.
+</p>
+</div>
+</br>
+
+<h5>Example 5: Chaining Filtering and Reducing Complex Criteria</h5>
+<p>
+    Suppose you want to filter heroes based on powers and age, and then calculate the sum of their ages:
+</p>
+<pre>
   <code class="javascript">
-    let powersToFilter = ["Super Strength"];
-    let minimumAge = 30;
+let powersToFilter = ["Super Strength"];
+let minimumAge = 30;
   
-    let result = heroProfiles
-      .filter(hero => hero.powers.some(power => powersToFilter.includes(power)) && hero.age >= minimumAge)  // Filter by powers and age
-      .reduce((totalAge, hero) => totalAge + hero.age, 0);  // Calculate total age
+let result = heroProfiles
+    .filter(hero => hero.powers.some(power => powersToFilter.includes(power)) && hero.age >= minimumAge)  // Filter by powers and age
+    .reduce((totalAge, hero) => totalAge + hero.age, 0);  // Calculate total age
   
-    console.log(result);
-    /* Output:
-    535
-    */
+console.log(result);
+/* Output: 535 */
   </code>
   </pre>
-    <p>
-      In this example, we filter heroes based on both powers and age criteria and then calculate the total age using the
-      reduce method.
-    </p>
-  </div>
+<p>
+    In this example, we filter heroes based on both powers and age criteria and then calculate the total age using
+    the reduce method.
+</p>
