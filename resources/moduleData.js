@@ -190,7 +190,7 @@ export const modules = [
       },
       {
         name: "Array Mapping",
-        time: "14mins",
+        time: "15mins",
       },
       {
         name: "Array Method Chaining",
@@ -199,7 +199,10 @@ export const modules = [
       {
         name: "Array Matrix Management",
         time: "15mins",
-        time: "14mins",
+      },
+      {
+        name: "Performance Considerations ",
+        time: "15mins",
       },
     ],
   },

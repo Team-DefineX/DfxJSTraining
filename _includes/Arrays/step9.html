@@ -1,13 +1,15 @@
 <div class="container">
     <h6>What is Matrix in Javascript:</h6>
     <p>
-      In JavaScript, a matrix is not a built-in data type but is often represented using arrays. A matrix is a
-      two-dimensional array, which means it's an array of arrays, where each sub-array is a row of the matrix.</br></br>
-      This data structure is used to store and manipulate data organized in rows and columns, just like a mathematicalmatrix.</br></br>
-      Here's how you can create a basic matrix in JavaScript:
+        In JavaScript, a matrix is not a built-in data type but is often represented using arrays. A matrix is a
+        two-dimensional array, which means it's an array of arrays, where each sub-array is a row of the
+        matrix.</br></br>
+        This data structure is used to store and manipulate data organized in rows and columns, just like a
+        mathematicalmatrix.</br></br>
+        Here's how you can create a basic matrix in JavaScript:
     </p>
     </br>
-  
+
     <pre>
   <code class="javascript">
   const matrix = [
@@ -17,20 +19,21 @@
   ];
   </code>
   </pre>
-  
+
     <p>
-      In this example, matrix is a 3x3 matrix with three rows and three columns. You can access elements in the matrix
-      using two indices, like <strong>matrix[0][1]</strong>, which refers to the element in the first row (index 0) and
-      the second column
-      (index 1), which is 2 in this case.</br>
-      If we want to reach number 9 in this matrix we should call it as <strong>matrix[2][2]</strong> in example
+        In this example, matrix is a 3x3 matrix with three rows and three columns. You can access elements in the matrix
+        using two indices, like <strong>matrix[0][1]</strong>, which refers to the element in the first row (index 0)
+        and
+        the second column
+        (index 1), which is 2 in this case.</br>
+        If we want to reach number 9 in this matrix we should call it as <strong>matrix[2][2]</strong> in example
     </p>
-  </div>
-  
-  <div class="container mt-3">
+</div>
+
+<div class="container mt-3">
     <p>let's create a heroProfiles constant as a matrix array of superhero data, and then I'll provide some fun and
-      understandable examples of why you might want to use this format.</p></br>
-  
+        understandable examples of why you might want to use this format.</p></br>
+
     <pre>
   <code class="javascript">
   const heroProfiles = [
@@ -47,39 +50,41 @@
   ];
   </code>
   </pre>
-  </div>
-  
-  <div class="container mt-3">
+</div>
+
+<div class="container mt-3">
     <p>
-      In this heroProfiles matrix:</br>
-  
-      Each row represents a superhero's profile.
-      Columns in each row represent different characteristics: <strong>"Name," "Secret Identity," "Age," and
-        "Powers."</strong>
+        In this heroProfiles matrix:</br>
+
+        Each row represents a superhero's profile.
+        Columns in each row represent different characteristics: <strong>"Name," "Secret Identity," "Age," and
+            "Powers."</strong>
     </p>
     </br>
-  
+
     <h6>Why Use a Matrix Array Like This?</h6>
     <p>Here are some fun and understandable examples of why you might want to use a matrix array like heroProfiles:</p>
     </br>
-  
+
     <h6>1. Easy Access to Hero Information:</h6>
-    <p>Example: You can easily access specific information about heroes. For instance, if you want to know Wonder Woman's
-      age, you can use <strong>heroProfiles[2][2]</strong>.</p></br>
-  
+    <p>Example: You can easily access specific information about heroes. For instance, if you want to know Wonder
+        Woman's
+        age, you can use <strong>heroProfiles[2][2]</strong>.</p></br>
+
     <pre>
-  <code class="javascript">
-    const wonderWomanAge = heroProfiles[2][2]; // Accessing age of Wonder Woman
-    console.log(wonderWomanAge); // Output: 500
-  </code>
-  </pre>
-  
+<code class="javascript">
+  const wonderWomanAge = heroProfiles[2][2]; // Accessing age of Wonder Woman
+  console.log(wonderWomanAge); // Output: 500
+</code>
+</pre>
+
     <h6>2. Organized Data:</h6>
-    <p>Example: The matrix format neatly organizes data, making it easy to see each hero's characteristics in a structured
-      way.</p></br>
-  
+    <p>Example: The matrix format neatly organizes data, making it easy to see each hero's characteristics in a
+        structured
+        way.</p></br>
+
     <h6>3. Grouping Related Data:</h6>
-  
+
     Example: All hero information is grouped together in rows, making it easy to add new heroes or remove existing ones.
     <pre>
   <code class="javascript">
@@ -92,14 +97,14 @@
   </code>
   </pre>
     </br>
-  
+
     <h6>4. Real-Life Data Representation:</h6>
     <p> Example: This format closely resembles how data is organized in databases or spreadsheets, which is common in
-      real-world applications.</p></br>
-  
-  
+        real-world applications.</p></br>
+
+
     <h6>5. Mathematical Operations:</h6>
-  
+
     <pre>
     <code class="javascript">
   // Calculate the average age of heroes
@@ -110,19 +115,19 @@
   heroProfiles.sort((a, b) => a[2] - b[2]);
   </code>
     </pre>
-  
+
     <p>Example: You can perform mathematical operations like finding the average age of heroes, adding or removing
-      heroes, or sorting them by age.</p></br>
-  
-  
+        heroes, or sorting them by age.</p></br>
+
+
     <h6>6. Flexibility:</h6>
     <p>Example: You can extend this matrix with more heroes, making it flexible for different data sizes and structures.
     </p></br>
-  
-  
+
+
     <strong>Adding a New Hero!</strong>
-  
-  <pre>
+
+    <pre>
   <code class="javascript">
   // Calculate the average age of heroes
   const totalAge = heroProfiles.reduce((total, hero) => total + hero[2], 0);
@@ -132,7 +137,7 @@
   heroProfiles.sort((a, b) => a[2] - b[2]);
   </code>
   </pre>
-  
+
     <strong>Adding a new characteristic to an existing hero:</strong>
     <pre>
   <code class="javascript">
@@ -140,20 +145,22 @@
   heroProfiles[1][3].push("Hacking");
   </code>
   </pre>
-  
+
     <h6>7. Use of Indices:</h6>
-  
+
     <p>Example: Learning to use indices (row and column numbers) to access data is a fundamental concept and can be
-      valuable
-      in programming.</p>
+        valuable
+        in programming.</p>
     </br>
-  
-  
+
+
     <h6>8. Learning Opportunity:</h6>
     <p> Example: Working with data in a matrix format can help you understand the concept of matrices used in various
-      fields like mathematics, data science, and computer graphics. </p>
+        fields like mathematics, data science, and computer graphics. </p>
     <p>
-      By using a matrix array like heroProfiles, you make your data more organized, structured, and accessible, which can be
-      helpful in various programming and data management scenarios. Plus, it's a fun way to store superhero information!
+        By using a matrix array like heroProfiles, you make your data more organized, structured, and accessible, which
+        can be
+        helpful in various programming and data management scenarios. Plus, it's a fun way to store superhero
+        information!
     </p>
-  </div>
+</div>
