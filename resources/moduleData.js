@@ -192,6 +192,15 @@ export const modules = [
         name: "Array Mapping",
         time: "14mins",
       },
+      {
+        name: "Array Method Chaining",
+        time: "15mins",
+      },
+      {
+        name: "Array Matrix Management",
+        time: "15mins",
+        time: "14mins",
+      },
     ],
   },
   {
