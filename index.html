@@ -175,6 +175,7 @@
     let currentModuleIndex = 0;
     let currentStepIndex = 0;
     let selectedStepIndex = null;
+    const filteredModules = modules.filter(module => module.visible);
 
 
     function createSidebar(sidebarData) {
@@ -214,10 +215,7 @@
     }
 
     const sidebar = document.getElementById('sidebar');
-
-    const visibleModules = modules.filter(module => module.visible);
-
-    const prepateSlider = createSidebar(visibleModules);
+    const prepateSlider = createSidebar(filteredModules);
     sidebar.appendChild(prepateSlider);
 
     const resultPage = {
@@ -229,7 +227,7 @@
     };
 
     function renderStep(moduleIndex, stepIndex) {
-      const module = modules[moduleIndex];
+      const module = filteredModules[moduleIndex];
       const step = module.steps[stepIndex];
       document.getElementById("nextButton").style.display = "flex";
       render(
@@ -246,7 +244,7 @@
         ++selectedStepIndex;
         if (
           selectedStepIndex <=
-          modules[currentModuleIndex].steps.length - 1
+          filteredModules[currentModuleIndex].steps.length - 1
         ) {
           renderStep(currentModuleIndex, selectedStepIndex);
         } else {
@@ -262,7 +260,7 @@
       } else {
         if (
           currentStepIndex <=
-          modules[currentModuleIndex].steps.length - 1
+          filteredModules[currentModuleIndex].steps.length - 1
         ) {
           renderStep(currentModuleIndex, currentStepIndex);
           currentStepIndex++;
