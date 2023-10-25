@@ -1,39 +1,150 @@
 <div>
-  <h5 class="my-3">Extending Classes</h5>
+  <p>Class inheritance is a fundamental concept in object-oriented programming that allows you to create a new class (a
+    subclass or derived class) based on an existing class (a superclass or base class). Subclasses inherit the
+    properties and methods of the superclass, enabling code reuse and structure. Inheritance establishes an "is-a"
+    relationship, where the subclass is a more specialized version of the superclass.</p></br>
 
-  #4 Class Inheritance (Extending Classes) Now, let's demonstrate class
-  <p>
-    inheritance by creating a subclass called SuperVillainProfile that inherits
-    from the HeroProfile class. The SuperVillainProfile class will have
-    additional properties and methods specific to villains.
-  </p>
+  <h6>Why Use Class Inheritance:</h6>
+  </br>
+  <ol>
+    <li><strong>Code Reuse:</strong> Inheritance promotes code reuse. Subclasses inherit the structure and behavior of
+      the superclass,
+      reducing redundancy and allowing you to build upon existing code.</li>
+    <li><strong>Specialization:</strong> Subclasses can specialize in more specific types of objects. In the example,
+      SuperHero is a
+      specialized version of a hero with additional properties and methods.</li>
+    <li><strong>Organized Code:</strong> Inheritance helps organize your code by creating a hierarchy of related
+      classes. This makes your
+      code more structured and easier to maintain.</li>
+    <li><strong>Polymorphism:</strong> Inheritance supports polymorphism, where objects of different classes can be
+      treated as instances
+      of a common superclass. This improves code flexibility and maintainability.</li>
+  </ol>
+
+  <p>By using class inheritance, you can create a clear hierarchy of classes, share common functionality, and specialize
+    as needed for your application. It's a powerful tool in object-oriented programming.</p></br>
+
+  <h6>How to Use Class Inheritance:</h6></br>
+
+  <strong>1: Define the Superclass (Base Class):</strong>
+  <p>Start by defining a superclass (base class) with common properties and methods. In the HeroProfile example, this is
+    the superclass that represents basic hero profiles.</p></br>
+
   <pre>
-  <code class="javascript">
-    class SuperVillainProfile extends HeroProfile {
-      constructor(name, age, power, evilPlan) {
-        // Call the constructor of the parent class using super().
-        super(name, age, power);
-        this.evilPlan = evilPlan;
-      }
-    
-      // Override the usePower() method from the parent class.
-      usePower() {
-        console.log(`${this.name} uses ${this.power} to execute their evil plan: ${this.evilPlan}`);
-      }
-    
-      // New method specific to SuperVillainProfile class.
-      revealEvilPlan() {
-        console.log(`${this.name}'s evil plan is to ${this.evilPlan}`);
-      }
-    }
-  </code>
-  </pre>
+<code class="javascript">
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this.age = age;
+    this.power = power;
+  }
+
+  // A method to introduce hero.
+  introduce() {
+    console.log(`Hi, I'm ${this.name}, and I'm a superhero!`);
+  }
+
+  // A method to use the hero's power.
+  usePower() {
+    console.log(`${this.name} uses ${this.power}!`);
+  }
+
+}
+</code>
+</pre>
+  <p>
+    In this code, we have the HeroProfile class, which is the superclass or base class. It has a constructor that
+    initializes properties for the hero's name, age, and power. It also has an introduce() and usePower() method to
+    introduce hero and describe how a hero
+    uses their power.
+  </p></br>
+
+  <strong>2: Create the Subclass:</strong>
 
   <p>
-    In this step, we've defined the SuperVillainProfile class that extends the
-    HeroProfile class using the extends keyword. It has an additional property
-    evilPlan, and the usePower() method is overridden to include the evil plan.
-    We've also added a new method revealEvilPlan() specific to villains.
-  </p>
+    Next, create a subclass that extends the superclass using the extends keyword. The subclass inherits all the
+    properties and methods of the superclass.
+  </p></br>
 
+  <pre>
+<code class="javascript">
+class SuperHero extends HeroProfile {
+  constructor(name, age, power, costumeColor) {
+    super(name, age, power); // Call the superclass constructor
+    this.costumeColor = costumeColor;
+  }
+
+  useSuperpower() {
+    console.log(`${this.name} uses ${this.power} while wearing a ${this.costumeColor} costume!`);
+  }
+}
+</code>
+</pre>
+
+  <strong>3: Use the Subclass:</strong>
+  <p>You can create instances of the subclass and work with them just like instances of the superclass.</p></br>
+
+  <pre>
+<code class="javascript">
+const superman = new SuperHero("Superman", 30, "Flight", "Blue and Red");
+superman.introduce(); // "Hi, I'm Superman, and I'm a superhero!"
+superman.useSuperpower(); // "Superman uses Flight while wearing a Blue and Red costume!"
+</code>
+</pre>
+
+  <h6>Lets create one more subclass called SuperVillainProfile which inherits from HeroProfile Class.</h6>
+
+<pre>
+<code class="javascript">
+class SuperVillainProfile extends HeroProfile {
+  constructor(name, age, power, evilPlan) {
+    // Call the constructor of the parent class using super().
+    super(name, age, power);
+    this.evilPlan = evilPlan;
+  }
+
+  // Override the usePower() method from the parent class.
+  usePower() {
+    console.log(`${this.name} uses ${this.power} to execute their evil plan: ${this.evilPlan}`);
+  }
+
+  // New method specific to SuperVillainProfile class.
+  revealEvilPlan() {
+    console.log(`${this.name}'s evil plan is to ${this.evilPlan}`);
+  }
+}
+</code>
+</pre>
+
+<strong>In this part of the code:</strong>
+<ul>
+  <li>We define the SuperVillainProfile class, which is the subclass or derived class, using the extends keyword. This
+    indicates that SuperVillainProfile inherits properties and methods from the HeroProfile superclass.</li>
+  <li>The subclass has its own constructor, but it calls the constructor of the parent class (super(name, age, power))
+    to
+    set up the common properties (name, age, power). Additionally, it introduces a new property evilPlan specific to
+    super
+    villains.
+  </li>
+  <li>The subclass overrides the usePower() method from the parent class. This means that when a super villain uses
+    their
+    power, the method displays a message indicating their evil plan as well.</li>
+  <li>
+    A new method, revealEvilPlan(), is introduced that is specific to the SuperVillainProfile class. It allows super
+    villains to reveal their evil plans.
+  </li>
+</ul>
+
+<p>You can create instances of the SuperVillainProfile class and use its methods, and you will observe the overridden behavior:</p>
+
+<pre>
+<code class="javascript">
+const joker = new SuperVillainProfile("The Joker", 35, "Chaos", "spread chaos in Gotham");
+joker.usePower(); // "The Joker uses Chaos to execute their evil plan: spread chaos in Gotham"
+joker.revealEvilPlan(); // "The Joker's evil plan is to spread chaos in Gotham"
+</code>
+</pre>
+
+  <p>This code demonstrates class inheritance, where the SuperVillainProfile class inherits properties and methods from
+    the HeroProfile class and can override and extend them as needed for specific behavior.</p>
 </div>

@@ -1,42 +1,102 @@
 <div>
-  <h5 class="my-3">Class Methods</h5>
+  <h6>Class Methods</h6>
+  <p>
+    Class methods in JavaScript are defined using the static keyword within the class. They are associated with the
+    class itself, rather than with instances (objects) of the class. Class methods are often used for tasks that don't
+    require access to instance-specific data but are related to the class as a whole.
+  </p></br>
 
-  #2 Class Methods:
-<p>
-  Next, let's add some methods to the HeroProfile class to perform
-  actions related to the hero.
-</p>
-<pre>
+  <h6>Instance Methods:</h6>
+  <p>
+    Instance methods, on the other hand, are not defined with the static keyword and are associated with individual
+    instances of the class. They can access and manipulate instance-specific data.
+  </p>
+
+  <p>
+    Next, let's add some methods to the HeroProfile class to perform
+    actions related to the hero.
+  </p></br>
+
+  <pre>
 <code class="javascript">
-  class HeroProfile {
-    constructor(name, age, power) {
-      this.name = name;
-      this.age = age;
-      this.power = power;
-    }
-
-    // Method to introduce the hero.
-    introduce() {
-      console.log(`Hi, I'm ${this.name}, and I'm a superhero!`);
-    }
-
-    // Method to display the hero's age.
-    displayAge() {
-      console.log(`${this.name} is ${this.age} years old.`);
-    }
-
-    // Method to use the hero's power.
-    usePower() {
-      console.log(`${this.name} uses ${this.power}!`);
-    }
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this.age = age;
+    this.power = power;
   }
+
+  // Instance method to introduce the hero
+  introduce() {
+    console.log(`Hi, I'm ${this.name}, and I'm a superhero!`);
+  }
+
+  // Instance method to display the hero's age
+  displayAge() {
+    console.log(`${this.name} is ${this.age} years old.`);
+  }
+
+  // Instance method to display the hero's power
+  usePower(hero) {
+    console.log(`${hero.name} uses ${hero.power}!`);
+
+  // Class method to explain what superheroes do
+  static explainHeroics() {
+    console.log("Superheroes protect and serve the world!");
+  }
+
+  // Class method to provide a superhero motto
+  static superheroMotto() {
+    console.log("With great power comes great responsibility!");
+  }
+}  
 </code>
 </pre>
 
-<p>
-  In this step, we've added three methods to the HeroProfile class:
-  introduce(), displayAge(), and usePower(). These methods allow us to
-  introduce the hero, display their age, and use their power, respectively.
-</p> 
+  <p>
+    In this step, we've added three inheritance methods to the HeroProfile class:
+    <strong>introduce()</strong>,<strong>displayAge()</strong>and<strong>usePower()</strong>. 
+    These methods allow us to introduce the hero, display their age, and use their power, respectively.
+    Also we created a Class Method as <strong>explainHeroics()</strong> to explain what an superhero does generally.
+  </p></br>
+
+  <strong>Instance Methods:</strong>
+  <ol>
+    <li>Instance methods are defined without the static keyword within the class.</li>
+    <li>They operate on instance-specific data and are called on instances of the class.</li>
+  </ol>
+
+  <strong>Class Methods:</strong>
+  <ol>
+    <li>Class methods are defined using the static keyword within the class.</li>
+    <li>They are associated with the class itself, not instances.</li>
+    <li>Class methods are used for actions related to the class as a whole, not to specific instances.</li>
+  </ol>
+
+  <p>Now, you can create instances of the HeroProfile class and use these methods to interact with the hero's profile:
+  </p></br>
+
+  <pre>
+<code class="javascript">
+// Create instances of HeroProfile
+const superman = new HeroProfile("Superman", 30, "Flight");
+const batman = new HeroProfile("Batman", 35, "Intelligence");
+
+// Using instance methods
+superman.introduce(); // "Hi, I'm Superman, and I'm a superhero!"
+superman.displayAge(); // "Superman is 30 years old."
+superman.usePower(); // "Superman uses Flight!"
+
+// Using class method
+HeroProfile.explainHeroics(); // "Superheroes protect and serve the world!"
+HeroProfile.superheroMotto(); // "With great power comes great responsibility!"
+</code>
+</pre>
+
+  <p><strong>introduce()</strong>and <strong>displayAge()</strong> are instance methods because they operate on specific instances (superman and batman).</p></br>
+  <p><strong>explainHeroics()</strong> and <strong>superheroMotto()</strong> is a class method because it is called on the HeroProfile class itself and is common to all
+    instances of the class.</p></br>
+  <p>This distinction allows you to define and use methods that are either specific to individual instances or shared
+    among all instances of the class, making your code more organized and modular.</p>
 
 </div>

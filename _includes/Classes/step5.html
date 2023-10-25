@@ -1,10 +1,48 @@
 <div>
-  <h5 class="my-3">Subclasses Extending</h5>
+  <p>In JavaScript, a subclass is a class that is derived from another class, referred to as the superclass or base
+    class.
+    Subclasses inherit the properties and methods of the superclass, and they can also have their own unique properties
+    and methods. Subclasses are used to create a more specialized version of a class, allowing you to build on the
+    functionality of the base class while maintaining a clear hierarchical structure. This is known as class
+    inheritance.</p></br>
+  <p>Here's an explanation with example code based on the provided SuperVillainProfile class, which is a subclass of the
+    HeroProfile class:</p></br>
+  <strong>Defining a Subclass:</strong>
+  <pre>
+<code class="javascript">
+class SuperVillainProfile extends HeroProfile {
+  constructor(name, age, power, evilPlan) {
+    // Call the constructor of the parent class using super().
+    super(name, age, power);
+    this.evilPlan = evilPlan;
+  }
 
-  #5 Creating an Instance of the Subclass Finally, let's create an instance of
-  the SuperVillainProfile class and see how it inherits properties and methods
-  from the parent class while having its own unique features.
-<pre>
+  // Override the usePower() method from the parent class.
+  usePower() {
+    console.log(`${this.name} uses ${this.power} to execute their evil plan: ${this.evilPlan}`);
+  }
+
+  // New method specific to SuperVillainProfile class.
+  revealEvilPlan() {
+    console.log(`${this.name}'s evil plan is to ${this.evilPlan}`);
+  }
+}
+</code>
+</pre>
+  <ul>
+    <li>In this code, SuperVillainProfile is a subclass of the HeroProfile superclass. It inherits the name, age, and
+      power properties and the usePower() method from HeroProfile.</li>
+    <li>The subclass has its own constructor that sets up the properties specific to super villains, such as evilPlan.
+    </li>
+    <li>It overrides the usePower() method to provide a different behavior when a super villain uses their power. In
+      this case, it includes the description of the evil plan.</li>
+    <li>A new method, revealEvilPlan(), is introduced that is specific to the SuperVillainProfile class. It allows super
+      villains to reveal their evil plans.</li>
+  </ul>
+
+  <p>You can create instances of the SuperVillainProfile subclass and access its methods:</p></br>
+  <strong>Using the Subclass:</strong>
+  <pre>
 <code class="javascript">
   // Creating an instance of the SuperVillainProfile class.
   const joker = new SuperVillainProfile('Joker', 35, 'Chaos', 'create anarchy in Gotham City');
@@ -18,17 +56,8 @@
 </pre>
 
   <p>
-    In this step, we've created an instance of the SuperVillainProfile class
-    named joker. Despite being a subclass, it inherits the introduce() and
-    displayAge() methods from the HeroProfile class. However, the usePower()
-    method is overridden to include the evil plan. Additionally, joker has
-    access to the revealEvilPlan() method, which is specific to the
-    SuperVillainProfile class.
-  </p>
-
-  <p>
-    With these steps, we've demonstrated how to create and use JavaScript
-    classes, along with class inheritance to create subclasses with specialized
-    properties and methods.
+    In this example, SuperVillainProfile is a specialized version of the HeroProfile class, and it inherits and extends
+    the properties and methods to represent super villains. Subclasses are useful for creating a hierarchy of classes
+    with shared behavior and specialized features, making your code more organized and maintainable.
   </p>
 </div>

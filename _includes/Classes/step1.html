@@ -14,31 +14,63 @@
       the way. We'll build upon it to demonstrate class inheritance later.
     </p>
 
-    #1 Class Declaration and Constructor:
+    <h6>#1 Class Declaration and Constructor:</h6>
 
     <p>
       First, we'll declare the HeroProfile class and define its constructor. The
       constructor is a special method that gets called automatically when we
       create a new instance of the class using the new keyword. It allows us to
       initialize the properties of the hero.
-    </p>
+    </p></br>
 
 <pre>
 <code class="javascript">
-  class HeroProfile {
-    constructor(name, age, power) {
-      this.name = name;
-      this.age = age;
-      this.power = power;
-    }
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this.age = age;
+    this.power = power;
   }
+}
 </code>
 </pre>
 
     <p>
       In this step, we've defined the HeroProfile class with a constructor that
       takes three parameters: name, age, and power. The constructor sets these
-      values as properties of the object being created.
-    </p>
-  </div>
+      values as properties of the object being created. Lets explain the lines for above code.
+    </p></br>
+
+    <ul>
+      <li><strong>constructor(name, age, power):</strong> This line defines the constructor method with three parameters - name, age, and
+        power. When you create a new HeroProfile object, you'll need to provide values for these parameters.</li></br>
+      <li><strong>this.name = name;:</strong> Inside the constructor, this refers to the newly created object. It is used to assign the
+        values passed as parameters to the object's properties. So, the name parameter is assigned to the name property
+        of the object, and similarly for age and power.</li>
+    </ul>
+
+    <h6>Class Declaration</h6>
+    <p>To declare a class in JavaScript, you use the class keyword followed by the name of the class. In your code, you've declared a class named HeroProfile.</p></br>
+    
+    <h6>Constructor</h6>
+    <p>Inside the class, you have a special method called the constructor. The constructor is a method that is
+      automatically called when you create a new instance (or object) of the class using the new keyword. It allows you
+      to initialize the properties of the object.</p></br>
+
+    <p>Now, you can create instances of the HeroProfile class and set the properties like this:</p>
+
+<pre>
+<code class="javascript">
+const hero1 = new HeroProfile("Superman", 30, "Flight");
+const hero2 = new HeroProfile("Batman", 35, "Intelligence");  
+</code>
+</pre>
+
+<p>
+  In this example, hero1 and hero2 are two separate instances of the HeroProfile class, each with its own name, age, and power properties.
+  This allows you to organize and manage data in a structured way and create multiple objects with the same structure and behavior, 
+  which is a fundamental concept in object-oriented programming.
+</p>
+
+</div>
 </div>

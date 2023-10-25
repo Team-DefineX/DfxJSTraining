@@ -317,11 +317,11 @@ export const modules = [
         time: "20mins",
       },
       {
-        name: "Class Inheritance",
+        name: "Class Instance",
         time: "20mins",
       },
       {
-        name: "Extending Classes",
+        name: "Class Inheritance",
         time: "20mins",
       },
       {
