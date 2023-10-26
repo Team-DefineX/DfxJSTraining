@@ -11,10 +11,69 @@
 </h5>
 
 <p class="mt-3">
-    Sometimes, you may want the next operation to start with the result of the previous step when dealing with two or
-    more
-    related asynchronous operations. Here's an example that demonstrates this scenario:
+    Let's create a new Promise that represents an asynchronous operation that returns a text after 2 seconds:
 </p>
+
+<pre>
+    <code>
+    const myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Hello, World!');
+        }, 2000);
+    });
+    </code>
+</pre>
+
+<p><b>Note that the setTimeout() function simulates an asynchronous operation.</b></p>
+
+<p class="mt-3">
+    we can call the .then() method using this Promise. The .then() method takes a callback function that will be
+    executed
+    when the Promise is resolved. In the example below, the callback is executed when the Promise is resolved, and it
+    processes the result:
+</p>
+
+<pre>
+    <code>
+    myPromise.then((result) => {
+        console.log(result);
+        return result.toUpperCase();
+    });
+    </code>
+</pre>
+
+<p>
+    This .then() method takes the result, prints it in uppercase, and returns the result in uppercase. Now, we can
+    extend
+    this Promise chaining example with the next step:
+</p>
+
+<pre>
+    <code>
+    myPromise
+        .then((result) => {
+            console.log(result);
+            return result.toUpperCase();
+        })
+        .then((result) => {
+            console.log(result);
+            return result.split('').reverse().join('');
+        })
+            .then((result) => {
+            console.log(result);
+        });
+    </code>
+</pre>
+
+<p>Output:</p>
+
+<pre>
+    <code>
+    "Hello, World!"
+    "HELLO, WORLD!"
+    "!DLROW ,OLLEH"
+    </code>
+</pre>
 
 <p class="mt-3">
     Let's say we want to create a user record and then send a welcome email to that user. These two operations are not
