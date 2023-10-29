@@ -1,8 +1,7 @@
-<h5>Filtering Arrays</h5>
-These examples demonstrate how array filtering can be used with the heroProfiles
-array to extract specific elements based on certain conditions.
-<br /><br />
-<h6>Example Array of Heroes</h6>
+
+<p class="my-3">These examples demonstrate how array filtering can be used with the heroProfiles
+  array to extract specific elements based on certain conditions.</p>
+<h6>Example Array of Heroes</h6></br>
 <pre>
 <code class="javascript">
   let heroProfiles = [
@@ -36,7 +35,7 @@ array to extract specific elements based on certain conditions.
   Let's say we want to filter out the heroes from the heroProfiles array who
   possess the power of flight.<br />
   We can use the filter() method to accomplish this:
-</p>
+</p></br>
 <pre>
 <code class="javascript">
   let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
@@ -59,7 +58,7 @@ array to extract specific elements based on certain conditions.
   Let's consider filtering out heroes from the heroProfiles array who are older
   than 40 years. We can modify the filtering condition in the filter() method
   for this purpose:
-</p>
+</p></br>
 <pre>
 <code class="javascript">
   let heroesOlderThan40 = heroProfiles.filter(hero => hero.age > 40);
@@ -81,7 +80,7 @@ array to extract specific elements based on certain conditions.
 <p>
   Let's filter out the heroes from the heroProfiles array who have the secret
   identity "Bruce Wayne". We can achieve this by using the filter() method:
-</p>
+</p></br>
 <pre>
 <code class="javascript">
   let heroesWithSecretIdentity = heroProfiles.filter(hero => hero.secretIdentity === "Bruce Wayne");
@@ -104,7 +103,7 @@ array to extract specific elements based on certain conditions.
   Let's filter out the heroes from the heroProfiles array who possess both
   "Flight" and "Super Strength" powers. We can use the filter() method with a
   combination of the every() method:
-</p>
+</p></br>
 <pre>
 <code class="javascript">
   let heroesWithPowers = heroProfiles.filter(hero => hero.powers.every(power => ["Flight", "Super Strength"].includes(power)));
@@ -127,7 +126,7 @@ array to extract specific elements based on certain conditions.
   Let's filter out the heroes from the heroProfiles array who are older than 30
   and have the power "Superhuman Strength". We can use the filter() method with
   a custom condition:
-</p>
+</p></br>
 <pre>
 <code class="javascript">
   let filteredHeroes = heroProfiles.filter(hero => hero.age > 30 && hero.powers.includes("Superhuman Strength"));
