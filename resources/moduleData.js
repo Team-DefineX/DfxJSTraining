@@ -79,6 +79,14 @@ export const modules = [
         name: "String Interpolation",
         time: "5mins",
       },
+      {
+        name: "if...else Statement",
+        time: "10mins",
+      },
+      {
+        name: "Loop",
+        time: "10mins",
+      }
     ],
   },
   {

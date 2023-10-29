@@ -1,0 +1,147 @@
+<h3>
+    The “while” loop
+</h3>
+<p align="justify">
+    The <code>while</code> loop has the following syntax:
+</p>
+    <pre>
+    <code class="javascript">
+    while (condition) {
+        // loop body
+    }
+    </code>
+    </pre>
+<p align="justify">
+    While the <code>condition</code> is truthy, the <code>code</code> from the loop body is executed.
+</p>
+<br>
+<p align="justify">
+    For instance, the loop below outputs <code>i</code> while <code>x &lt; 5</code>:
+</p>
+    <pre>
+    <code class="javascript">
+    let x = 0;
+    while (x < 5) { // 0, then 1, 2, 3, 4
+        console.log(i);
+        i++;
+    }
+    </code>
+    </pre>
+<p align="justify">
+    A single execution of the loop body is called <em>an iteration</em>. The loop in the example above makes five iterations.
+</p>
+<br>
+<p align="justify">
+    If <code>x++</code> was missing from the example above, the loop would repeat (in theory) forever. In practice, the browser provides ways to stop such loops, and in server-side JavaScript, we can kill the process.
+</p>
+<br>
+<h3>
+    The “do…while” loop
+</h3>
+<p align="justify">
+    The condition check can be moved <em>below</em> the loop body using the <code>do..while</code> syntax:
+</p>
+    <pre>
+    <code class="javascript">
+    do {
+        // loop body
+    } while (condition);
+    </code>
+    </pre>
+<p align="justify">
+    The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
+</p>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    let x = 0;
+    do {
+        alert(x);
+        x++;
+    } while (x < 5);
+    </code>
+    </pre>
+<p align="justify">
+    This form of syntax should only be used when you want the body of the loop to execute <strong>at least once</strong> regardless of the condition being truthy. Usually, 
+    the other form is preferred: <code>while(…) {…}</code>.
+</p>
+<br>
+<h3>
+    The “for” loop
+</h3>
+<p align="justify">
+    The <code>for</code> loop is more complex, but it’s also the most commonly used loop.
+</p>
+<br>
+<p align="justify">
+    It looks like this:
+</p>
+    <pre>
+    <code class="javascript">
+    for (begin; condition; step) {
+        // loop body
+    }
+    </code>
+    </pre>
+<p align="justify">
+    Let’s learn the meaning of these parts by example. The loop below runs <code>console.log(x)</code> for <code>x</code> from <code>0</code> up to (but not including) <code>5</code>:
+</p>
+    <pre>
+    <code class="javascript">
+    for (let i = 0; i < 5; i++) { // 0, then 1, 2, 3, 4
+        console.log(i);
+    }
+    </code>
+    </pre>
+<h3>
+    Breaking the loop
+</h3>
+<p align="justify">
+    Normally, a loop exits when its condition becomes falsy.
+</p>
+<br>
+<p align="justify">
+    But we can force the exit at any time using the special <code>break</code> directive.
+</p>
+<br>
+<p align="justify">
+    For example, the loop below asks the user for a birth year, “breaking” when true year is entered:
+</p>
+    <pre>
+    <code class="javascript">
+    while (true) {
+        let birthYear = prompt("Which year is my birth year?", '');
+        if (birthYear == 1988) break;
+    }
+    </code>
+    </pre>
+<p align="justify">
+    The combination “infinite loop + <code>break</code> as needed” is great for situations when a loop’s condition must be checked not in the beginning or end of the loop, but in the middle or even in 
+    several places of its body.
+</p>
+<br>
+<h3>
+    Continue to the next iterations
+</h3>
+<p align="justify">
+    The <code>continue</code> directive is a “lighter version” of <code>break</code>. It doesn’t stop the whole loop. Instead, it stops the current iteration and forces the loop to start a new one (if the condition allows).
+</p>
+<br>
+<p align="justify">
+    We can use it if we’re done with the current iteration and would like to move on to the next one.
+</p>
+<br>
+<p align="justify">
+    The loop below uses <code>continue</code> to output only odd values:
+</p>
+    <pre>
+    <code class="javascript">
+    for (let x = 0; x < 10; x++) {
+        // if true, skip the remaining part of the body
+        if (x % 2 == 0) continue;
+        console.log(x); // 1, then 3, 5, 7, 9
+    }
+    </code>
+    </pre>
