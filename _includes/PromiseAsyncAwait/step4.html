@@ -1,46 +1,207 @@
 <p>
-    In JavaScript, to handle errors that occur in a Promise chain, we use a method called .catch(). The .catch() method
-    is
-    used to handle any errors thrown by any previous Promise in the chain.
+    When working with Promises in JavaScript, effectively handling errors is crucial for maintaining the stability and
+    reliability of your asynchronous code. Let's delve into how errors are handled using Promises.
 </p>
 
 <h5 class="mt-3">
-    Example of Error Handling Using .catch():
+    Errors Inside Promises
 </h5>
+
+<p class="mt-3">Suppose you have a function called fetchUserData() that returns a Promise:</p>
 
 <pre>
     <code>
-     function divideNumbersAsync(a, b) {
-         return new Promise((resolve, reject) => {
-             if (typeof a !== 'number' || typeof b !== 'number') {
-                 reject(new Error('Both arguments must be numbers.'));
-             } else if (b === 0) {
-                 reject(new Error('Division by zero is not allowed.'));
-             } else {
-                 resolve(a / b);
-             }
-         });
-     }
-     
-     // Example: Division and error handling
-     function performDivisionAsync(a, b) {
-         divideNumbersAsync(a, b)
-             .then((result) => {
-                 console.log(`${a} / ${b} = ${result}`);
-             })
-             .catch((error) => {
-                 console.error('Error:', error.message);
-             });
-     }
-     
-     // Example calls
-     performDivisionAsync(10, 2); // Valid division
-     performDivisionAsync(8, 0); // Division by zero error
-     performDivisionAsync('abc', 5); // Invalid arguments error
+    function fetchUserData(userId) {
+        return new Promise((resolve, reject) => {
+            resolve({
+                userId: userId,
+                username: 'john_doe'
+            });
+        });
+    }
     </code>
 </pre>
 
+<h5>Normal Errors</h5>
+
 <p class="mt-3">
-    In this example, the function divideNumbersAsync returns a Promise to perform division. We handle error cases using
-    Promise rejections. If an error occurs, we catch it in the .catch() block and log the error message.
+    First, let's modify the fetchUserData() function to throw an error outside the Promise if the userId is not a
+    positive
+    number:
+</p>
+
+<pre>
+    <code>
+    function fetchUserData(userId) {
+        if (typeof userId !== 'number' || userId <= 0) { 
+            throw new Error('Invalid user ID argument'); 
+        } 
+        
+        return new Promise((resolve, reject)=> {
+            resolve({
+                userId: userId,
+                username: 'john_doe'
+            });
+        });
+    }
+    </code>
+</pre>
+
+<p>Now, handle the Promise using both the .then() and .catch() methods:</p>
+
+<pre>
+    <code>
+    fetchUserData('invalid')
+        .then(userData => console.log(userData.username))
+        .catch(error => console.log(`Caught by .catch: ${error.message}`));
+    </code>
+</pre>
+
+<p>The code will throw an error:</p>
+
+<pre>
+    <code>
+    Uncaught Error: Invalid user ID argument    
+    </code>
+</pre>
+
+<p>When an exception is raised outside the Promise, it must be caught using a try/catch block:</p>
+
+<pre>
+    <code>
+    try {
+        fetchUserData('invalid')
+            .then(userData => console.log(userData.username))
+            .catch(error => console.log(`Caught by .catch: ${error.message}`));
+    } catch (error) {
+        console.log(`Caught by try/catch: ${error.message}`);
+    }
+    </code>
+</pre>
+
+<p>Output:</p>
+
+<pre>
+    <code>
+    Uncaught Error: Invalid user ID argument    
+    </code>
+</pre>
+
+
+<h5>Errors Within Promises</h5>
+
+<p>
+    Let's change the fetchUserData() function to throw an error inside the Promise if the user is not authorized:
+</p>
+
+<pre>
+    <code>
+    let authorized = false;
+    
+    function fetchUserData(userId) {
+        return new Promise((resolve, reject) => {
+            if (!authorized) {
+                reject(new Error('Unauthorized access to user data'));
+            }
+
+            resolve({
+                userId: userId,
+                username: 'john_doe'
+            });
+        });
+    }
+    </code>
+</pre>
+
+<p>And consume the Promise:</p>
+
+<pre>
+    <code>
+    try {
+        fetchUserData(10)
+            .then(userData => console.log(userData.username))
+            .catch(error => console.log(`Caught by .catch: ${error.message}`));
+    } catch (error) {
+        console.log(`Caught by try/catch: ${error.message}`);
+    }
+    </code>
+</pre>
+
+<p>Output:</p>
+
+<pre>
+    <code>
+    Caught by .catch: Unauthorized access to user data
+    </code>
+</pre>
+
+<p>If you throw an error inside the Promise, it will be caught by the .catch() method, not the try/catch block.</p>
+
+<p class="mt-3">
+    If you chain Promises, the .catch() method will handle errors that occur in any Promise.
+</p>
+
+<p class="mt-3">
+    For example:
+</p>
+
+<pre>
+    <code>
+    promise1
+        .then(promise2)
+        .then(promise3)
+        .then(promise4)
+        .catch(error => console.log(error.message));
+    </code>
+</pre>
+
+<p>
+    In this example, if any error occurs in promise1, promise2, or promise4, the .catch() method will handle it.
+</p>
+
+<h5 class="mt-3">
+    Missing the .catch() Method
+</h5>
+
+<p class="mt-3">
+    The following example does not provide the .catch() method to handle errors inside the Promise. This will result in
+    a runtime error and terminate the program:
+</p>
+
+<pre>
+    <code>
+    function fetchUserData(userId) {
+        return new Promise((resolve, reject) => {
+            if (!authorized) {
+                reject('Unauthorized access to user data');
+            }
+            resolve({
+                userId: userId,
+                username: 'john_doe'
+            });
+        });
+    }
+    
+    try {
+        fetchUserData(10)
+            .then(userData => console.log(userData.username));
+        // The following code will not execute
+        console.log('next');
+    } catch (error) {
+        console.log(`Caught by try/catch: ${error}`);
+    }
+    </code>
+</pre>
+
+<p>Output:</p>
+
+<pre>
+    <code>
+    Uncaught (in promise) Unauthorized access to user data
+    </code>
+</pre>
+
+<p>
+    If the Promise is resolved, you can omit the .catch() method. However, a potential error in the future may cause the
+    program to unexpectedly terminate.
 </p>
