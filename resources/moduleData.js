@@ -399,7 +399,11 @@ export const modules = [
       },
       {
         name: "'navigator' Object",
-        time: "30mins",
+        time: "15mins",
+      },
+      {
+        name: "'screen' Object",
+        time: "10mins",
       },
     ],
   },
