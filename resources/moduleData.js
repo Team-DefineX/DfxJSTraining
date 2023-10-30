@@ -124,16 +124,20 @@ export const modules = [
       },
       {
         name: "this",
-        time: "10ins",
+        time: "10mins",
       },
       {
         name: "Prototype",
-        time: "10ins",
+        time: "10mins",
       },
       {
         name: "Arrow Function",
-        time: "5ins",
+        time: "5mins",
       },
+      {
+        name: "JSON",
+        time: "10mins",
+      }
     ],
   },
   {
