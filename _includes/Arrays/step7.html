@@ -1,4 +1,3 @@
-<h5>Array Mapping in JavaScript: Explained with Examples</h5>
 <p>
   Array mapping is a powerful technique in JavaScript that allows you to
   transform each element of an array into a new value and create a new array
@@ -6,12 +5,9 @@
   perform operations on array elements and generate a modified array. In this
   article, we will explore various examples of array mapping using a sample
   array of hero profiles.
-</p>
-</div>
+</p></br>
 
-<div class="container mt-3">
-
-  <h5>Consider the following array as our starting point:</h5>
+<h6>Consider the following array as our starting point</h6></br>
 
 <pre>
 <code class="javascript">
@@ -47,7 +43,7 @@ let heroProfiles = [
     only their names. We can achieve this using the map() method, which creates
     a new array with the results of calling a provided function on every element
     in the array.
-  </p>
+  </p></br>
   <pre>
 <code class="javascript">
 let heroNames = heroProfiles.map(hero => hero.name);
@@ -60,15 +56,14 @@ let heroNames = heroProfiles.map(hero => hero.name);
     (heroNames) by iterating over each element of the heroProfiles array. The
     arrow function hero => hero.name extracts the name property from each hero
     profile, and the resulting names are included in the new array.
-  </p>
-</div>
+  </p></br>
 
-<div class="container mt-3">
   <h5>Example 2: Mapping to extract hero powers</h5>
   <p>
     Let's map the hero profiles to extract their powers as separate arrays. We
     can achieve this by using the map() method.
-  </p>
+  </p></br>
+  
   <pre>
 <code class="javascript">
 let heroPowers = heroProfiles.map(hero => hero.powers);
@@ -84,16 +79,15 @@ let heroPowers = heroProfiles.map(hero => hero.powers);
     into a new value. The map() method simplifies the process by creating a new
     array with the mapped values, allowing you to perform operations on array
     elements in a concise and efficient manner.
-  </p>
-</div>
+  </p></br>
 
-<div class="container mt-3">
   <h5>Example 3: Mapping to calculate hero ages in dog years</h5>
   <p>
     Let's now consider mapping the hero profiles to calculate their ages in dog
     years. We can achieve this by modifying the mapping operation in the map()
     method.
-  </p>
+  </p></br>
+
   <pre>
 <code class="javascript">
 let dogYearsAges = heroProfiles.map(hero => hero.age * 7);
@@ -105,16 +99,16 @@ let dogYearsAges = heroProfiles.map(hero => hero.age * 7);
     In the above example, the arrow function hero => hero.age * 7 multiplies
     each hero's age by 7 to calculate their age in dog years, and the resulting
     values are included in the new array dogYearsAges.
-  </p>
+  </p></br>
 </div>
 
-<div class="container mt-3">
   <h5>Example 4: Mapping to calculate hero power levels</h5>
   <p>
     Let's map the hero profiles to calculate their power levels based on the
     number of powers they possess. We can achieve this by using a combination of
     array mapping and reducing the powers array.
-  </p>
+  </p></br>
+
   <pre>
 <code class="javascript">
 let heroPowerLevels = heroProfiles.map(hero => {
@@ -139,16 +133,15 @@ let heroPowerLevels = heroProfiles.map(hero => {
     For each hero, we calculate their power level by multiplying the length of
     their powers array by 10. We then create a new object containing the hero's
     name and power level, which is included in the heroPowerLevels array.
-  </p>
-</div>
+  </p></br>
 
-<div class="container mt-3">
   <h5>Example 5: Mapping to capitalize hero names</h5>
   <p>
     Let's map the hero profiles to capitalize the names of the heroes. We can
     achieve this by using the map() method along with string manipulation
     methods.
-  </p>
+  </p></br>
+
   <pre>
 <code class="javascript">
 let capitalizedNames = heroProfiles.map(hero => {
@@ -173,17 +166,15 @@ let capitalizedNames = heroProfiles.map(hero => {
     For each hero, we capitalize their name by using the toUpperCase() method.
     We then create a new object by spreading the original hero profile
     (...hero), but with the updated capitalized name.
-  </p>
-</div>
+  </p></br>
 
-<div class="container mt-3">
   <h5>Example 6: Mapping to filter and transform hero powers</h5>
   <p>
     Let's map the hero profiles to filter out powers that contain the word
     "Strength" and transform the remaining powers to lowercase. We can achieve
     this by using the map() method in combination with the filter() and map()
     methods.
-  </p>
+  </p></br>
   <pre>
 <code class="javascript">
 let transformedPowers = heroProfiles.map(hero => {

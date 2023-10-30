@@ -1,0 +1,182 @@
+<h3>
+    The “if” statement
+</h3>
+<p align="justify">
+    The <code>if(...)</code> statement evaluates a condition in parentheses and, if the result is <code>true</code>, executes a block of code.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear == 1988) console.log('You are right!');
+    </code>
+    </pre>
+<p align="justify">
+    In the example above, the condition is a simple equality check (<code>bornYear == 1988</code>), but it can be much more complex.
+</p>
+<p align="justify">
+    If we want to execute more than one statement, we have to wrap our code block inside curly braces:
+</p>
+    <pre>
+    <code class="javascript">
+    if (bornYear == 1988) {
+        console.log("That's correct!");
+        console.log("Do not be sad. You ara not old :D");
+    }
+    </code>
+    </pre>
+<p align="justify">
+    We recommend wrapping your code block with curly braces <code>{}</code> every time you use an <code>if</code> statement, even if there is only one statement to execute. Doing so improves readability.
+</p>
+<br>
+<h3>
+    Boolean conversion
+</h3>
+<p align="justify">
+    The <code>if (…)</code> statement evaluates the expression in its parentheses and converts the result to a boolean.
+</p>
+<br>
+<p align="justify">
+    Let’s recall the conversion rules from the chapter Type Conversions:
+</p>
+<ul>
+    <li>
+        A number <code>0</code>, an empty string <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code> all become <code>false</code>. Because of that they are called “falsy” values.
+    </li>
+    <li>
+        Other values become <code>true</code>, so they are called “truthy”.
+    </li>
+</ul>
+<p align="justify">
+    So, the code under this condition would never execute:
+</p>
+    <pre>
+    <code class="javascript">
+    if (0) { // 0 is falsy
+         ...
+    }
+    </code>
+    </pre>
+<p align="justify">
+    …and inside this condition – it always will:
+</p>
+    <pre>
+    <code class="javascript">
+    if (1) { // 1 is truthy
+        ...
+    }
+    </code>
+    </pre>
+<p align="justify">
+    We can also pass a pre-evaluated boolean value to <code>if</code>, like this:
+</p>
+    <pre>
+    <code class="javascript">
+    let cond = (bornYear == 1988); // equality evaluates to true or false
+
+    if (cond) {
+        ...
+    }
+    </code>
+    </pre>
+<h3>
+    The “else” clause
+</h3>
+<p align="justify">
+    The <code>if</code> statement may contain an optional <code>else</code> block. It executes when the condition is falsy.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear == 1988) {
+        alert('You guessed it right!');
+    } else {
+        alert('oh no'); // any value except 1988
+    }
+    </code>
+    </pre>
+<h3>
+    Several conditions: “else if”
+</h3>
+<p align="justify">
+    Sometimes, we’d like to test several variants of a condition. The <code>else if</code> clause lets us do that.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear < 1988) {
+        alert('I am not so old');
+    } else if (bornYear > 1988) {
+        alert('I am not so young');
+    } else {
+        alert('Well done!');
+    }
+    </code>
+    </pre>
+<p align="justify">
+    In the code above, JavaScript first checks <code>year &lt; 1988</code>. If that is falsy, it goes to the next condition <code>year &gt; 1988</code>. If that is also falsy, it shows the last <code>alert</code>.
+</p>
+<br>
+<p align="justify">
+    There can be more <code>else if</code> blocks. The final <code>else</code> is optional.
+</p>
+<br>
+<h3>
+    Conditional operator ‘?’
+</h3>
+<p align="justify">
+    Sometimes, we need to assign a variable depending on a condition.
+</p>
+<br>
+<p align="justify">
+    For instance:
+</p>
+    <pre>
+    <code class="javascript">
+    let accessAllowed;
+    let age = prompt('How old are you?', '');
+
+    if (age > 18) {
+        accessAllowed = true;
+    } else {
+        accessAllowed = false;
+    }
+
+    console.log(accessAllowed);
+    </code>
+    </pre>
+<p align="justify">
+    The so-called “conditional” or “question mark” operator lets us do that in a shorter and simpler way.
+</p>
+<p align="justify">
+    The operator is represented by a question mark <code>?</code>. Sometimes it’s called “ternary”, because the operator has three operands. It is actually the one and only operator in JavaScript which has that many.
+</p>
+    <pre>
+    <code class="javascript">
+    let result = condition ? value1 : value2;
+    </code>
+    </pre>
+<p align="justify">
+    The <code>condition</code> is evaluated: if it’s truthy then <code>value1</code> is returned, otherwise – <code>value2</code>.
+</p>
+    <pre>
+    <code class="javascript">
+    let accessAllowed = (age > 18) ? true : false;
+    </code>
+    </pre>
+<p align="justify">
+    Technically, we can omit the parentheses around <code>age &gt; 18</code>. The question mark operator has a low precedence, so it executes after the comparison <code>&gt;</code>.
+</p>
+<br>
+<p align="justify">
+    This example will do the same thing as the previous one:
+</p>
+    <pre>
+    <code class="javascript">
+    // the comparison operator "age > 18" executes first anyway
+    // (no need to wrap it into parentheses)
+    let accessAllowed = age > 18 ? true : false;
+    </code>
+    </pre>
