@@ -397,6 +397,10 @@ export const modules = [
         name: "'location' Object",
         time: "30mins",
       },
+      {
+        name: "'navigator' Object",
+        time: "30mins",
+      },
     ],
   },
   {
