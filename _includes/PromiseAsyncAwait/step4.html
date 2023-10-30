@@ -201,7 +201,45 @@
     </code>
 </pre>
 
-<p>
+<p class="mb-3">
     If the Promise is resolved, you can omit the .catch() method. However, a potential error in the future may cause the
     program to unexpectedly terminate.
 </p>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Create a Promise that simulates fetching data and intentionally throw an error. Handle the error using the
+            .catch()
+            method.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/sotbk2gm/embedded/js/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            Create a Promise that simulates a successful operation and use the .finally() method to perform cleanup
+            after the
+            Promise is settled.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="320" src="//jsfiddle.net/TeamDFX/wabL6gem/1/embedded/js/dark/"
+                allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
