@@ -395,7 +395,7 @@ export const modules = [
       },
       {
         name: "'location' Object",
-        time: "30mins",
+        time: "20mins",
       },
       {
         name: "'navigator' Object",
@@ -404,6 +404,10 @@ export const modules = [
       {
         name: "'screen' Object",
         time: "10mins",
+      },
+      {
+        name: "'history' Object",
+        time: "5mins",
       },
     ],
   },
