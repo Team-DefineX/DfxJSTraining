@@ -146,4 +146,41 @@ location.replace("https://www.example.com/new-page");
 location.reload();
     </code>
   </pre>
+  <h6 class="my-3">URLSearchParams</h6>
+  <p>
+    <code>URLSearchParams</code> is a class in the JavaScript language and is used to handle querying URLs in web browsers.
+    The <code>URLSearchParams</code> is used to extract query parameters from a <code>URL</code>, add or modify query parameters, and is also a useful tool to convert query parameters to a string or extract query parameters from a string.
+  </p>
+  <pre>
+    <code class="javascript">
+const urlParams = new URLSearchParams(location.search);
+for (const [key, value] of urlParams) {
+    console.log(`${key}:${value}`);
+}
+    </code>
+  </pre>
+  <h6 class="my-3">Redirect to a new URL</h6>
+  <p>
+    You can change the URL using the <code>location</code> object in JavaScript. To completely change the URL, you can use either <code>location.href</code> or the <code>location.assign()</code> method. Examples of how to use both methods:
+  </p>
+  <p>
+    Changing the URL using <code>location.href</code>:
+  </p>
+  <pre>
+    <code class="javascript">
+location.href = "https://www.example.com/newpage.html";
+    </code>
+  </pre>
+  <p>
+    Changing the URL using the <code>location.assign()</code> or <code>location.replace()</code> methods:
+  </p>
+  <pre>
+    <code class="javascript">
+location.assign("https://www.example.com/newpage.html");
+location.replace("https://www.example.com/newpage.html");
+    </code>
+  </pre>
+  <p>
+    <b>Remember:</b> To redirect to a new URL without creating a new entry in the history stack of the browser, you use the <code>replace()</code> method of the location object.
+  </p>
 </div>

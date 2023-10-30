@@ -407,7 +407,19 @@ export const modules = [
       },
       {
         name: "'location' Object",
-        time: "30mins",
+        time: "20mins",
+      },
+      {
+        name: "'navigator' Object",
+        time: "15mins",
+      },
+      {
+        name: "'screen' Object",
+        time: "10mins",
+      },
+      {
+        name: "'history' Object",
+        time: "5mins",
       },
     ],
   },
