@@ -72,6 +72,36 @@ handleWindowDimensions();
     </code>
   </pre>
 
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Write code that displays the screen width and height on the screen as the browser's width and height changes (like this width - contentWidth)
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/z6mo37xd/5/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
   <h6 class="my-3">screenX - screenY</h6>
   <p>
     The <code>window.screenX</code> and <code>window.screenY</code> properties provide the position of the browser window on the screen. These properties represent the horizontal (X) and vertical (Y) coordinates of the top-left corner of the browser window on the screen. Here's a simple example using these properties:
@@ -104,14 +134,14 @@ trackWindowPosition();
   </pre>
 
 
-  <h6 class="my-3">pageXOffset - pageYOffset</h6>
+  <h6 class="my-3">scrollX - scrollY</h6>
   <p>
-    The <code>window.pageXOffset</code> and <code>window.pageYOffset</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
+    The <code>window.scrollX</code> and <code>window.scrollY</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
   </p>
   <pre>
     <code class="javascript">
-console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
-console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
+console.log("Horizontal scroll amount of the page: " + window.scrollX + " pixels");
+console.log("Vertical scroll amount of the page: " + window.scrollY + " pixels");
     </code>
   </pre>
   <p>
@@ -123,8 +153,8 @@ console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixe
   <pre>
     <code class="javascript">
 function trackScrollPosition() {
-  console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
-  console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
+  console.log("Horizontal scroll amount of the page: " + window.scrollX + " pixels");
+  console.log("Vertical scroll amount of the page: " + window.scrollY + " pixels");
 }
 
 // Call this function as the page is scrolled
@@ -134,8 +164,6 @@ window.addEventListener("scroll", trackScrollPosition);
 trackScrollPosition();
     </code>
   </pre>
-
-
 
 
   <h6 class="my-3">pageXOffset - pageYOffset</h6>
@@ -170,6 +198,38 @@ trackScrollPosition();
   </pre>
   <p>
     <strong>Note:</strong>The <code>pageXOffset</code> and <code>pageYOffset</code> property is equal to the <code>scrollX</code> and <code>scrollY</code> property.
+  </p>
+
+  <hr>
+
+  <h6 class="my-3">open() - close()</h6>
+  <p>
+    The <code>window.open()</code> JavaScript method is used to open a new browser window or tab. This method allows you to specify the URL of the new window, its name, and the window features. Here's the usage of <code>window.open()</code> and an example:
+  </p>
+  <pre>
+    <code class="javascript">
+window.open(URL, windowName, windowFeatures);
+    </code>
+  </pre>
+  <ul>
+    <li><strong>URL</strong>: Represents the URL of the page to be opened. This parameter specifies where the content for the new window will be retrieved from.</li>
+    <li><strong>windowName</strong>: Specifies the name of the new window (or target frame). This parameter identifies the new window or tab. Using the same name will reuse the same window.</li>
+    <li><strong>windowFeatures</strong>: Sets the characteristics of the new window. This parameter defines the size, position, and other properties of the opened window.</li>
+  </ul>
+  <pre>
+    <code class="javascript">
+const newWindow = window.open("https://www.example.com", "NewWindow", "width=600, height=400");
+
+setTimeout(() => {
+    newWindow.close();
+}, 3000);
+    </code>
+  </pre>
+  <p>
+    This code opens a new window with the URL "https://www.example.com" and closes it after 3 seconds. The window is given the name "NewWindow," and its features are set to "width=600, height=400," defining the initial dimensions of the new window.
+  </p>
+  <p>
+    Subsequently, the newWindow object returned by the <code>window.open()</code> method can be used to interact with the opened window, such as closing it or modifying its content.
   </p>
 
 
@@ -224,6 +284,34 @@ setTimeout(function() {
 }, 2000);
     </code>
   </pre>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let there be 4 buttons. One to open a new window. Let the other three be used to change the size of this window. (400px, 600px, 800px)
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/Levfxywm/3/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
+      </div>
+    </div>
+  </div>
 
 
   <h6 class="my-3">location</h6>
@@ -314,37 +402,6 @@ console.log("New Window Name: " + newWindow.name);
   </p>
 
 
-  <h6 class="my-3">open() - close()</h6>
-  <p>
-    The <code>window.open()</code> JavaScript method is used to open a new browser window or tab. This method allows you to specify the URL of the new window, its name, and the window features. Here's the usage of <code>window.open()</code> and an example:
-  </p>
-  <pre>
-    <code class="javascript">
-window.open(URL, windowName, windowFeatures);
-    </code>
-  </pre>
-  <ul>
-    <li><strong>URL</strong>: Represents the URL of the page to be opened. This parameter specifies where the content for the new window will be retrieved from.</li>
-    <li><strong>windowName</strong>: Specifies the name of the new window (or target frame). This parameter identifies the new window or tab. Using the same name will reuse the same window.</li>
-    <li><strong>windowFeatures</strong>: Sets the characteristics of the new window. This parameter defines the size, position, and other properties of the opened window.</li>
-  </ul>
-  <pre>
-    <code class="javascript">
-const newWindow = window.open("https://www.example.com", "NewWindow", "width=600, height=400");
-
-setTimeout(() => {
-    newWindow.close();
-}, 3000);
-    </code>
-  </pre>
-  <p>
-    This code opens a new window with the URL "https://www.example.com" and closes it after 3 seconds. The window is given the name "NewWindow," and its features are set to "width=600, height=400," defining the initial dimensions of the new window.
-  </p>
-  <p>
-    Subsequently, the newWindow object returned by the <code>window.open()</code> method can be used to interact with the opened window, such as closing it or modifying its content.
-  </p>
-
-
   <h6 class="my-3">opener</h6>
   <p>
     The <code>window.opener</code> property represents the object of the parent window from which a pop-up window was opened. This property can be used by the pop-up window to communicate with the parent window. Here's a simple example of using the <code>window.opener</code> property:
@@ -404,8 +461,6 @@ setTimeout(() => {
   <p>
     In this code example, we've created a "Parent Window" HTML page and a "Pop-up Window" HTML page. When you click a button in the parent window, it opens a pop-up window, and this pop-up window uses <code>window.opener</code> to send a notification to the parent window. You can access and send notifications to the parent window using <code>window.opener</code>.
   </p>
-
-
 
 
   <h6 class="my-3">closed</h6>
@@ -538,5 +593,82 @@ let age = Number(ageText);
 console.log('Your age is ' + age);
     </code>
   </pre>
+
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Get product name and product quantity from user. Open a new window with these query parameters. Display this information in the newly opened window.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <h6 class="my-3">index.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Parent Window&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button onclick="getParams()"&gt;Get Product&lt;/button&gt;
+    &lt;script&gt;
+        function getParams() {
+          let productName = prompt('Product Name ?');
+          let productQuantity = prompt('Product Quantity ?');
+          let quantity = Number(productQuantity);
+
+          const newURL = new URL("popup.html", window.location.href);
+          newURL.searchParams.set("productName", productName);
+          newURL.searchParams.set("productQuantity", quantity);
+
+          const popup = window.open(newURL, "Product Card", "width=400, height=400");
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+
+        <h6 class="my-3">popup.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Product Card&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;
+    &lt;strong&gt;Product Name:&lt;/strong&gt; &lt;span&gt; id="productNameID"&gt;-&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;strong&gt;Product Quantity:&lt;/strong&gt; &lt;span&gt; id="productQuantityID"&gt;-&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;script&gt;&gt;
+    function getParams () {
+      const searchParams = new URLSearchParams(window.location.search);
+      document.getElementById("productNameID").innerText = searchParams.get("productName")
+      document.getElementById("productQuantityID").innerText = searchParams.get("productQuantity")
+    }
+
+    getParams()
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
 
 </div>
