@@ -1,5 +1,5 @@
 <div>
-  <h5 class="my-3">'Location' Object</h5>
+  <h5 class="my-3">Location Object</h5>
   <p>
     As part of the BOM, the <code>location</code> object represents the URL of the browser and is used to change the URL of the browser window or navigate in the browser.
     You can access the <code>location</code> object by referencing the <code>location</code> property of the <code>window</code> or <code>document</code> object.
@@ -18,7 +18,7 @@ location.href = "http://localhost:3000/api/products?type=phones&page=2";
 console.log(location.href);
     </code>
   </pre>
-  <h6 class="my-3">Location.protocol</h6>
+  <h6 class="mb-3">Location.protocol</h6>
   <p>
     This property allows you to determine and access the protocol used by the page. It is particularly important for security and browser settings.
   </p>
@@ -31,7 +31,7 @@ let pageProtocol = location.protocol;
 console.log("Page Protocol: " + pageProtocol);
     </code>
   </pre>
-  <h6 class="my-3">Location.host</h6>
+  <h6 class="mb-3">Location.host</h6>
   <p>
     This property allows you to determine which server hosts the page and the port that is being used.
   </p>
@@ -44,7 +44,7 @@ let pageHost = location.host;
 console.log("Page Hostname and Port: " + pageHost);
     </code>
   </pre>
-  <h6 class="my-3">Location.port</h6>
+  <h6 class="mb-3">Location.port</h6>
   <p>
     The <code>location.port</code> represents the port number of the URL.
   </p>
@@ -54,7 +54,7 @@ let port = location.port;
 console.log("Port: " + port);
     </code>
   </pre>
-  <h6 class="my-3">Location.pathname</h6>
+  <h6 class="mb-3">Location.pathname</h6>
   <p>
     This property contains the file path and file name in the page's URL. For example, if the current page URL is <b>"https://www.example.com/products/shoes.html"</b> <code>location.pathname</code> will contain the string <b>"/products/shoes.html"</b>
   </p>
@@ -67,7 +67,7 @@ let pagePathname = location.pathname;
 console.log("Page Pathname: " + pagePathname);
     </code>
   </pre>
-  <h6 class="my-3">Location.search</h6>
+  <h6 class="mb-3">Location.search</h6>
   <p>
     The query string contains a list of parameters after the "?" character in the URL and is typically used to transmit data or specify queries.
   </p>
@@ -83,7 +83,7 @@ let queryString = location.search;
 console.log("Query String: " + queryString);
     </code>
   </pre>
-  <h6 class="my-3">Location.hash</h6>
+  <h6 class="mb-3">Location.hash</h6>
   <p>
     An anchor, or hash, is the portion of the URL that comes after the "#" character and is typically used to reference a particular section or location within a page. Anchors are commonly used to provide direct links to specific sections or positions within web pages.
   </p>
@@ -100,7 +100,7 @@ let anchor = location.hash;
 console.log("Anchor: " + anchor);
     </code>
   </pre>
-  <h6 class="my-3">Location.origin</h6>
+  <h6 class="mb-3">Location.origin</h6>
   <p>
     The page origin includes the protocol, hostname, and port number of a URL. This identifies where the page is hosted and through which port it can be accessed.
   </p>
@@ -110,7 +110,7 @@ let pageOrigin = location.origin;
 console.log("Page Origin: " + pageOrigin);
     </code>
   </pre>
-  <h6 class="my-3">Manipulating the location:</h6>
+  <h6 class="mb-2">Manipulating the location:</h6>
   <h6 class="my-3">assign()</h6>
   <p>
     <code>location.assign()</code> is a method used in JavaScript to redirect the current page's URL in the browser to another URL. This method not only redirects the browser window to a specific URL but also adds a new entry to the browser's navigation history. This allows users to go back to the previous page using the browser's "Back" button.
@@ -128,7 +128,7 @@ location.assign("https://www.example.com/new-page");
 window.location.href = "https://www.example.com/new-page";
     </code>
   </pre>
-  <h6 class="my-3">replace()</h6>
+  <h6 class="mb-3">replace()</h6>
   <p>
     <code>location.replace()</code> is a method used in JavaScript to change the URL of the current page in the browser to a different URL. Similar to the <code>location.assign()</code> method, it redirects the page to a specific URL; however, when <code>location.replace()</code> is used, it <b>does not add a new entry</b> to the browser's navigation history. This means that users <b>cannot go back</b> to the previous page using the browser's "Back" button.
   </p>
@@ -137,7 +137,7 @@ window.location.href = "https://www.example.com/new-page";
 location.replace("https://www.example.com/new-page");
     </code>
   </pre>
-  <h6 class="my-3">reload()</h6>
+  <h6 class="mb-3">reload()</h6>
   <p>
     <code>location.reload()</code> is a method used in JavaScript to reload the current page in the browser. This method is used to refresh the content and resources of the current page. After the page is reloaded, all content and scripts are reinitialized.
   </p>
@@ -146,7 +146,7 @@ location.replace("https://www.example.com/new-page");
 location.reload();
     </code>
   </pre>
-  <h6 class="my-3">URLSearchParams</h6>
+  <h6 class="mb-3">URLSearchParams</h6>
   <p>
     <code>URLSearchParams</code> is a class in the JavaScript language and is used to handle querying URLs in web browsers.
     The <code>URLSearchParams</code> is used to extract query parameters from a <code>URL</code>, add or modify query parameters, and is also a useful tool to convert query parameters to a string or extract query parameters from a string.
@@ -159,7 +159,7 @@ for (const [key, value] of urlParams) {
 }
     </code>
   </pre>
-  <h6 class="my-3">Redirect to a new URL</h6>
+  <h6 class="mb-3">Redirect to a new URL</h6>
   <p>
     You can change the URL using the <code>location</code> object in JavaScript. To completely change the URL, you can use either <code>location.href</code> or the <code>location.assign()</code> method. Examples of how to use both methods:
   </p>
@@ -184,9 +184,9 @@ location.replace("https://www.example.com/newpage.html");
     <b>Remember:</b> To redirect to a new URL without creating a new entry in the history stack of the browser, you use the <code>replace()</code> method of the location object.
   </p>
 
-  <h4 class="d-flex">
+  <h4 class="d-flex mt-3">
     <i class="bi bi-check-circle-fill" style="color: green"></i>
-    <span class="px-2">Task</span>
+    <span class="px-2">Tasks</span>
   </h4>
 
   <div class="question">
@@ -212,10 +212,10 @@ location.replace("https://www.example.com/newpage.html");
     </div>
   </div>
 
-  <h4 class="d-flex">
+  <!-- <h4 class="d-flex">
     <i class="bi bi-check-circle-fill" style="color: green"></i>
     <span class="px-2">Task</span>
-  </h4>
+  </h4> -->
 
   <div class="question">
     <div>

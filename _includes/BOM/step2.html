@@ -1,12 +1,11 @@
 <div>
+  <h5 class="my-3">Window Object</h5>
   <p>
     The <strong>"window"</strong> object is a JavaScript object that represents the browser window. This object provides
     access to various properties, methods, and other information about the browser window. The
     </strong>"window"</strong> object is the primary point of interaction with the browser window when developing web
     applications, and it is commonly used to control the behavior of the browser window using JavaScript.
   </p>
-  <hr>
-
 
   <h6 class="my-3">innerWidth - innerHeight</h6>
   <p>
@@ -40,8 +39,7 @@ handleWindowSizeChange();
   </pre>
 
 
-
-  <h6 class="my-3">outerWidth - outherHeight</h6>
+  <h6 class="mb-3">outerWidth - outherHeight</h6>
   <p>
     The <code>window.outerWidth</code> and </code>window.outerHeight</code> properties provide information about the total width and height of the browser window, including all interface elements such as browser bars, toolbars, and other user interface components. Here is a simple example using these properties:
   </p>
@@ -100,8 +98,6 @@ handleWindowDimensions();
     </div>
   </div>
 
-  <hr>
-
   <h6 class="my-3">screenX - screenY</h6>
   <p>
     The <code>window.screenX</code> and <code>window.screenY</code> properties provide the position of the browser window on the screen. These properties represent the horizontal (X) and vertical (Y) coordinates of the top-left corner of the browser window on the screen. Here's a simple example using these properties:
@@ -134,7 +130,7 @@ trackWindowPosition();
   </pre>
 
 
-  <h6 class="my-3">scrollX - scrollY</h6>
+  <h6 class="mb-3">scrollX - scrollY</h6>
   <p>
     The <code>window.scrollX</code> and <code>window.scrollY</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
   </p>
@@ -166,7 +162,7 @@ trackScrollPosition();
   </pre>
 
 
-  <h6 class="my-3">pageXOffset - pageYOffset</h6>
+  <h6 class="mb-3">pageXOffset - pageYOffset</h6>
   <p>
     The <code>window.pageXOffset</code> and <code>window.pageYOffset</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
   </p>
@@ -199,8 +195,6 @@ trackScrollPosition();
   <p>
     <strong>Note:</strong>The <code>pageXOffset</code> and <code>pageYOffset</code> property is equal to the <code>scrollX</code> and <code>scrollY</code> property.
   </p>
-
-  <hr>
 
   <h6 class="my-3">open() - close()</h6>
   <p>
@@ -352,7 +346,7 @@ window.addEventListener("popstate", function(event) {
   <p>
     The code above interacts with the browser's navigation history to track changes in the page's URL.
   </p>
-  <h6>Working with URL Parameters:</h6>
+  <h6 class="my-3">Working with URL Parameters:</h6>
   <p>
     The <code>window.location</code> property allows you to work with URL parameters. For example, to retrieve parameters from the URL:
   </p>
@@ -516,7 +510,7 @@ document.getElementById("demo").innerHTML = text;
   </pre>
 
 
-  <h6 class="my-3">alert()</h6>
+  <h6 class="mb-3">alert()</h6>
   <p>
     The <code>alert()</code> is a method of the window object.
     To invoke an alert system dialog, you invoke the <code>alert()</code> method of the <code>window</code> object.
@@ -563,7 +557,7 @@ console.log('result', result);
   </pre>
 
 
-  <h6 class="my-3">prompt()</h6>
+  <h6 class="mb-3">prompt()</h6>
   <p>
     The <code>prompt()</code> is a method of the <code>window</code> object. The <code>prompt()</code> method instructs the web browser to display a dialog with a text, text input field, and two buttons <code>OK</code> and <code>Cancel</code>.
   </p>
