@@ -48,4 +48,74 @@ history.go(0);
 history.go();
     </code>
   </pre>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let there be two pages named page1.html and page2.html. Let there be a "reload" and "next" button in page1.html. When you press the "Next" button, it will go to page2.html. Let there be "prev" and "reload" buttons on page2. When you press the "prev" button, it will go to "page1". Let the "reload" button refresh the page.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <h6 class="my-3">page1.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Page 1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;PAGE - 1&lt;/h1&gt;
+  &lt;button onclick="reload()"&gt;Reload&lt;/button&gt;
+  &lt;button onclick="next()"&gt;Next&lt;/button&gt;
+
+  &lt;script&gt;
+    function reload () {
+      history.go();
+    }
+    function next () {
+      location.href = new URL("page2.html", window.location.href);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+        <h6 class="my-3">page2.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Page 2&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;PAGE - 2&lt;/h1&gt;
+  &lt;button&gt; onclick="prev()"&gt;Prev&lt;/button&gt;
+  &lt;button&gt; onclick="reload()"&gt;Reload&lt;/button&gt;
+  
+  &lt;script&gt;&gt;
+    function reload () {
+      history.go();
+    }
+    function prev () {
+      history.back()
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
 </div>
