@@ -1,9 +1,9 @@
 <div>
-  <h5 class="my-3">'Navigator' Object</h5>
+  <h5 class="my-3">Navigator Object</h5>
   <p>
     The navigator object is a JavaScript object provided by web browsers. This object provides information about the browser and allows web pages to access browser features and the environment.
   </p>
-  <h5 class="mt-3">userAgent</h5>
+  <h6 class="mt-3">userAgent</h6>
   <p>
     <code>userAgent</code> is a property of the JavaScript BOM <code>navigator</code> object that contains the user agent of the browser.
   </p>
@@ -15,7 +15,7 @@ console.log("User Agent: " + navigator.userAgent);
   <p>
     For example, a browser's user agent string may look like this: "<i>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36</i>"
   </p>
-  <h5 class="mt-3">geolocation</h5>
+  <h6 class="mt-3">geolocation</h6>
   <p>
     <code>navigator.geolocation</code> is an object within the JavaScript BOM used to access the geolocation capabilities of a browser. This object is employed to obtain geographic location information from the user's device.
   </p>
@@ -28,7 +28,7 @@ navigator.geolocation.getCurrentPosition(function  (position) {
   });
     </code>
   </pre>
-  <h5 class="my-3">storage</h5>
+  <h6 class="mb-3">storage</h6>
   <p>
     This feature allows web developers to query the browser's local storage capacity and usage. This information is crucial for web applications as the limits of available storage can impact data management strategies.
     <code>navigator.storage</code> API offers two main features:
@@ -59,7 +59,7 @@ navigator.storage.persist().then(function(persistent) {
     </code>
   </pre>
 
-  <h5 class="my-3">Navigator properties and methods</h5>
+  <h6 class="mb-3">Navigator properties and methods</h6>
 
   <table class="table table-bordered">
     <thead>
