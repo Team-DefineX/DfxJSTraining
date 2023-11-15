@@ -103,11 +103,11 @@ export const modules = [
         time: "7mins",
       },
       {
-        name: "Accessing Properties",
+        name: "Accessing Properties – Dot ",
         time: "5mins",
       },
       {
-        name: "Bracket Notation",
+        name: "Accessing Properties – Bracket Notation",
         time: "5mins",
       },
       {
@@ -123,7 +123,7 @@ export const modules = [
         time: "5mins",
       },
       {
-        name: "this",
+        name: "this Keyword",
         time: "10mins",
       },
       {
