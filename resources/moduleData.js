@@ -165,7 +165,7 @@ export const modules = [
     visible: true,
     steps: [
       {
-        name: "Useage of Arrays",
+        name: "Usage of Arrays",
         time: "20mins",
       },
       {
@@ -309,7 +309,7 @@ export const modules = [
     visible: true,
     steps: [
       {
-        name: "Useage of Classes",
+        name: "Usage of Classes",
         time: "20mins",
       },
       {
