@@ -1,0 +1,121 @@
+<div>
+  <h5 class="my-3">History Object</h5>
+  <p>
+    When you launch the web browser and open a new webpage, the web browser creates a new entry in its history stack.
+    If you navigate to another webpage, the web browser also creates a new entry in the history stack.
+    The history stack stores the current page and previous pages that you visited.
+    <code>history</code> object allows you to access the browsing history, navigate between pages, and move forward or backward in the navigation history.
+  </p>
+  <p class="my-3">
+    The <code>history</code> object has the following commonly used properties and methods:
+  </p>
+  <p>
+    <b>1- </b><code>history.length:</code> This property returns the number of page transitions in the browser's navigation history.
+  </p>
+  <p>
+    <b>2- </b><code>history.back:</code> This method lets you navigate back in the browser's history, effectively returning to the previous page.
+  </p>
+  <p>
+    <b>3- </b><code>history.forward:</code> This method allows you to navigate forward in the browser's history, moving to the next page.
+  </p>
+  <p>
+    <b>4- </b><code>history.go:</code> This method enables you to navigate a specified number of steps forward or backward in the browser's navigation history. You can use a positive integer to move forward and a negative integer to move backward by a certain number of pages.
+  </p>
+  <p class="mt-2">
+    Example of usage:
+  </p>
+  <pre>
+    <code class="javascript">
+// Accessing the browser history
+var historyLength = history.length;
+
+// Navigating back in the browser's history
+history.back();
+
+// Navigating forward in the browser's history
+history.forward();
+
+// Navigating a specific number of steps in the history
+history.go(2);
+    </code>
+  </pre>
+  <p class="mt-2">
+    To refresh the current page, you either pass 0 or no argument to the <code>go()</code> method:
+  </p>
+  <pre>
+    <code class="javascript">
+history.go(0);
+history.go();
+    </code>
+  </pre>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let there be two pages named page1.html and page2.html. Let there be a "reload" and "next" button in page1.html. When you press the "Next" button, it will go to page2.html. Let there be "prev" and "reload" buttons on page2. When you press the "prev" button, it will go to "page1". Let the "reload" button refresh the page.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <h6 class="my-3">page1.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Page 1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;PAGE - 1&lt;/h1&gt;
+  &lt;button onclick="reload()"&gt;Reload&lt;/button&gt;
+  &lt;button onclick="next()"&gt;Next&lt;/button&gt;
+
+  &lt;script&gt;
+    function reload () {
+      history.go();
+    }
+    function next () {
+      location.href = new URL("page2.html", window.location.href);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+        <h6 class="my-3">page2.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Page 2&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;PAGE - 2&lt;/h1&gt;
+  &lt;button&gt; onclick="prev()"&gt;Prev&lt;/button&gt;
+  &lt;button&gt; onclick="reload()"&gt;Reload&lt;/button&gt;
+  
+  &lt;script&gt;&gt;
+    function reload () {
+      history.go();
+    }
+    function prev () {
+      history.back()
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+</div>

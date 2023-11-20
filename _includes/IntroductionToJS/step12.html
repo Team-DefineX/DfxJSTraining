@@ -1,0 +1,202 @@
+<h3>
+    The “while” loop
+</h3>
+<p align="justify">
+    The syntax for the <code>while</code> loop is as follows:
+</p>
+    <pre>
+    <code class="javascript">
+    while (condition) {
+        // loop body
+    }
+    </code>
+    </pre>
+<p align="justify">
+    The code from the loop body is performed <code>while</code> the condition is <strong>truthy</strong>.
+</p>
+<br>
+<p align="justify">
+    For example, the loop below produces <code>i</code> while <code>x &lt; 5</code>:
+</p>
+    <pre>
+    <code class="javascript">
+    let x = 0;
+    while (x < 5) { // 0, then 1, 2, 3, 4
+        console.log(i);
+        i++;
+    }
+    </code>
+    </pre>
+<p align="justify">
+    Iteration refers to a single execution of the loop body. In the preceding example, the loop iterates <strong>five times</strong>.
+</p>
+<br>
+<p align="justify">
+    If <code>x++</code> was missing from the preceding example, the loop would (in theory) continue endlessly. In reality, the browser provides methods to stop such loops, and we may kill the process with server-side JavaScript.
+</p>
+<br>
+<h3>
+    The “do…while” loop
+</h3>
+<p align="justify">
+    Using the <code>do..while</code> syntax, the condition check can be relocated below the loop body:
+</p>
+    <pre>
+    <code class="javascript">
+    do {
+        // loop body
+    } while (condition);
+    </code>
+    </pre>
+<p align="justify">
+    The loop <code>will</code> first execute the body, then check the condition, and then perform it again and again until it is <strong>truthy</strong>.
+</p>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    let x = 0;
+    do {
+        alert(x);
+        x++;
+    } while (x < 5);
+    </code>
+    </pre>
+<p align="justify">
+    When you want the loop's body to run at least once regardless of whether the condition is <strong>truthy</strong>, you should only use this syntax. Generally, the alternative format is favored: <code>while(...) {…}</code>.
+</p>
+<br>
+<h3>
+    The “for” loop
+</h3>
+<p align="justify">
+    The <code>for</code> loop is more complicated, but it is also the most widely used.
+</p>
+<br>
+<p align="justify">
+    It appears as follows:
+</p>
+    <pre>
+    <code class="javascript">
+    for (begin; condition; step) {
+        // loop body
+    }
+    </code>
+    </pre>
+<p align="justify">
+    Let's look at an example to discover the meaning of these parts. The following loop executes <code>console.log(x)</code> for <code>x</code> ranging from <code>0</code> to (but not including) <code>5</code>:
+</p>
+    <pre>
+    <code class="javascript">
+    for (let i = 0; i < 5; i++) { // 0, then 1, 2, 3, 4
+        console.log(i);
+    }
+    </code>
+    </pre>
+<h3>
+    Breaking the loop
+</h3>
+<p align="justify">
+    A loop normally ends when its condition turns falsy.
+</p>
+<br>
+<p align="justify">
+    The special <code>break</code> directive, on the other hand, allows us to force the exit at any time.
+</p>
+<br>
+<p align="justify">
+    For instance, the <code>"break"</code> command is executed when the user enters the <code>true</code> year when the loop below requests the user's birth year.
+</p>
+    <pre>
+    <code class="javascript">
+    while (true) {
+        let birthYear = prompt("Which year is my birth year?", '');
+        if (birthYear == 1988) break;
+    }
+    </code>
+    </pre>
+<p align="justify">
+    The <strong>"infinite loop + break as needed"</strong> combination is ideal for scenarios in which the condition of a loop must be verified not at the beginning or the end of the loop, but in the middle or even numerous places throughout its body.
+</p>
+<br>
+<h3>
+    Continue to the next iterations
+</h3>
+<p align="justify">
+    A <strong>"lighter version"</strong> of <code>break</code> is the <code>continue</code> directive. The loop is not completely stopped. Rather, it compels the loop to begin a fresh iteration (assuming the condition allows).
+</p>
+<br>
+<p align="justify">
+    If we want to go on to the next iteration and are finished with this one, we can use it.
+</p>
+<br>
+<p align="justify">
+    The following loop outputs only odd values by using <code>continue</code>:
+</p>
+    <pre>
+    <code class="javascript">
+    for (let x = 0; x < 10; x++) {
+        // if true, skip the remaining part of the body
+        if (x % 2 == 0) continue;
+        console.log(x); // 1, then 3, 5, 7, 9
+    }
+    </code>
+    </pre>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Put the odd numbers in the range of <strong>1</strong> and <strong>20</strong> to the console by using the <code>while</code> statement.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/1amdbjp9/2/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            To produce ten numbers, ranging from <strong>0</strong> to <strong>10</strong>, on the console, use the <code>do...while</code> statement.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/y910gx32/1/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#3</h5>
+        <p align="justify">
+            Show numbers on the console from <strong>1</strong> to <strong>20</strong> by using the <code>for</code> loop statement.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/pr5ovs84/1/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

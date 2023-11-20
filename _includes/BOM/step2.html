@@ -1,48 +1,30 @@
 <div>
+  <h5 class="my-3">Window Object</h5>
   <p>
     The <strong>"window"</strong> object is a JavaScript object that represents the browser window. This object provides
     access to various properties, methods, and other information about the browser window. The
     </strong>"window"</strong> object is the primary point of interaction with the browser window when developing web
     applications, and it is commonly used to control the behavior of the browser window using JavaScript.
   </p>
-  <hr>
-  <div class="accordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse1"
-          aria-expanded="false"
-          aria-controls="collapse1"
-        >
-          innerWidth - innerHeight
-        </button>
-      </h2>
-      <div
-        id="collapse1"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.innerWidth</code> and <code>window.innerHeight</code> properties provide information about the width and height of the content area of the browser window. Here's a simple example using these properties:
-          </p>
-          <pre>
-            <code class="javascript">
+
+  <h6 class="my-3">innerWidth - innerHeight</h6>
+  <p>
+    The <code>window.innerWidth</code> and <code>window.innerHeight</code> properties provide information about the width and height of the content area of the browser window. Here's a simple example using these properties:
+  </p>
+  <pre>
+    <code class="javascript">
 console.log("Browser window's content width: " + window.innerWidth + " pixels");
 console.log("Browser window's content height: " + window.innerHeight + " pixels");
-            </code>
-          </pre>
-          <p>
-            This code prints the content width and height of the browser window to the browser console. These properties represent the size of the displayed content on the web page and do not take into account interface elements like browser bars, toolbars, and so on.
-          </p>
-          <p>
-            For example, you can use the following sample code to dynamically track the browser window size and recalculate it when the window size changes:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    This code prints the content width and height of the browser window to the browser console. These properties represent the size of the displayed content on the web page and do not take into account interface elements like browser bars, toolbars, and so on.
+  </p>
+  <p>
+    For example, you can use the following sample code to dynamically track the browser window size and recalculate it when the window size changes:
+  </p>
+  <pre>
+    <code class="javascript">
 function handleWindowSizeChange() {
   console.log("Browser window's content width: " + window.innerWidth + " pixels");
   console.log("Browser window's content height: " + window.innerHeight + " pixels");
@@ -53,48 +35,29 @@ window.addEventListener("resize", handleWindowSizeChange);
 
 // Show the window size on initial load
 handleWindowSizeChange();
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse2"
-          aria-expanded="false"
-          aria-controls="collapse2"
-        >
-          outerWidth - outherHeight
-        </button>
-      </h2>
-      <div
-        id="collapse2"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.outerWidth</code> and </code>window.outerHeight</code> properties provide information about the total width and height of the browser window, including all interface elements such as browser bars, toolbars, and other user interface components. Here is a simple example using these properties:
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="mb-3">outerWidth - outherHeight</h6>
+  <p>
+    The <code>window.outerWidth</code> and </code>window.outerHeight</code> properties provide information about the total width and height of the browser window, including all interface elements such as browser bars, toolbars, and other user interface components. Here is a simple example using these properties:
+  </p>
+  <pre>
+    <code class="javascript">
 console.log("Total width of the browser window: " + window.outerWidth + " pixels");
 console.log("Total height of the browser window: " + window.outerHeight + " pixels");
-            </code>
-          </pre>
-          <p>
-            This code prints the total width and height of the browser window to the browser console.
-          </p>
-          <p>
-            For example, you can use the following code to dynamically track the window's size and recalculate it when the window size changes:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    This code prints the total width and height of the browser window to the browser console.
+  </p>
+  <p>
+    For example, you can use the following code to dynamically track the window's size and recalculate it when the window size changes:
+  </p>
+  <pre>
+    <code class="javascript">
 function handleWindowDimensions() {
   console.log("Total width of the browser window: " + window.outerWidth + " pixels");
   console.log("Total height of the browser window: " + window.outerHeight + " pixels");
@@ -105,48 +68,57 @@ window.addEventListener("resize", handleWindowDimensions);
 
 // Show the window size on initial load
 handleWindowDimensions();
-            </code>
-          </pre>
-        </div>
+    </code>
+  </pre>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Write code that displays the screen width and height on the screen as the browser's width and height changes (like this width - contentWidth)
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/z6mo37xd/5/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
       </div>
     </div>
+  </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse3"
-          aria-expanded="false"
-          aria-controls="collapse3"
-        >
-          screenX - screenY
-        </button>
-      </h2>
-      <div
-        id="collapse3"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.screenX</code> and <code>window.screenY</code> properties provide the position of the browser window on the screen. These properties represent the horizontal (X) and vertical (Y) coordinates of the top-left corner of the browser window on the screen. Here's a simple example using these properties:
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="my-3">screenX - screenY</h6>
+  <p>
+    The <code>window.screenX</code> and <code>window.screenY</code> properties provide the position of the browser window on the screen. These properties represent the horizontal (X) and vertical (Y) coordinates of the top-left corner of the browser window on the screen. Here's a simple example using these properties:
+  </p>
+  <pre>
+    <code class="javascript">
 console.log("Browser window's X coordinate on the screen: " + window.screenX + " pixels");
 console.log("Browser window's Y coordinate on the screen: " + window.screenY + " pixels");
-            </code>
-          </pre>
-          <p>
-            This code will print the X and Y coordinates of the browser window on the screen to the browser console.
-          </p>
-          <p>
-            For example, you can use the following code to track the window position and update these coordinates as you drag the window:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    This code will print the X and Y coordinates of the browser window on the screen to the browser console.
+  </p>
+  <p>
+    For example, you can use the following code to track the window position and update these coordinates as you drag the window:
+  </p>
+  <pre>
+    <code class="javascript">
 function trackWindowPosition() {
   console.log("Browser window's X coordinate on the screen: " + window.screenX + " pixels");
   console.log("Browser window's Y coordinate on the screen: " + window.screenY + " pixels");
@@ -157,48 +129,62 @@ window.addEventListener("move", trackWindowPosition);
 
 // Show the initial window position on load
 trackWindowPosition();
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse4"
-          aria-expanded="false"
-          aria-controls="collapse4"
-        >
-          pageXOffset - pageYOffset
-        </button>
-      </h2>
-      <div
-        id="collapse4"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.pageXOffset</code> and <code>window.pageYOffset</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="mb-3">scrollX - scrollY</h6>
+  <p>
+    The <code>window.scrollX</code> and <code>window.scrollY</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
+  </p>
+  <pre>
+    <code class="javascript">
+console.log("Horizontal scroll amount of the page: " + window.scrollX + " pixels");
+console.log("Vertical scroll amount of the page: " + window.scrollY + " pixels");
+    </code>
+  </pre>
+  <p>
+    This code will print the horizontal and vertical scroll amounts of the page to the browser console.
+  </p>
+  <p>
+    The following example dynamically tracks the scroll position of the page and updates these properties as the user scrolls:
+  </p>
+  <pre>
+    <code class="javascript">
+function trackScrollPosition() {
+  console.log("Horizontal scroll amount of the page: " + window.scrollX + " pixels");
+  console.log("Vertical scroll amount of the page: " + window.scrollY + " pixels");
+}
+
+// Call this function as the page is scrolled
+window.addEventListener("scroll", trackScrollPosition);
+
+// Show the initial scroll position on the first load
+trackScrollPosition();
+    </code>
+  </pre>
+
+  <hr class="my-4">
+
+  <h6 class="mb-3">pageXOffset - pageYOffset</h6>
+  <p>
+    The <code>window.pageXOffset</code> and <code>window.pageYOffset</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
+  </p>
+  <pre>
+    <code class="javascript">
 console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
 console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
-            </code>
-          </pre>
-          <p>
-            This code will print the horizontal and vertical scroll amounts of the page to the browser console.
-          </p>
-          <p>
-            The following example dynamically tracks the scroll position of the page and updates these properties as the user scrolls:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    This code will print the horizontal and vertical scroll amounts of the page to the browser console.
+  </p>
+  <p>
+    The following example dynamically tracks the scroll position of the page and updates these properties as the user scrolls:
+  </p>
+  <pre>
+    <code class="javascript">
 function trackScrollPosition() {
   console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
   console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
@@ -209,269 +195,258 @@ window.addEventListener("scroll", trackScrollPosition);
 
 // Show the initial scroll position on the first load
 trackScrollPosition();
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    <strong>Note:</strong>The <code>pageXOffset</code> and <code>pageYOffset</code> property is equal to the <code>scrollX</code> and <code>scrollY</code> property.
+  </p>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse5"
-          aria-expanded="false"
-          aria-controls="collapse5"
-        >
-          pageXOffset - pageYOffset
-        </button>
-      </h2>
-      <div
-        id="collapse5"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.pageXOffset</code> and <code>window.pageYOffset</code> properties provide the horizontal (x) and vertical (y) scroll amounts of the currently viewed portion of a page. These properties represent the specific scrolling state of the page. Here's a simple example using these properties:
-          </p>
-          <pre>
-            <code class="javascript">
-console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
-console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
-            </code>
-          </pre>
-          <p>
-            This code will print the horizontal and vertical scroll amounts of the page to the browser console.
-          </p>
-          <p>
-            The following example dynamically tracks the scroll position of the page and updates these properties as the user scrolls:
-          </p>
-          <pre>
-            <code class="javascript">
-function trackScrollPosition() {
-  console.log("Horizontal scroll amount of the page: " + window.pageXOffset + " pixels");
-  console.log("Vertical scroll amount of the page: " + window.pageYOffset + " pixels");
-}
+  <h6 class="my-3">open() - close()</h6>
+  <p>
+    The <code>window.open()</code> JavaScript method is used to open a new browser window or tab. This method allows you to specify the URL of the new window, its name, and the window features. Here's the usage of <code>window.open()</code> and an example:
+  </p>
+  <pre>
+    <code class="javascript">
+window.open(URL, windowName, windowFeatures);
+    </code>
+  </pre>
+  <ul>
+    <li><strong>URL</strong>: Represents the URL of the page to be opened. This parameter specifies where the content for the new window will be retrieved from.</li>
+    <li><strong>windowName</strong>: Specifies the name of the new window (or target frame). This parameter identifies the new window or tab. Using the same name will reuse the same window.</li>
+    <li><strong>windowFeatures</strong>: Sets the characteristics of the new window. This parameter defines the size, position, and other properties of the opened window.</li>
+  </ul>
+  <pre>
+    <code class="javascript">
+const newWindow = window.open("https://www.example.com", "NewWindow", "width=600, height=400");
 
-// Call this function as the page is scrolled
-window.addEventListener("scroll", trackScrollPosition);
+setTimeout(() => {
+    newWindow.close();
+}, 3000);
+    </code>
+  </pre>
+  <p>
+    This code opens a new window with the URL "https://www.example.com" and closes it after 3 seconds. The window is given the name "NewWindow," and its features are set to "width=600, height=400," defining the initial dimensions of the new window.
+  </p>
+  <p>
+    Subsequently, the newWindow object returned by the <code>window.open()</code> method can be used to interact with the opened window, such as closing it or modifying its content.
+  </p>
 
-// Show the initial scroll position on the first load
-trackScrollPosition();
-            </code>
-          </pre>
-          <p>
-            <strong>Note:</strong>The <code>pageXOffset</code> and <code>pageYOffset</code> property is equal to the <code>scrollX</code> and <code>scrollY</code> property.
-          </p>
-        </div>
-      </div>
-    </div>
+  <hr class="my-4">
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse11"
-          aria-expanded="false"
-          aria-controls="collapse11"
-        >
-          resizeTo()
-        </button>
-      </h2>
-      <div
-        id="collapse11"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.resizeTo()</code> JavaScript method is used to resize a window to the specified width and height. This method is useful for resizing a window that doesn't belong to the user. Here's the usage of <code>window.resizeTo()</code> and an example:
-          </p>
-          <pre>
-            <code class="javascript">
+  <h6 class="my-3">resizeTo()</h6>
+  <p>
+    The <code>window.resizeTo()</code> JavaScript method is used to resize a window to the specified width and height. This method is useful for resizing a window that doesn't belong to the user. Here's the usage of <code>window.resizeTo()</code> and an example:
+  </p>
+  <pre>
+    <code class="javascript">
 window.resizeTo(width, height);
-            </code>
-          </pre>
-          <ul>
-            <li><strong>width</strong>: Specifies the new width of the window in pixels.</li>
-            <li><strong>height</strong>: Specifies the new height of the window in pixels.</li>
-          </ul>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <ul>
+    <li><strong>width</strong>: Specifies the new width of the window in pixels.</li>
+    <li><strong>height</strong>: Specifies the new height of the window in pixels.</li>
+  </ul>
+  <pre>
+    <code class="javascript">
 const newWindow = window.open("https://www.example.com", "NewWindow", "width=400, height=300");
 
 // Resize the window after 2 seconds
 setTimeout(function() {
   newWindow.resizeTo(800, 600);
 }, 2000);
-            </code>
-          </pre>
-          <p>
-            This code opens a new window with the URL "https://www.example.com". Initially, the window's width is set to 400 pixels, and its height is set to 300 pixels. Then, the resizeTo() method is used to resize the window to 800 pixels in width and 600 pixels in height after a 2-second delay.
-          </p>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    This code opens a new window with the URL "https://www.example.com". Initially, the window's width is set to 400 pixels, and its height is set to 300 pixels. Then, the resizeTo() method is used to resize the window to 800 pixels in width and 600 pixels in height after a 2-second delay.
+  </p>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse12"
-          aria-expanded="false"
-          aria-controls="collapse12"
-        >
-          moveTo()
-        </button>
-      </h2>
-      <div
-        id="collapse12"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.moveTo()</code> JavaScript method is used to move a window to a specific position. This method is particularly useful for positioning pop-up windows or displaying iframe contents at specific locations. Here's the usage of <code>window.moveTo()</code> and an example:
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="my-3">moveTo()</h6>
+  <p>
+    The <code>window.moveTo()</code> JavaScript method is used to move a window to a specific position. This method is particularly useful for positioning pop-up windows or displaying iframe contents at specific locations. Here's the usage of <code>window.moveTo()</code> and an example:
+  </p>
+  <pre>
+    <code class="javascript">
 window.moveTo(x, y);
-            </code>
-          </pre>
-          <ul>
-            <li><strong>x</strong>: Specifies the new horizontal position, in pixels, of the top-left corner of the window.</li>
-            <li><strong>y</strong>: Specifies the new vertical position, in pixels, of the top-left corner of the window.</li>
-          </ul>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <ul>
+    <li><strong>x</strong>: Specifies the new horizontal position, in pixels, of the top-left corner of the window.</li>
+    <li><strong>y</strong>: Specifies the new vertical position, in pixels, of the top-left corner of the window.</li>
+  </ul>
+  <pre>
+    <code class="javascript">
 const newWindow = window.open("https://www.example.com", "NewWindow", "width=400, height=300");
 
 // Move the window to a new position after 2 seconds
 setTimeout(function() {
   newWindow.moveTo(100, 100);
 }, 2000);
-            </code>
-          </pre>
-        </div>
+    </code>
+  </pre>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let there be 4 buttons. One to open a new window. Let the other three be used to change the size of this window. (400px, 600px, 800px)
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/Levfxywm/3/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
       </div>
     </div>
-    
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse6"
-          aria-expanded="false"
-          aria-controls="collapse6"
-        >
-          location
-        </button>
-      </h2>
-      <div
-        id="collapse6"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.location</code> property represents the URL of a page and allows you to perform actions related to the page's URL, such as redirecting to a different URL, retrieving the current URL, or detecting changes in the URL. Here are some basic examples of using the window.location property:
-          </p>
-          <h3>Page Redirection (Changing the URL):</h3>
-          <p>
-            This example uses the <code>window.location</code> property to redirect the browser to a different URL.
-          </p>
-          <pre>
-            <code class="javascript">
+  </div>
+
+  <hr class="my-4">
+
+  <h6 class="my-3">Performance</h6>
+  <p>
+    The <code>window.performance</code> object is a JavaScript API that provides various timing measurements and information about the performance of a page in the browser. This object offers access to detailed data regarding the page loading process, network activities, and other performance-related events. Here are some key features of the <code>window.performance</code> object:
+  </p>
+  <h6 class="mt-3">1- Timing Properties (window.performance.timing)</h6>
+  <ul>
+    <li><b>navigationStart:</b> The time when page navigation started.</li>
+    <li><b>loadEventEnd:</b> The moment when the page has fully loaded.</li>
+  </ul>
+  <pre>
+    <code class="javascript">
+var timing = window.performance.timing;
+console.log(timing.navigationStart); // Time when the page started
+console.log(timing.loadEventEnd - timing.navigationStart); // Page load time
+    </code>
+  </pre>
+  <h6 class="mt-3">2- Resource Timing API (window.performance.getEntriesByType('resource'))</h6>
+  <p>
+    Provides timing information about resources loaded within the page.
+  </p>
+  <pre>
+    <code class="javascript">
+var resources = window.performance.getEntriesByType('resource');
+resources.forEach(function(resource) {
+    console.log(resource.name, resource.startTime, resource.duration);
+});
+    </code>
+  </pre>
+  <h6 class="mt-3">3- Navigation Timing API (window.performance.navigation)</h6>
+  <p>
+    Contains timing information related to page navigation.
+  </p>
+  <pre>
+    <code class="javascript">
+var navigation = window.performance.navigation;
+console.log(navigation.type); // Page navigation type (0: Reload, 1: New navigation, 2: Back button, 255: Other)
+    </code>
+  </pre>
+
+  <h6 class="mt-3">4- User Timing API (window.performance.mark and window.performance.measure)</h6>
+  <p>
+    Used to add custom marks and measurements.
+  </p>
+  <pre>
+    <code class="javascript">
+window.performance.mark('start-mark');
+// Execution of some code
+window.performance.mark('end-mark');
+window.performance.measure('custom-measure', 'start-mark', 'end-mark');
+var customMeasure = window.performance.getEntriesByName('custom-measure')[0];
+console.log(customMeasure.duration);
+    </code>
+  </pre>
+  <p>
+    These features empower web developers to measure, analyze, and optimize the performance of a page. This information is particularly valuable for detecting and addressing performance issues in large and complex web applications.
+  </p>
+
+  <hr class="my-4">
+
+  <h6 class="my-3">location</h6>
+  <p>
+    The <code>window.location</code> property represents the URL of a page and allows you to perform actions related to the page's URL, such as redirecting to a different URL, retrieving the current URL, or detecting changes in the URL. Here are some basic examples of using the window.location property:
+  </p>
+  <h6 class="mt-3">Page Redirection (Changing the URL)</h6>
+  <p>
+    This example uses the <code>window.location</code> property to redirect the browser to a different URL.
+  </p>
+  <pre>
+    <code class="javascript">
 // Perform a page redirection to a new URL
 window.location.href = "https://www.example.com";
-            </code>
-          </pre>
-          <h3>Retrieving the Current URL:</h3>
-          <p>
-            This example retrieves the current page's URL using the window.location property and logs it to the console.
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <h6>Retrieving the Current URL</h6>
+  <p>
+    This example retrieves the current page's URL using the window.location property and logs it to the console.
+  </p>
+  <pre>
+    <code class="javascript">
 // Get the current URL of the page
 console.log("Current URL: " + window.location.href);
-            </code>
-          </pre>
-          <h3>Detecting URL Changes (When the Page Loads):</h3>
-          <p>
-            This example is used to detect changes in the page's URL. For instance, it can be used to detect when a user navigates to a different page or when there is navigation within the same page.
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <h6>Detecting URL Changes (When the Page Loads)</h6>
+  <p>
+    This example is used to detect changes in the page's URL. For instance, it can be used to detect when a user navigates to a different page or when there is navigation within the same page.
+  </p>
+  <pre>
+    <code class="javascript">
 window.addEventListener("popstate", function(event) {
   console.log("URL changed: " + window.location.href);
 });
-            </code>
-          </pre>
-          <p>
-            The code above interacts with the browser's navigation history to track changes in the page's URL.
-          </p>
-          <h3>Working with URL Parameters:</h3>
-          <p>
-            The <code>window.location</code> property allows you to work with URL parameters. For example, to retrieve parameters from the URL:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    The code above interacts with the browser's navigation history to track changes in the page's URL.
+  </p>
+  <h6 class="my-3">Working with URL Parameters:</h6>
+  <p>
+    The <code>window.location</code> property allows you to work with URL parameters. For example, to retrieve parameters from the URL:
+  </p>
+  <pre>
+    <code class="javascript">
 // Retrieve parameters from the URL
 const searchParams = new URLSearchParams(window.location.search);
 const paramValue = searchParams.get("paramName");
-            </code>
-          </pre>
-          <p>
-            Or to add new parameters to the URL:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    Or to add new parameters to the URL:
+  </p>
+  <pre>
+    <code class="javascript">
 // Add a new parameter
 const newURL = new URL(window.location.href);
 newURL.searchParams.set("newParam", "value");
 window.location.href = newURL.href;
-            </code>
-          </pre>
-          <p>
-            These examples demonstrate different ways to interact with the page's URL using the <code>window.location</code> property. This property is useful for various operations related to browser navigation and URL management.
-          </p>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    These examples demonstrate different ways to interact with the page's URL using the <code>window.location</code> property. This property is useful for various operations related to browser navigation and URL management.
+  </p>
+
+  <hr class="my-4">
     
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse7"
-          aria-expanded="false"
-          aria-controls="collapse7"
-        >
-          name
-        </button>
-      </h2>
-      <div
-        id="collapse7"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.name</code> property can be used to assign a name to a browser window and communicate between windows. Here's a simple example using the <code>window.name</code> property:
-          </p>
-          <pre>
-            <code class="javascript">
+  <h6 class="my-3">name</h6>
+  <p>
+    The <code>window.name</code> property can be used to assign a name to a browser window and communicate between windows. Here's a simple example using the <code>window.name</code> property:
+  </p>
+  <pre>
+    <code class="javascript">
 // Assign a name to the main window
 window.name = "MainWindow";
 
@@ -482,95 +457,25 @@ newWindow.name = "NewWindow";
 // Display window names
 console.log("Main Window Name: " + window.name);
 console.log("New Window Name: " + newWindow.name);
-            </code>
-          </pre>
-          <p>
-            This code uses the <code>window.name</code> property to assign names to two windows and prints these names to the console. Window names are useful for communicating between windows, especially when you want to send data or control one window from another.
-          </p>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    This code uses the <code>window.name</code> property to assign names to two windows and prints these names to the console. Window names are useful for communicating between windows, especially when you want to send data or control one window from another.
+  </p>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse10"
-          aria-expanded="false"
-          aria-controls="collapse10"
-        >
-          open() - close()
-        </button>
-      </h2>
-      <div
-        id="collapse10"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.open()</code> JavaScript method is used to open a new browser window or tab. This method allows you to specify the URL of the new window, its name, and the window features. Here's the usage of <code>window.open()</code> and an example:
-          </p>
-          <pre>
-            <code class="javascript">
-window.open(URL, windowName, windowFeatures);
-            </code>
-          </pre>
-          <ul>
-            <li><strong>URL</strong>: Represents the URL of the page to be opened. This parameter specifies where the content for the new window will be retrieved from.</li>
-            <li><strong>windowName</strong>: Specifies the name of the new window (or target frame). This parameter identifies the new window or tab. Using the same name will reuse the same window.</li>
-            <li><strong>windowFeatures</strong>: Sets the characteristics of the new window. This parameter defines the size, position, and other properties of the opened window.</li>
-          </ul>
-          <pre>
-            <code class="javascript">
-const newWindow = window.open("https://www.example.com", "NewWindow", "width=600, height=400");
+  <hr class="my-4">
 
-setTimeout(() => {
-    newWindow.close();
-}, 3000);
-            </code>
-          </pre>
-          <p>
-            This code opens a new window with the URL "https://www.example.com" and closes it after 3 seconds. The window is given the name "NewWindow," and its features are set to "width=600, height=400," defining the initial dimensions of the new window.
-          </p>
-          <p>
-            Subsequently, the newWindow object returned by the <code>window.open()</code> method can be used to interact with the opened window, such as closing it or modifying its content.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse8"
-          aria-expanded="false"
-          aria-controls="collapse8"
-        >
-          opener
-        </button>
-      </h2>
-      <div
-        id="collapse8"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.opener</code> property represents the object of the parent window from which a pop-up window was opened. This property can be used by the pop-up window to communicate with the parent window. Here's a simple example of using the <code>window.opener</code> property:
-          </p>
-          <p>
-            First, let's create an HTML page representing the parent window:
-          </p>
-          <br>
-          <p><strong>parent_window.html</strong></p>
-          <pre>
-            <code class="html">
+  <h6 class="my-3">opener</h6>
+  <p>
+    The <code>window.opener</code> property represents the object of the parent window from which a pop-up window was opened. This property can be used by the pop-up window to communicate with the parent window. Here's a simple example of using the <code>window.opener</code> property:
+  </p>
+  <p>
+    First, let's create an HTML page representing the parent window:
+  </p>
+  <br>
+  <p><strong>parent_window.html</strong></p>
+  <pre>
+    <code class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -585,15 +490,15 @@ setTimeout(() => {
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-            </code>
-          </pre>
-          <p>
-            Now, let's create an HTML page representing the pop-up window:
-          </p>
-          <br>
-          <p><strong>popup.html</strong></p>
-          <pre>
-            <code class="html">
+    </code>
+  </pre>
+  <p>
+    Now, let's create an HTML page representing the pop-up window:
+  </p>
+  <br>
+  <p><strong>popup.html</strong></p>
+  <pre>
+    <code class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -614,39 +519,20 @@ setTimeout(() => {
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-            </code>
-          </pre>
-          <p>
-            In this code example, we've created a "Parent Window" HTML page and a "Pop-up Window" HTML page. When you click a button in the parent window, it opens a pop-up window, and this pop-up window uses <code>window.opener</code> to send a notification to the parent window. You can access and send notifications to the parent window using <code>window.opener</code>.
-          </p>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    In this code example, we've created a "Parent Window" HTML page and a "Pop-up Window" HTML page. When you click a button in the parent window, it opens a pop-up window, and this pop-up window uses <code>window.opener</code> to send a notification to the parent window. You can access and send notifications to the parent window using <code>window.opener</code>.
+  </p>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse9"
-          aria-expanded="false"
-          aria-controls="collapse9"
-        >
-          closed
-        </button>
-      </h2>
-      <div
-        id="collapse9"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>window.closed</code> property returns a boolean value (true or false) that indicates whether a browser window is closed. This property is used to check if a window is closed or not. Here's a simple example using the <code>window.closed</code> property:
-          </p>
-          <pre>
-            <code class="html">
+  <hr class="my-4">
+
+  <h6 class="my-3">closed</h6>
+  <p>
+    The <code>window.closed</code> property returns a boolean value (true or false) that indicates whether a browser window is closed. This property is used to check if a window is closed or not. Here's a simple example using the <code>window.closed</code> property:
+  </p>
+  <pre>
+    <code class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
@@ -690,150 +576,166 @@ document.getElementById("demo").innerHTML = text;
 
 &lt;/body&gt;
 &lt;/html&gt;
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse13"
-          aria-expanded="false"
-          aria-controls="collapse13"
-        >
-          alert()
-        </button>
-      </h2>
-      <div
-        id="collapse13"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>alert()</code> is a method of the window object.
-            To invoke an alert system dialog, you invoke the <code>alert()</code> method of the <code>window</code> object.
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="mb-3">alert()</h6>
+  <p>
+    The <code>alert()</code> is a method of the window object.
+    To invoke an alert system dialog, you invoke the <code>alert()</code> method of the <code>window</code> object.
+  </p>
+  <pre>
+    <code class="javascript">
 window.alert(message);
-            </code>
-          </pre>
-          <p>
-            Or like this:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    Or like this:
+  </p>
+  <pre>
+    <code class="javascript">
 alert(message);
-            </code>
-          </pre>
-          <p>
-            When the <code>alert()</code> method is invoked, a system dialog shows the specified message to the user followed by a single OK button.
-          </p>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
+  <p>
+    When the <code>alert()</code> method is invoked, a system dialog shows the specified message to the user followed by a single OK button.
+  </p>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse14"
-          aria-expanded="false"
-          aria-controls="collapse14"
-        >
-          confirm()
-        </button>
-      </h2>
-      <div
-        id="collapse14"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>confirm()</code> is a method of the window object.
-            To invoke a dialog with a question and two buttons <code>OK</code> and <code>Cancel</code>, you use the <code>confirm()</code> method of the <code>window</code> object:
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="my-3">confirm()</h6>
+  <p>
+    The <code>confirm()</code> is a method of the window object.
+    To invoke a dialog with a question and two buttons <code>OK</code> and <code>Cancel</code>, you use the <code>confirm()</code> method of the <code>window</code> object:
+  </p>
+  <pre>
+    <code class="javascript">
 let result = window.confirm(question);
 
 // or like this:
 let res = confirm(question);
-            </code>
-          </pre>
-          <p>
-            The result is a Boolean value indicating whether the <code>OK</code> or <code>Cancel</code> button was clicked. If the <code>OK</code> button is clicked, the result is <code>true</code>; otherwise, the result is <code>false</code>.
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <p>
+    The result is a Boolean value indicating whether the <code>OK</code> or <code>Cancel</code> button was clicked. If the <code>OK</code> button is clicked, the result is <code>true</code>; otherwise, the result is <code>false</code>.
+  </p>
+  <pre>
+    <code class="javascript">
 let result = confirm('Do you approve this transaction?');
 console.log('result', result);
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+    </code>
+  </pre>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse15"
-          aria-expanded="false"
-          aria-controls="collapse15"
-        >
-          prompt()
-        </button>
-      </h2>
-      <div
-        id="collapse15"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>
-            The <code>prompt()</code> is a method of the <code>window</code> object. The <code>prompt()</code> method instructs the web browser to display a dialog with a text, text input field, and two buttons <code>OK</code> and <code>Cancel</code>.
-          </p>
-          <pre>
-            <code class="javascript">
+  <hr class="my-4">
+
+  <h6 class="mb-3">prompt()</h6>
+  <p>
+    The <code>prompt()</code> is a method of the <code>window</code> object. The <code>prompt()</code> method instructs the web browser to display a dialog with a text, text input field, and two buttons <code>OK</code> and <code>Cancel</code>.
+  </p>
+  <pre>
+    <code class="javascript">
 let result = window.prompt(message, default);
-            </code>
-          </pre>
-          <ul>
-            <li>The <strong>message</strong> is a string to display. If you omit it, nothing will display on the dialog.</li>
-            <li>The <strong>default</strong> is a string containing the default value of the text input field.</li>
-          </ul>
-          <p>
-            The result is a string that contains the text entered by the user or <code>null</code>.
-          </p>
-          <p>
-            Like <code>alert()</code> and <code>confirm()</code>, the <code>prompt()</code> is modal and synchronous.
-          </p>
-          <p>
-            Example usage:
-          </p>
-          <pre>
-            <code class="javascript">
+    </code>
+  </pre>
+  <ul>
+    <li>The <strong>message</strong> is a string to display. If you omit it, nothing will display on the dialog.</li>
+    <li>The <strong>default</strong> is a string containing the default value of the text input field.</li>
+  </ul>
+  <p>
+    The result is a string that contains the text entered by the user or <code>null</code>.
+  </p>
+  <p>
+    Like <code>alert()</code> and <code>confirm()</code>, the <code>prompt()</code> is modal and synchronous.
+  </p>
+  <p>
+    Example usage:
+  </p>
+  <pre>
+    <code class="javascript">
 let ageText = prompt('How old are you?');
 let age = Number(ageText);
 
 console.log('Your age is ' + age);
-            </code>
-          </pre>
-        </div>
+    </code>
+  </pre>
+
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Task</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Get product name and product quantity from user. Open a new window with these query parameters. Display this information in the newly opened window.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+        <h6 class="my-3">index.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Parent Window&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button onclick="getParams()"&gt;Get Product&lt;/button&gt;
+    &lt;script&gt;
+        function getParams() {
+          let productName = prompt('Product Name ?');
+          let productQuantity = prompt('Product Quantity ?');
+          let quantity = Number(productQuantity);
+
+          const newURL = new URL("popup.html", window.location.href);
+          newURL.searchParams.set("productName", productName);
+          newURL.searchParams.set("productQuantity", quantity);
+
+          const popup = window.open(newURL, "Product Card", "width=400, height=400");
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+
+        <h6 class="my-3">popup.html</h6>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Product Card&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;
+    &lt;strong&gt;Product Name:&lt;/strong&gt; &lt;span&gt; id="productNameID"&gt;-&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;strong&gt;Product Quantity:&lt;/strong&gt; &lt;span&gt; id="productQuantityID"&gt;-&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;script&gt;&gt;
+    function getParams () {
+      const searchParams = new URLSearchParams(window.location.search);
+      document.getElementById("productNameID").innerText = searchParams.get("productName")
+      document.getElementById("productQuantityID").innerText = searchParams.get("productQuantity")
+    }
+
+    getParams()
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
       </div>
     </div>
-
   </div>
+
 </div>

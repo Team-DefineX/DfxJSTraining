@@ -1,0 +1,286 @@
+<div>
+  <h5 class="my-3">Navigator Object</h5>
+  <p>
+    The navigator object is a JavaScript object provided by web browsers. This object provides information about the browser and allows web pages to access browser features and the environment.
+  </p>
+  <h6 class="mt-3">userAgent</h6>
+  <p>
+    <code>userAgent</code> is a property of the JavaScript BOM <code>navigator</code> object that contains the user agent of the browser.
+  </p>
+  <pre>
+    <code class="javascript">
+console.log("User Agent: " + navigator.userAgent);
+    </code>
+  </pre>
+  <p>
+    For example, a browser's user agent string may look like this: "<i>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36</i>"
+  </p>
+  <h6 class="mt-3">geolocation</h6>
+  <p>
+    <code>navigator.geolocation</code> is an object within the JavaScript BOM used to access the geolocation capabilities of a browser. This object is employed to obtain geographic location information from the user's device.
+  </p>
+  <pre>
+    <code class="javascript">
+navigator.geolocation.getCurrentPosition(function  (position) {
+    console.log(position);
+  }, function  (error) {
+    console.log(error);
+  });
+    </code>
+  </pre>
+  <h6 class="mb-3">storage</h6>
+  <p>
+    This feature allows web developers to query the browser's local storage capacity and usage. This information is crucial for web applications as the limits of available storage can impact data management strategies.
+    <code>navigator.storage</code> API offers two main features:
+  </p>
+  <p class="mt-3">
+    <b>1- </b><code>navigator.storage.estimate()</code>: This method provides an estimate of the browser's local storage capacity and usage. The relevant information is returned as a Promise.
+  </p>
+  <pre>
+    <code class="javascript">
+navigator.storage.estimate().then(function(estimate) {
+  console.log("Available Space: " + estimate.quota);
+  console.log("Used Space: " + estimate.usage);
+});
+    </code>
+  </pre>
+  <p>
+    <b>2- </b><code>navigator.storage.persist()</code>: This method helps the web application determine if the local storage is persistent or not. Persistent storage refers to data that remains even when the user clears browser data.
+  </p>
+  <pre>
+    <code class="javascript">
+navigator.storage.persist().then(function(persistent) {
+  if (persistent) {
+    console.log("Data is stored persistently.");
+  } else {
+    console.log("Data may be cleared at the end of the session.");
+  }
+});
+    </code>
+  </pre>
+
+  <h6 class="mb-3">Navigator properties and methods</h6>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">Property / Method</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">activeVrDisplays</th>
+        <td>Returns an array of every VRDisplay instance with its presenting property is set to true</td>
+      </tr>
+      <tr>
+        <th scope="row">appCodeName</th>
+        <td>Returns “Mozilla” even in non-Mozilla browsers.</td>
+      </tr>
+      <tr>
+        <th scope="row">appVersion</th>
+        <td>Returns the browser version. However, it typically does not correspond to the actual version of the browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">battery</th>
+        <td>Returns a BatteryManager object to interact with the Battery status API.</td>
+      </tr>
+      <tr>
+        <th scope="row">buildId</th>
+        <td>Return the build number for the web browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">connection</th>
+        <td>Returns a NetworkInformation object to interact with the Network information API.</td>
+      </tr>
+      <tr>
+        <th scope="row">cookieEnabled</th>
+        <td>Returns true if if cookies are enabled; otherwise false.</td>
+      </tr>
+      <tr>
+        <th scope="row">credentials</th>
+        <td>Returns a CredentialsContainer to interact with the Credentials Management API.</td>
+      </tr>
+      <tr>
+        <th scope="row">deviceMemory</th>
+        <td>Returns the amount of device memory in gigabytes.</td>
+      </tr>
+      <tr>
+        <th scope="row">doNotTrack</th>
+        <td>Returns the user’s preference of do-not-track.</td>
+      </tr>
+      <tr>
+        <th scope="row">geolocation</th>
+        <td>Returns a Geolocation object to interact with the Geolocation API.</td>
+      </tr>
+      <tr>
+        <th scope="row">getVRDisplays()</th>
+        <td>Returns an array of every VRDisplay instance if available.</td>
+      </tr>
+      <tr>
+        <th scope="row">getUserMedia()</th>
+        <td>Returns the stream associated with the available media device hardware.</td>
+      </tr>
+      <tr>
+        <th scope="row">hardwareConcurrency</th>
+        <td>Returns the number of processor cores of the device.</td>
+      </tr>
+      <tr>
+        <th scope="row">javaEnabled</th>
+        <td>Determines if Java is enabled in the browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">language</th>
+        <td>Returns the browser’s primary language.</td>
+      </tr>
+      <tr>
+        <th scope="row">languages</th>
+        <td>Returns an array of all the browser’s preferred languages.</td>
+      </tr>
+      <tr>
+        <th scope="row">locks</th>
+        <td>Returns a LockManager object to interact with the Web Locks API.</td>
+      </tr>
+      <tr>
+        <th scope="row">mediaCapabilities</th>
+        <td>Returns a MediaCapabilities object to interact with the Media capabilities API.</td>
+      </tr>
+      <tr>
+        <th scope="row">mediaDevices</th>
+        <td>Returns the available media devices.</td>
+      </tr>
+      <tr>
+        <th scope="row">maxTouchPoints</th>
+        <td>Returns the maximum number of supported touch points for the device’s touchscreen.</td>
+      </tr>
+      <tr>
+        <th scope="row">mimeTypes</th>
+        <td>Returns an array of MIME types registered with the browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">onLine</th>
+        <td>Specifies if the browser is connected to the Internet.</td>
+      </tr>
+      <tr>
+        <th scope="row">oscpu</th>
+        <td>The operating system (OS) and/or CPU on which the browser is running.</td>
+      </tr>
+      <tr>
+        <th scope="row">permissions</th>
+        <td>Returns the Permissions object to interact with the Permissions API.</td>
+      </tr>
+      <tr>
+        <th scope="row">platform</th>
+        <td>Returns the system platform on which the browser is running.</td>
+      </tr>
+      <tr>
+        <th scope="row">plugins</th>
+        <td>Returns an array of installed browser’s plug-ins.</td>
+      </tr>
+      <tr>
+        <th scope="row">product</th>
+        <td>Returns the name of the product.</td>
+      </tr>
+      <tr>
+        <th scope="row">productSub</th>
+        <td>Returns the extra information about the product.</td>
+      </tr>
+      <tr>
+        <th scope="row">registerProtocolHandler()</th>
+        <td>Registers a website as a handler for a particular protocol.</td>
+      </tr>
+      <tr>
+        <th scope="row">requestMediaKeySystemAccess()</th>
+        <td>Returns a Promise which resolves to a MediaKeySystemAccess object.</td>
+      </tr>
+      <tr>
+        <th scope="row">sendBeacon()</th>
+        <td>Asynchronously transmits a small payload.</td>
+      </tr>
+      <tr>
+        <th scope="row">serviceWorker</th>
+        <td>Returns the ServiceWorkerContainer used to interact with ServiceWorker object.</td>
+      </tr>
+      <tr>
+        <th scope="row">share()</th>
+        <td>Calls the current platform’s native sharing mechanism.</td>
+      </tr>
+      <tr>
+        <th scope="row">storage</th>
+        <td>Returns the StorageManager object to interact with the Storage API.</td>
+      </tr>
+      <tr>
+        <th scope="row">userAgent</th>
+        <td>Represents the user-agent string of the browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">vendor</th>
+        <td>Returns the brand name of the browser.</td>
+      </tr>
+      <tr>
+        <th scope="row">vendorSub</th>
+        <td>Returns extra information about the browser’s vendor.</td>
+      </tr>
+      <tr>
+        <th scope="row">vibrate()</th>
+        <td>Triggers the device to vibrate if vibration is supported.</td>
+      </tr>
+      <tr>
+        <th scope="row">webdriver</th>
+        <td>Determines if the browser is currently controlled by automation.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+  </h4>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let's write a code that displays browser information. (appCodeName, appName, appVersion, cookieEnabled, language, onLine, platform, userAgent)
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/b1qcyus2/5/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="question">
+    <div>
+      <p align="justify">
+        Let's write a program that finds the geographical location as latitude and longitude.
+      </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+      <div class="solution-content">
+          <iframe
+            width="100%"
+            height="300"
+            src="//jsfiddle.net/TeamDFX/08p3yf6a/1/embedded/js,html,css,result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          >
+          </iframe>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,222 @@
+<h3>
+    The “if” statement
+</h3>
+<p align="justify">
+    The <code>if (...)</code> statement runs a block of code if the result of evaluating a condition enclosed in parenthesis is true.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear == 1988) console.log('You are right!');
+    </code>
+    </pre>
+<p align="justify">
+    A basic equality check <code>(bornYear == 1988)</code> is used in the example above, but the condition can be a lot more complicated.
+</p>
+<p align="justify">
+    Wrapping our code block in curly brackets is necessary if we wish to execute numerous statements:
+</p>
+    <pre>
+    <code class="javascript">
+    if (bornYear == 1988) {
+        console.log("That's correct!");
+        console.log("Do not be sad. You ara not old :D");
+    }
+    </code>
+    </pre>
+<p align="justify">
+    If you use an <code>if</code> statement in your code block, even if it is the only statement that needs to run, we advise you to surround it with curly braces <code>{}</code>. This enhances clarity.
+</p>
+<br>
+<h3>
+    Boolean conversion
+</h3>
+<p align="justify">
+    The expression enclosed in parentheses is evaluated by the <code>if (...)</code> statement, which then changes the outcome to a Boolean.
+</p>
+<br>
+<p align="justify">
+    Let us review the conversion rules from the chapter, Type Conversions:
+</p>
+<ul>
+    <li>
+        A <strong>0</strong> becomes <code>false</code>, as do an empty string <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>. As a result, they are referred to as <strong>"falsy"</strong> values.
+    </li>
+    <li>
+        Other values become <code>true</code> and are referred to as <strong>"truthy"</strong>.
+    </li>
+</ul>
+<p align="justify">
+    As a result, the code would never execute in this case:
+</p>
+    <pre>
+    <code class="javascript">
+    if (0) { // 0 is falsy
+         ...
+    }
+    </code>
+    </pre>
+<p align="justify">
+    …and inside this condition – it always will:
+</p>
+    <pre>
+    <code class="javascript">
+    if (1) { // 1 is truthy
+        ...
+    }
+    </code>
+    </pre>
+<p align="justify">
+    Another option is to give <code>if</code> a pre-evaluated boolean value, like in this example:
+</p>
+    <pre>
+    <code class="javascript">
+    let cond = (bornYear == 1988); // equality evaluates to true or false
+
+    if (cond) {
+        ...
+    }
+    </code>
+    </pre>
+<h3>
+    The “else” clause
+</h3>
+<p align="justify">
+    An <code>else</code> block may be included in the <code>if</code> statement. When the condition is <strong>falsy</strong>, it runs.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear == 1988) {
+        alert('You guessed it right!');
+    } else {
+        alert('oh no'); // any value except 1988
+    }
+    </code>
+    </pre>
+<h3>
+    Several conditions: “else if”
+</h3>
+<p align="justify">
+    We might want to test multiple variations of the same condition. That's what the <code>else if</code> clause allows for.
+</p>
+    <pre>
+    <code class="javascript">
+    let bornYear = prompt('When were you born?', '');
+
+    if (bornYear < 1988) {
+        alert('I am not so old');
+    } else if (bornYear > 1988) {
+        alert('I am not so young');
+    } else {
+        alert('Well done!');
+    }
+    </code>
+    </pre>
+<p align="justify">
+    JavaScript initially verifies if the <code>year &lt; 1988</code> in the code above. If that is <strong>falsy</strong>, it proceeds to the following condition <code>year &gt; 1988</code>. It displays the last alert if that is likewise falsy.
+</p>
+<br>
+<p align="justify">
+    More blocks (<code>else..if</code>) may exist. The last else is not obligatory.
+</p>
+<br>
+<h3>
+    Conditional operator ‘?’
+</h3>
+<p align="justify">
+    Assigning a variable based on a condition is sometimes necessary.
+</p>
+<br>
+<p align="justify">
+    For instance:
+</p>
+    <pre>
+    <code class="javascript">
+    let accessAllowed;
+    let age = prompt('How old are you?', '');
+
+    if (age > 18) {
+        accessAllowed = true;
+    } else {
+        accessAllowed = false;
+    }
+
+    console.log(accessAllowed);
+    </code>
+    </pre>
+<p align="justify">
+    This can be accomplished more quickly and easily with the help of the so-called <strong>"conditional"</strong> or <strong>"question mark"</strong> operator.
+</p>
+<p align="justify">
+    The symbol for the operator is a question mark <code>?</code>. Because there are three operands in the operator, it is sometimes referred to as <code>"ternary"</code>. In reality, there is only one operator in JavaScript with that many.
+</p>
+    <pre>
+    <code class="javascript">
+    let result = condition ? value1 : value2;
+    </code>
+    </pre>
+<p align="justify">
+    <code>value1</code> is returned if the condition is true; if not, <code>value2</code> is returned.
+</p>
+    <pre>
+    <code class="javascript">
+    let accessAllowed = (age > 18) ? true : false;
+    </code>
+    </pre>
+<p align="justify">
+    In theory, the parentheses around <code>age &gt; 18</code> can be removed. Due to its low precedence, the question mark operator runs after the comparison <code>&gt;</code>.
+</p>
+<br>
+<p align="justify">
+    This instance will fulfill the same thing as the preceding one:
+</p>
+    <pre>
+    <code class="javascript">
+    // the comparison operator "age > 18" executes first anyway
+    // (no need to wrap it into parentheses)
+    let accessAllowed = age > 18 ? true : false;
+    </code>
+    </pre>
+
+<br>
+<h4 class="d-flex">
+    <i class="bi bi-check-circle-fill" style="color: green"></i>
+    <span class="px-2">Tasks</span>
+</h4>
+
+<div class="question">
+    <div>
+        <h5>#1</h5>
+        <p align="justify">
+            Write <strong>"Good morning"</strong> to the console if the time is less than <strong>10</strong>, <strong>"Good day"</strong> if it is less than <strong>20</strong>, and <strong>"Good evening"</strong> if it is not.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/ksm349uw/3/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="question">
+    <div>
+        <h5>#2</h5>
+        <p align="justify">
+            Use the <strong>tenary operator</strong>. If the age is under <strong>18</strong>, put <strong>"You cannot drive"</strong> on the console. If not, write <strong>"You can drive"</strong> to the console.
+        </p>
+    </div>
+    <br>
+    <button class="solution-btn">Solution</button>
+    <div class="solution">
+        <div class="solution-content">
+            <iframe width="100%" height="300" src="//jsfiddle.net/TeamDFX/24yxnh6e/3/embedded/js,result/dark/" 
+            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

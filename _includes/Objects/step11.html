@@ -1,0 +1,186 @@
+<p align="justify">
+    Data can be stored and sent using the JSON format.
+</p>
+<br>
+<p align="justify">
+    When sending data from a server to a web page, JSON is frequently used.
+</p>
+<br>
+<h3>
+    What is JSON?
+</h3>
+<ul>
+    <li>The acronym for JavaScript Object Notation is JSON.</li>
+    <li>JSON is an easy-to-use data transfer format.</li>
+    <li>JSON does not depend on any language.</li>
+    <li>JSON is "self-describing" and simple to understand.</li>
+</ul>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    {
+        "name": "Gökhan Ertaş",
+        "birthYear": 1988,
+        "maritalStatus": "married"
+        "gender": "male",
+    }
+    </code>
+    </pre>
+<p align="justify">
+    Data in JSON are organized as <strong>key/value</strong> pairs and are separated by a comma <code>,</code>.
+</p>
+<br>
+<p align="justify">
+    JavaScript served as the basis for JSON. Thus, the syntax of JSON is similar to that of object literal in JavaScript. But other computer languages can also access and produce the JSON format.
+</p>
+<br>
+<h3>
+    JSON Data
+</h3>
+<p align="justify">
+    JSON data is made up of <strong>key/value</strong> pairs that resemble the characteristics of JavaScript object properties. A colon <code>:</code> separates the double quotations used to write the values and the key.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    "name": "Gökhan Ertaş"
+    </code>
+    </pre>
+<h3>
+    JSON Object
+</h3>
+<p align="justify">
+    Within the curly brackets <code>{ }</code>, the JSON object is written. Multiple <strong>key/value</strong> pairs can be found in JSON objects.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    { "name": "Gökhan Ertaş", "birthYear": 1988 }
+    </code>
+    </pre>
+<h3>
+    JSON Array
+</h3>
+<p align="justify">
+    Square brackets <code>[ ]</code> are used to write JSON arrays.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    ["Driven by Impact", "Best Environment for Best People", "Future in Mind", "Define Next"]
+    
+    [
+        {"name": "Gökhan Ertaş", "maritalStatus": "married"},
+        {"name": "İlkay İvrendi", "maritalStatus": "single"},
+        {"name": "Ozan Avcular", "maritalStatus": "married"},
+        {"name": "Ediz Agarer", "maritalStatus": "single"}
+    ]
+    </code>
+    </pre>
+<p align="justify">
+    Data in JSON can include arrays and objects. But functions cannot be values in JSON data, unlike in JavaScript objects.
+</p>
+<br>
+<h3>
+    Accessing JSON Data
+</h3>
+<p align="justify">
+    You can use the dot <code>.</code> notation to access JSON data.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    const data = {
+        "name": "Gökhan Ertaş",
+        "birthYear": 1988,
+        "maritalStatus": "married",
+        "company": {
+	        "name" : "Team DefineX",
+	        "numberOfEmployee" : 350,
+	        "coreValues" : ["Driven by Impact", "Best Environment for Best People", "Future in Mind", "Define Next"]
+        },
+        "skills" : ["JavaScript", "HTML", "CSS", "Java", "C#", "Pega BPM", ".Net MVC", "Team Management", "Web Methods ArGE"]
+    }
+
+    console.log(data.name); // Gökhan Ertaş
+    console.log(data.company); // { name: "Team DefineX", numberOfEmployee: 350, coreValues: Array(4) ["Driven by Impact", "Best Environment for Best People", "Future in Mind", "Define Next"] }
+    console.log(data.company.name); // Team DefineX
+    console.log(data.skills[1]); // HTML
+    </code>
+    </pre>
+<p align="justify">
+    JSON data is accessed using the <code>.</code> notation. <code>variableName.key</code> is how it is written.
+</p>
+    <pre>
+    <code class="javascript">
+    const person = {
+        "name": "Gökhan Ertaş",
+        "birthYear": 1988
+    }
+
+    console.log(person["name"]); // Gökhan Ertaş
+    </code>
+    </pre>
+<h3>
+    Differents are JavaScript Objects and JSON
+</h3>
+<p align="justify">
+    Even though JSON and JavaScript objects have similar syntax, JSON is not the same as JavaScript objects.
+</p>
+<br>
+<img src="../../_includes/images/jsondifferents.png" class="img-fluid" alt="JSON"> 
+<br>
+<h3>
+    Converting JSON to JavaScript Object
+</h3>
+<p align="justify">
+    The built-in <code>JSON.parse()</code> function can be used to transform JSON data into a JavaScript object.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    const data = '{ "name": "Gökhan Ertaş", "birthYear": 1988 }';
+
+    // converting to JavaScript object
+    const obj = JSON.parse(data);
+
+    console.log(obj.name); // Gökhan Ertaş
+    </code>
+    </pre>
+<h3>
+    Converting JavaScript Object to JSON
+</h3>
+<p align="justify">
+    The built-in <code>JSON.stringify()</code> function in JavaScript allows you to convert JavaScript objects to JSON format as well.
+</p>
+<br>
+<p align="justify">
+    For example:
+</p>
+    <pre>
+    <code class="javascript">
+    const data = { "name": "Gökhan Ertaş", "birthYear": 1988 };
+
+    // converting to JSON
+    const obj = JSON.stringify(data);
+
+    console.log(obj); // "{"name":"Gökhan Ertaş","age":1988}"
+    </code>
+    </pre>
