@@ -1,0 +1,146 @@
+<div>
+  <p>Class patterns, also known as design patterns, are established solutions to common problems encountered while
+    designing and coding software using classes and objects. These patterns provide reusable approaches to structuring
+    code, solving specific problems, and improving code quality, maintainability, and scalability. Some popular class
+    patterns include:</p></br>
+
+  <ol>
+    <li><strong>Singleton Pattern:</strong> Ensures that a class has only one instance and provides a global point of
+      access to that
+      instance.</li></br>
+    <li><strong>Factory Pattern:</strong> Provides an interface for creating instances of objects, allowing subclasses
+      or specialized
+      methods to handle object creation.</li></br>
+    <li><strong>Observer Pattern:</strong> Defines a one-to-many dependency between objects so that when one object
+      changes state, all
+      its dependents (observers) are notified and updated automatically.</li></br>
+    <li><strong>Adapter Pattern:</strong> Allows incompatible interfaces of classes to work together by wrapping an
+      existing class with a
+      new interface.</li></br>
+    <li><strong>Decorator Pattern:</strong> Dynamically adds new functionality to objects without altering their
+      structure, allowing
+      behavior to be added to individual objects.</li></br>
+    <li><strong>Strategy Pattern:</strong> Defines a family of algorithms, encapsulates each one, and makes them
+      interchangeable. This
+      allows the algorithm to vary independently from the clients that use it.</li></br>
+    <li><strong>Facade Pattern:</strong> Provides a unified interface to a set of interfaces in a subsystem, simplifying
+      and hiding the
+      complexity of the subsystem from the client.</li></br>
+    <li><strong>Command Pattern:</strong> Encapsulates a request as an object, thereby allowing for parameterization of
+      clients with
+      queues, requests, and operations.</li></br>
+    <li><strong>Template Method Pattern:</strong> Defines the skeleton of an algorithm in the superclass but allows
+      subclasses to
+      override specific steps of the algorithm without changing its structure.</li></br>
+    <li><strong>Iterator Pattern:</strong> Provides a way to access elements of an aggregate object sequentially without
+      exposing its
+      underlying representation.</li>
+  </ol>
+
+  <p>
+    These patterns, among others, serve as proven solutions to common design challenges encountered when working with
+    classes and objects in object-oriented programming. They aim to promote flexibility, maintainability, and
+    scalability while improving code organization and reusability. Choosing the right pattern depends on the specific
+    problem being solved and the context in which it's applied.
+  </p></br>
+
+  <h5>Examples of Class Patterns</h5>
+  </br>
+  <h6>Singleton Pattern</h6>
+  <p>Ensures only one instance of "HeroProfile" is created.</p></br>
+  <pre>
+<code class="javascript">
+class HeroProfile {
+  constructor(name, age, power) {
+    if (!HeroProfile.instance) {
+      this.name = name;
+      this.age = age;
+      this.power = power;
+      HeroProfile.instance = this;
+    }
+    return HeroProfile.instance;
+  }
+}
+  
+  const hero1 = new HeroProfile('Superman', 30, 'Flight');
+  const hero2 = new HeroProfile('Batman', 35, 'Intelligence');
+  
+  console.log(hero1 === hero2); // Output: true (same instance)
+</code>
+</pre>
+
+
+  <h6>Factory Pattern</h6>
+  <p>Provides a factory method to create instances of "HeroProfile".</p></br>
+  <pre>
+<code class="javascript">
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this.age = age;
+    this.power = power;
+  }
+  
+  static createHero(name, age, power) {
+    return new HeroProfile(name, age, power);
+  }
+}
+  
+const hero = HeroProfile.createHero('Wonder Woman', 25, 'Super Strength');
+console.log(hero); // Output: HeroProfile { name: 'Wonder Woman', age: 25, power: 'Super Strength' }
+</code>
+</pre>
+
+
+
+  <h6>Observer Pattern</h6>
+  <p>Simulates an observer pattern where other objects can observe changes in a hero's power.</p></br>
+  <pre>
+<code class="javascript">
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this.age = age;
+    this._power = power;
+    this.observers = [];
+  }
+  
+  get power() {
+    return this._power;
+  }
+  
+  set power(newPower) {
+    this._power = newPower;
+    this.notifyObservers();
+  }
+  
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
+  
+  notifyObservers() {
+    this.observers.forEach(observer => observer.update(this._power));
+  }
+}
+  
+class PowerObserver {
+  update(power) {
+    console.log(`Hero's power has been updated: ${power}`);
+  }
+}
+  
+const hero = new HeroProfile('Flash', 28, 'Super Speed');
+const observer1 = new PowerObserver();
+const observer2 = new PowerObserver();
+  
+hero.addObserver(observer1);
+hero.addObserver(observer2);
+  
+hero.power = 'Time Travel';
+// Output:
+// "Hero's power has been updated: Time Travel"
+// "Hero's power has been updated: Time Travel"
+</code>
+</pre>
+
+</div>

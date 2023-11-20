@@ -328,6 +328,10 @@ export const modules = [
         name: "Subclasses",
         time: "20mins",
       },
+      {
+        name: "Class Patterns",
+        time: "20mins",
+      },
     ],
   },
   {
