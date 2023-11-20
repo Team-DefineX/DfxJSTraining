@@ -54,7 +54,7 @@ class HeroProfile {
 
   <p>
     In this step, we've added three inheritance methods to the HeroProfile class:
-    <strong>introduce()</strong>,<strong>displayAge()</strong>and<strong>usePower()</strong>. 
+    <strong>introduce()</strong>,<strong>displayAge()</strong>and<strong>usePower()</strong>.
     These methods allow us to introduce the hero, display their age, and use their power, respectively.
     Also we created a Class Method as <strong>explainHeroics()</strong> to explain what an superhero does generally.
   </p></br>
@@ -92,10 +92,120 @@ HeroProfile.superheroMotto(); // "With great power comes great responsibility!"
 </code>
 </pre>
 
-  <p><strong>introduce()</strong>and <strong>displayAge()</strong> are instance methods because they operate on specific instances (superman and batman).</p></br>
-  <p><strong>explainHeroics()</strong> and <strong>superheroMotto()</strong> is a class method because it is called on the HeroProfile class itself and is common to all
+  <p><strong>introduce()</strong>and <strong>displayAge()</strong> are instance methods because they operate on specific
+    instances (superman and batman).</p></br>
+  <p><strong>explainHeroics()</strong> and <strong>superheroMotto()</strong> is a class method because it is called on
+    the HeroProfile class itself and is common to all
     instances of the class.</p></br>
   <p>This distinction allows you to define and use methods that are either specific to individual instances or shared
-    among all instances of the class, making your code more organized and modular.</p>
+    among all instances of the class, making your code more organized and modular.</p></br>
 
+
+  <h5>Getters & Setters</h5>
+  <p>
+    Getters and setters allow controlled access to object properties, enabling additional logic or validation when
+    getting or setting values. </br></br>
+    <strong>Getters:</strong> Getters are methods used to retrieve the value of a property. They are defined using the
+    <strong>get</strong> keyword followed by the property name. When the property is accessed, the associated getter function is called
+    automatically. </br></br>
+
+
+    <strong>Setters:</strong> Setters are methods used to assign a value to a property. They are defined using the <strong>set</strong>
+    keyword
+    followed by the property name. When a value is assigned to the property, the associated setter function is called
+    automatically.</br></br>
+
+    Let's add getters and setters for the age property in the HeroProfile class.
+  </p></br>
+
+  <pre>
+<code class="javascript">
+class HeroProfile {
+  constructor(name, age, power) {
+    this.name = name;
+    this._age = age; // Use an underscore for the private property
+    this.power = power;
+  }
+
+  // Instance method to introduce the hero
+  introduce() {
+    console.log(`Hi, I'm ${this.name}, and I'm a superhero!`);
+  }
+
+  // Getter for age
+  get age() {
+    return this._age;
+  }
+
+  // Setter for age
+  set age(newAge) {
+    if (newAge > 0 && newAge < 150) {
+      this._age = newAge;
+    } else {
+      console.error('Invalid age!');
+    }
+  }
+
+  // Instance method to display the hero's age
+  displayAge() {
+    console.log(`${this.name} is ${this.age} years old.`);
+  }
+
+  // Instance method to display the hero's power
+  usePower() {
+    console.log(`${this.name} uses ${this.power}!`);
+  }
+
+  // Class method to explain what superheroes do
+  static explainHeroics() {
+    console.log("Superheroes protect and serve the world!");
+  }
+
+  // Class method to provide a superhero motto
+  static superheroMotto() {
+    console.log("With great power comes great responsibility!");
+  }
+}
+</code>
+</pre>
+
+  <p><strong>get age()</strong> defines a getter method for the age property, allowing us to retrieve the value of age
+    using
+    <strong>heroInstance.age </strong>
+  </p></br>
+
+  <p><strong>set age(newAge)</strong> defines a setter method for the age property, allowing us to set the age value
+    using
+    <strong>heroInstance.age = newAge</strong>. </br>
+    It includes validation to ensure the age is within a reasonable range (0 to 150 years).
+    If the age is invalid, it logs an error message.
+  </p></br>
+
+  <p>These getters and setters provide controlled access to the age property, allowing for additional logic or
+    validation during the retrieval or assignment of the age value within the HeroProfile class.</p></br>
+
+  <pre>
+<code class="javascript">
+// Creating an instance of HeroProfile and using the getter and setter
+const hero = new HeroProfile('Spider-Man', 20, 'Web-slinging');
+
+hero.introduce(); // Output: Hi, I'm Spider-Man, and I'm a superhero!
+hero.displayAge(); // Output: Spider-Man is 20 years old.
+
+// Using the setter to update the age
+hero.age = 25; // Valid age assignment
+
+// Attempting to set an invalid age
+hero.age = 200; // Output: Invalid age!
+
+hero.displayAge(); // Output: Spider-Man is 25 years old.
+hero.usePower(); // Output: Spider-Man uses Web-slinging!
+</code>
+</pre>
+
+  <p>In this example, the age property is accessed and modified using the <strong>getter (hero.age)</strong> and
+    <strong>setter (hero.age =newAge)</strong>. </br>
+    The setter ensures that the age is within a valid range when updated, providing additional control over the
+    modification of the age property.
+  </p>
 </div>
