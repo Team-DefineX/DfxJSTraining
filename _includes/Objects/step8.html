@@ -124,7 +124,7 @@
         }
     }
     
-    car.companyInfo()  // Prints false because now “this” refers to user object instead of global object.
+    car.companyInfo()  // Prints false because now “this” refers to user object instead of car object.
     let companyInfo1 = car.companyInfo1;
     companyInfo1() // Prints true as this method is invoked as a simple function.
     car.companyInfo1()  // Prints false on console as companyInfo1 is invoked as a object’s method
