@@ -169,6 +169,10 @@ export const modules = [
         name: "Raw Strings",
         time: "5mins",
       },
+      {
+        name: "String Methods",
+        time: "10mins",
+      },
     ],
   },
   {

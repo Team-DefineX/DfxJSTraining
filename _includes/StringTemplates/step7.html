@@ -1,0 +1,452 @@
+<p align="justify">
+    JavaScript strings are the sequence of characters. In JavaScript, strings automatically convert the string to objects so that we can use string methods and properties also for primitive strings. It is used to 
+    represent and manipulate the sequence of characters.
+</p>
+<br>
+<p align="justify">
+    In general, there are two ways to create a string in JavaScript. Either by using the new String() syntax or putting the value in quotes.
+</p>
+<pre>
+    <code class="javascript">
+    let str1 = "Welcome to GeesforGeeks";
+    let str2 = new String("Welcome Geeks");
+         
+    console.log(str1);
+    console.log(str2);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Welcome to GeesforGeeks
+    [String: 'Welcome Geeks']
+    </code>
+</pre>
+<br>
+<h4>
+    Property
+</h4>
+<br>
+<p align="justify"> 
+    <strong>JavaScript String length Property:</strong> This property returns the number of characters present in the string. In the case of an array, this property returns the number of elements present in the array.
+</p>
+<pre>
+    <code class="javascript">
+    / JavaScript to illustrate length property    
+    function func() {
+        // length property for string
+        console.log("GFG".length)
+    }
+    
+    func();
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    3
+    </code>
+</pre>
+<br>
+<h4>
+    Methods
+</h4>
+<h5>
+    slice(startIndex, endIndex)
+</h5>
+</p>
+<p align="justify">
+    This function returns a substring of the string based on the “start” and “end” index arguments, NOT including the “end” index itself. “End” is optional, and if none is specified, the slice includes all characters from “start” to end of the string.
+</p>
+<pre>
+    <code class="javascript">
+    let A = 'Geeks for Geeks';
+    b = A.slice(0,5);
+    c = A.slice(6,9);
+    d = A.slice(10);
+ 
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Geeks
+    for
+    Geeks
+    </code>
+</pre>
+<br>
+<h5>
+    substring(startIndex, endIndex)
+</h5>
+</p>
+<p align="justify">
+    It returns the characters in a string between “from” and “to” indexes, NOT including “to” itself. “To” is optional, and if omitted, up to the end of the string is assumed.
+<pre>
+    <code class="javascript">
+    let str = "Mind, Power, Soul";
+    let part = str.substring(6, 11);
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Power
+    </code>
+</pre>
+<br>
+<h5>
+    substr(start, length)
+</h5>
+</p>
+<p align="justify">
+    This function returns the characters in a string beginning at “start” and through the specified number of characters, “length”. “Length” is optional, and if omitted, up to the end of the string is assumed.
+<pre>
+    <code class="javascript">
+    let str = "Mind, Power, Soul";
+    let part = str.substr(6, 5);
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Power
+    </code>
+</pre>
+<br>
+<h5>
+    replace(replaceValue, replaceWithValue)
+</h5>
+</p>
+<p align="justify">
+    Searches and replaces the regular expression (or sub string) portion (match) with the replaced text instead.
+<pre>
+    <code class="javascript">
+    let str = "Mind, Power, Soul";
+    let part = str.replace("Power", "Space");
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Mind, Space, Soul
+    </code>
+</pre>
+<br>
+<h5>
+    replaceAll(regexp | substr , newSubstr | function)
+</h5>
+</p>
+<p align="justify">
+    This method returns a new string after replacing all the matches of a string with a specified string or a regular expression. The original string is left unchanged after this operation.
+<pre>
+    <code class="javascript">
+    let str = "Mind, Power, Power,  Soul";
+    let part = str.replaceAll("Power", "Space");
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Mind, Space, Space,  Soul
+    </code>
+</pre>
+<br>
+<h5>
+    toUpperCase(stringVariable)
+</h5>
+</p>
+<p align="justify">
+    This will return the string with all of its characters converted to uppercase.
+<pre>
+    <code class="javascript">
+    let gfg = 'GFG '
+    let geeks = 'stands-for-GeeksforGeeks';
+         
+    console.log(geeks.toUpperCase(geeks)) ;
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    STANDS-FOR-GEEKSFORGEEKS
+    </code>
+</pre>
+<br>
+<h5>
+    toLowerCase(stringVariable)
+</h5>
+</p>
+<p align="justify">
+    This will return the string with all of its characters converted to lowercase.
+<pre>
+    <code class="javascript">
+    let gfg = 'GFG ';
+    let geeks = 'stands-for-GeeksforGeeks';
+ 
+    console.log(geeks.toLowerCase(geeks));
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    stands-for-geeksforgeeks
+    </code>
+</pre>
+<br>
+<h5>
+    concat(objectOfString)
+</h5>
+</p>
+<p align="justify">
+    This method combines the text of two strings and returns a new combined or joined string. To concatenate two strings, we use the concat() method on one object of string and send another object of string as a parameter. 
+<pre>
+    <code class="javascript">
+    let gfg = 'GFG ';
+    let geeks = 'stands for GeeksforGeeks';
+ 
+    // Accessing concat method on an object
+    // of String passing another object 
+    // as a parameter
+    console.log(gfg.concat(geeks));
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    GFG stands for GeeksforGeeks
+    </code>
+</pre>
+<br>
+<h5>
+    trim()
+</h5>
+</p>
+<p align="justify">
+    This function removes whitespace from both ends of a string.
+<pre>
+    <code class="javascript">
+    let gfg = 'GFG    ';
+    let geeks = 'stands-for-GeeksforGeeks';
+ 
+    // Storing new object of string
+    // with removed white spaces
+    let newGfg = gfg.trim();
+ 
+    // Old length
+    console.log(gfg.length);
+ 
+    // New length
+    console.log(newGfg.length)
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    7
+    3
+    </code>
+</pre>
+<br>
+<h5>
+    trimStart()
+</h5>
+</p>
+<p align="justify">
+    This method removes whitespace from the beginning of a string. The value of the string is not modified in any manner, including any whitespace present after the string.
+<pre>
+    <code class="javascript">
+    let str = "  Soul";
+    console.log(str)
+    let part = str.trimStart();
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+         Soul
+    Soul
+    </code>
+</pre>
+<br>
+<h5>
+    trimEnd()
+</h5>
+</p>
+<p align="justify">
+    This method removes white space from the end of a string. The value of the string is not modified in any manner, including any white-space present before the string.
+<pre>
+    <code class="javascript">
+    let str = "Soul  ";
+    console.log(str)
+    let part = str.trimEnd();
+    console.log(part);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Soul    
+    Soul
+    </code>
+</pre>
+<br>
+<h5>
+    padStart()
+</h5>
+</p>
+<p align="justify">
+    This method pad a string with another string until it reaches the given length. The padding is applied from the left end of the string.
+<pre>
+    <code class="javascript">
+    let stone = "Soul";
+    stone = stone.padStart(9,"Mind ");
+    console.log(stone);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Mind Soul
+    </code>
+</pre>
+<br>
+<h5>
+    padEnd()
+</h5>
+</p>
+<p align="justify">
+    This method pad a string with another string until it reaches the given length. The padding is applied from the right end of the string.
+<pre>
+    <code class="javascript">
+    let stone = "Soul";
+    stone = stone.padEnd(10," Power");
+    console.log(stone);
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    Soul Power
+    </code>
+</pre>
+<br>
+<h5>
+    charAt(indexOfCharacter)
+</h5>
+</p>
+<p align="justify">
+    This function will return the character at the x position within the string.
+<pre>
+    <code class="javascript">
+    let gfg = 'GeeksforGeeks';
+    let geeks = 'GfG is the best platform to learn and\n'+
+    'experience Computer Science.';
+     
+    // As string index starts from zero
+    // It will return first character of string
+    console.log(gfg.charAt(0)); 
+     
+    console.log(geeks.charAt(5));
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    G
+    s
+    </code>
+</pre>
+<br>
+<h5>
+    charCodeAt(indexOfCharacter)
+</h5>
+</p>
+<p align="justify">
+    This function will return the unicode value of the character at position ‘x’ within the string.
+<pre>
+    <code class="javascript">
+    let gfg = 'GeeksforGeeks';
+    let geeks = 'GfG is the best platform\n\
+    to learn and experience\n\
+    Computer Science.';
+     
+    // Return a number indicating Unicode
+    // value of character at index 0 ('G')
+    console.log(gfg.charCodeAt(0));
+    console.log(geeks.charCodeAt(5));
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    71
+    115
+    </code>
+</pre>
+<br>
+<h5>
+    split(character)
+</h5>
+</p>
+<p align="justify">
+    This method splits the string into an array of sub-strings. This method returns an array. This method accepts a single parameter character on which you want to split the string.
+<pre>
+    <code class="javascript">
+    let gfg = 'GFG '
+    let geeks = 'stands-for-GeeksforGeeks'
+ 
+    // Split string on '-'. 
+    console.log(geeks.split('-'))
+    </code>
+</pre>
+<p>
+    <strong>Output</strong>
+</p>
+<pre>
+    <code class="javascript">
+    ['stands', 'for', 'GeeksforGeeks']
+    </code>
+</pre>
