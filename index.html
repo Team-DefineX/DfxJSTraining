@@ -92,7 +92,7 @@
     .bd-mode-toggle {
       z-index: 1500;
     }
-    
+
     .accordion {
       --bs-accordion-active-color: ghostwhite;
       --bs-accordion-active-bg: #0d6efd;
@@ -133,21 +133,27 @@
             <article class="card">
               <div class="card-header text-bg-primary">
                 <div>
-                  <h3 class="title"><b>Ders Adı</b></h3>
-                  <span class="mins">360 mins</span>
+                  <h3 class="title"><b>Welcome to Our JavaScript Education</b></h3>
+                  <span class="mins"></span>
                 </div>
               </div>
               <div class="card-body">
-                <h5 class="card-title text-primary">Alt Başlık</h5>
+                <h5 class="card-title text-primary"></h5>
                 <div class="card-text">
-                  Welcome to Our JavaScript Education. Today we will see some
-                  example of javascript usages
+                  <h6>Today we will see some example of javascript usages</h6> 
                   <ul>
-                    <li>What is the Dom and how it works?</li>
-                    <li>BOM Usages & examples</li>
+                    <li>Introduction To JS</li>
                     <li>Objects</li>
+                    <li>String Templates</li>
                     <li>Arrays</li>
-                    <li>ES5 ES6, ..., ES13</li>
+                    <li>Advanced Functions</li>
+                    <li>Error Handling</li>
+                    <li>Promises & Async/Await</li>
+                    <li>Classes</li>
+                    <li>JS & EcmaScript 5-6</li>
+                    <li>DOM</li>
+                    <li>BOM</li>
+                    <li>Differences of Major FWs</li>
                   </ul>
                 </div>
               </div>
@@ -172,11 +178,20 @@
   <script type="module">
     import { modules } from './resources/moduleData.js';
 
+    let isStarted = false;
     let currentModuleIndex = 0;
     let currentStepIndex = 0;
     let selectedStepIndex = null;
     const filteredModules = modules.filter(module => module.visible);
 
+    function updateButtonText() {
+      const nextButton = document.getElementById('nextButton');
+      if (isStarted) {
+        nextButton.textContent = 'Next';
+      } else {
+        nextButton.textContent = 'Start';
+      }
+    }
 
     function createSidebar(sidebarData) {
       const sidebar = document.createElement('ul');
@@ -240,6 +255,9 @@
     }
 
     window.nextStep = function () {
+      isStarted = true;
+      updateButtonText();
+
       if (selectedStepIndex !== null) {
         ++selectedStepIndex;
         if (
@@ -304,6 +322,7 @@
     });
 
     document.addEventListener("DOMContentLoaded", async () => {
+      updateButtonText();
       await promise;
       load("./_layouts/header.html", document.querySelector(".header"));
     });
@@ -339,6 +358,10 @@
       xhr.open("GET", "./_includes/" + folder + "/" + page + ".html", true);
       xhr.send();
     }
+
+    function start() {
+      goToStep(0, 0);
+    }
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
@@ -347,7 +370,7 @@
     hljs.highlightAll();
   </script>
 
-  
+
 </body>
 
 </html>
