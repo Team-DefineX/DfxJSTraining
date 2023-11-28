@@ -38,7 +38,7 @@
 </p>
 <pre>
     <code class="javascript">
-    console.log("Team DefineX".length)
+    console.log("Team DefineX".length);
     </code>
 </pre>
 <p>
@@ -224,7 +224,6 @@
     <code class="javascript">
     let str1 = "Team ";
     let str2 = "DefineX";
- 
     console.log(str1.concat(str2));
     </code>
 </pre>
@@ -246,11 +245,9 @@
 <pre>
     <code class="javascript">
     let str1 = " Team   DefineX   ";
- 
     // String length
     console.log(str1.length);
     console.log(str1);
- 
     // Trim String length
     console.log(str1.trim().length);
     console.log(str1.trim());
@@ -278,14 +275,12 @@
 <pre>
     <code class="javascript">
     let str1 = "  Team DefineX";
- 
     // String length
     console.log(str1.length);
-    console.log(str1)
- 
+    console.log(str1);
     // TrimStart String length
-    console.log(str1.trimStart().length)
-    console.log(str1.trimStart())
+    console.log(str1.trimStart().length);
+    console.log(str1.trimStart());
     </code>
 </pre>
 <p>
@@ -310,11 +305,9 @@
 <pre>
     <code class="javascript">
     let str1 = "Team DefineX   ";
- 
     // String length
     console.log(str1.length);
     console.log(str1);
- 
     // Trim String length
     console.log(str1.trimEnd().length);
     console.log(str1.trimEnd());
@@ -341,9 +334,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let stone = "Soul";
-    stone = stone.padStart(9,"Mind ");
-    console.log(stone);
+    let str = "Team DefineX";
+    console.log(str.padStart(14,"*"));
     </code>
 </pre>
 <p>
@@ -351,7 +343,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Mind Soul
+    **Team DefineX
     </code>
 </pre>
 <br>
@@ -364,9 +356,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let stone = "Soul";
-    stone = stone.padEnd(10," Power");
-    console.log(stone);
+    let str = "Team DefineX";
+    console.log(str.padEnd(15,"*"));
     </code>
 </pre>
 <p>
@@ -374,7 +365,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Soul Power
+    Team DefineX***
     </code>
 </pre>
 <br>
@@ -386,15 +377,9 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GeeksforGeeks';
-    let geeks = 'GfG is the best platform to learn and\n'+
-    'experience Computer Science.';
-     
-    // As string index starts from zero
-    // It will return first character of string
-    console.log(gfg.charAt(0)); 
-     
-    console.log(geeks.charAt(5));
+    let str = "Team DefineX";
+    console.log(str.charAt(1)); 
+    console.log(str.charAt(11));
     </code>
 </pre>
 <p>
@@ -402,8 +387,8 @@
 </p>
 <pre>
     <code class="javascript">
-    G
-    s
+    e
+    X
     </code>
 </pre>
 <br>
@@ -415,15 +400,9 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GeeksforGeeks';
-    let geeks = 'GfG is the best platform\n\
-    to learn and experience\n\
-    Computer Science.';
-     
-    // Return a number indicating Unicode
-    // value of character at index 0 ('G')
-    console.log(gfg.charCodeAt(0));
-    console.log(geeks.charCodeAt(5));
+    let str = "Team DefineX";
+    console.log(str.charCodeAt(1)); 
+    console.log(str.charCodeAt(11));
     </code>
 </pre>
 <p>
@@ -431,8 +410,8 @@
 </p>
 <pre>
     <code class="javascript">
-    71
-    115
+    101
+    88
     </code>
 </pre>
 <br>
@@ -446,11 +425,9 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GFG '
-    let geeks = 'stands-for-GeeksforGeeks'
- 
-    // Split string on '-'. 
-    console.log(geeks.split('-'))
+    let str = "Team DefineX";
+    console.log(str.split(" "));
+    console.log(str.split(" ").length);
     </code>
 </pre>
 <p>
@@ -458,6 +435,7 @@
 </p>
 <pre>
     <code class="javascript">
-    ['stands', 'for', 'GeeksforGeeks']
+    ['Team', 'DefineX']
+    2
     </code>
 </pre>
