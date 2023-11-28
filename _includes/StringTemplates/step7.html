@@ -10,11 +10,11 @@
 </p>
 <pre>
     <code class="javascript">
-    let str1 = "Welcome to GeesforGeeks";
-    let str2 = new String("Welcome Geeks");
-         
-    console.log(str1);
-    console.log(str2);
+    let string1 = "Team DefineX";
+    console.log(string1);
+
+    let string2 = new String("Team DefineX");
+    console.log(string2);
     </code>
 </pre>
 <p>
@@ -22,8 +22,8 @@
 </p>
 <pre>
     <code class="javascript">
-    Welcome to GeesforGeeks
-    [String: 'Welcome Geeks']
+    Team DefineX
+    String {'Team DefineX'}
     </code>
 </pre>
 <br>
@@ -38,13 +38,7 @@
 </p>
 <pre>
     <code class="javascript">
-    / JavaScript to illustrate length property    
-    function func() {
-        // length property for string
-        console.log("GFG".length)
-    }
-    
-    func();
+    console.log("Team DefineX".length)
     </code>
 </pre>
 <p>
@@ -52,7 +46,7 @@
 </p>
 <pre>
     <code class="javascript">
-    3
+    12
     </code>
 </pre>
 <br>
@@ -73,14 +67,9 @@
 </p>
 <pre>
     <code class="javascript">
-    let A = 'Geeks for Geeks';
-    b = A.slice(0,5);
-    c = A.slice(6,9);
-    d = A.slice(10);
- 
-    console.log(b);
-    console.log(c);
-    console.log(d);
+    let str = "Team DefineX";
+    console.log(str.slice(0,4));
+    console.log(str.slice(5,12));
     </code>
 </pre>
 <p>
@@ -88,9 +77,8 @@
 </p>
 <pre>
     <code class="javascript">
-    Geeks
-    for
-    Geeks
+    Team
+    DefineX
     </code>
 </pre>
 <br>
@@ -103,9 +91,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "Mind, Power, Soul";
-    let part = str.substring(6, 11);
-    console.log(part);
+    let str = "Team DefineX";
+    console.log(str.substring(5, 12));
     </code>
 </pre>
 <p>
@@ -113,7 +100,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Power
+    DefineX
     </code>
 </pre>
 <br>
@@ -127,9 +114,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "Mind, Power, Soul";
-    let part = str.substr(6, 5);
-    console.log(part);
+    let str = "Team DefineX";
+    console.log(str.substr(5, 7));
     </code>
 </pre>
 <p>
@@ -137,7 +123,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Power
+    DefineX
     </code>
 </pre>
 <br>
@@ -149,9 +135,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "Mind, Power, Soul";
-    let part = str.replace("Power", "Space");
-    console.log(part);
+    let str = "Team DefineX";
+    console.log(str.replace("Team", "The Team"));
     </code>
 </pre>
 <p>
@@ -159,7 +144,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Mind, Space, Soul
+    The Team DefineX
     </code>
 </pre>
 <br>
@@ -172,9 +157,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "Mind, Power, Power,  Soul";
-    let part = str.replaceAll("Power", "Space");
-    console.log(part);
+    let str = "Gökhan Ertaş, Gökhan Ertaş, Ozan Avcular,  İlkay İvrendi, Ediz Agarer";
+    console.log(str.replaceAll("Gökhan Ertaş", "Emre Çakır"));
     </code>
 </pre>
 <p>
@@ -182,7 +166,7 @@
 </p>
 <pre>
     <code class="javascript">
-    Mind, Space, Space,  Soul
+    Emre Çakır, Emre Çakır, Ozan Avcular,  İlkay İvrendi, Ediz Agarer
     </code>
 </pre>
 <br>
@@ -194,10 +178,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GFG '
-    let geeks = 'stands-for-GeeksforGeeks';
-         
-    console.log(geeks.toUpperCase(geeks)) ;
+    let str = "Team DefineX";         
+    console.log(str.toUpperCase());
     </code>
 </pre>
 <p>
@@ -205,7 +187,7 @@
 </p>
 <pre>
     <code class="javascript">
-    STANDS-FOR-GEEKSFORGEEKS
+    TEAM DEFINEX
     </code>
 </pre>
 <br>
@@ -217,10 +199,8 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GFG ';
-    let geeks = 'stands-for-GeeksforGeeks';
- 
-    console.log(geeks.toLowerCase(geeks));
+    let str = "Team DefineX";
+    console.log(str.toLowerCase());
     </code>
 </pre>
 <p>
@@ -228,7 +208,7 @@
 </p>
 <pre>
     <code class="javascript">
-    stands-for-geeksforgeeks
+    team definex
     </code>
 </pre>
 <br>
@@ -242,13 +222,10 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GFG ';
-    let geeks = 'stands for GeeksforGeeks';
+    let str1 = "Team ";
+    let str2 = "DefineX";
  
-    // Accessing concat method on an object
-    // of String passing another object 
-    // as a parameter
-    console.log(gfg.concat(geeks));
+    console.log(str1.concat(str2));
     </code>
 </pre>
 <p>
@@ -256,7 +233,7 @@
 </p>
 <pre>
     <code class="javascript">
-    GFG stands for GeeksforGeeks
+    Team DefineX
     </code>
 </pre>
 <br>
@@ -268,18 +245,15 @@
 </p>
 <pre>
     <code class="javascript">
-    let gfg = 'GFG    ';
-    let geeks = 'stands-for-GeeksforGeeks';
+    let str1 = " Team   DefineX   ";
  
-    // Storing new object of string
-    // with removed white spaces
-    let newGfg = gfg.trim();
+    // String length
+    console.log(str1.length);
+    console.log(str1);
  
-    // Old length
-    console.log(gfg.length);
- 
-    // New length
-    console.log(newGfg.length)
+    // Trim String length
+    console.log(str1.trim().length);
+    console.log(str1.trim());
     </code>
 </pre>
 <p>
@@ -287,8 +261,10 @@
 </p>
 <pre>
     <code class="javascript">
-    7
-    3
+    18
+      Team   DefineX   
+    14
+    Team   DefineX
     </code>
 </pre>
 <br>
@@ -301,10 +277,15 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "  Soul";
-    console.log(str)
-    let part = str.trimStart();
-    console.log(part);
+    let str1 = "  Team DefineX";
+ 
+    // String length
+    console.log(str1.length);
+    console.log(str1)
+ 
+    // TrimStart String length
+    console.log(str1.trimStart().length)
+    console.log(str1.trimStart())
     </code>
 </pre>
 <p>
@@ -312,8 +293,10 @@
 </p>
 <pre>
     <code class="javascript">
-         Soul
-    Soul
+    14
+      Team DefineX
+    12
+    Team DefineX
     </code>
 </pre>
 <br>
@@ -326,10 +309,15 @@
 </p>
 <pre>
     <code class="javascript">
-    let str = "Soul  ";
-    console.log(str)
-    let part = str.trimEnd();
-    console.log(part);
+    let str1 = "Team DefineX   ";
+ 
+    // String length
+    console.log(str1.length);
+    console.log(str1);
+ 
+    // Trim String length
+    console.log(str1.trimEnd().length);
+    console.log(str1.trimEnd());
     </code>
 </pre>
 <p>
@@ -337,8 +325,10 @@
 </p>
 <pre>
     <code class="javascript">
-    Soul    
-    Soul
+    15
+    Team DefineX   
+    12
+    Team DefineX
     </code>
 </pre>
 <br>
