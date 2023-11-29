@@ -15,13 +15,11 @@
         numberOfEmployee: 5400
     }
     
-    function firstMethod() {
-        console.log('This is our first method')
+    car.firstMethod = function() {
+        console.log('This is our first method');
     }
     
-    car.firstMethod = firstMethod
-    
-    car.firstMethod() // This is our first method
+    car.firstMethod(); // This is our first method
     </code>
 </pre>
 <p align="justify">
@@ -53,12 +51,12 @@
     }
     
     function firstMethod() {
-        console.log('This is our first method')
+        console.log('This is our first method');
     }
     
-    car.firstMethod = firstMethod
+    car.firstMethod = firstMethod;
     
-    car.firstMethod()
+    car.firstMethod(); //This is our first method
     </code>
 </pre>
 <p align="justify">
