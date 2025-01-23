@@ -450,4 +450,35 @@ export const modules = [
       },
     ],
   },
+  {
+    fileName: "DesignPatterns",
+    moduleName: "Design Patterns in JS",
+    visible: true,
+    steps: [
+      {
+        name: "Introduction",
+        time: "5mins",
+      },
+      {
+        name: "Types of design patterns",
+        time: "5mins",
+      },
+      {
+        name: "Creational Patterns",
+        time: "15mins",
+      },
+      {
+        name: "Structural Patterns",
+        time: "15mins",
+      },
+      {
+        name: "Behavioral Patterns",
+        time: "15mins",
+      },
+      {
+        name: "Conclusion",
+        time: "5mins",
+      }
+    ]
+  }
 ];
