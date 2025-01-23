@@ -461,7 +461,7 @@ export const modules = [
       },
       {
         name: "Types of design patterns",
-        time: "5mins",
+        time: "10mins",
       },
       {
         name: "Creational Patterns",
