@@ -480,5 +480,20 @@ export const modules = [
         time: "5mins",
       }
     ]
-  }
+  },
+  {
+    fileName: "MicroFrontend",
+    moduleName: "Micro Frontend",
+    visible: true,
+    steps: [
+      {
+        name: "Introduction",
+        time: "20mins",
+      },
+      {
+        name: "Example App",
+        time: "40mins",
+      },
+    ],
+  },
 ];
