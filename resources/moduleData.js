@@ -480,5 +480,28 @@ export const modules = [
         time: "5mins",
       }
     ]
+  },
+  {
+    fileName: "NodeJS",
+    moduleName: "NodeJS",
+    visible: true,
+    steps: [
+      {
+        name: "Introduction",
+        time: "5mins",
+      },
+      {
+        name: "Event-Loop",
+        time: "20mins",
+      },
+      {
+        name: "ExpressJS",
+        time: "15mins",
+      },
+      {
+        name: "NextJS",
+        time: "15mins",
+      },
+    ]
   }
 ];
