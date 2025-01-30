@@ -1,3 +1,270 @@
 <div style="display: block; margin: auto; text-align: center">
     <object data="/_includes/images/Creational.png"> </object>
 </div>
+<h5>
+    1. Singleton Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. 
+    This helps manage shared resources efficiently.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Resource Management:</b> Prevents the creation of multiple instances of objects that should be shared, such as database connections and configuration managers.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Global State Management:</b> Provides a single source of truth for shared data across an application.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Cache:</b> We can use the cache as a singleton object as it can have a global point of reference and for all future calls to the cache object the client application will use the in-memory object.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+        class ConfigManager {
+            constructor() {
+              if (ConfigManager.instance) {
+                return ConfigManager.instance;
+              }
+          
+              this.configs = {}; // Configuration settings
+              ConfigManager.instance = this;
+            }
+          
+            setConfig(key, value) {
+              this.configs[key] = value;
+            }
+          
+            getConfig(key) {
+              return this.configs[key];
+            }
+        }
+          
+        // Usage
+        const config1 = new ConfigManager();
+        config1.setConfig("theme", "dark");
+          
+        const config2 = new ConfigManager();
+        console.log(config2.getConfig("theme")); // Output: "dark"
+        console.log(config1 === config2); // Output: true
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    2. Factory Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Factory pattern centralizes object creation, allowing clients to request an object without knowing the exact class that creates it. 
+    This enhances maintainability and flexibility.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Code Reusability:</b> Reduces duplicate code by handling object creation in a single location.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Encapsulation:</b> Hides the instantiation logic, making it easier to modify or extend object creation without affecting the client code.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Simplified Object Creation:</b> The factory pattern simplifies object creation. Users only need to call a function, passing the necessary parameters, to get a fully initialized object.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+        class StripePayment {
+            process(amount) {
+              console.log(`Payment made via Stripe: $${amount}`);
+            }
+          }
+          
+          class PayPalPayment {
+            process(amount) {
+              console.log(`Payment made via PayPal: $${amount}`);
+            }
+          }
+          
+          class BitcoinPayment {
+            process(amount) {
+              console.log(`Payment made via Bitcoin: $${amount}`);
+            }
+          }
+          
+          class PaymentFactory {
+            static createPayment(method) {
+              switch (method) {
+                case "stripe":
+                  return new StripePayment();
+                case "paypal":
+                  return new PayPalPayment();
+                case "bitcoin":
+                  return new BitcoinPayment();
+                default:
+                  throw new Error("Invalid payment method!");
+              }
+            }
+          }
+          
+          // Usage
+          const payment = PaymentFactory.createPayment("paypal");
+          payment.process(100); // Output: Payment made via PayPal: $100
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    3. Abstract Factory Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Abstract Factory pattern provides an interface for creating families of related objects without specifying their concrete implementations.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Cross-Platform Compatibility:</b> Useful when different environments require different implementations of the same functionality.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Reduced Coupling:</b> Helps separate object creation logic from the main application, improving scalability.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Testability:</b> Abstract factories patterns make it very easier to write unit tests and mock objects. 
+        By creating a factory interface, we can simply create mock or test-specific implementations to facilitate testing without affecting the rest of our code.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+        class MySQLConnection {
+            connect() {
+              console.log("Connected to MySQL database.");
+            }
+          }
+          
+          class MongoDBConnection {
+            connect() {
+              console.log("Connected to MongoDB database.");
+            }
+          }
+          
+          class SQLFactory {
+            static createConnection() {
+              return new MySQLConnection();
+            }
+          }
+          
+          class NoSQLFactory {
+            static createConnection() {
+              return new MongoDBConnection();
+            }
+          }
+          
+          class DatabaseFactory {
+            static getFactory(type) {
+              switch (type) {
+                case "SQL":
+                  return SQLFactory;
+                case "NoSQL":
+                  return NoSQLFactory;
+                default:
+                  throw new Error("Invalid database type!");
+              }
+            }
+          }
+          
+          // Usage
+          const sqlFactory = DatabaseFactory.getFactory("SQL");
+          const sqlConnection = sqlFactory.createConnection();
+          sqlConnection.connect(); // Output: Connected to MySQL database.
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    4. Builder Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Builder pattern allows step-by-step construction of complex objects by separating object creation from its representation.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Manage Complex Object Creation:</b> Useful when an object requires multiple optional parameters.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Improved Readability:</b> Avoids large constructors and allows configuring objects progressively.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Flexible Object Construction:</b> It provides flexibility by allowing different configurations for constructing objects.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+        class HttpRequestBuilder {
+            constructor() {
+              this.request = {
+                method: "GET",
+                headers: {},
+                body: null,
+              };
+            }
+          
+            setMethod(method) {
+              this.request.method = method;
+              return this;
+            }
+          
+            setUrl(url) {
+              this.request.url = url;
+              return this;
+            }
+          
+            setHeaders(headers) {
+              this.request.headers = headers;
+              return this;
+            }
+          
+            setBody(body) {
+              this.request.body = body;
+              return this;
+            }
+          
+            build() {
+              return this.request;
+            }
+          }
+          
+          // Usage
+          const request = new HttpRequestBuilder()
+            .setMethod("POST")
+            .setUrl("https://api.example.com/login")
+            .setHeaders({ "Content-Type": "application/json" })
+            .setBody(JSON.stringify({ username: "admin", password: "1234" }))
+            .build();
+          
+          console.log(request);
+    </code>
+</pre>
