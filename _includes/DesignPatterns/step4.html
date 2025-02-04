@@ -1,3 +1,466 @@
 <div style="display: block; margin: auto; text-align: center">
     <object data="/_includes/images/Structural.png"> </object>
 </div>
+<h5>
+    1. Adapter Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Adapter pattern acts as a bridge between two incompatible interfaces, allowing them to work together without modifying their existing implementations.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Legacy System Integration:</b> Helps modern applications interact with outdated or third-party libraries without modifying them.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Standardization:</b> Allows different components with varying interfaces to work seamlessly in a unified system.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Flexibility:</b> Makes it easier to swap components without major refactoring.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class XMLResponse {
+        getData() {
+            return `<user><name>John Doe</name><age>30</age></user>`;
+        }
+    }
+
+    class JSONAdapter {
+        constructor(xmlResponse) {
+            this.xmlResponse = xmlResponse;
+        }
+
+        getData() {
+            const xml = this.xmlResponse.getData();
+            return {
+                name: xml.match(/<name>(.*?)<\/name>/)[1],
+                age: parseInt(xml.match(/<age>(.*?)<\/age>/)[1], 10)
+            };
+        }
+    }
+
+    // Usage
+    const xmlResponse = new XMLResponse();
+    const adaptedResponse = new JSONAdapter(xmlResponse);
+    console.log(adaptedResponse.getData()); // { name: 'John Doe', age: 30 }   
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    2. Bridge Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Bridge pattern decouples an abstraction from its implementation, allowing both to evolve independently without affecting each other.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Separation of Concerns:</b> Keeps high-level logic separate from low-level implementation details.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Extensibility: </b> Makes it easier to add new variations of abstraction or implementation without modifying existing code.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Better Maintainability:</b> Reduces code duplication by using composition instead of inheritance.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class NotificationSender {
+        send(message) {
+            throw new Error("Method not implemented.");
+        }
+    }
+          
+    class EmailSender extends NotificationSender {
+        send(message) {
+            console.log(`Sending email: ${message}`);
+        }
+    }
+          
+    class SMSSender extends NotificationSender {
+        send(message) {
+            console.log(`Sending SMS: ${message}`);
+        }
+    }
+          
+    class Notification {
+        constructor(sender) {
+            this.sender = sender;
+        }
+          
+        notify(message) {
+            this.sender.send(message);
+        }
+    }
+          
+    // Usage
+    const emailNotification = new Notification(new EmailSender());
+    emailNotification.notify("Your order has been shipped."); // Sending email: Your order has been shipped.
+          
+    const smsNotification = new Notification(new SMSSender()); // Sending SMS: Your OTP is 123456.
+    smsNotification.notify("Your OTP is 123456.");    
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    3. Composite Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Composite pattern organizes objects into tree structures, allowing clients to treat individual objects and compositions of objects uniformly.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Hierarchical Data Structures:</b> Simplifies operations on nested structures like file systems or UI elements.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Uniformity:</b> Provides a consistent way to handle both single and grouped objects.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Scalability:</b> Enables complex object compositions without increasing code complexity.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class FileComponent {
+        show() {
+            throw new Error("Method not implemented.");
+        }
+    }
+          
+    class File extends FileComponent {
+        constructor(name) {
+            super();
+            this.name = name;
+        }
+          
+        show() {
+            console.log(`File: ${this.name}`);
+        }
+    }
+          
+    class Folder extends FileComponent {
+        constructor(name) {
+            super();
+            this.name = name;
+            this.children = [];
+        }
+          
+        add(child) {
+            this.children.push(child);
+        }
+          
+        show() {
+            console.log(`Folder: ${this.name}`);
+            this.children.forEach(child => child.show());
+        }
+    }
+          
+    // Usage
+    const root = new Folder("root");
+    const file1 = new File("file1.txt");
+    const file2 = new File("file2.txt");
+    const subFolder = new Folder("subFolder");
+          
+    subFolder.add(new File("subFile1.txt"));
+    root.add(file1);
+    root.add(file2);
+    root.add(subFolder);
+          
+    root.show();
+
+    // OutPut
+    Folder: root
+    File: file1.txt
+    File: file2.txt
+    Folder: subFolder
+    File: subFile1.txt
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    4. Decorator Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Decorator pattern dynamically adds behaviors or responsibilities to objects at runtime without altering their base structure.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Flexible Functionality Extension:</b> Allows adding features to objects without modifying their original implementation.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Alternative to Subclassing:</b> Reduces the need for deep inheritance hierarchies.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Reusable Components:</b> Enables dynamic feature composition without affecting unrelated objects.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class APIService {
+        request(data) {
+            console.log("API Request:", data);
+        }
+    }
+          
+    class LoggingDecorator {
+        constructor(service) {
+            this.service = service;
+        }
+          
+        request(data) {
+            console.log("Logging request:", data);
+            this.service.request(data);
+        }
+    }
+          
+    // Usage
+    const apiService = new LoggingDecorator(new APIService());
+    apiService.request({ endpoint: "/users", method: "GET" });
+    
+    // Output
+    Logging request: :  {
+                            "endpoint": "/users",
+                            "method": "GET"
+                        }
+
+    API Request: :      {
+                            "endpoint": "/users",
+                            "method": "GET"
+                        }
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    5. Facade Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Facade pattern provides a simplified interface to a complex subsystem, making it easier to use and reducing dependencies.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Encapsulation of Complexity:</b> Hides the intricate details of a system behind a single entry point.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Improved Code Readability:</b> Reduces the need for clients to interact with multiple components directly.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Easier Maintenance:</b> Changes in the underlying system do not affect the client code.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class PaymentGateway {
+        processPayment(amount) {
+            console.log(`Processing payment of $${amount}`);
+        }
+    }
+          
+    class OrderService {
+        placeOrder(product) {
+            console.log(`Order placed for ${product}`);
+        }
+    }
+          
+    class NotificationService {
+        sendNotification(message) {
+            console.log(`Notification sent: ${message}`);
+        }
+    }
+          
+    class ECommerceFacade {
+        constructor() {
+            this.payment = new PaymentGateway();
+            this.order = new OrderService();
+            this.notification = new NotificationService();
+        }
+          
+        completePurchase(product, amount) {
+            this.order.placeOrder(product);
+            this.payment.processPayment(amount);
+            this.notification.sendNotification(`Your order for ${product} has been completed.`);
+        }
+    }
+          
+    // Usage
+    const ecommerce = new ECommerceFacade();
+    ecommerce.completePurchase("Laptop", 1200);
+
+    // Output
+    Order placed for Laptop
+    Processing payment of $1200
+    Notification sent: Your order for Laptop has been completed.
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    6. Proxy Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Proxy pattern provides a placeholder for another object to control access, enhance security, or optimize performance.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Access Control:</b> Restricts direct access to sensitive resources like databases and remote services.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Performance Optimization:</b> Useful for lazy loading, caching, and request batching.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Logging and Monitoring:</b> Can be used to track requests and responses for auditing purposes.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class API {
+        fetchData(endpoint) {
+            console.log(`Fetching data from ${endpoint}`);
+            return { data: "Sample data" };
+        }
+    }
+          
+    class APIProxy {
+        constructor() {
+            this.cache = {};
+            this.api = new API();
+        }
+          
+        fetchData(endpoint) {
+            if (!this.cache[endpoint]) {
+                this.cache[endpoint] = this.api.fetchData(endpoint);
+            }
+            return this.cache[endpoint];
+        }
+    }
+          
+    // Usage
+    const apiProxy = new APIProxy();
+    console.log(apiProxy.fetchData("/users")); // Fetches data
+    console.log(apiProxy.fetchData("/users")); // Returns cached data
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    7. Flyweight Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Flyweight pattern optimizes memory usage by sharing common object instances instead of creating new ones.  
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Memory Efficiency:</b> Reduces the memory footprint when working with large numbers of similar objects.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Improved Performance:</b> Minimizes object instantiation overhead in high-performance applications.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Data Sharing:</b> Helps manage immutable data structures efficiently.
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class DatabaseConnection {
+        constructor(connectionString) {
+            this.connectionString = connectionString;
+            console.log(`New connection created for ${connectionString}`);
+        }
+          
+        query(sql) {
+            console.log(`Executing query on ${this.connectionString}: ${sql}`);
+        }
+    }
+          
+    class ConnectionPool {
+        constructor() {
+            this.connections = {};
+        }
+          
+        getConnection(connectionString) {
+            if (!this.connections[connectionString]) {
+                this.connections[connectionString] = new DatabaseConnection(connectionString);
+            }
+            return this.connections[connectionString];
+        }
+    }
+          
+    // Usage
+    const pool = new ConnectionPool();
+          
+    const conn1 = pool.getConnection("db://localhost:5432/users");
+    const conn2 = pool.getConnection("db://localhost:5432/users");
+    const conn3 = pool.getConnection("db://localhost:5432/orders");
+          
+    conn1.query("SELECT * FROM users");
+    conn2.query("SELECT * FROM users");
+    conn3.query("SELECT * FROM orders");
+          
+    console.log(conn1 === conn2); // true (same link used again)
+    console.log(conn1 === conn3); // false (different connection)
+
+    // Output
+    New connection created for db://localhost:5432/users
+    New connection created for db://localhost:5432/orders
+    Executing query on db://localhost:5432/users: SELECT * FROM users
+    Executing query on db://localhost:5432/users: SELECT * FROM users
+    Executing query on db://localhost:5432/orders: SELECT * FROM orders
+    true
+    false
+    </code>
+</pre>
+<hr>
+<br>
