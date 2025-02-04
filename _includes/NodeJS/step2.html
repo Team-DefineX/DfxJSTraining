@@ -1,0 +1,514 @@
+<h6>
+  Node.js Event Loop Mechanism
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  The <strong>event loop</strong> in Node.js is a mechanism that allows Node.js to perform <strong>non-blocking I/O</strong> operations despite JavaScript being single-threaded. It achieves this by delegating operations to the operating system whenever possible.
+</p>
+<br>
+<h6>
+  Purpose of the Event Loop
+</h6>
+<p>
+  <ul>
+    <li>
+      Handle multiple concurrent operations efficiently without creating multiple threads.
+    </li>
+    <li>
+      Process asynchronous I/O operations such as file system access, network requests, and timers.
+    </li>
+    <li>
+      Enable non-blocking behavior, making it ideal for I/O-intensive applications.
+    </li>
+  </ul>
+</p>
+<br>
+<h6>
+  Why Was the Event Loop Needed?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  JavaScript was originally designed to run in browsers with a <strong>single-threaded</strong> execution model. However, in server-side environments like Node.js, dealing with I/O-heavy operations using a synchronous model would block execution, making it inefficient. To solve this, Node.js implemented asynchronous, non-blocking I/O using an event-driven architecture powered by <strong>libuv</strong>.
+</p>
+<br>
+<h6>
+  How the Event Loop Works
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Node.js uses libuv, a C++ library that provides an event-driven, non-blocking I/O model with an event loop. The event loop consists of six phases, executed in the following order:
+</p>
+<ol>
+  <li>
+    Timers Phase: Executes setTimeout and setInterval callbacks.
+  </li>
+  <li>
+    Pending Callbacks Phase: Executes I/O callbacks deferred from previous operations.
+  </li>
+  <li>
+    Idle/Prepare Phase: Internal use only.
+  </li>
+  <li>
+    Poll Phase: Retrieves new I/O events and executes I/O-related callbacks.
+  </li>
+  <li>
+    Check Phase: Executes setImmediate callbacks.
+  </li>
+  <li>
+    Close Callbacks Phase: Executes close event callbacks (e.g., socket closures).
+  </li>
+</ol>
+<br>
+<h6>
+  Synchronous Code
+</h6>
+<p>
+  Synchronous operations execute in sequence, blocking further execution until completion.
+</p>
+<pre>
+  <code class="javascript">
+    console.log("Start");
+
+    // Blocking operation
+    const result = someSyncFunction();
+    console.log(result);
+
+    console.log("End");
+  </code>
+</pre>
+<pre>
+  <code class="command-line">
+    Start
+    Result
+    End
+  </code>
+</pre>
+<p>
+  Here, someSyncFunction must complete before console.log("End") executes.
+</p>
+<br>
+<h6>
+  Asynchronous Code
+</h6>
+<p>
+  Asynchronous operations allow execution to continue without waiting for the operation to complete.
+</p>
+<pre>
+  <code class="javascript">
+    console.log("Start");
+
+    setTimeout(() => {
+        console.log("Timeout Callback Executed");
+    }, 2000);
+
+    console.log("End");
+  </code>
+</pre>
+<p>
+  Output:
+</p>
+<pre>
+  <code class="command-line">
+    Start
+    End
+    Timeout Callback Executed  (After 2 seconds)
+  </code>
+</pre>
+<p>
+  The setTimeout callback is executed in the Timers phase of the event loop.
+</p>
+<br>
+<hr>
+<div class="mb-2">
+  <img src="/_includes/NodeJS/images/nodejs_architecture_chart.png" alt="">
+</div>
+<h6>
+  Code Execution in Different Layers
+</h6>
+<ol>
+  <li>
+    JavaScript Engine (V8) - Executes synchronous JavaScript code.
+  </li>
+  <li>
+    Libuv (C++ library) - Handles I/O operations asynchronously.
+  </li>
+  <li>
+    Node.js API - Bridges JavaScript and the system (libuv, OS).
+  </li>
+</ol>
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">
+        Code Type
+      </th>
+      <th scope="col">
+        Execution Layer
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">
+        Normal JavaScript code
+      </th>
+      <td>
+        V8 Engine
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        setTimeout, setImmediate
+      </th>
+      <td>
+        Event Loop (Timers, Check Phases)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        File System (fs.readFile)
+      </th>
+      <td>
+        Libuv Thread Pool
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Network Requests (http.request)
+      </th>
+      <td>
+        Libuv & OS (Non-blocking I/O)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        process.nextTick, Promises
+      </th>
+      <td>
+        Microtask Queue (Executes Before Next Event Loop Phase)
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<br>
+<h6>
+  Async/Await, Promises, and Task Queues in Node.js
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  In modern JavaScript and Node.js, asynchronous programming is heavily reliant on Promises and async/await. These features help in managing non-blocking operations efficiently while keeping the code readable.
+</p>
+<br>
+<h6>
+  1. Promises
+</h6>
+<p>
+  A Promise represents a value that may be available now, or in the future, or never. It has three states:
+</p>
+<ul>
+  <li>
+    Pending: Initial state, neither fulfilled nor rejected.
+  </li>
+  <li>
+    Fulfilled: The operation was successful.
+  </li>
+  <li>
+    Rejected: The operation failed.
+  </li>
+</ul>
+<p>
+  <strong>
+    Example: Basic Promise
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    const myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data received!"); // Fulfilled after 2 seconds
+        }, 2000);
+    });
+
+    myPromise.then((data) => {
+        console.log(data); // Output after 2 seconds: "Data received!"
+    });
+  </code>
+</pre>
+<ol>
+  <li>
+    The setTimeout inside the promise executes asynchronously.
+  </li>
+  <li>
+    When it resolves, the .then() callback is added to the Microtask Queue and executed in the next event loop cycle.
+  </li>
+</ol>
+<br>
+<h6>
+  2. Async/Await
+</h6>
+<p>
+  async/await is syntactic sugar over Promises that allows writing asynchronous code in a synchronous-like manner.
+</p>
+<p>
+  <strong>
+    Example: Using Async/Await
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    function fetchData() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Fetched Data");
+            }, 2000);
+        });
+    }
+
+    async function getData() {
+        console.log("Fetching...");
+        const data = await fetchData();  // Pauses here until Promise resolves
+        console.log(data);
+    }
+
+    getData();
+    console.log("Execution continues...");
+  </code>
+</pre>
+<pre>
+  <code class="command-line">
+    Fetching...
+    Execution continues...
+    Fetched Data
+  </code>
+</pre>
+<h6>
+  Explanation
+</h6>
+<ol>
+  <li>
+    The function fetchData returns a Promise.
+  </li>
+  <li>
+    Inside getData(), await fetchData(); pauses execution until fetchData() resolves.
+  </li>
+  <li>
+    Meanwhile, "Execution continues..." gets logged.
+  </li>
+  <li>
+    After 2 seconds, "Fetched Data" is logged.
+  </li>
+</ol>
+<h6>
+  How Async/Await Works with the Event Loop
+</h6>
+<ul>
+  <li>
+    await does NOT block the entire thread; it only pauses the function execution until the promise resolves.
+  </li>
+  <li>
+    The remaining code continues to execute.
+  </li>
+  <li>
+    The awaited operation's result is processed in the Microtask Queue.
+  </li>
+</ul>
+<br>
+<h6>
+  3. Microtask Queue vs. Macrotask Queue
+</h6>
+<p>
+  Node.js has two types of task queues:
+</p>
+<ol>
+  <li>
+    Microtask Queue (Higher Priority)
+    <ul>
+      <li>
+        Includes Promises, process.nextTick()
+      </li>
+      <li>
+        Runs immediately after the current synchronous code before the next event loop phase.
+      </li>
+    </ul>
+  </li>
+  <li>
+    Macrotask Queue (Lower Priority)
+    <ul>
+      <li>
+        Includes setTimeout, setImmediate, I/O callbacks
+      </li>
+      <li>
+        Runs in their respective phases in the event loop.
+      </li>
+    </ul>
+  </li>
+</ol>
+<br>
+<h6>
+  Microtask Example (process.nextTick and Promises)
+</h6>
+<pre>
+  <code class="javascript">
+    console.log("Start");
+
+    process.nextTick(() => console.log("process.nextTick"));
+    Promise.resolve().then(() => console.log("Promise resolved"));
+
+    console.log("End");
+  </code>
+</pre>
+<p>
+  Output:
+</p>
+<pre>
+  <code class="command-line">
+    Start
+    End
+    process.nextTick
+    Promise resolved
+  </code>
+</pre>
+<br>
+<hr>
+<br>
+<h6>
+  Macrotask Example (setTimeout and setImmediate)
+</h6>
+<pre>
+  <code class="javascript">
+    setTimeout(() => console.log("setTimeout"), 0);
+    setImmediate(() => console.log("setImmediate"));
+
+    console.log("End");
+  </code>
+</pre>
+<p>
+  Output:
+</p>
+<pre>
+  <code class="command-line">
+    End
+    setTimeout
+    setImmediate
+  </code>
+</pre>
+<br>
+<hr>
+<br>
+<h6>
+  4. Execution Order Summary
+</h6>
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">
+        Operation
+      </th>
+      <th scope="col">
+        Type
+      </th>
+      <th scope="col">
+        Execution Order
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        console.log()
+      </td>
+      <td>
+        Synchronous
+      </td>
+      <td>
+        Runs immediately
+      </td>
+    </tr>
+    <tr>
+      <td>
+        process.nextTick()
+      </td>
+      <td>
+        Microtask
+      </td>
+      <td>
+        Runs after sync code, before other async tasks
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Promise.then()
+      </td>
+      <td>
+        Microtask
+      </td>
+      <td>
+        Runs after sync code and nextTick
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setTimeout()
+      </td>
+      <td>
+        Macrotask
+      </td>
+      <td>
+        Runs in Timers Phase
+      </td>
+    </tr>
+    <tr>
+      <td>
+        setImmediate()
+      </td>
+      <td>
+        Macrotask
+      </td>
+      <td>
+        Runs in Check Phase
+      </td>
+    </tr>
+    <tr>
+      <td>
+        I/O Callbacks
+      </td>
+      <td>
+        Macrotask
+      </td>
+      <td>
+        Runs in Poll Phase
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h6>
+  Mixed Task Queues Example:
+</h6>
+<pre>
+  <code class="javascript">
+    console.log("Start");
+
+    setTimeout(() => console.log("setTimeout"), 0);
+    setImmediate(() => console.log("setImmediate"));
+
+    process.nextTick(() => console.log("process.nextTick"));
+    Promise.resolve().then(() => console.log("Promise resolved"));
+
+    console.log("End");
+  </code>
+</pre>
+<p>
+  Output:
+</p>
+<pre>
+  <code class="command-line">
+    Start
+    End
+    process.nextTick
+    Promise resolved
+    setTimeout
+    setImmediate
+  </code>
+</pre>
