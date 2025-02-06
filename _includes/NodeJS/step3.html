@@ -1,0 +1,192 @@
+<h6>
+  What is Express.js?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Express.js is a minimal and flexible web application framework for Node.js. It is widely used to build RESTful APIs, web applications, and backend services. Express simplifies handling HTTP requests and responses, making web development more efficient.
+</p>
+<br>
+<hr>
+<br>
+<h6>
+  Why Was Express.js Created?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Express.js was developed to simplify server-side development with Node.js. The built-in Node.js HTTP module is low-level and requires a lot of boilerplate code. Express provides an abstraction layer that makes it easier to handle routing, middleware, and request/response management.
+</p>
+<br>
+<p>
+  <strong>
+    Key Features of Express.js:
+  </strong>
+</p>
+<ul>
+  <li>
+    Lightweight & Fast: Minimalistic framework with high performance.
+  </li>
+  <li>
+    Middleware Support: Modular structure for handling requests efficiently.
+  </li>
+  <li>
+    Routing System: Handles dynamic routes and HTTP methods easily.
+  </li>
+  <li>
+    Easy REST API Development: Simplifies CRUD (Create, Read, Update, Delete) operations.
+  </li>
+  <li>
+    Third-Party Integrations: Supports plugins like morgan, cors, and body-parser.
+  </li>
+</ul>
+<br>
+<hr>
+<br>
+<h6>
+  Create a Simple Express Server
+</h6>
+<pre>
+  <code class="javascript">
+    const express = require('express');  // Import Express
+    const app = express();  // Initialize the app
+    const port = 3000;  // Define the port
+
+    app.get('/', (req, res) => {
+      res.send('Hello, Express!');
+    });
+
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+  </code>
+</pre>
+<ul>
+  <li>
+    express() initializes the application.
+  </li>
+  <li>
+    app.get('/', callback) handles a GET request at /.
+  </li>
+  <li>
+    app.listen(port, callback) starts the server on the specified port.
+  </li>
+</ul>
+<br>
+<h6>
+  Handling HTTP Methods (GET, POST, PUT, DELETE)
+</h6>
+<pre>
+  <code class="javascript">
+    const express = require('express');
+    const app = express();
+    app.use(express.json()); // Middleware to parse JSON requests
+    const port = 3000;
+
+    app.get('/users', (req, res) => {
+      res.json([
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Doe' }
+      ]);
+    });
+
+    app.post('/users', (req, res) => {
+      const newUser = req.body; // Get data from request body
+
+      res.status(201)
+        .json({
+          message: 'User created',
+          user: newUser
+        });
+    });
+
+    app.put('/users/:id', (req, res) => {
+      const userId = req.params.id;
+      const updatedData = req.body;
+      res.json({
+        message: `User ${userId} updated`,
+        data: updatedData
+      });
+    });
+
+    app.delete('/users/:id', (req, res) => {
+      const userId = req.params.id;
+      res.json({
+        message: `User ${userId} deleted`
+      });
+    });
+
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+  </code>
+</pre>
+<br>
+<hr>
+<br>
+<h6>
+  What is Middleware in Express.js?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Middleware functions process requests before they reach the final route handler. They can modify requests, validate data, log activities, and handle errors.
+</p>
+<p>
+  <strong>
+    Global Middleware Example:
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    app.use((req, res, next) => {
+      console.log(`Request: ${req.method} ${req.url}`);
+      next(); // Pass control to the next middleware
+    });
+  </code>
+</pre>
+<br>
+<p>
+  <strong>
+    Route-Specific Middleware Example:
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    const checkAuth = (req, res, next) => {
+      const token = req.headers.authorization;
+      if (token === 'secret-token') {
+        next(); // Continue if authorized
+      } else {
+        res.status(403).json({ message: 'Forbidden' });
+      }
+    };
+
+    app.get('/dashboard', checkAuth, (req, res) => {
+      res.send('Welcome to the dashboard');
+    });
+  </code>
+</pre>
+<br>
+<p>
+  <strong>
+    Using Third-Party Middleware Example:
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    const morgan = require('morgan'); // Log library
+    app.use(morgan('dev')); // Logs every request to the console
+  </code>
+</pre>
+<br>
+<p>
+  <strong>
+    Error Handling Middleware Example:
+  </strong>
+</p>
+<pre>
+  <code class="javascript">
+    app.use((err, req, res, next) => {
+      console.error(err.stack);
+      res.status(500).send('Something went wrong!');
+    });
+  </code>
+</pre>
