@@ -457,7 +457,7 @@ export const modules = [
     steps: [
       {
         name: "Introduction",
-        time: "5mins",
+        time: "10mins",
       },
       {
         name: "Types of design patterns",
@@ -473,7 +473,7 @@ export const modules = [
       },
       {
         name: "Behavioral Patterns",
-        time: "15mins",
+        time: "25mins",
       },
       {
         name: "Conclusion",
