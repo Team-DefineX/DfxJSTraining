@@ -546,13 +546,13 @@
 <hr>
 <br>
 <h5>
-    
+    8. Visitor Pattern
 </h5>
 <p align="justify" style="padding-bottom: 5px;">
     <b>Definition:</b>
 </p>
 <p align="justify">
-
+    The Visitor pattern allows adding new operations to existing class structures without modifying those classes by moving the logic into a visitor object that "visits" the elements.
 </p>
 <br>
 <p align="justify" style="padding-bottom: 5px;">
@@ -560,29 +560,66 @@
 </p>
 <ul>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b> 
+        <b>Separation of Concerns:</b> Adds operations to elements without changing their classes. <br> (Example: Applying a tax calculation on different product types in an e-commerce application.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;"> New operations can be added easily without modifying existing code. <br> (Example: Generating various reports based on the same set of objects, such as inventory levels and sales data.)
+        <b>Extensibility:</b>
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
-    </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
+        <b>Centralized Operations:</b> Operations are grouped in a single place, avoiding scattering them across the system. <br> (Example: Performing different actions on UI components, such as enabling/disabling or calculating their positions.)
     </li>
 </ul>
 <pre>
     <code class="javascript">
+    class Product {
+        accept(visitor) {
+            visitor.visit(this);
+        }
+    }
+          
+    class Book extends Product {
+        constructor(price) {
+            super();
+            this.price = price;
+        }
+    }
+          
+    class DVD extends Product {
+        constructor(price) {
+            super();
+            this.price = price;
+        }
+    }
+          
+    class TaxVisitor {
+        visit(product) {
+            if (product instanceof Book) {
+                console.log(`Applying tax to book: ${product.price * 0.1}`);
+            } else if (product instanceof DVD) {
+                console.log(`Applying tax to DVD: ${product.price * 0.2}`);
+            }
+        }
+    }
+          
+    // Usage
+    const book = new Book(20);
+    const dvd = new DVD(30);
+          
+    const taxVisitor = new TaxVisitor();
+    book.accept(taxVisitor); // Applying tax to book: 2
+    dvd.accept(taxVisitor);  // Applying tax to DVD: 6      
     </code>
 </pre>
 <hr>
 <br>
 <h5>
-    
+    9. Mediator Pattern
 </h5>
 <p align="justify" style="padding-bottom: 5px;">
     <b>Definition:</b>
 </p>
 <p align="justify">
-
+    The Mediator pattern centralizes communication between multiple objects to reduce direct dependencies, making the system more modular and maintainable.
 </p>
 <br>
 <p align="justify" style="padding-bottom: 5px;">
@@ -590,29 +627,82 @@
 </p>
 <ul>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b> 
+        <b>Decouples Object Communication:</b> Objects don’t need to reference each other directly, promoting loose coupling. <br> (Example: A chat application where users communicate through a central server instead of direct connections.)
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
+        <b>Simplifies System Complexity:</b> Prevents complex dependencies between objects. <br> (Example: An air traffic control system where flights interact via a control tower instead of directly communicating.)
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
+        <b>Enhances Maintainability:</b> Centralized control makes modifications easier. <br> (Example: UI components in a form updating through an event mediator rather than directly modifying each other.)
     </li>
 </ul>
 <pre>
     <code class="javascript">
+    class Mediator {
+        constructor() {
+            this.participants = [];
+        }
+          
+        register(participant) {
+            this.participants.push(participant);
+            participant.setMediator(this);
+        }
+          
+        send(message, sender) {
+            this.participants.forEach((participant) => {
+                if (participant !== sender) {
+                  participant.receive(message);
+                }
+            });
+        }
+    }
+          
+    class Participant {
+        constructor(name) {
+            this.name = name;
+        }
+          
+        setMediator(mediator) {
+            this.mediator = mediator;
+        }
+          
+        send(message) {
+            console.log(`${this.name} sends: ${message}`);
+            this.mediator.send(message, this);
+        }
+          
+        receive(message) {
+            console.log(`${this.name} receives: ${message}`);
+        }
+    }
+          
+    // Usage
+    const mediator = new Mediator();
+    const user1 = new Participant("Alice");
+    const user2 = new Participant("Bob");
+          
+    mediator.register(user1);
+    mediator.register(user2);
+          
+    user1.send("Hello, Bob!");
+    // Alice sends: Hello, Bob!
+    // Bob receives: Hello, Bob!
+
+    user2.send("Hi, Alice!");
+    // Bob sends: Hi, Alice!
+    // Alice receives: Hi, Alice!
     </code>
 </pre>
 <hr>
 <br>
 <h5>
-    
+    10. Memento Pattern
 </h5>
 <p align="justify" style="padding-bottom: 5px;">
     <b>Definition:</b>
 </p>
 <p align="justify">
-
+    The Memento pattern captures and stores an object's state so it can be restored later, without exposing its internal structure.
 </p>
 <br>
 <p align="justify" style="padding-bottom: 5px;">
@@ -620,47 +710,55 @@
 </p>
 <ul>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b> 
+        <b>State Recovery:</b> 
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
+        <b>Ensures Data Integrity:</b> Prevents unintended changes from permanently altering critical data. <br> (Example: Restoring a user's game progress after a crash.)
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
+        <b>Encapsulates State Management:</b> Encapsulates State Management: Stores snapshots of an object without modifying its internal structure. <br> (Example: Saving configuration settings before making risky changes.)
     </li>
 </ul>
 <pre>
     <code class="javascript">
-    </code>
-</pre>
-<hr>
-<br>
-<h5>
-    
-</h5>
-<p align="justify" style="padding-bottom: 5px;">
-    <b>Definition:</b>
-</p>
-<p align="justify">
-
-</p>
-<br>
-<p align="justify" style="padding-bottom: 5px;">
-    <b>Purpose:</b>
-</p>
-<ul>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b> 
-    </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
-    </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b></b>
-    </li>
-</ul>
-<pre>
-    <code class="javascript">
+    class EditorState {
+        constructor(content) {
+            this.content = content;
+        }
+    }
+          
+    class Editor {
+        constructor() {
+            this.content = "";
+        }
+          
+        type(text) {
+            this.content += text;
+        }
+          
+        save() {
+            return new EditorState(this.content);
+        }
+          
+        restore(state) {
+            this.content = state.content;
+        }
+          
+        getContent() {
+            return this.content;
+        }
+    }
+          
+          
+    // Usage
+    const editor = new Editor();
+    editor.type("Hello, ");
+    const savedState = editor.save(); // Save state
+    editor.type("world!");
+    console.log(editor.getContent()); // Output: Hello, world!
+          
+    editor.restore(savedState); // Restore previous state
+    console.log(editor.getContent()); // Output: Hello, 
     </code>
 </pre>
 <hr>
