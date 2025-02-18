@@ -1,3 +1,765 @@
 <div style="display: block; margin: auto; text-align: center">
     <object data="/_includes/images/Behavioral.png"> </object>
 </div>
+<h5>
+    1. Observer Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Observer pattern allows an object (the subject) to maintain a list of dependents (observers) and notify them automatically when its state changes.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Real-Time Updates:</b> Ensures subscribers receive updates when the subject's state changes. <br> (Example: Stock market trackers receiving price updates.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Decoupling Between Components:</b> Reduces direct dependencies between publishers and subscribers, making the system more modular. <br> (Example: A messaging app where users subscribe to specific channels.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Extensibility:</b> New observers can be added without modifying the existing subject. <br> (Example: An e-commerce site notifying users when an out-of-stock item is available again.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class Subject {
+        constructor() {
+            this.observers = [];
+        }
+          
+        attach(observer) {
+            this.observers.push(observer);
+        }
+          
+        detach(observer) {
+            this.observers = this.observers.filter(obs => obs !== observer);
+        }
+          
+        notify(data) {
+            this.observers.forEach(observer => observer.update(data));
+        }
+    }
+          
+    class ConcreteObserver {
+        constructor(name) {
+            this.name = name;
+        }
+          
+        update(data) {
+            console.log(`${this.name} received update: ${data}`);
+        }
+    }
+          
+    // Usage
+    const stockMarket = new Subject();
+    const investorA = new ConcreteObserver("Investor A");
+    const investorB = new ConcreteObserver("Investor B");
+          
+    stockMarket.attach(investorA);
+    stockMarket.attach(investorB);
+          
+    stockMarket.notify("Stock prices increased by 5%");
+          
+    stockMarket.detach(investorA);
+          
+    stockMarket.notify("Stock prices dropped by 2%");
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    2. Strategy Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Strategy pattern allows defining a family of algorithms, encapsulating each one, and making them interchangeable without altering the client using them.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Flexible Algorithm Selection:</b> Enables switching between multiple algorithms dynamically. <br> (Example: Choosing different payment methods in an e-commerce system.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Encapsulation of Business Logic:</b> Keeps different strategies separate, avoiding complex if-else structures. <br> (Example: Applying different discount policies for customers.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Easier Maintenance:</b> New strategies can be introduced without modifying existing logic. <br> (Example: Implementing multiple authentication strategies like OAuth, JWT, or API key-based authentication.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class PaymentProcessor {
+        constructor(strategy) {
+            this.strategy = strategy;
+        }
+          
+        process(amount) {
+            return this.strategy.pay(amount);
+        }
+    }
+          
+    class CreditCardPayment {
+        pay(amount) {
+            return `Paid ${amount} using Credit Card`;
+        }
+    }
+          
+    class PayPalPayment {
+        pay(amount) {
+            return `Paid ${amount} using PayPal`;
+        }
+    }
+          
+    class CryptoPayment {
+        pay(amount) {
+            return `Paid ${amount} using Cryptocurrency`;
+        }
+    }
+          
+    // Usage
+    const payment1 = new PaymentProcessor(new CreditCardPayment());
+    console.log(payment1.process(100));
+          
+    const payment2 = new PaymentProcessor(new PayPalPayment());
+    console.log(payment2.process(200));
+          
+    const payment3 = new PaymentProcessor(new CryptoPayment());
+    console.log(payment3.process(300));
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    3. State Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The State pattern allows an object to change its behavior when its internal state changes, making state transitions more manageable.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Simplifies State Transitions:</b> Eliminates complex if-else conditions by encapsulating state behavior separately. <br> (Example: Managing different user authentication states—logged out, logged in, and locked.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Encapsulation of State Logic:</b> Keeps each state self-contained, reducing dependencies. <br> (Example: Order processing states like pending, shipped, and delivered.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Enhances Maintainability:</b> Adding new states does not require modifying existing code. <br> (Example: Implementing a workflow system where tasks move through different approval stages.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class OrderState {
+        processOrder() {
+            throw new Error("Method must be implemented by subclasses");
+        }
+    }
+          
+    class PendingState extends OrderState {
+        processOrder(order) {
+            console.log("Order is now being processed.");
+            order.setState(new ShippedState());
+        }
+    }
+          
+    class ShippedState extends OrderState {
+        processOrder(order) {
+            console.log("Order has been shipped.");
+            order.setState(new DeliveredState());
+        }
+    }
+          
+    class DeliveredState extends OrderState {
+        processOrder(order) {
+            console.log("Order has been delivered.");
+        }
+    }
+          
+    class Order {
+        constructor() {
+            this.state = new PendingState();
+        }
+          
+        setState(state) {
+            this.state = state;
+        }
+          
+        process() {
+            this.state.processOrder(this);
+        }
+    }
+          
+    // Usage
+    const myOrder = new Order();
+    myOrder.process(); // "Order is now being processed."
+    myOrder.process(); // "Order has been shipped."
+    myOrder.process(); // "Order has been delivered."
+    myOrder.process(); // undefined - No further action possible
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    4. Command Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Command pattern encapsulates a request as an object, allowing users to parameterize clients, queue requests, and execute them at different times.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Decouples Sender and Receiver:</b> The command object separates the requester from the actual execution logic. <br> (Example: Implementing an undo/redo system in a text editor.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Enables Request Logging & Queuing:</b> Requests can be stored, scheduled, or logged before execution. <br> (Example: A job scheduling system that queues background tasks.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;"> Multiple commands can be combined into a single operation. <br> (Example: A UI where clicking a button triggers multiple actions, like saving data and sending a notification.)
+        <b>Supports Macro Commands:</b>
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class Command {
+        execute() {
+            throw new Error("Method must be implemented by subclasses");
+        }
+    }
+          
+    class LightOnCommand extends Command {
+        constructor(light) {
+            super();
+            this.light = light;
+        }
+          
+        execute() {
+            this.light.turnOn();
+        }
+    }
+          
+    class LightOffCommand extends Command {
+        constructor(light) {
+            super();
+            this.light = light;
+        }
+          
+        execute() {
+            this.light.turnOff();
+        }
+    }
+          
+    class Light {
+        turnOn() {
+            console.log("Light is ON");
+        }
+          
+        turnOff() {
+            console.log("Light is OFF");
+        }
+    }
+          
+    class RemoteControl {
+        constructor() {
+            this.commands = [];
+        }
+          
+        addCommand(command) {
+            this.commands.push(command);
+        }
+          
+        executeCommands() {
+            this.commands.forEach(command => command.execute());
+            this.commands = [];
+        }
+    }
+          
+    // Usage
+    const light = new Light();
+    const remote = new RemoteControl();
+          
+    remote.addCommand(new LightOnCommand(light));
+    remote.addCommand(new LightOffCommand(light));
+          
+    remote.executeCommands(); // "Light is ON" -> "Light is OFF"
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    5. Chain of Responsibility Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Chain of Responsibility pattern allows multiple handlers to process a request sequentially until one of them handles it, enabling dynamic request processing.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Decouples Sender and Receiver:</b> The sender doesn’t need to know which handler will process the request. <br> (Example: Middleware processing in a web server, where requests pass through authentication, logging, and validation layers.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Flexible Processing Pipelines:</b> Requests can be handled, modified, or passed along dynamically. <br> (Example: A customer support system where a query escalates from an agent to a manager if needed.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Reduces Conditional Logic:</b> Avoids long if-else chains by breaking logic into independent handlers. <br> (Example: Handling user permissions in an access control system.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class RequestHandler {
+        setNext(handler) {
+            this.nextHandler = handler;
+            return handler;
+        }
+          
+        handle(request) {
+            if (this.nextHandler) {
+                return this.nextHandler.handle(request);
+            }
+            console.log("Request could not be processed.");
+        }
+    }
+          
+    class AuthenticationHandler extends RequestHandler {
+        handle(request) {
+            if (!request.isAuthenticated) {
+                console.log("Authentication failed.");
+                return;
+            }
+            console.log("Authentication successful.");
+            super.handle(request);
+        }
+    }
+          
+    class AuthorizationHandler extends RequestHandler {
+        handle(request) {
+            if (!request.hasPermission) {
+                console.log("Authorization failed.");
+                return;
+            }
+            console.log("Authorization successful.");
+            super.handle(request);
+        }
+    }
+          
+    class LoggingHandler extends RequestHandler {
+        handle(request) {
+            console.log("Logging request:", request);
+            super.handle(request);
+        }
+    }
+          
+    // Usage
+    const request = { isAuthenticated: true, hasPermission: false };
+          
+    const authHandler = new AuthenticationHandler();
+    const permissionHandler = new AuthorizationHandler();
+    const logHandler = new LoggingHandler();
+          
+    authHandler.setNext(permissionHandler).setNext(logHandler);
+          
+    authHandler.handle(request); // Authentication successful -> Authorization failed
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    6. Template Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Template pattern defines the skeleton of an algorithm in a base class and allows subclasses to provide specific implementations for some steps without changing the overall structure.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Code Reusability:</b> Promotes reuse by defining a common structure while allowing customization. <br> (Example: A reporting system where different report formats share a common generation process.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Enforces Consistency:</b> Ensures all subclasses follow a predefined process. <br> (Example: A payment processing system where steps like validation, charging, and confirmation are standardized.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Reduces Code Duplication:</b> Avoids rewriting the same logic in multiple places. <br> (Example: A file export system where different formats like CSV and JSON follow a common procedure.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class DataExporter {
+        export() {
+            this.fetchData();
+            this.transformData();
+            this.saveFile();
+        }
+          
+        fetchData() {
+            console.log("Fetching data from database...");
+        }
+          
+        transformData() {
+            throw new Error("Method must be implemented by subclasses");
+        }
+          
+        saveFile() {
+            console.log("Saving file to storage...");
+        }
+    }
+          
+    class CSVExporter extends DataExporter {
+        transformData() {
+            console.log("Transforming data into CSV format...");
+        }
+    }
+          
+    class JSONExporter extends DataExporter {
+        transformData() {
+            console.log("Transforming data into JSON format...");
+        }
+    }
+          
+    // Usage
+    const csvExporter = new CSVExporter();
+    csvExporter.export();
+    // Output:
+    // Fetching data from database...
+    // Transforming data into CSV format...
+    // Saving file to storage...
+          
+    const jsonExporter = new JSONExporter();
+    jsonExporter.export();
+    // Output:
+    // Fetching data from database...
+    // Transforming data into JSON format...
+    // Saving file to storage...
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    7. Interpreter Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Interpreter pattern is used to define a grammar for a simple language and provide an interpreter to process its statements.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Simplifies Custom Language Processing:</b> Allows defining and evaluating domain-specific languages (DSLs). <br> (Example: A calculator that interprets mathematical expressions like "5 + 3 * 2".)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Improves Maintainability:</b> Encapsulates parsing logic separately, making it easier to extend. <br> (Example: A chatbot that processes predefined command structures like "turn on the lights".)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Decouples Execution from Parsing:</b> Separates grammar definition from execution logic. <br> (Example: SQL-like query processors that analyze and execute commands dynamically.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class Expression {
+        interpret() {
+            throw new Error("Method must be implemented by subclasses");
+        }
+    }
+          
+    class NumberExpression extends Expression {
+        constructor(value) {
+            super();
+            this.value = value;
+        }
+          
+        interpret() {
+            return this.value;
+        }
+    }
+          
+    class AddExpression extends Expression {
+        constructor(left, right) {
+            super();
+            this.left = left;
+            this.right = right;
+        }
+          
+        interpret() {
+            return this.left.interpret() + this.right.interpret();
+        }
+    }
+          
+    class MultiplyExpression extends Expression {
+        constructor(left, right) {
+            super();
+              this.left = left;
+              this.right = right;
+        }
+          
+        interpret() {
+            return this.left.interpret() * this.right.interpret();
+        }
+    }
+          
+    // Usage
+    const five = new NumberExpression(5);
+    const three = new NumberExpression(3);
+    const two = new NumberExpression(2);
+          
+    const multiplication = new MultiplyExpression(three, two); // 3 * 2
+    const addition = new AddExpression(five, multiplication); // 5 + (3 * 2)
+          
+    console.log(addition.interpret()); // Output: 11
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    8. Visitor Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Visitor pattern allows adding new operations to existing class structures without modifying those classes by moving the logic into a visitor object that "visits" the elements.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Separation of Concerns:</b> Adds operations to elements without changing their classes. <br> (Example: Applying a tax calculation on different product types in an e-commerce application.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;"> New operations can be added easily without modifying existing code. <br> (Example: Generating various reports based on the same set of objects, such as inventory levels and sales data.)
+        <b>Extensibility:</b>
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Centralized Operations:</b> Operations are grouped in a single place, avoiding scattering them across the system. <br> (Example: Performing different actions on UI components, such as enabling/disabling or calculating their positions.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class Product {
+        accept(visitor) {
+            visitor.visit(this);
+        }
+    }
+          
+    class Book extends Product {
+        constructor(price) {
+            super();
+            this.price = price;
+        }
+    }
+          
+    class DVD extends Product {
+        constructor(price) {
+            super();
+            this.price = price;
+        }
+    }
+          
+    class TaxVisitor {
+        visit(product) {
+            if (product instanceof Book) {
+                console.log(`Applying tax to book: ${product.price * 0.1}`);
+            } else if (product instanceof DVD) {
+                console.log(`Applying tax to DVD: ${product.price * 0.2}`);
+            }
+        }
+    }
+          
+    // Usage
+    const book = new Book(20);
+    const dvd = new DVD(30);
+          
+    const taxVisitor = new TaxVisitor();
+    book.accept(taxVisitor); // Applying tax to book: 2
+    dvd.accept(taxVisitor);  // Applying tax to DVD: 6      
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    9. Mediator Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Mediator pattern centralizes communication between multiple objects to reduce direct dependencies, making the system more modular and maintainable.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Decouples Object Communication:</b> Objects don’t need to reference each other directly, promoting loose coupling. <br> (Example: A chat application where users communicate through a central server instead of direct connections.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Simplifies System Complexity:</b> Prevents complex dependencies between objects. <br> (Example: An air traffic control system where flights interact via a control tower instead of directly communicating.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Enhances Maintainability:</b> Centralized control makes modifications easier. <br> (Example: UI components in a form updating through an event mediator rather than directly modifying each other.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class Mediator {
+        constructor() {
+            this.participants = [];
+        }
+          
+        register(participant) {
+            this.participants.push(participant);
+            participant.setMediator(this);
+        }
+          
+        send(message, sender) {
+            this.participants.forEach((participant) => {
+                if (participant !== sender) {
+                  participant.receive(message);
+                }
+            });
+        }
+    }
+          
+    class Participant {
+        constructor(name) {
+            this.name = name;
+        }
+          
+        setMediator(mediator) {
+            this.mediator = mediator;
+        }
+          
+        send(message) {
+            console.log(`${this.name} sends: ${message}`);
+            this.mediator.send(message, this);
+        }
+          
+        receive(message) {
+            console.log(`${this.name} receives: ${message}`);
+        }
+    }
+          
+    // Usage
+    const mediator = new Mediator();
+    const user1 = new Participant("Alice");
+    const user2 = new Participant("Bob");
+          
+    mediator.register(user1);
+    mediator.register(user2);
+          
+    user1.send("Hello, Bob!");
+    // Alice sends: Hello, Bob!
+    // Bob receives: Hello, Bob!
+
+    user2.send("Hi, Alice!");
+    // Bob sends: Hi, Alice!
+    // Alice receives: Hi, Alice!
+    </code>
+</pre>
+<hr>
+<br>
+<h5>
+    10. Memento Pattern
+</h5>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Definition:</b>
+</p>
+<p align="justify">
+    The Memento pattern captures and stores an object's state so it can be restored later, without exposing its internal structure.
+</p>
+<br>
+<p align="justify" style="padding-bottom: 5px;">
+    <b>Purpose:</b>
+</p>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>State Recovery:</b> 
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Ensures Data Integrity:</b> Prevents unintended changes from permanently altering critical data. <br> (Example: Restoring a user's game progress after a crash.)
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Encapsulates State Management:</b> Encapsulates State Management: Stores snapshots of an object without modifying its internal structure. <br> (Example: Saving configuration settings before making risky changes.)
+    </li>
+</ul>
+<pre>
+    <code class="javascript">
+    class EditorState {
+        constructor(content) {
+            this.content = content;
+        }
+    }
+          
+    class Editor {
+        constructor() {
+            this.content = "";
+        }
+          
+        type(text) {
+            this.content += text;
+        }
+          
+        save() {
+            return new EditorState(this.content);
+        }
+          
+        restore(state) {
+            this.content = state.content;
+        }
+          
+        getContent() {
+            return this.content;
+        }
+    }
+          
+          
+    // Usage
+    const editor = new Editor();
+    editor.type("Hello, ");
+    const savedState = editor.save(); // Save state
+    editor.type("world!");
+    console.log(editor.getContent()); // Output: Hello, world!
+          
+    editor.restore(savedState); // Restore previous state
+    console.log(editor.getContent()); // Output: Hello, 
+    </code>
+</pre>
+<hr>
+<br>

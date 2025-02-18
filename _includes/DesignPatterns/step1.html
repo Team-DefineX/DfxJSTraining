@@ -3,33 +3,24 @@
     These patterns provide a structured and tested approach to solving problems, making code more organized, scalable, and maintainable.
 </p>
 <br>
-<h6>
-    Key Points to Explain:
-</h6>
+<h5>
+    Elements of a Design Pattern
+</h5>
 <br>
-<ol>
+<ul>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Reusability:</b> Design patterns help solve problems that repeatedly occur, so developers don’t need to reinvent the wheel every time.
+        <b>Pattern name:</b> This is used to identify a design pattern while communicating with other users. Examples include “singleton,” “prototype,” and more.
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Standardized Solutions:</b> They provide a common language for developers to communicate and collaborate effectively.
+        <b>Problem:</b> his describes the aim of the design pattern. It’s a small description of the issue that the design pattern is trying to solve. It can even include an example scenario to better explain the issue. It can also contain a list of conditions to be met for a design pattern to fully solve the underlying issue.
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Improved Code Quality:</b> Patterns make the codebase easier to understand, test, and extend.
+        <b>Solution:</b> This is the solution to the problem at hand, made up of elements like classes, methods, interfaces, etc. It’s where the bulk of a design pattern lies — it entails relationships, responsibilities, and collaborators of various elements that are clearly defined.
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Reliability:</b> Design patterns improve reliability by providing well-tested solutions to common problems, minimizing unexpected behavior and errors in your code.
+        <b>Results:</b> This is an analysis of how well the pattern was able to solve the problem. Things like space and time usage are discussed, along with alternative approaches to solving the same problem. 
     </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Scalability:</b> Design patterns enable the codebase to handle growing demands, such as increased users or data, by offering flexible and efficient solutions for structuring and managing components.
-    </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b> Maintainability:</b> Design patterns make code easier to update, debug, and extend by promoting modularity and clear separation of concerns.
-    </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;">
-        <b>Organization:</b> Design patterns enhance code organization by offering standardized approaches that make the codebase easier to read, navigate, and collaborate on.
-    </li>
-</ol>
+</ul>
 <br>
 <h5>
     Why Use Design Patterns in JavaScript?
@@ -59,5 +50,36 @@
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
         <b>Reduced Technical Debt:</b> By using design patterns, developers can avoid ad hoc solutions that lead to messy, hard-to-maintain codebases.
+    </li>
+</ul>
+<br>
+<h5>
+    When not to Use Design Patterns in JavaScript?
+</h5>
+<br>
+<ul>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Overengineering Risks:</b> Using design patterns unnecessarily can lead to overly complex code that is harder to read and maintain.
+        <br>Example: Applying a complex pattern like Proxy or Flyweight for a small, straightforward function.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Performance Overhead:</b> Some patterns introduce additional layers of abstraction, which may negatively impact performance in performance-critical applications.
+        <br>Example: Using the Observer pattern for real-time updates when a simple event listener would suffice.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Unnecessary Abstraction:</b> If a simple solution works, adding a design pattern can make the code unnecessarily abstract and harder to understand.
+        <br>Example: Implementing the Factory pattern for creating objects that are rarely instantiated.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Limited Scalability Needs:</b> If an application is small and not expected to grow significantly, introducing design patterns may be unnecessary.
+        <br>Example: Using the Strategy pattern for a simple function with only two possible behaviors.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Lack of Team Understanding:</b> If the development team is not familiar with certain design patterns, their misuse can lead to confusion and technical debt.
+        <br>Example: Misusing the Singleton pattern, leading to unexpected global state issues.
+    </li>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>No Repetitive Problem Exists: </b> Design patterns are best applied to recurring problems; using them where no such problem exists may add complexity without benefits.
+        <br>Example: Using the Decorator pattern when simple function composition would suffice.
     </li>
 </ul>

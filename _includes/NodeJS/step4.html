@@ -1,0 +1,156 @@
+<h6>
+  What is Next.js?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Next.js is a React framework that enables features like server-side rendering (SSR), static site generation (SSG), and API routes. It simplifies building fast, scalable, and SEO-friendly web applications.
+</p>
+<br>
+<h6>
+  How Does Next.js Work?
+</h6>
+<p>
+  &nbsp;&nbsp;&nbsp;
+  Next.js pre-renders pages by default, meaning it generates HTML in advance instead of relying only on client-side JavaScript. It can render content on:
+</p>
+<ol>
+  <li>
+    <strong>Build Time (SSG - Static Site Generation):</strong> The HTML is generated at build time and reused for each request.
+  </li>
+  <li>
+    <strong>Request Time (SSR - Server-Side Rendering):</strong> The page is generated dynamically on each request.
+  </li>
+</ol>
+<p>
+  Next.js also includes an integrated API layer, allowing you to write backend logic within the same project.
+</p>
+<br>
+<hr>
+<br>
+<h6>
+  Folder Structure in Next.js
+</h6>
+<pre>
+  <code class="command-line">
+    /your-next-app
+    |── /app
+    │   |── page.js  # Homepage (default route)
+    │   |── layout.js  # Layout
+    │   |── /custom-page
+    │   |   │── page.js  # Custom page
+    │   |── /api      # API routes (server-side functions)
+    |   |   ├── /someapi
+    |   │       ├── route.js  # API codes
+    │── /public       # Static assets (images, fonts, etc.)
+    │── /styles       # Global and module styles
+    │── /components   # Reusable UI components
+    │── /lib          # Utility functions
+    │── next.config.js  # Next.js configuration file
+    │── package.json  # Dependencies and scripts
+  </code>
+</pre>
+<br>
+<hr>
+<br>
+<h6>
+  What is SSR (Server-Side Rendering)?
+</h6>
+<p>
+  Server-side rendering (SSR) means that Next.js generates the HTML for a page on the server at request time, rather than in the browser. This allows:
+</p>
+<ul>
+  <li>
+    Better SEO (because search engines can see fully rendered pages).
+  </li>
+  <li>
+    Faster initial load time compared to client-side rendering.
+  </li>
+  <li>
+    Fresh data for each request, instead of static content.
+  </li>
+</ul>
+<h6>
+  Example of an SSR Page:
+</h6>
+<pre>
+  <code class="jsx">
+    import React from 'react';
+
+    export async function getServerSideProps() {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+      const data = await res.json();
+
+      return { props: { post: data } };
+    }
+
+    export default function Post({ post }) {
+      return (
+         &#60;div>
+           &#60;h1>{post.title}&#60;/h1>
+           &#60;p>{post.body}&#60;/p>
+         &#60;/div>
+      );
+    }
+  </code>
+</pre>
+<p>
+  Here, getServerSideProps() fetches data on each request, and the page is rendered on the server.
+</p>
+<br>
+<hr>
+<br>
+<h6>
+  How to Create an API with Next.js?
+</h6>
+<p>
+  Next.js allows you to create API routes under the /pages/api/ directory. Each file inside /api/ is an API endpoint that runs on the server.
+</p>
+<h6>
+  Example of an API Route:
+</h6>
+<pre>
+  <code class="javascript">
+    const products = [
+      { id: 1, name: "Laptop" },
+      { id: 2, name: "Phone" },
+      { id: 3, name: "Tablet" },
+    ];
+
+    export async function GET() {
+      return Response.json(
+        products,
+        { status: 200 }
+      );
+    }
+
+    export async function POST(request) {
+      try {
+        const body = await request.json();
+
+        if (!body.name) {
+          return Response.json(
+            { message: "Product name is required" },
+            { status: 400 }
+          ); // ❌ 400 Bad Request
+        }
+
+        const newProduct = {
+          id: (Math.floor(Math.random() * 1001)),
+          name: body.name
+        };
+
+        products.push(newProduct);
+
+        return Response.json(
+          newProduct,
+          { status: 201 }
+        ); // ✅ 201 Created
+      } catch (error) {
+        return Response.json(
+          { message: "Internal Server Error" },
+          { status: 500 }
+        ); // ❌ 500 Server Error
+      }
+    }
+  </code>
+</pre>

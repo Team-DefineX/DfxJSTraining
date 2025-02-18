@@ -457,7 +457,7 @@ export const modules = [
     steps: [
       {
         name: "Introduction",
-        time: "5mins",
+        time: "10mins",
       },
       {
         name: "Types of design patterns",
@@ -473,12 +473,36 @@ export const modules = [
       },
       {
         name: "Behavioral Patterns",
-        time: "15mins",
+        time: "25mins",
       },
       {
         name: "Conclusion",
         time: "5mins",
       }
+    ]
+  },
+  {
+    fileName: "NodeJS",
+    moduleName: "NodeJS",
+    visible: true,
+    steps: [
+      {
+        name: "Introduction",
+
+        time: "5mins",
+      },
+      {
+        name: "Event-Loop",
+        time: "20mins",
+      },
+      {
+        name: "ExpressJS",
+        time: "15mins",
+      },
+      {
+        name: "NextJS",
+        time: "15mins",
+      },
     ]
   },
   {
@@ -488,7 +512,7 @@ export const modules = [
     steps: [
       {
         name: "Introduction",
-        time: "20mins",
+        time: "25mins",
       },
       {
         name: "Example App",
