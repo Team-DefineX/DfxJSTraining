@@ -1,0 +1,215 @@
+<p>
+    The MicroFrontend (MFE)
+</p>
+<p>
+    That is the soluiton on the wat towards the decoupling of large monolithic applications.
+</p>
+<div class="centered-img">
+    <img src="/_includes/images/mfe1.PNG" alt="">
+</div>
+<p>
+    Since when do we need other solutions? What solutions we have used until today?
+</p>
+<ul>
+    <li><code>IFrame</code>
+        <div class="centered-img">
+            <img src="/_includes/images/mfe2.PNG" alt="">
+        </div>
+    </li>
+    <li><code>Module Append</code>
+        <div class="centered-img">
+            <img src="/_includes/images/mfe3.PNG" alt="">
+        </div>
+    </li>
+</ul>
+
+<p>
+    This kind of solution is definitely needed. Despite their disadvantages, they are definitely not unused methods. They have been used and are still being used. 
+</p><br>
+<p>
+    New MFE solutions provide a way of managing applition via multiple teams & multiple frameworks & more performance.
+</p><br>
+
+<p>
+    What MFE's soluitons try to provide us?
+</p>
+<ul>
+    <li>Seperation of Repo&Pipeline </li>
+    <li>Shared Package Usage</li>
+    <li>Code Parsing </li>
+    <li>Strong Updateability  </li>
+</ul>
+<p>
+    Disadvantages we may face
+</p>
+<ul>
+    <li>Complexity</li>
+    <li>Debugging</li>
+    <li>Performance?</li>
+</ul>
+
+<h5 class="mt-3">New Solutions</h5>
+<p>When we come up with new solutions, we encounter many different approaches. We see that companies produce their own solutions according to the problems they face. Frint.js; while creating its own store, context and utils package, Single-SPA managed the process by using different functions for all frameworks. The Luigi solution is a library developed by SAP that gives permission to use any framework they support. Let's compare the pros and cons for WebComponents & SingleSPA & ModuleFederation.</p>
+<ul>
+    <li><code>Web Components</code></li>
+    <ul>
+        <li>Reusability</li>
+        <li>Maintenance</li>
+        <li>FrameWork Capability</li>
+    </ul>
+    <ul>
+        <li>Lack of browser support</li>
+        <li>Complex API and learning curve</li>
+        <li>Difficulty in performance optimisation</li>
+    </ul>
+</ul>
+<code class="javascript">
+    export class CounterComponent extends HTMLElement {
+        static get observedAttributes() {
+          return ['value'];
+        }
+      
+        get value() {
+          return this.getAttribute('value');
+        }
+      
+        set value(val) {
+          this.setAttribute('value', val);
+        }
+      
+        constructor() {
+          super();
+      
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+          this.increaseButton = this.shadowRoot.querySelector('#increaseBtn');
+          this.decreaseButton = this.shadowRoot.querySelector('#decreaseBtn');
+          this.label = this.shadowRoot.querySelector('#label');
+          this.value = 0;
+        }
+        connectedCallback() {
+          this.increaseButton.addEventListener('click', this._increase.bind(this));
+          this.decreaseButton.addEventListener('click', this._decrease.bind(this));
+        }
+        disconnectedCallback() {
+          this.increaseButton.removeEventListener('click', this._increase.bind(this));
+          this.decreaseButton.removeEventListener('click', this._decrease.bind(this));
+        }
+      
+        attributeChangedCallback(name, oldValue, newValue) {
+          this.label.innerHTML = newValue;
+        }
+      
+        adoptedCallback() {
+          console.log('I am adopted!');
+        }
+      
+        _increase() {
+            ...
+        }
+      
+        _decrease() {
+            ...
+        }
+      }
+      
+      customElements.define('my-parent', CounterComponent);
+      
+</code>
+<ul>
+    <li><code>Single-SPA</code></li>
+    <ul>
+        <li>Reusability</li>
+        <li>Dynamic Import</li>
+    </ul>
+    <ul>
+        <li>Low Framework Capability</li>
+        <li>Complex API and learning curve</li>
+        <li>Complex installation and configuration</li>
+    </ul>
+</ul>
+<pre>
+    <code class="javascript">
+        import {
+            constructRoutes,
+            constructApplications,
+            constructLayoutEngine,
+          } from "single-spa-layout";
+          import { registerApplication, start } from "single-spa";
+          
+          const routes = constructRoutes(document.querySelector("#single-spa-layout"), {
+            loaders: {
+              topNav: "<h1>Loading topnav</h1>",
+            },
+            errors: {
+              topNav: "<h1>Failed to load topnav</h1>",
+            },
+          });
+          const applications = constructApplications({
+            routes,
+            loadApp: ({ name }) => import(/* webpackIgnore: true */ name),
+          });
+          // Delay starting the layout engine until the styleguide CSS is loaded
+          const layoutEngine = constructLayoutEngine({
+            routes,
+            applications,
+            active: false,
+          });
+          
+          applications.forEach(registerApplication);
+          
+          import(/* webpackIgnore: true */ "@react-mf/styleguide").then(() => {
+            // Activate the layout engine once the styleguide CSS is loaded
+            layoutEngine.activate();
+            start();
+          });
+          
+    </code>
+</pre>
+<p>
+    We can add apps to 2 different way constructRoutes and constructApplications. We should register the application in Container application. If we dont we can not use the child application.
+</p>
+<ul>
+    <li><code>Module Federation Plugin (WebPack, Vite ..)</code></li>
+    <ul>
+        <li>Reusability</li>
+        <li>Dynamic Import</li>
+    </ul>
+    <ul>
+        <li>Low Framework Capability</li>
+        <li>Complex API and learning curve</li>
+        <li>Complex installation and configuration</li>
+    </ul>
+</ul>
+
+<h5 class="mt-3">Module Federation Check-Points:</h5>
+<h6 class="mt-3">#1 Complexity</h6>
+<p>
+    Avoid choosing an overly complex architecture. Choose a simple and flexible solution.
+</p>
+
+<h6 class="mt-3">#2 Keep parts independent and loose</h6>
+<p>
+    This will avoid problems when replacing tightly connected parts.
+</p>
+
+<h6 class="mt-3">#3 Communication between parts</h6>
+<p>
+    It is important to manage the communication correctly; it is important for the flow and not to interfere with the communication between the parts.
+</p>
+
+<h6 class="mt-3">#4 Performance</h6>
+<p>
+    Monitor overall performance and make optimisations. Use code separation and lazy loading.
+</p>
+
+<h6 class="mt-3">#5 Test</h6>
+<p>
+    Be sure to test each part individually and as a whole.
+</p>
+
+<h6 class="mt-3">#6 Documentation</h6>
+<p>
+    Write clear and understandable documentation for each part.
+</p>
+ 

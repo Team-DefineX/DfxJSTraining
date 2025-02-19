@@ -1,0 +1,311 @@
+<p>
+    <h5 class="mt-3">Vite + ModuleFederation + React</h5>
+    <p>
+        2 child React app will work in container app. Different repo products will be used in the container app.
+        Final app github repo is here https://github.com/rikacerme/vite-react-module-federation
+    </p>
+    <h5 class="mt-3">Creation of Applications:</h5>
+    <p>
+        In 3 applications, we will create React TS Applications using the same command like below:
+    </p>
+    <pre>
+        <code class="javascript">
+            $ npm create vite@latest
+        </code>
+    </pre>
+
+<h5 class="mt-3">Child1 vite config and app.tsx:</h5>
+<pre>
+    <code class="javascript">
+        import { defineConfig } from "vite";
+        import react from "@vitejs/plugin-react";
+        import federation from "@originjs/vite-plugin-federation";
+        //4174
+        export default defineConfig({
+        plugins: [
+            react(),
+            federation({
+            name: "remoteApp1",
+            filename: "remoteEntry.js", 
+            exposes: {
+                "./App": "./src/App", 
+            },
+            shared: ['react', "react-dom"]
+            }),
+        ],
+        build: {
+            modulePreload: false,
+            target: 'esnext',
+            minify: false,
+            cssCodeSplit: false
+        },
+        server: {
+            cors: true,
+            headers: {
+            "Access-Control-Allow-Origin": "*", 
+            },
+        },
+        preview: {
+            headers: {
+            "Access-Control-Allow-Origin": "*", 
+            },
+        },
+        });
+
+    </code>
+</pre>
+<pre>
+    <code class="javascript">
+        
+        import './App.css'
+
+        function App() {
+        
+            return (
+            &#60;>
+                &#60;h1>Vite + React&#60;/h1>
+            &#60;/>
+            )
+        }
+        
+        export default App
+    </code>
+</pre>
+<h5 class="mt-3">Update App.css</h5>
+<pre>
+    <code class="javascript">
+        #root {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+          }
+          
+    </code>
+</pre>
+<h5 class="mt-3">Update index.css</h5>
+<pre>
+    <code class="javascript">
+        :root {
+            font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+          
+            color-scheme: light dark;
+            color: rgba(255, 255, 255, 0.87);
+            background-color: black;
+          
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          
+          
+          h1 {
+            font-size: 3.2em;
+            line-height: 1.1;
+          }
+          
+    </code>
+</pre>
+<h5 class="mt-3">Package.json updates:</h5>
+<pre>
+    <code class="javascript">
+        "scripts": {
+            "dev": "vite --port 5001 --strictPort",
+            "build": "vite build",
+            "preview": "vite preview --port 5001 --strictPort",
+            "serve": "serve -s dist -l 5001 --cors"
+          },
+          
+    </code>
+</pre>
+
+<h5 class="mt-3">Child2 vite config and app.tsx:</h5>
+<pre>
+    <code class="javascript">
+        import { defineConfig } from "vite";
+        import react from "@vitejs/plugin-react";
+        import federation from "@originjs/vite-plugin-federation";
+
+        export default defineConfig({
+        plugins: [
+            react(),
+            federation({
+            name: "remoteApp2",
+            filename: "remoteEntry.js", 
+            exposes: {
+                "./App": "./src/App.tsx", 
+            },
+            shared: ['react', "react-dom"]
+            }),
+        ],
+        build: {
+            modulePreload: false,
+            target: 'esnext',
+            minify: false,
+            cssCodeSplit: false
+        },
+        server: {
+            cors: true,
+            headers: {
+            "Access-Control-Allow-Origin": "*", 
+            },
+        },
+        preview: {
+            headers: {
+            "Access-Control-Allow-Origin": "*", 
+            },
+        },
+        });
+
+    </code>
+</pre>
+<pre>
+    <code class="javascript">
+        import { useState } from 'react'
+        import viteLogo from '/vite.svg'
+        import './App.css'
+
+        function App() {
+        const [count, setCount] = useState(0)
+
+        return (
+            &#60;>
+            &#60;div>
+            &#60;a href="https://vite.dev" target="_blank">
+            &#60;img src={viteLogo} className="logo" alt="Vite logo" />
+            &#60;/a>
+            &#60;/div>
+            &#60;h1>Vite + React Page2&#60;/h1>
+            &#60;div className="card">
+            &#60;button onClick={() => setCount((count) => count + 1)}>
+                count is {count}
+                &#60;/button>
+                &#60;p>
+                Edit &#60;code>src/App.tsx&#60;/code> and save to test HMR
+                &#60;/p>
+                &#60;/div>
+                &#60;p className="read-the-docs">
+                Click on the Vite and React logos to learn more
+                &#60;/p>
+                &#60;/>
+        )
+        }
+
+        export default App
+        
+    </code>
+</pre>
+<h5 class="mt-3">Update App.css</h5>
+<pre>
+    <code class="javascript">
+        #root {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+          }
+          
+          .logo {
+            height: 6em;
+            padding: 1.5em;
+            will-change: filter;
+            transition: filter 300ms;
+          }
+          .logo:hover {
+            filter: drop-shadow(0 0 2em #646cffaa);
+          }
+          .logo.react:hover {
+            filter: drop-shadow(0 0 2em #61dafbaa);
+          }
+          
+          @keyframes logo-spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          
+          @media (prefers-reduced-motion: no-preference) {
+            a:nth-of-type(2) .logo {
+              animation: logo-spin infinite 20s linear;
+            }
+          }
+          
+          .card {
+            padding: 2em;
+          }
+          
+          .read-the-docs {
+            color: #888;
+          }
+          
+    </code>
+</pre>
+<h5 class="mt-3">Package.json updates:</h5>
+<pre>
+    <code class="javascript">
+        "scripts": {
+            "dev": "vite --port 5002 --strictPort",
+            "build": "vite build",
+            "preview": "vite preview --port 5002 --strictPort",
+            "serve": "serve -s dist -l 5002 --cors"
+          },
+          
+    </code>
+</pre>
+<h5 class="mt-3">Install & Build & Run:</h5>
+    <p>
+        Let's run 3 commands respectively in 3 repos.
+    </p>
+    <pre>
+        <code class="javascript">
+            npm install
+            npm run build
+            npm run serve
+        </code>
+    </pre>
+    <p>
+        localhost 5000 & 5001 & 5002 will open in your browser. We can see the flow in network tab.
+    </p>
+    
+    <div class="centered-img">
+        <img src="/_includes/images/mfe-network.PNG" alt="">
+    </div>
+    <p>
+        Blocker problems of other applications do not stop the development or deployment of other teams.
+    </p>
+    <p>
+        Shared package downloaded 1 time. The biggest impact on performance is that repetitive packages are not downloaded again. 
+    </p>
+    <p>
+        Any structure on dom can be used as communication. redux can be exported with expose method. event based structure can be established.
+    </p>
+    <p>
+        But there is a problem in the application css. when I return to the home page, the background of the page looks different. whereas when I first started the application, the home page had a white background. What can we do here?
+    </p>
+    <p>
+        There is some problem when you try to find plugins. Module federation has a soluttion and they support lots of tools. and you can find the their works in github module federation page. Also other tools support the module federation rules. for examle about vite & module federation; you can find 2 different plugin. one of them created from vite team other one developed from module federation team. Orijinjs and moduleFederation are try to solve same problems.
+    </p>
+    <p>
+        Expose and remote showing same point to developer. Configuration is not more complex as you can see. And that way is solved more issue than we talked. 
+    </p>
+    <h5 class="mt-3">Other Usages:</h5>
+    <p>
+       We can create component repo and expose via module federation. We dont need to use component repo structure or architecture.
+    </p>
+    <p>
+        We can support all framework or applications functions in one place without big structures. About Utils repo; every team or frameworks can use same functions or feature. As we talked before we can create a repo to storing all utils fuctions in one place it will affect to finding functions or helpers.
+     </p>
+     <p>
+        Enviroment base configuration can be used. We can use different configuration for different enviroments. and we can store the our configuration with this solution. We dont need to create configuration repo.  
+     </p>
+     <h5 class="mt-3">Final:</h5>
+     <p>
+        Module federation is an approach and an architecture. We should choose the best solution for our project. We can use the module federation with different frameworks, teams, repos, configurations. 
+     </p>
+</p>
