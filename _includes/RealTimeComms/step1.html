@@ -1,0 +1,72 @@
+<p>
+    Real-time communication allows a server and client to exchange data
+    in an ongoing, immediate fashion, rather than relying on the client
+    to request updates periodically. This enables <strong>live updates</strong>
+    for use cases like:
+</p>
+
+<ul class="mt-3">
+    <li>Live chat applications (e.g., Slack, Discord)</li>
+    <li>Collaboration tools (e.g., Google Docs real-time editing)</li>
+    <li>Financial dashboards or stock tickers</li>
+    <li>Online gaming or multiplayer apps</li>
+    <li>IoT applications (e.g., sensor networks, home automation)</li>
+</ul>
+
+<p>
+    In a traditional request-response model (like typical <span class="highlight">HTTP</span>),
+    the client must initiate every interaction, which can lead to high latency
+    and increased network usage when frequent updates are needed.
+</p>
+
+<p class="mt-2">
+    Real-time solutions — such as <strong>Server-Sent Events (SSE)</strong>,
+    <strong>WebSocket</strong>, and <strong>MQTT</strong> — address this by allowing the server
+    (or broker) to push data to the client the moment it becomes available, improving responsiveness and
+    user experience.
+</p>
+
+<p class="mt-2">
+    In the following steps, we will explore three main technologies for implementing real-time communication
+    in a <em>JavaScript (Node.js)</em> environment:
+</p>
+
+<ol class="mt-2">
+    <li>
+        <strong>Server-Sent Events (SSE)</strong> — a one-way push from server to client.
+    </li>
+    <li>
+        <strong>WebSocket</strong> — a full-duplex (two-way) communication channel.
+    </li>
+    <li>
+        <strong>MQTT</strong> — a lightweight publish/subscribe messaging protocol ideal for IoT and low-bandwidth
+        scenarios.
+    </li>
+</ol>
+
+<p class="mb-3">
+    By the end of this module, you will understand how each approach works, how to implement them in Node.js,
+    and how to handle real-time updates on the client side.
+</p>
+
+<div class="qna">
+    <h4>Why Use Node.js for Real-Time Communication?</h4>
+    <dl class="mt-4">
+        <dt>Reason 1: Event-Driven Architecture</dt>
+        <dd>
+            Node.js is built on an <strong>event-driven</strong>, non-blocking I/O model, making it highly efficient at
+            handling a large number of concurrent connections — perfect for real-time use cases.
+        </dd>
+        <dt>Reason 2: Ubiquity of JavaScript</dt>
+        <dd>
+            With JavaScript also running on the client side, you get a seamless “JS Full-stack” experience. Less context
+            switching, more productivity.
+        </dd>
+        <dt>Reason 3: Rich Ecosystem</dt>
+        <dd>
+            The <code>npm</code> registry contains countless libraries suited for real-time tasks, such as <em>ws</em>,
+            <em>socket.io</em>, and MQTT clients like <em>mqtt</em>. This gives you a head start and speeds up
+            development.
+        </dd>
+    </dl>
+</div>

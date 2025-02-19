@@ -1,0 +1,23 @@
+<p align="justify">
+    Http2 already support real time communication as default. That usage basicly dont disconnect to backend any time. It
+    means you have have connection in every moment after sending first request. That solution is good but in server side
+    have connection for every client with http protocols. </p>
+Http1.1 try to some solution also but not good as http2.0. You can create a connection and when finihed connection timed
+out you can create a new connection that is old and bad solution. Also Http1.1 have keep-alive header. It try to provide
+same solution but this time we need to set max client connection and max waiting request.
+</p>
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/keep-alive.png" alt="">
+</div>
+<p align="justify">
+    Mqtt is already try to provide real time communication. really the best in terms of resource consumption. It can
+    handle almost 80 times more load compared to http. There are cases where it is used instead of http in companies,
+    but the biggest handicap is that there is a manual process to check whether the subscriber's connection is active.
+    He can try to send a message without knowing whether the connection is broken or not.
+    For providing the messages it needs to be a broker. Broker is a server that is responsible for receiving all
+    messages, filtering the messages, deciding who is interested in them and then publishing the message to all
+    subscribed clients.
+</p>
+<div class="centered-img">
+    <img class="img-full" src="/_includes/images/mqtt.png" alt="">
+</div>

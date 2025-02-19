@@ -1,0 +1,144 @@
+<div class="section">
+    <p>
+        WebSocket is a protocol that provides a persistent, full-duplex communication channel between the server and the
+        client.
+        This allows both parties to send and receive data at any time while the connection remains open.
+        Unlike the traditional HTTP request/response model, WebSocket works over a single handshake that establishes a
+        continuous channel.
+    </p>
+
+    <div class="centered-img">
+        <img class="img-full" src="/_includes/images/ws-flow.png" alt="">
+    </div>
+
+    <section>
+        <h3 class="mt-2">HTTP vs. WebSocket: Choosing the Right Communication Protocol</h3>
+        <p class="mt-3 mb-3">
+            Most web applications traditionally rely on <strong>HTTP</strong>, a request-response protocol where the
+            client
+            initiates every interaction. HTTP is stateless and works well for many scenarios where real-time updates are
+            not
+            critical.
+        </p>
+        <p>
+            <strong>WebSocket</strong> builds on the HTTP protocol. It starts with an HTTP handshake, then upgrades the
+            connection to a persistent, bi-directional channel that supports full-duplex communication. This makes it
+            ideal
+            for real-time use cases such as live chat, collaborative editing, or gaming.
+        </p>
+
+        <div class="centered-img">
+            <img class="img-full" src="/_includes/images/ws-http.png" alt="">
+        </div>
+
+        <p>
+            When deciding which protocol to use, consider the following:
+        </p>
+
+        <ul class="mb-3 mt-3">
+            <li>
+                <strong>HTTP:</strong> Best suited for applications with infrequent updates or where each interaction is
+                independent. It is simple, stateless, and leverages the existing HTTP infrastructure.
+            </li>
+            <li>
+                <strong>WebSocket (WS/WSS):</strong> Ideal for applications that require low latency and continuous
+                real-time data exchange. If your project benefits from a persistent connection, WebSocket offers
+                significant
+                advantages. Also, remember that secure communication with WebSocket uses WSS, analogous to HTTPS in
+                HTTP.
+            </li>
+        </ul>
+        <p>
+            In summary, if your project demands live, continuous updates, <strong>WebSocket</strong> is often the better
+            choice. However, if the real-time aspect is less critical and simplicity is preferred, traditional
+            <strong>HTTP</strong> may be sufficient.
+        </p>
+    </section>
+
+    <h3 class="mt-3">Why Use WebSocket?</h3>
+    <ul class="mt-3 mb-3">
+        <li><strong>Full-Duplex Communication:</strong> Both server and client can send data whenever needed.</li>
+        <li><strong>Low Latency:</strong> Real-time data exchange is enabled through an always-open connection.</li>
+        <li><strong>Efficient Resource Usage:</strong> Eliminates the overhead of repeated HTTP requests by using a
+            single connection.</li>
+        <li><strong>Modern Applications:</strong> Widely used in live chat, gaming, financial updates, and more.</li>
+    </ul>
+</div>
+
+<h3>Server-side WebSocket Implementation</h3>
+<div class="section">
+    <p class="mt-3 mb-3">
+        In this section, we will create a simple WebSocket server using Node.js.
+        We utilize the <code>ws</code> package to establish a WebSocket server on port 8080.
+        When a client connects, a welcome message is sent, and any messages received from the client
+        are logged to the console. Optionally, you can broadcast messages to all connected clients.
+    </p>
+    <pre class="code-block">
+// server.js
+const WebSocket = require('ws');
+const PORT = 8080;
+
+const wss = new WebSocket.Server({ port: PORT });
+
+wss.on('connection', (ws) => {
+  console.log("A new client connected.");
+
+  // Send a welcome message to the client
+  ws.send(JSON.stringify({ message: "WebSocket connection established!" }));
+
+  // Listen for messages from the client
+  ws.on('message', (message) => {
+    console.log("Received message:", message);
+    // Optional: Broadcast the message to all connected clients
+    wss.clients.forEach((client) => {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+
+  ws.on('close', () => {
+    console.log("A client connection has been closed.");
+  });
+});
+
+console.log(`WebSocket server is running on port ${PORT}`);
+    </pre>
+</div>
+
+<h3>Client-side WebSocket Implementation</h3>
+<div class="section">
+    <p class="mb-3 mt-3">
+        In this section, we will create a WebSocket client on the browser using the built-in
+        <code>WebSocket</code> API. Once the connection is established to <code>ws://localhost:8080</code>,
+        the <code>onopen</code> event is fired, a sample message is sent to the server, and any messages
+        received from the server are handled by the <code>onmessage</code> event.
+    </p>
+    <pre class="code-block">
+var socket = new WebSocket('ws://localhost:8080');
+
+// Triggered when the connection is open
+socket.onopen = function(event) {
+  console.log("WebSocket connection established.");
+  // The client sends a sample message to the server
+  socket.send("Hello server!");
+};
+
+// Triggered when a message is received from the server
+socket.onmessage = function(event) {
+  console.log("Message from server:", event.data);
+  // Display the received message in an HTML element
+  document.getElementById("clientOutputEng").innerText = event.data;
+};
+
+// Triggered on error
+socket.onerror = function(error) {
+  console.error("WebSocket error:", error);
+};
+
+// Triggered when the connection is closed
+socket.onclose = function(event) {
+  console.log("WebSocket connection closed.");
+};
+    </pre>
+</div>

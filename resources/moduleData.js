@@ -86,7 +86,7 @@ export const modules = [
       {
         name: "Loop",
         time: "10mins",
-      }
+      },
     ],
   },
   {
@@ -137,7 +137,7 @@ export const modules = [
       {
         name: "JSON",
         time: "10mins",
-      }
+      },
     ],
   },
   {
@@ -478,8 +478,8 @@ export const modules = [
       {
         name: "Conclusion",
         time: "5mins",
-      }
-    ]
+      },
+    ],
   },
   {
     fileName: "NodeJS",
@@ -503,7 +503,34 @@ export const modules = [
         name: "NextJS",
         time: "15mins",
       },
-    ]
+    ],
+  },
+  {
+    fileName: "RealTimeComms",
+    moduleName: "Real-time Communication",
+    visible: true,
+    steps: [
+      {
+        name: "Introduction",
+        time: "5mins",
+      },
+      {
+        name: "Server-Sent Events",
+        time: "20mins",
+      },
+      {
+        name: "WebSocket",
+        time: "15mins",
+      },
+      {
+        name: "MQTT",
+        time: "15mins",
+      },
+      {
+        name: "Comparison & Best Practices",
+        time: "15mins",
+      },
+    ],
   },
   {
     fileName: "MicroFrontend",
