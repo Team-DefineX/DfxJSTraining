@@ -64,10 +64,13 @@
     stockMarket.attach(investorB);
           
     stockMarket.notify("Stock prices increased by 5%");
-          
+    // Investor A received update: Stock prices increased by 5%
+    // Investor B received update: Stock prices increased by 5%
+
     stockMarket.detach(investorA);
           
     stockMarket.notify("Stock prices dropped by 2%");
+    // Investor B received update: Stock prices dropped by 2%
     </code>
 </pre>
 <hr>
@@ -128,13 +131,13 @@
           
     // Usage
     const payment1 = new PaymentProcessor(new CreditCardPayment());
-    console.log(payment1.process(100));
+    console.log(payment1.process(100)); // Paid 100 using Credit Card
           
     const payment2 = new PaymentProcessor(new PayPalPayment());
-    console.log(payment2.process(200));
+    console.log(payment2.process(200)); // Paid 200 using PayPal
           
     const payment3 = new PaymentProcessor(new CryptoPayment());
-    console.log(payment3.process(300));
+    console.log(payment3.process(300)); // Paid 300 using Cryptocurrency
     </code>
 </pre>
 <hr>
@@ -235,8 +238,8 @@
     <li style="padding-bottom: 5px; padding-left: 9px;">
         <b>Enables Request Logging & Queuing:</b> Requests can be stored, scheduled, or logged before execution. <br> (Example: A job scheduling system that queues background tasks.)
     </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;"> Multiple commands can be combined into a single operation. <br> (Example: A UI where clicking a button triggers multiple actions, like saving data and sending a notification.)
-        <b>Supports Macro Commands:</b>
+    <li style="padding-bottom: 5px; padding-left: 9px;">
+        <b>Supports Macro Commands:</b>  Multiple commands can be combined into a single operation. <br> (Example: A UI where clicking a button triggers multiple actions, like saving data and sending a notification.)
     </li>
 </ul>
 <pre>
@@ -385,6 +388,17 @@
     authHandler.setNext(permissionHandler).setNext(logHandler);
           
     authHandler.handle(request); // Authentication successful -> Authorization failed
+
+    // Usage2
+    const request2 = { isAuthenticated: true, hasPermission: true };
+          
+    const authHandler2 = new AuthenticationHandler();
+    const permissionHandler2 = new AuthorizationHandler();
+    const logHandler2 = new LoggingHandler();
+          
+    authHandler2.setNext(permissionHandler2).setNext(logHandler2);
+          
+    authHandler2.handle(request2); // Authentication successful -> Authorization successful -> Request could not be processed.
     </code>
 </pre>
 <hr>
@@ -562,8 +576,8 @@
     <li style="padding-bottom: 5px; padding-left: 9px;">
         <b>Separation of Concerns:</b> Adds operations to elements without changing their classes. <br> (Example: Applying a tax calculation on different product types in an e-commerce application.)
     </li>
-    <li style="padding-bottom: 5px; padding-left: 9px;"> New operations can be added easily without modifying existing code. <br> (Example: Generating various reports based on the same set of objects, such as inventory levels and sales data.)
-        <b>Extensibility:</b>
+    <li style="padding-bottom: 5px; padding-left: 9px;"> 
+        <b>Extensibility:</b> New operations can be added easily without modifying existing code. <br> (Example: Generating various reports based on the same set of objects, such as inventory levels and sales data.)
     </li>
     <li style="padding-bottom: 5px; padding-left: 9px;">
         <b>Centralized Operations:</b> Operations are grouped in a single place, avoiding scattering them across the system. <br> (Example: Performing different actions on UI components, such as enabling/disabling or calculating their positions.)
