@@ -182,10 +182,20 @@
 <h6><strong>splice():</strong> Changes the content of an array by adding, removing, or replacing elements. </br> Lets loop throw each item in the array and write to console with basic for loop.</h6>
 <pre>
     <code class="javascript">
-    // forEach()
-    heroProfiles.forEach(hero => {
-      console.log("forEach", hero.name);
+    // splice()
+    heroProfiles.splice(1, 1, {
+      name: "Flash",
+      secretIdentity: "Barry Allen",
+      powers: ["Super Speed", "Time Travel"],
+      age: 30,
+      isHero: true
     });
+
+    console.log(heroProfiles);
+
+    // 0 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
+    // 1 : { name: 'Flash', secretIdentity: 'Barry Allen', powers: Array(2), age: 30, isHero: true }
+    // 2 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
     </code>
 </pre>
 
@@ -197,6 +207,10 @@
     heroProfiles.forEach(hero => {
       console.log("forEach", hero.name);
     });
+
+    // Superman
+    // Batman
+    // Wonder Woman
     </code>
 </pre>
 
@@ -206,7 +220,9 @@
     // map()
     let heroNames = heroProfiles.map(hero => hero.name);
     console.log("map", heroNames);
-    </code>
+    
+    // map -> ['Superman', 'Batman', 'Wonder Woman']  
+  </code>
 </pre>
 
 <h6><strong>findIndex():</strong> Returns the index of the first element in an array that satisfies a provided testing function. </br>Lets find hero not older than 40.</h6>
@@ -220,6 +236,8 @@
     } else {
       console.log("No hero found in the array who is not older than 40.");
     }
+
+    // The first hero not older than 40 is Superman, at index 0
     </code>
 </pre>
 
@@ -229,15 +247,8 @@
     // filter()
     let heroesWithFlight = heroProfiles.filter(hero => hero.powers.includes("Flight"));
     console.log("filter", heroesWithFlight);
-    </code>
-</pre>
-
-<h6><strong>reduce():</strong> Applies a function to an accumulator and each element in an array, resulting in a single value. </br>Lets reduce total age of each heroProfile and display the sum.</h6>
-<pre>
-    <code class="javascript">
-    // reduce()
-    let totalAge = heroProfiles.reduce((acc, hero) => acc + hero.age, 0);
-    console.log("reduce", totalAge);
+    
+    // filter -> 0 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
     </code>
 </pre>
 
@@ -247,6 +258,8 @@
     // find()
     let batman = heroProfiles.find(hero => hero.name === "Batman");
     console.log("find",batman);
+
+    // find -> { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
     </code>
 </pre>
 
@@ -256,6 +269,8 @@
     // some()
     let hasSuperStrength = heroProfiles.some(hero => hero.powers.includes("Super Strength"));
     console.log("some",hasSuperStrength);
+
+    // some -> true
     </code>
 </pre>
 
@@ -265,6 +280,8 @@
     // every()
     let allHeroesAreSuper = heroProfiles.every(hero => hero.isHero);
     console.log("every",allHeroesAreSuper);
+
+    // every --> true
     </code>
 </pre>
 
@@ -272,8 +289,21 @@
 <pre>
     <code class="javascript">
     // sort()
-    let sortedHeroes = heroProfiles.sort((a, b) => a.age - b.age);
-    console.log("sort", sortedHeroes);
+    heroProfiles.sort((a, b) => a.secretIdentity.localeCompare(b.secretIdentity));
+    console.log("sort", heroProfiles);
+    
+    // sort -->
+    // 0 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
+    // 1 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
+    // 2 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
+
+    heroProfiles.sort((a, b) => b.secretIdentity.localeCompare(a.secretIdentity));
+    console.log("sort", heroProfiles);
+
+    // sort -->
+    // 0 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
+    // 1 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
+    // 2 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
     </code>
 </pre>
 
@@ -283,6 +313,11 @@
     // reverse()
     let reversedHeroes = heroProfiles.reverse();
     console.log("reverse", reversedHeroes);
+
+    // reverse ->
+    // 0 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
+    // 1 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
+    // 2 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
     </code>
 </pre>
 
@@ -292,6 +327,8 @@
     // join()
     let heroNamesString = heroProfiles.map(hero => hero.name).join(", ");
     console.log("join", heroNamesString);
+
+    // join --> Superman, Batman, Wonder Woman
     </code>
 </pre>
 
@@ -301,6 +338,8 @@
     // toString()
     let heroProfilesString = heroProfiles.toString();
     console.log("toString", heroProfilesString);
+
+    // Superman (Clark Kent),Batman (Bruce Wayne),Wonder Woman (Diana Prince)
     </code>
 </pre>
 
@@ -310,15 +349,23 @@
     // isArray()
     let isArray = Array.isArray(heroProfiles);
     console.log("isArray", isArray);
+
+    // isArray --> true
     </code>
 </pre>
 
 <h6><strong>indexOf():</strong> Returns the first index at which a specified element is found in an array, or -1 if not found. </br>Lets find spesific index at the array</h6>
 <pre>
     <code class="javascript">
-    // indexOf()
-    let index = heroProfiles.indexOf("Batman");
-    console.log("indexOf", index);
+    // lastIndexOf()
+    let heroes = ["Superman", "Batman", "Wonder Woman", "Flash"];
+
+    let index = heroes.indexOf("Batman");
+    console.log(index); 
+    // 1
+
+    console.log(heroes.indexOf("Iron Man")); 
+    // -1
     </code>
 </pre>
 
@@ -326,17 +373,14 @@
 <pre>
     <code class="javascript">
     // lastIndexOf()
-    let lastIndex = heroProfiles.lastIndexOf("Superman");
-    console.log("lastIndexOf", lastIndex);
-    </code>
-</pre>
+    let heroes = ["Wonder Woman", "Batman", "Wonder Woman", "Flash"];
 
-<h6><strong>reduceRight():</strong> Applies a function to an accumulator and each element in an array (from right to left). </br>Lets reduce to right side of elements of array</h6>
-<pre>
-    <code class="javascript">
-    // reduceRight()
-    let reversedNames = heroProfiles.reduceRight((acc, hero) => acc + hero.name + " ", "");
-    console.log("reduceRight",reversedNames);
+    let index = heroes.lastIndexOf("Wonder Woman");
+    console.log(index); 
+    // 2
+
+    console.log(heroes.lastIndexOf("Iron Man")); 
+    // -1
     </code>
 </pre>
 
@@ -344,8 +388,10 @@
 <pre>
     <code class="javascript">
     // includes()
-    let hasSuperman = heroProfiles.includes("Superman");
-    console.log("includes", hasSuperman);
+    let hasFlightPower = heroProfiles[0].powers.includes("Flight");
+    console.log(hasFlightPower); // true
+    
+    // true
     </code>
 </pre>
 
@@ -355,6 +401,8 @@
     // shift()
     let shiftedHero = heroProfiles.shift();
     console.log("shift", shiftedHero);
+
+    // shift -> { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
     </code>
 </pre>
 
@@ -362,8 +410,22 @@
 <pre>
     <code class="javascript">
     // unshift()
-    let newLength = heroProfiles.unshift(shiftedHero);
+    let newLength = heroProfiles.unshift({
+        name: "DFX Developer",
+        secretIdentity: "Gökhan Ertaş",
+        powers: ["Pega", "C#", 'Java'],
+        age: 36,
+        isHero: true
+    });
+  
     console.log("unshift", newLength);
+    // 4
+
+    console.log(heroProfiles)
+    // 0 : { name: 'DFX Developer', secretIdentity: 'Gökhan Ertaş', powers: Array(3), age: 36, isHero: true }
+    // 1 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
+    // 2 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
+    // 3 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
     </code>
 </pre>
 
@@ -390,6 +452,12 @@
 
     let mergedHeroes = heroProfiles.concat(moreHeroes);
     console.log("concat",mergedHeroes);
+
+    // 0 : { name: 'Superman', secretIdentity: 'Clark Kent', powers: Array(2), age: 35, isHero: true }
+    // 1 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
+    // 2 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
+    // 3 : { name: 'Spider-Man', secretIdentity: 'Peter Parker', powers: Array(2), age: 25, isHero: true }
+    // 4 : { name: 'Captain America', secretIdentity: 'Steve Rogers', powers: Array(2), age: 100, isHero: true }
 </code>
 </pre>
 
@@ -399,6 +467,9 @@
     // slice()
     let slicedHeroes = heroProfiles.slice(1, 3);
     console.log("slice", slicedHeroes);
+
+    // 0 : { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: Array(2), age: 40, isHero: true }
+    // 1 : { name: 'Wonder Woman', secretIdentity: 'Diana Prince', powers: Array(2), age: 500, isHero: true }
     </code>
 </pre>
 
